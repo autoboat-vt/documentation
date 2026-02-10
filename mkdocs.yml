@@ -97,6 +97,9 @@ nav:
 
       - Simulation Package:
           - Sailboat Simulation Node: ros2_packages/simulation_package/sailboat_simulation.md
+    
+      - New Simulation Package:
+          - Motorboat Simulation: ros2_packages/new_simulation_package/motorboat_simulation.md
 
       - What About the Other Nodes: ros2_packages/other_nodes/what_about_the_other_nodes.md
 
