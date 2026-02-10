@@ -8,31 +8,27 @@
       
       
       
-        <link rel="canonical" href="https://localhost:8000/groundstation_telemetry/groundstation_overview/">
+        <link rel="canonical" href="https://localhost:8000/ros2_packages/microros_package/unittests/">
       
       
-        <link rel="prev" href="../new_member_info/">
-      
-      
-        <link rel="next" href="../telemetry_server_api_routes/">
       
       
         
       
       
-      <link rel="icon" href="../../images/logo.svg">
+      <link rel="icon" href="../../../images/logo.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
-        <title>Groundstation - AutoBoat @ VT Documentation</title>
+        <title>Unit tests with Catch2 - AutoBoat @ VT Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +47,9 @@
       
     
     
-      <link rel="stylesheet" href="../../styles/extra.css">
+      <link rel="stylesheet" href="../../../styles/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -76,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#unit-tests-with-catch2" class="md-skip">
           Skip to content
         </a>
       
@@ -92,9 +88,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="AutoBoat @ VT Documentation" class="md-header__button md-logo" aria-label="AutoBoat @ VT Documentation" data-md-component="logo">
+    <a href="../../.." title="AutoBoat @ VT Documentation" class="md-header__button md-logo" aria-label="AutoBoat @ VT Documentation" data-md-component="logo">
       
-  <img src="../../images/logo.svg" alt="logo">
+  <img src="../../../images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -111,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Groundstation
+              Unit tests with Catch2
             
           </span>
         </div>
@@ -201,9 +197,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="AutoBoat @ VT Documentation" class="md-nav__button md-logo" aria-label="AutoBoat @ VT Documentation" data-md-component="logo">
+    <a href="../../.." title="AutoBoat @ VT Documentation" class="md-nav__button md-logo" aria-label="AutoBoat @ VT Documentation" data-md-component="logo">
       
-  <img src="../../images/logo.svg" alt="logo">
+  <img src="../../../images/logo.svg" alt="logo">
 
     </a>
     AutoBoat @ VT Documentation
@@ -230,7 +226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -304,7 +300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting_started/installing_docker/" class="md-nav__link">
+      <a href="../../../getting_started/installing_docker/" class="md-nav__link">
         
   
   
@@ -332,7 +328,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting_started/setting_up_dev_environment/" class="md-nav__link">
+      <a href="../../../getting_started/setting_up_dev_environment/" class="md-nav__link">
         
   
   
@@ -360,7 +356,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting_started/installing_microros/" class="md-nav__link">
+      <a href="../../../getting_started/installing_microros/" class="md-nav__link">
         
   
   
@@ -388,7 +384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting_started/how_to_develop_website/" class="md-nav__link">
+      <a href="../../../getting_started/how_to_develop_website/" class="md-nav__link">
         
   
   
@@ -416,7 +412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting_started/install_object_detection/" class="md-nav__link">
+      <a href="../../../getting_started/install_object_detection/" class="md-nav__link">
         
   
   
@@ -498,7 +494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../examples/running_simulation/" class="md-nav__link">
+      <a href="../../../examples/running_simulation/" class="md-nav__link">
         
   
   
@@ -526,7 +522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../examples/connecting_a_usb_device_to_wsl/" class="md-nav__link">
+      <a href="../../../examples/connecting_a_usb_device_to_wsl/" class="md-nav__link">
         
   
   
@@ -554,7 +550,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../examples/adding_documentation/" class="md-nav__link">
+      <a href="../../../examples/adding_documentation/" class="md-nav__link">
         
   
   
@@ -582,7 +578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../examples/how_we_handle_external_libraries/" class="md-nav__link">
+      <a href="../../../examples/how_we_handle_external_libraries/" class="md-nav__link">
         
   
   
@@ -610,7 +606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../examples/running_individual_nodes/" class="md-nav__link">
+      <a href="../../../examples/running_individual_nodes/" class="md-nav__link">
         
   
   
@@ -638,7 +634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../examples/adding_a_new_ros2_node/" class="md-nav__link">
+      <a href="../../../examples/adding_a_new_ros2_node/" class="md-nav__link">
         
   
   
@@ -666,7 +662,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../examples/adding_a_new_ros2_package/" class="md-nav__link">
+      <a href="../../../examples/adding_a_new_ros2_package/" class="md-nav__link">
         
   
   
@@ -748,7 +744,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../system_diagrams/diagram_of_groundstation_telemetry/" class="md-nav__link">
+      <a href="../../../system_diagrams/diagram_of_groundstation_telemetry/" class="md-nav__link">
         
   
   
@@ -776,7 +772,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../system_diagrams/diagram_of_simulations/" class="md-nav__link">
+      <a href="../../../system_diagrams/diagram_of_simulations/" class="md-nav__link">
         
   
   
@@ -804,7 +800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../system_diagrams/diagram_of_ros_nodes/" class="md-nav__link">
+      <a href="../../../system_diagrams/diagram_of_ros_nodes/" class="md-nav__link">
         
   
   
@@ -836,20 +832,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
@@ -870,7 +864,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -888,7 +882,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../new_member_info/" class="md-nav__link">
+      <a href="../../../groundstation_telemetry/new_member_info/" class="md-nav__link">
         
   
   
@@ -913,35 +907,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Groundstation
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../groundstation_telemetry/groundstation_overview/" class="md-nav__link">
         
   
   
@@ -957,235 +926,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Introduction
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#components-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Components Overview
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Components Overview">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#base-components" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        base components
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="base components">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#constantspy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        constants.py
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#thread_classespy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        thread_classes.py
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#mainpy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        main.py
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#syntax_highlighters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        syntax_highlighters
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="syntax_highlighters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#base_highlighterpy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        base_highlighter.py
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#jsonpy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        json.py
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#consolepy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        console.py
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#widgets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        widgets
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="widgets">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#groundstationpy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        groundstation.py
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#popup_editpy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        popup_edit.py
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#console_outputpy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        console_output.py
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#map_widget" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        map_widget
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#camera_widget" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        camera_widget
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#autopilot_param_editor" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        autopilot_param_editor
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1198,7 +938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../telemetry_server_api_routes/" class="md-nav__link">
+      <a href="../../../groundstation_telemetry/telemetry_server_api_routes/" class="md-nav__link">
         
   
   
@@ -1327,7 +1067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ros2_packages/autopilot_package/common_documentation_between_the_motorboat_autopilot_and_the_sailboat_autopilot/" class="md-nav__link">
+      <a href="../../autopilot_package/common_documentation_between_the_motorboat_autopilot_and_the_sailboat_autopilot/" class="md-nav__link">
         
   
   
@@ -1355,7 +1095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ros2_packages/autopilot_package/sailboat_autopilot/" class="md-nav__link">
+      <a href="../../autopilot_package/sailboat_autopilot/" class="md-nav__link">
         
   
   
@@ -1383,7 +1123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ros2_packages/autopilot_package/motorboat_autopilot/" class="md-nav__link">
+      <a href="../../autopilot_package/motorboat_autopilot/" class="md-nav__link">
         
   
   
@@ -1411,7 +1151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ros2_packages/autopilot_package/telemetry/" class="md-nav__link">
+      <a href="../../autopilot_package/telemetry/" class="md-nav__link">
         
   
   
@@ -1494,7 +1234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ros2_packages/sensors_package/gps/" class="md-nav__link">
+      <a href="../../sensors_package/gps/" class="md-nav__link">
         
   
   
@@ -1522,7 +1262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ros2_packages/sensors_package/rc/" class="md-nav__link">
+      <a href="../../sensors_package/rc/" class="md-nav__link">
         
   
   
@@ -1550,7 +1290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ros2_packages/sensors_package/wind_sensor/" class="md-nav__link">
+      <a href="../../sensors_package/wind_sensor/" class="md-nav__link">
         
   
   
@@ -1633,7 +1373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ros2_packages/vesc_package/vesc/" class="md-nav__link">
+      <a href="../../vesc_package/vesc/" class="md-nav__link">
         
   
   
@@ -1716,7 +1456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ros2_packages/microros_package/microros/" class="md-nav__link">
+      <a href="../microros/" class="md-nav__link">
         
   
   
@@ -1799,7 +1539,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ros2_packages/object_detection_package/object_detection/" class="md-nav__link">
+      <a href="../../object_detection_package/object_detection/" class="md-nav__link">
         
   
   
@@ -1882,7 +1622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ros2_packages/autoboat_messages_package/autoboat_msgs/" class="md-nav__link">
+      <a href="../../autoboat_messages_package/autoboat_msgs/" class="md-nav__link">
         
   
   
@@ -1965,7 +1705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ros2_packages/simulation_package/sailboat_simulation/" class="md-nav__link">
+      <a href="../../simulation_package/sailboat_simulation/" class="md-nav__link">
         
   
   
@@ -2048,7 +1788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ros2_packages/new_simulation_package/motorboat_simulation/" class="md-nav__link">
+      <a href="../../new_simulation_package/motorboat_simulation/" class="md-nav__link">
         
   
   
@@ -2084,7 +1824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ros2_packages/other_nodes/what_about_the_other_nodes/" class="md-nav__link">
+      <a href="../../other_nodes/what_about_the_other_nodes/" class="md-nav__link">
         
   
   
@@ -2166,7 +1906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../hardware/wiring_color_scheme/" class="md-nav__link">
+      <a href="../../../hardware/wiring_color_scheme/" class="md-nav__link">
         
   
   
@@ -2194,7 +1934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../hardware/squircuit/" class="md-nav__link">
+      <a href="../../../hardware/squircuit/" class="md-nav__link">
         
   
   
@@ -2276,7 +2016,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../finances/SEC/" class="md-nav__link">
+      <a href="../../../finances/SEC/" class="md-nav__link">
         
   
   
@@ -2358,7 +2098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../misc/potential_security_risks/" class="md-nav__link">
+      <a href="../../../misc/potential_security_risks/" class="md-nav__link">
         
   
   
@@ -2386,7 +2126,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../misc/standards_and_definitions/" class="md-nav__link">
+      <a href="../../../misc/standards_and_definitions/" class="md-nav__link">
         
   
   
@@ -2414,7 +2154,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../misc/systemctl/" class="md-nav__link">
+      <a href="../../../misc/systemctl/" class="md-nav__link">
         
   
   
@@ -2442,7 +2182,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../misc/udev_rules/" class="md-nav__link">
+      <a href="../../../misc/udev_rules/" class="md-nav__link">
         
   
   
@@ -2470,7 +2210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../misc/crontabs/" class="md-nav__link">
+      <a href="../../../misc/crontabs/" class="md-nav__link">
         
   
   
@@ -2498,7 +2238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../misc/known_installation_issues/" class="md-nav__link">
+      <a href="../../../misc/known_installation_issues/" class="md-nav__link">
         
   
   
@@ -2543,6 +2283,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -2551,10 +2293,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#building" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Introduction
+        Building
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Building">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#without-unit-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Without Unit Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-unit-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        With Unit Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interfacing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interfacing
       
     </span>
   </a>
@@ -2562,202 +2343,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#components-overview" class="md-nav__link">
+  <a href="#running-the-tests" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Components Overview
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Components Overview">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#base-components" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        base components
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="base components">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#constantspy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        constants.py
+        Running the tests
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#thread_classespy" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#adding-new-tests" class="md-nav__link">
     <span class="md-ellipsis">
       
-        thread_classes.py
+        Adding New Tests
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#mainpy" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#executing-your-tests" class="md-nav__link">
     <span class="md-ellipsis">
       
-        main.py
+        Executing your tests
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#syntax_highlighters" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
     <span class="md-ellipsis">
       
-        syntax_highlighters
+        Troubleshooting
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="syntax_highlighters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#base_highlighterpy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        base_highlighter.py
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#jsonpy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        json.py
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#consolepy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        console.py
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#widgets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        widgets
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="widgets">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#groundstationpy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        groundstation.py
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#popup_editpy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        popup_edit.py
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#console_outputpy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        console_output.py
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#map_widget" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        map_widget
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#camera_widget" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        camera_widget
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#autopilot_param_editor" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        autopilot_param_editor
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2781,132 +2406,52 @@
   
 
 
-  <h1>Groundstation</h1>
-
-<h2 id="introduction">Introduction</h2>
-<p>This document provides an overview of the Ground Station system, detailing its components, functionalities, and how it
-integrates with other systems. The Ground Station is a critical part of the overall architecture, enabling communication
-with the telemetry server and facilitating the management of boat operations. Link to PyQt documentation:
-<a href="https://doc.qt.io/archives/qtforpython-5/contents.html">PyQt Documentation</a></p>
-<h2 id="components-overview">Components Overview</h2>
-<div class="admonition note">
-<p class="admonition-title"><strong>NOTE ABOUT EXCEPTIONS IN THE GROUNDSTATION</strong></p>
-</div>
-<p>Exceptions thrown in the groundstation do not behave like exceptions thrown in regular Python code.
-The reason for the exception will not be printed to the console and must be handled in order for the
-application to continue running. If you have code that you suspect may throw an exception, please enclose it
-in a try/except block and handle the exception appropriately (ask Barrett if you are unsure how to handle it).</p>
-<p>All data that persists between runs of the Ground Station and its assets are stored in the <code>app_data</code> directory.
-I have tried to split up the code in the Ground Station into logical components to make it easier to understand and modify.
-The Ground Station is divided into the following main components:</p>
-<h3 id="base-components">base components</h3>
-<h4 id="constantspy">constants.py</h4>
-<p>We will begin with the <code>constants.py</code> file, which defines objects that are used throughout the entire codebase.
-In addition, this file checks for the presence of configuration files and assets that are essential for the
-Ground Station's operation. The code in this file is the first to be run and is run before the actual
-application is registered with PyQt. If you have code that will cause the application to crash or not behave correctly
-when missing assets, it is best to place that code in this file. Additionally, code in this file cannot access properties
-of the application object created by PyQt. <strong>The icons used in the Ground Station are defined in this file, but are not
-able to be used until the application is registered with PyQt, which happens in the <code>main.py</code> file.</strong></p>
-<h4 id="thread_classespy">thread_classes.py</h4>
-<p>The <code>thread_classes.py</code> file contains classes that are used to manage threads within the Ground Station application.
-I decided to places these classes in a seperate file since they don't really feel like widgets, but may be hard to
-find in the <code>constants.py</code> file if you didn't know they were there. These classes are essential for handling
-asynchronous operations and ensuring that the Ground Station can perform tasks without blocking the main application thread.
-I highly recommend reading the code in this file to understand how threads are managed and how they interact with the
-rest of the application. Online resources on threads and how they work in PyQt may also be helpful if you are trying to work
-with the code in this file.</p>
-<h4 id="mainpy">main.py</h4>
-<p>This file is the main entry point for the Ground Station application. The code in this file is pretty self-explanatory and
-will probably only need to be modified if you are adding entirely new functionality to the Ground Station. If you need
-to know the specifics of what happens in this file, I recommend reading the code itself.</p>
-<h3 id="syntax_highlighters">syntax_highlighters</h3>
-<h4 id="base_highlighterpy">base_highlighter.py</h4>
-<p>The <code>base_highlighter.py</code> file contains the base class for syntax highlighters used in the Ground Station. I wanted to
-take the QSyntaxHighlighter class and write some methods that would make it easier to write syntax highlighters for
-whatever I needed. The methods in this class are meant to guide the implementation of syntax highlighters so that time is
-not wasted trying to understand each individual method in the QSyntaxHighlighter class. The methods in this class are
-not meant to be used directly, but rather to be overridden in subclasses that implement specific syntax highlighting
-functionality. If you are writing a syntax highlighter for the Ground Station, you should start by subclassing this
-class and implementing the methods that are relevant to your use case.</p>
-<h4 id="jsonpy">json.py</h4>
-<p>The <code>json.py</code> file contains a syntax highlighter specifically designed for JSON files. It extends the base highlighter
-class and implements the necessary methods to provide syntax highlighting for JSON syntax. This highlighter is used
-to enhance the readability of JSON files within the Ground Station, making it easier to work with configuration
-files and other JSON data.</p>
-<h4 id="consolepy">console.py</h4>
-<p>The <code>console.py</code> file contains a syntax highlighter for the console output within the Ground Station. This highlighter
-is designed to improve the readability of console messages, making it easier to identify important information,
-warnings, and errors. It uses the base highlighter class to implement specific highlighting rules for console
-output, ensuring that messages are displayed in a clear and organized manner.</p>
-<h3 id="widgets">widgets</h3>
-<h4 id="groundstationpy">groundstation.py</h4>
-<p>This is the magnum opus of the Ground Station application. It was the first widget I wrote for the Ground Station
-and is first widget that you see when you open the application. It serves as the main interface for interacting
-with the Ground Station and allows users to add and remove waypoints and buoys, view telemetry data, and shows
-popups that that are used to modify the state of the Ground Station. This file also uses some of the classes in the
-<code>thread_classes.py</code> file to manage asynchronous operations, such as fetching telemetry data and updating the
-interface without blocking the main thread. If you are looking to understand how the Ground Station works,
-this is a great place to start.</p>
-<h4 id="popup_editpy">popup_edit.py</h4>
-<p>This widget is used to create 'windows' that make it easier to modify text in the Ground Station. It takes highligther
-(such as one of the syntax highlighters defined in the <code>syntax_highlighters</code> directory), some initial text, a tab width,
-and font size as arguments and uses a QSignal to return the modified text when the user clicks the "Save" button or
-closes the window. This widget is used in the Ground Station to edit buoy data, some data types in the autopilot
-parameter editor, and the telemetry data 'limits' that are used to determine when a warning or error should be displayed.</p>
-<h4 id="console_outputpy">console_output.py</h4>
-<p>This widget is used to display the console output of the Ground Station. It uses a QPlainTextEdit to display the
-output and the <code>console.py</code> syntax highlighter to provide syntax highlighting for the output. It also contains the code
-that makes it possible to have the console output displayed in the terminal and in the Ground Station at the same time.
-This is done by using a QThread and some redirection of the standard output streams to capture the console output
-and display it in the widget.</p>
-<h4 id="map_widget">map_widget</h4>
-<p>This directory contains the code that is used to make displaying the waypoints and buoys on a interactive map possible.
-It contains a Go server that is used to manage the transfer of waypoints and buoys between the Python code and the
-JavaScript code running in the HTML file in this directory. The Go server exposes a <code>get</code> and <code>set</code> endpoint that modifies
-an array containing the latitude and longitude of the waypoints and buoys which takes the form:</p>
-<div class="highlight"><pre><span></span><code><span class="p">[</span>
-<span class="w">    </span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">],</span>
-<span class="w">    </span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="p">],</span>
-<span class="w">    </span><span class="p">[</span><span class="mf">3.0</span><span class="p">,</span><span class="w"> </span><span class="mf">3.0</span><span class="p">],</span>
-<span class="w">    </span><span class="err">...</span>
-<span class="p">]</span>
+<h1 id="unit-tests-with-catch2">Unit tests with Catch2</h1>
+<p>These are the instructions to build the Pico SDK and Catch2 unit tests on Windows.
+To set up, run <code>source /opt/ros/humble/setup.bash</code> in the devcontainer.</p>
+<h2 id="building">Building</h2>
+<p>Run the following in the devcontainer.</p>
+<h3 id="without-unit-tests">Without Unit Tests</h3>
+<p><div class="highlight"><pre><span></span><code>cmake<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span>-S<span class="w"> </span>src/microros
+cmake<span class="w"> </span>--build<span class="w"> </span>build
 </code></pre></div>
-<p>Where latitude is the first element of each array and longitude is the second element.
-The JavaScript code in this directory uses the <a href="https://leafletjs.com">Leaflet</a> library
-to display the waypoints and buoys on a map.</p>
-<h4 id="camera_widget">camera_widget</h4>
-<p>This widget is used to display the camera feed from the boat. It uses a QThread from the <code>thread_classes.py</code> file to
-fetch the camera feed and then runs some JavaScript code to display the feed in a HTML file. We are using an HTML file
-to display the camera feed because of its abibility to natively show base64 encoded images, saving us the trouble of
-having to do the decoding ourselves. The widget has buttons that allow you to start and stop the camera feed in order to
-save bandwidth and processing power when the camera feed is not needed.</p>
-<h4 id="autopilot_param_editor">autopilot_param_editor</h4>
-<p>This widget is used to manage the autopilot parameters of the boat. It provides a scrollable table that features a
-search bar to filter the parameters by name. The widget uses a json file located in the
-<code>app_data/autopilot_params/params_default.jsonc</code> file to manage the default configuration for each of the parameters.
-This json file takes the form:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;param_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;example_type&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;example_default_value&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;This is a description of the parameter.&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="err">...</span>
+Output: <code>build/pico_microros.uf2</code>
+Upload this to your Pico.</p>
+<h3 id="with-unit-tests">With Unit Tests</h3>
+<div class="highlight"><pre><span></span><code>cmake<span class="w"> </span>-B<span class="w"> </span>build_unit_tests<span class="w"> </span>-S<span class="w"> </span>src/microros<span class="w"> </span>-DBUILD_UNIT_TESTS<span class="o">=</span>ON
+cmake<span class="w"> </span>--build<span class="w"> </span>build_unit_tests
+</code></pre></div>
+<p>Output: <code>build_unit_tests/unit_tests</code></p>
+<h2 id="interfacing">Interfacing</h2>
+<p>In Windows, we need to pass the Pico to WSL. Skip this step on Linux.
+Execute <code>usbipd list</code> in an elevated PowerShell to get your Pico's BUSID.</p>
+<p>The Pico will be the line containing 2e8a. We need to attach the Pico to WSL. </p>
+<div class="highlight"><pre><span></span><code>usbipd bind --busid &lt;BUSID&gt;
+usbipd attach --wsl --busid &lt;BUSID&gt;
+</code></pre></div>
+<p>Start the MicroROS agent in a new WSL terminal: <code>docker run -it --rm -v /dev:/dev --privileged --net=host microros/micro-ros-agent:humble serial --dev /dev/&lt;Pico path&gt; -b 115200</code></p>
+<h2 id="running-the-tests">Running the tests</h2>
+<p>Run <code>./build_unit_tests/unit_tests</code> in the devcontainer</p>
+<h2 id="adding-new-tests">Adding New Tests</h2>
+<p>Edit <code>src/microros/src/unittests.cpp</code> and add new <code>TEST_CASE</code> blocks:</p>
+<div class="highlight"><pre><span></span><code><span class="n">TEST_CASE</span><span class="p">(</span><span class="s">&quot;My new test&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;[test][pico]&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">PicoInterface</span><span class="w"> </span><span class="n">pico</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Wait for connection</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="mi">2000</span><span class="n">ms</span><span class="p">);</span>
+<span class="w">    </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">spin_some</span><span class="p">(</span><span class="n">test_node</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Your test logic here</span>
+
+<span class="w">    </span><span class="n">REQUIRE</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Where <code>param_name</code> is the name of the parameter, <code>type</code> is the type of the parameter,
-<code>default</code> is the default value of the parameter, and <code>description</code> is a description of the parameter.
-The parameter type must be one of the built-in types (i.e <code>int</code>, <code>float</code>, <code>str</code>, <code>bool</code>, <code>list</code>, <code>dict</code>, or <code>set</code>)
-in order for the parameter to be usable in the widget. Additional types should be defined in the <code>constants.py</code> file
-and properly handled in the code for the widget.</p>
-<p>When the application is started, it copies the contents of the <code>params_default.jsonc</code> file to a new file
-in the <code>autopilot_param_editor</code> directory called <code>params_temp.json</code> (all comments are stripped). This file is used to
-store the current values of the parameters and is updated whenever the user modifies a parameter in the widget. When the
-user clicks the "Save" button, a dialog allows the user to save the current parameters to a new file. If no file is
-selected, the parameters are not saved and the application continues on.</p>
-<p>In addition, the widget allows you to send, recieve, and reset each parameter to the value defined in the
-<code>app_data/autopilot_params/params_default.jsonc</code> file.</p>
+<h2 id="executing-your-tests">Executing your tests</h2>
+<p><code>./build_unit_tests/unit_tests</code></p>
+<p>This will output if your tests passes or not.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>Rebuild tests: <code>cmake --build build_unit_tests</code> in the devcontainer CLI
+Check ROS 2 topic visibility: <code>ros2 topic list</code> in the devcontainer</p>
 
 
 
@@ -2956,12 +2501,12 @@ selected, the parameters are not saved and the application continues on.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "content.code.select"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
