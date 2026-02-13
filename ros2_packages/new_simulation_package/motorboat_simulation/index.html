@@ -2460,7 +2460,8 @@
 <p>This simulation node wraps around a Gazebo Harmonic (a general purpose physics simulator) simulation of a motorboat traveling in a free plane of water. The simulation is currently contained in the <code>andrews-cool-simulation</code> branch in github, but at the time of reading this, it may have been pushed to main.</p>
 <p>The ros node acts as a translator from ros messages to gazebo messages, which the simulation publishes/subscribes to to control the motorboat. The node sends messages such as rudder angle and thrust, and it receives the boat's position, heading, velocity, true rudder angle, true thrust, etc.</p>
 <h2 id="how-to-run-it"><strong>How to Run It</strong></h2>
-<p>At the moment, the simulation is still on a separate branch in the github. Switch to the <code>andrews-cool-simulation</code> branch and rebuild the container. To run the simulation alone, run: </p>
+<p>At the moment, the simulation is still on a separate branch in the github. Switch to the <code>andrews-cool-simulation</code> branch and rebuild the container. You'll need to build the custom plugins the first time you switch to the branch, which can be done manually or with the <code>rebuild_plugins.sh</code> script in <code>src/motorboat_sim_testing</code>.</p>
+<p>To run the simulation alone, run: </p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/ws/src/motorboat_sim_testing
 gz<span class="w"> </span>sim<span class="w"> </span>buoyant_cylinder.sdf
 </code></pre></div>
