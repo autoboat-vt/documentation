@@ -8,7 +8,9 @@ The ros node acts as a translator from ros messages to gazebo messages, which th
 
 ## **How to Run It**
 
-At the moment, the simulation is still on a separate branch in the github. Switch to the `andrews-cool-simulation` branch and rebuild the container. To run the simulation alone, run: 
+At the moment, the simulation is still on a separate branch in the github. Switch to the `andrews-cool-simulation` branch and rebuild the container. You'll need to build the custom plugins the first time you switch to the branch, which can be done manually or with the `rebuild_plugins.sh` script in `src/motorboat_sim_testing`.
+
+To run the simulation alone, run: 
 
 ```sh
 cd /home/ws/src/motorboat_sim_testing
