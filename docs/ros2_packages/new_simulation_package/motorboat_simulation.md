@@ -30,7 +30,7 @@ The gazebo simulation for the motorboat is contained in `buoyant_cylinder.sdf`. 
 
 The file starts with various scenery/light/camera/physics parameters, most of which are fairly standard. Some notable built-in plugins here are `gz-sim-user-commands-system`, which allows us to send gazebo commands (which are sent from the ros node) to control the simulation. The `gz-sim-navsat-system` gives the positional data that the autopilot expects. Below, the model `my_ship` is the boat, which is where the real meat of the program is. Here is where every piece of the boat is defined, with all the plugins that allow our boat to move!
 
-First, the boat's parts are mostly life-scale, with the measurements being taken from the most recent boats on hand and the masses being estimated. Notably, the boat's hull is split into four pieces because of the buoyancy plugin, which is described more below. The inertia tensors are calculated manually, either from a formula or solidworks. A description of the inertia tensors can be found [here](https://www.mathworks.com/help/releases/R2021b/physmod/sm/ug/specify-custom-inertia.html#mw_b043ec69-835b-4ca9-8769-af2e6f1b190c) and in the sdformat specification.
+First, the boat's parts are mostly life-scale, with the measurements being taken from the most recent boats on hand and the masses being estimated. Notably, the boat's hull is split into four pieces because of the buoyancy plugin, which only acts at the center of mass because it's terrible. The inertia tensors are calculated manually, either from a formula or solidworks. A description of the inertia tensors can be found [here](https://www.mathworks.com/help/releases/R2021b/physmod/sm/ug/specify-custom-inertia.html#mw_b043ec69-835b-4ca9-8769-af2e6f1b190c) and in the sdformat specification.
 
 Here are the notable built-in plugins:
 
@@ -42,7 +42,6 @@ Here are the notable built-in plugins:
 Here are our custom plugins:
 
 * `libRudderDynamics.so` - This is our custom LiftDrag plugin. The built-in one is terrible. At some point, this should probably be renamed. In this case, clmax and cdmax refer to the equations of coefficient of lift and coefficient of drag. These coefficients, when plotted vs. angle of attack, form vaguely sinusoidal curves, so find the coefficient of lift vs alpha (aoa) curve for whatever shape/material you're using, then put the max in. For more details, look up more about lift/drag forces.
-* `libBuoyancy.so` - So... this one is sad. This plugin is copied from the gazebo built-in where one issue is fixed. In the built-in plugin, there is a note `TODO(arjo):` that mentions that when graded buoyancy is calculated, it assumes the object is upright, so when our boat is leaning to the side slightly when it turns, the buoyancy plugin acts weirdly and the program crashes a lot. We had to download their plugin and fix that one issue, but if someone can make a pull request to the main gazebo gz-sim8 github with the fixed code, that would be great.
 
 ## **How to Develop**
 The first thing I'd like to mention is to avoid using AI. I know it's easier, but LLMs are *very* bad with gazebosim and the ros gazebo bridge since the documentation is terrible and there are so few examples online that use Gazebo Harmonic.
@@ -132,3 +131,11 @@ GZ_ADD_PLUGIN_ALIAS(rudder_dynamics::RudderDynamics, "rudder_dynamics::RudderDyn
 ```
 
 The specific methods you put into `GZ_ADD_PLUGIN` depend on which methods you implemented. The .hh files are mostly self explanatory, if you understand C++, you should be alright with those. As for the CMakeLists.txt and package.xml, you'll need some required packages for gazebo, and the package.xml has to be there to run `cmake ..`.
+
+TLDR:
+1. create folder with build, src, and include folders
+2. create header and source file and create CMakeLists.txt and package.xml
+3. run "cmake .." and "make" in the build folder
+4. fix all the errors bc ur bad at programming
+5. add the path to the build folder to GZ_SIM_SYSTEM_PLUGIN_PATH in .bashrc, which means you need to edit postCreateCommand.sh
+6. add the plugin to your sdf!
