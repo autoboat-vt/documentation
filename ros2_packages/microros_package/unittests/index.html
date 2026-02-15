@@ -2412,40 +2412,36 @@ To set up, run <code>source /opt/ros/humble/setup.bash</code> in the devcontaine
 <h2 id="building">Building</h2>
 <p>Run the following in the devcontainer.</p>
 <h3 id="without-unit-tests">Without Unit Tests</h3>
-<p><div class="highlight"><pre><span></span><code>cmake<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span>-S<span class="w"> </span>src/microros
-cmake<span class="w"> </span>--build<span class="w"> </span>build
-</code></pre></div>
+<p><pre class="highlight"><code class="language-bash">cmake -B build -S src/microros
+cmake --build build</code></pre>
 Output: <code>build/pico_microros.uf2</code>
 Upload this to your Pico.</p>
 <h3 id="with-unit-tests">With Unit Tests</h3>
-<div class="highlight"><pre><span></span><code>cmake<span class="w"> </span>-B<span class="w"> </span>build_unit_tests<span class="w"> </span>-S<span class="w"> </span>src/microros<span class="w"> </span>-DBUILD_UNIT_TESTS<span class="o">=</span>ON
-cmake<span class="w"> </span>--build<span class="w"> </span>build_unit_tests
-</code></pre></div>
+<pre class="highlight"><code class="language-bash">cmake -B build_unit_tests -S src/microros -DBUILD_UNIT_TESTS=ON
+cmake --build build_unit_tests</code></pre>
 <p>Output: <code>build_unit_tests/unit_tests</code></p>
 <h2 id="interfacing">Interfacing</h2>
 <p>In Windows, we need to pass the Pico to WSL. Skip this step on Linux.
 Execute <code>usbipd list</code> in an elevated PowerShell to get your Pico's BUSID.</p>
 <p>The Pico will be the line containing 2e8a. We need to attach the Pico to WSL. </p>
-<div class="highlight"><pre><span></span><code>usbipd bind --busid &lt;BUSID&gt;
-usbipd attach --wsl --busid &lt;BUSID&gt;
-</code></pre></div>
+<pre class="highlight"><code>usbipd bind --busid &lt;BUSID&gt;
+usbipd attach --wsl --busid &lt;BUSID&gt;</code></pre>
 <p>Start the MicroROS agent in a new WSL terminal: <code>docker run -it --rm -v /dev:/dev --privileged --net=host microros/micro-ros-agent:humble serial --dev /dev/&lt;Pico path&gt; -b 115200</code></p>
 <h2 id="running-the-tests">Running the tests</h2>
 <p>Run <code>./build_unit_tests/unit_tests</code> in the devcontainer</p>
 <h2 id="adding-new-tests">Adding New Tests</h2>
 <p>Edit <code>src/microros/src/unittests.cpp</code> and add new <code>TEST_CASE</code> blocks:</p>
-<div class="highlight"><pre><span></span><code><span class="n">TEST_CASE</span><span class="p">(</span><span class="s">&quot;My new test&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;[test][pico]&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">PicoInterface</span><span class="w"> </span><span class="n">pico</span><span class="p">;</span>
+<pre class="highlight"><code class="language-cpp">TEST_CASE("My new test", "[test][pico]") {
+    PicoInterface pico;
 
-<span class="w">    </span><span class="c1">// Wait for connection</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="mi">2000</span><span class="n">ms</span><span class="p">);</span>
-<span class="w">    </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">spin_some</span><span class="p">(</span><span class="n">test_node</span><span class="p">);</span>
+    // Wait for connection
+    std::this_thread::sleep_for(2000ms);
+    rclcpp::spin_some(test_node);
 
-<span class="w">    </span><span class="c1">// Your test logic here</span>
+    // Your test logic here
 
-<span class="w">    </span><span class="n">REQUIRE</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+    REQUIRE(true);
+}</code></pre>
 <h2 id="executing-your-tests">Executing your tests</h2>
 <p><code>./build_unit_tests/unit_tests</code></p>
 <p>This will output if your tests passes or not.</p>

@@ -2322,16 +2322,12 @@
 
 <h1 id="running-the-simulation"><p style="text-align: center;"> Running the Simulation </p></h1>
 <p>To run the simulation, run the following commands in order <strong>after setting up the development container</strong>:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>vtautoboat/autoboat_simulation:latest
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">sudo docker pull vtautoboat/autoboat_simulation:latest</code></pre>
 <p>This command will pull the simulation docker image, which is where all of the simulation work is actually taking place! <strong>This command only needs to be run once. Once the docker image has been pulled, you shouldn't need to repull</strong>. The command may take a while, but once it is finished, run the following command:</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>/home/ws/src/launch/simulation.launch.py
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">ros2 launch /home/ws/src/launch/simulation.launch.py</code></pre>
 <p>This command will then start the simulation and autopilot. Initially, however they won't do anything because they don't have any waypoint commands, so what you will need to do is to type in the following command:  </p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/ws/ground_station
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>./run.sh
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">cd /home/ws/ground_station</code></pre>
+<pre class="highlight"><code class="language-sh">./run.sh</code></pre>
 <p>Next, click on "zoom to boat". This should show you where the boat is currently located (likely longitude 0 and latitude 0 since this is the default location)</p>
 <p>Now, click somewhere on the map and then click "Send Waypoints". This should cause the boat on screen to start moving and indicates that you have correctly set everything up!  </p>
 

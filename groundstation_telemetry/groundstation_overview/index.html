@@ -2865,13 +2865,12 @@ and display it in the widget.</p>
 It contains a Go server that is used to manage the transfer of waypoints and buoys between the Python code and the
 JavaScript code running in the HTML file in this directory. The Go server exposes a <code>get</code> and <code>set</code> endpoint that modifies
 an array containing the latitude and longitude of the waypoints and buoys which takes the form:</p>
-<div class="highlight"><pre><span></span><code><span class="p">[</span>
-<span class="w">    </span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">],</span>
-<span class="w">    </span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="p">],</span>
-<span class="w">    </span><span class="p">[</span><span class="mf">3.0</span><span class="p">,</span><span class="w"> </span><span class="mf">3.0</span><span class="p">],</span>
-<span class="w">    </span><span class="err">...</span>
-<span class="p">]</span>
-</code></pre></div>
+<pre class="highlight"><code class="language-json">[
+    [1.0, 1.0],
+    [2.0, 2.0],
+    [3.0, 3.0],
+    ...
+]</code></pre>
 <p>Where latitude is the first element of each array and longitude is the second element.
 The JavaScript code in this directory uses the <a href="https://leafletjs.com">Leaflet</a> library
 to display the waypoints and buoys on a map.</p>
@@ -2886,15 +2885,14 @@ save bandwidth and processing power when the camera feed is not needed.</p>
 search bar to filter the parameters by name. The widget uses a json file located in the
 <code>app_data/autopilot_params/params_default.jsonc</code> file to manage the default configuration for each of the parameters.
 This json file takes the form:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;param_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;example_type&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;example_default_value&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;This is a description of the parameter.&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="err">...</span>
-<span class="p">}</span>
-</code></pre></div>
+<pre class="highlight"><code class="language-json">{
+    "param_name": {
+        "type": "example_type",
+        "default": "example_default_value",
+        "description": "This is a description of the parameter.",
+    },
+    ...
+}</code></pre>
 <p>Where <code>param_name</code> is the name of the parameter, <code>type</code> is the type of the parameter,
 <code>default</code> is the default value of the parameter, and <code>description</code> is a description of the parameter.
 The parameter type must be one of the built-in types (i.e <code>int</code>, <code>float</code>, <code>str</code>, <code>bool</code>, <code>list</code>, <code>dict</code>, or <code>set</code>)

@@ -2549,13 +2549,11 @@ Your local computer -&gt; Github repository -&gt; S4 Web Hosting repository</p>
 <p>At the top of the screen, there is a button to copy the newly created personal access token. If you refresh the page, this button will disappear so make sure you copy the personal access token and keep it somewhere on your computer. You will be asked to provide it whenever you have to push code from your computer to the website GitLab.</p>
 <h2 id="git-configuration-for-dual-remotes"><p style="text-align: center;">Git Configuration for Dual Remotes</p></h2>
 <p>Run the following commands on your computer to clone the repository and to set everything up on your computer:</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/autoboat-vt/website<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>website
-git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>aoe_sites<span class="w"> </span>https://code.vt.edu/s4-hosting-sites/aoe/sailbot
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">git clone https://github.com/autoboat-vt/website &amp;&amp; cd website
+git remote add aoe_sites https://code.vt.edu/s4-hosting-sites/aoe/sailbot</code></pre>
 <p>Then, whenever you want to push your changes to the gitlab and github, run the following commands:</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
-git<span class="w"> </span>push<span class="w"> </span>aoe_sites<span class="w"> </span>main
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">git push origin main
+git push aoe_sites main</code></pre>
 <p>Running <code>git push</code> on "aoe_sites" will deploy the site to the Gitlab (and therefore actually deploy it to the real website) and running <code>git push</code> on "origin" will deploy the site to the Github.</p>
 
 

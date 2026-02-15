@@ -2325,8 +2325,7 @@
 <div class="admonition note">
 <p class="admonition-title">mac OS Users</p>
 <p>In order for the simulation window to appear, you must install <a href="https://www.xquartz.org/">XQuartz</a> as macos does not come with a x11 server. Please run the following command in your terminal:</p>
-<div class="highlight"><pre><span></span><code>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>xquartz
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">brew install --cask xquartz</code></pre>
 <p>After installation, please follow these steps:</p>
 <ol>
 <li>Launch XQuartz. Under the XQuartz menu, select Settings.</li>
@@ -2345,14 +2344,11 @@
 <p><strong>Make sure that you have a Docker account and verify your email on that account, because it will ask you for your username and password</strong></p>
 </div>
 <p>Next, we need to clone the main Github repository from the following URL: <a href="https://github.com/autoboat-vt/autoboat_vt">https://github.com/autoboat-vt/autoboat_vt</a>. Open up a terminal and type the following commands:</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/autoboat-vt/autoboat_vt<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>autoboat_vt
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">git clone https://github.com/autoboat-vt/autoboat_vt &amp;&amp; cd autoboat_vt</code></pre>
 <p>Then we need to set your computer up to use your display and GPU inside of the devcontainer by running the following command:</p>
-<div class="highlight"><pre><span></span><code>bash<span class="w"> </span>.devcontainer/setup_display_and_gpu.sh
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">bash .devcontainer/setup_display_and_gpu.sh</code></pre>
 <p>If the script asks you for your WSL password, please provide it. Once the script finishes running, open up that folder in VSCode by typing the following into the same terminal:</p>
-<div class="highlight"><pre><span></span><code>code<span class="w"> </span>.
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">code .</code></pre>
 <p>Install the Docker Dev Containers Extension on VSCode. It should look like the following: <img alt="Docker Dev Containers VSCode" src="../../images/dev_container_ext.png" /></p>
 <div class="admonition note">
 <p class="admonition-title">mac OS Users</p>
@@ -2367,9 +2363,8 @@
 <div class="admonition note">
 <p class="admonition-title">mac OS Users</p>
 <p>To test the connection to the Docker container, run the following commands in the terminal in the Docker container:</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>x11-apps
-xeyes
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">sudo apt-get install -y x11-apps
+xeyes</code></pre>
 <p>If you see a new window with eyes, then the connection is working correctly.</p>
 </div>
 <p>Restart VSCode by closing it and reopening it to make sure all of the changes refresh properly.</p>

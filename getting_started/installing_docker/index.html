@@ -2462,10 +2462,8 @@
 <h2 id="installing-docker-on-windows"><p style="text-align: center"> <strong>Installing Docker on Windows</strong> </p></h2>
 <p>In order to install Docker on windows, first we must install WSL (Windows Subsystem in Linux).</p>
 <p>Open the command prompt <strong><em>with administrator privileges</em></strong> and type the following commands:</p>
-<div class="highlight"><pre><span></span><code>wsl.exe<span class="w"> </span>--install<span class="w"> </span>-d<span class="w"> </span>Ubuntu-22.04
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>wsl<span class="w"> </span>--set-default<span class="w"> </span>Ubuntu-22.04
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">wsl.exe --install -d Ubuntu-22.04</code></pre>
+<pre class="highlight"><code class="language-sh">wsl --set-default Ubuntu-22.04</code></pre>
 <p>Enter your user info to complete the installation.  </p>
 <hr />
 <p>With these steps, this will have installed WSL and Ubuntu 22.04. Docker requires Ubuntu WSL to work on Windows. For more information see the official WSL documentation: <a href="https://learn.microsoft.com/en-us/windows/wsl/install">Official WSL Documentation</a>.</p>
@@ -2474,58 +2472,49 @@
 <p>The following link contains the download link for Docker desktop on Windows. Follow the download instructions, and when you are done, you should have Docker installed!
 <a href="https://docs.docker.com/desktop/install/windows-install/">Docker Desktop for Windows Install Page</a></p>
 <p>You may run into permission issues with docker, so you need to run the following commands in your WSL terminal to give your non-sudo user access to Docker.</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>groupadd<span class="w"> </span>docker
-sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>docker<span class="w"> </span><span class="nv">$USER</span>
-newgrp<span class="w"> </span>docker
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker</code></pre>
 <p><br> </p>
 <h2 id="installing-docker-on-ubuntu-linux"><p style="text-align: center;"> <strong>Installing Docker on Ubuntu Linux</strong> </p></h2>
 <hr />
 <p>Please type the following sets of commands in a terminal.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Add Docker&#39;s official GPG key:</span>
-sudo<span class="w"> </span>apt-get<span class="w"> </span>update
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ca-certificates<span class="w"> </span>curl
-sudo<span class="w"> </span>install<span class="w"> </span>-m<span class="w"> </span><span class="m">0755</span><span class="w"> </span>-d<span class="w"> </span>/etc/apt/keyrings
-sudo<span class="w"> </span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://download.docker.com/linux/ubuntu/gpg<span class="w"> </span>-o<span class="w"> </span>/etc/apt/keyrings/docker.asc
-sudo<span class="w"> </span>chmod<span class="w"> </span>a+r<span class="w"> </span>/etc/apt/keyrings/docker.asc
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="c1"># Add the repository to Apt sources:</span>
-<span class="nb">echo</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="s2">&quot;deb [arch=</span><span class="k">$(</span>dpkg<span class="w"> </span>--print-architecture<span class="k">)</span><span class="s2"> signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \</span>
-<span class="s2">  </span><span class="k">$(</span>.<span class="w"> </span>/etc/os-release<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VERSION_CODENAME</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2"> stable&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/docker.list<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
-sudo<span class="w"> </span>apt-get<span class="w"> </span>update
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>docker-ce<span class="w"> </span>docker-ce-cli<span class="w"> </span>containerd.io<span class="w"> </span>docker-buildx-plugin<span class="w"> </span>docker-compose-plugin
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>groupadd<span class="w"> </span>docker
-sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>docker<span class="w"> </span><span class="nv">$USER</span>
-newgrp<span class="w"> </span>docker
-</code></pre></div>
+<pre class="highlight"><code class="language-sh"># Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc</code></pre>
+<pre class="highlight"><code class="language-sh"># Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release &amp;&amp; echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+sudo apt-get update</code></pre>
+<pre class="highlight"><code class="language-sh">sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</code></pre>
+<pre class="highlight"><code class="language-sh">sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker</code></pre>
 <hr />
 <p><br></p>
 <h2 id="installing-docker-on-mac-os"><p style="text-align: center;"> <strong>Installing Docker on Mac OS</strong> </p></h2>
 <p>Docker can be installed standalone from the <a href="https://docs.docker.com/desktop/install/mac-install/">website</a>, but it is recommended to instead install via <a href="https://brew.sh/">Homebrew</a>, the unofficial official package manager for Mac OS. Homebrew is recommended over the standalone installer as it simplifies the installation process and is nice to use.</p>
 <p>Please install Homebrew by entering the following command into the terminal</p>
-<div class="highlight"><pre><span></span><code>/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></pre>
 <p>Now that Homebrew is installed, run the following command to install Docker Desktop</p>
-<div class="highlight"><pre><span></span><code>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>docker
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">brew install --cask docker</code></pre>
 <p>To verify that the installation was successful, run the following command</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>version
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">docker version</code></pre>
 <p>If the installation succeeded, you should get something along the lines of the following</p>
-<div class="highlight"><pre><span></span><code>❯<span class="w"> </span>docker<span class="w"> </span>version
+<pre class="highlight"><code class="language-sh">❯ docker version
 Client:
-<span class="w"> </span>Version:<span class="w">           </span><span class="m">27</span>.0.3
-<span class="w"> </span>API<span class="w"> </span>version:<span class="w">       </span><span class="m">1</span>.46
-<span class="w"> </span>Go<span class="w"> </span>version:<span class="w">        </span>go1.21.11
-<span class="w"> </span>Git<span class="w"> </span>commit:<span class="w">        </span>7d4bcd8
-<span class="w"> </span>Built:<span class="w">             </span>Fri<span class="w"> </span>Jun<span class="w"> </span><span class="m">28</span><span class="w"> </span><span class="m">23</span>:59:41<span class="w"> </span><span class="m">2024</span>
-<span class="w"> </span>OS/Arch:<span class="w">           </span>darwin/arm64
-<span class="w"> </span>Context:<span class="w">           </span>desktop-linux
-</code></pre></div>
+ Version:           27.0.3
+ API version:       1.46
+ Go version:        go1.21.11
+ Git commit:        7d4bcd8
+ Built:             Fri Jun 28 23:59:41 2024
+ OS/Arch:           darwin/arm64
+ Context:           desktop-linux</code></pre>
 <p><br>  </p>
 <h2 id="installing-docker-on-other-operating-systems"><p style="text-align: center;"> <strong>Installing Docker on Other Operating Systems</strong> </p></h2>
 <p>Documentation for the rest of the operating systems docker supports can be found here: <a href="https://docs.docker.com/engine/install/">Official Docker Installation Instructions for Every OS</a>.</p>

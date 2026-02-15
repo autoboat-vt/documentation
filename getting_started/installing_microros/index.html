@@ -2323,44 +2323,35 @@
 <h1 id="installing-microros"><p style="text-align: center;"> Installing MicroROS </p></h1>
 <p>To create a layer of protection between Jetson and high voltages, and extend the number of GPIO pins we have access to, we use an RP2040 microcontroller, which communicates via a serial connection. Luckily, we are able to extend our software infrastructure to it through the microros platform. It runs nodes directly on the microcontroller, and then allows them to publish and listen on topics through the USB serial connection. Due to resource-restricted nature of the microcontrollers, the code is written in C and many of the principles when writing nodes for Jetson are inapplicable.</p>
 <p>To install microros on your machine, run the following command. Note that the installation will take approximately 5 GB:</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nb">cd</span><span class="w"> </span>/home/ws/src/microros
-<span class="w">    </span>bash<span class="w"> </span>microros_setup.sh
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">    cd /home/ws/src/microros
+    bash microros_setup.sh</code></pre>
 <p>Don't forget to source your ~/.bashrc file:</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nb">source</span><span class="w"> </span>~/.bashrc
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">    source ~/.bashrc</code></pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Notice that you need to establish communication between Pi Pico and WSL by USB to flash it. If you are on Windows, download and install the latest release of USB support software from <a href="https://gitlab.com/alelec/wsl-usb-gui/-/releases/">WSL USB GUI Releases</a>. By default, devices are not automatically shared with WSL, so you will need to manually autoattach. For more information, check out the documentation on connecting to a USB device in WSL.</p>
 </div>
 <p>To flash Pi Pico with a .uf2 file, plug Pico into your computer while pressing the Boot Select button (you may release it after Pi Pico is in) and run:
-<div class="highlight"><pre><span></span><code><span class="w">    </span>picotool_load<span class="w"> </span><span class="c1">#write/the/address/of/your/file/here</span>
-</code></pre></div></p>
+<pre class="highlight"><code class="language-sh">    picotool_load #write/the/address/of/your/file/here</code></pre></p>
 <p>The Pi Pico cannot communicate with the computer while it is in Boot Select mode. To exit it, you can uplug it and replug it from the USB port. Alretnatively, you may run:
-<div class="highlight"><pre><span></span><code><span class="w">    </span>picotool_reboot<span class="w"> </span>-F
-</code></pre></div></p>
+<pre class="highlight"><code class="language-sh">    picotool_reboot -F</code></pre></p>
 <p>Then, to establish communication with Pi Pico, run the following commands:</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">666</span><span class="w"> </span>/dev/ttyACM0<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>micro_ros_agent<span class="w"> </span>micro_ros_agent<span class="w"> </span>serial<span class="w"> </span>--dev<span class="w"> </span>/dev/ttyACM0<span class="w"> </span>-b<span class="w"> </span><span class="m">115200</span>
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">    sudo chmod 666 /dev/ttyACM0 &amp;&amp; ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyACM0 -b 115200</code></pre>
 <p>If you encounter problems during the installation, consult Elias.</p>
 <h1 id="running-the-example-code"><p style="text-align: center;"> Running the Example Code </p></h1>
 <p>If you want to get started with microros, a good idea would be to try to flash Pi Pico with the example file. Note that you would need to build it first:
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$PICO_MICROROS_SDK_PATH</span>
-<span class="w">    </span>mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
-<span class="w">    </span>cmake<span class="w"> </span>..
-<span class="w">    </span>make
-<span class="w">    </span>picotool_load<span class="w"> </span>pico_micro_ros_example.uf2
-</code></pre></div></p>
+<pre class="highlight"><code class="language-sh">    cd $PICO_MICROROS_SDK_PATH
+    mkdir build &amp;&amp; cd build
+    cmake ..
+    make
+    picotool_load pico_micro_ros_example.uf2</code></pre></p>
 <p>Then, proceed to open the serial communication:
-<div class="highlight"><pre><span></span><code><span class="w">    </span>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">666</span><span class="w"> </span>/dev/ttyACM0<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>micro_ros_agent<span class="w"> </span>micro_ros_agent<span class="w"> </span>serial<span class="w"> </span>--dev<span class="w"> </span>/dev/ttyACM0<span class="w"> </span>-b<span class="w"> </span><span class="m">115200</span>
-</code></pre></div></p>
+<pre class="highlight"><code class="language-sh">    sudo chmod 666 /dev/ttyACM0 &amp;&amp; ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyACM0 -b 115200</code></pre></p>
 <p>And finally, open a new terminal, and type
-<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="nb">source</span><span class="w"> </span>~/.bashrc
-<span class="w">    </span>ros2<span class="w"> </span>topic<span class="w"> </span>list
-</code></pre></div></p>
+<pre class="highlight"><code class="language-sh">    source ~/.bashrc
+    ros2 topic list</code></pre></p>
 <p>If you have done everything correctly, <code>/pico_publisher</code> would show up in the list of topics. You can watch its output by typing:</p>
-<div class="highlight"><pre><span></span><code><span class="w">    </span>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/pico_publisher
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">    ros2 topic echo /pico_publisher</code></pre>
 
 
 

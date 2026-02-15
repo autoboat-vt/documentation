@@ -2327,8 +2327,7 @@
 <li>If the groundstation gives the following error when you boot it up: 
 <img alt="groundstation_error1" src="../../images/known_issues_groundstation_error1.png" /> then run the following command in a WSL terminal if you are on windows, or on a linux terminal if you are on linux: </li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;xhost + &gt;&gt; /dev/null&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/.bashrc
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">echo "xhost + &gt;&gt; /dev/null" &gt;&gt; ~/.bashrc &amp;&amp; source ~/.bashrc</code></pre>
 <p>Explanation for the groundstation error: 
 your host operating system may not allow you to open x servers from inside of docker because "technically its a security vulnerability", but if you have not realized yet, security is our last priority here so we don't care. "xhost +" allows anyone to access your x server which lets them do whatever they want to your display, listen to keyboard inputs, etc. This command simply adds "xhost +" to your ~/.bashrc file, which is a series of bash commands that are run whenever your terminal opens. Then, the script runs the ~/.bashrc file to apply the changes.  "&gt;&gt; /dev/null" simply makes it so that the command doesn't print anything; this is not necessary at all but is nice so you don't have to see the same message everytime you open a terminal. </p>
 <p><br></p>
