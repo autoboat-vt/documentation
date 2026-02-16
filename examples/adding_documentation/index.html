@@ -2323,22 +2323,27 @@
 <h1 id="adding-documentation"><p style="text-align: center;"> Adding Documentation </p></h1>
 <p>As a team, we want our software and hardware decisions well-documented and kept in one place to ensure that new members can easily learn the big and complex system they work with, as well as quickly be plugged into development process. As such, after achieving a significant milestone, it is highly recommended to document it and contribute to this website. It is a lot easier than it sounds.</p>
 <p>To start, install the necessary dependencies. You do not have to do it in docker.</p>
-<pre class="highlight"><code class="language-sh">pip install mkdocs
-pip install mkdocs-material</code></pre>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>mkdocs
+pip<span class="w"> </span>install<span class="w"> </span>mkdocs-material
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">mac OS Users</p>
 <p>We can use brew for this.</p>
-<pre class="highlight"><code class="language-sh">brew install mkdocs-material</code></pre>
+<div class="highlight"><pre><span></span><code>brew<span class="w"> </span>install<span class="w"> </span>mkdocs-material
+</code></pre></div>
 </div>
 <p>Then, clone the github repository:
-<pre class="highlight"><code class="language-sh">git clone https://github.com/autoboat-vt/documentation</code></pre></p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/autoboat-vt/documentation
+</code></pre></div></p>
 <p>You may now make changes to the website code. To edit an existing page, simply find its .md file in <code>docs</code> and edit the text inside. To add a new page, add the file into whichever folder you want it to be (or create a new folder), type it up, and then include in <code>mkdocs.yml</code> under the nav section. The documentation supports html, markdown, and several extensions. <a href="https://facelessuser.github.io/pymdown-extensions">You can read about the extensions here</a>.</p>
 <p>To put your changes on the website, run:
-<pre class="highlight"><code class="language-sh">mkdocs build
-mkdocs serve</code></pre></p>
+<div class="highlight"><pre><span></span><code>mkdocs<span class="w"> </span>build
+mkdocs<span class="w"> </span>serve
+</code></pre></div></p>
 <p>This will set the website to run locally on the <code>http://127.0.0.1:8000/</code> (localhost) IP address. To access it, just type that link in the web-browser.</p>
 <p>After you feel good about your changes, deploy them to the internet:
-<pre class="highlight"><code class="language-sh">mkdocs gh-deploy</code></pre></p>
+<div class="highlight"><pre><span></span><code>mkdocs<span class="w"> </span>gh-deploy
+</code></pre></div></p>
 <p>And don't forget to push them to the github repository!</p>
 
 

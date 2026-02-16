@@ -2416,13 +2416,15 @@
 <p>This is the main package for MicroROS development. Due to the nature of microcontrollers, only one package can be run on a Pi Pico. However, there are few limitations as to how many nodes can be run. Since the RP2040 chip installed on Pi Pico has two cores, we can even run some of the nodes in parallel, taking full advantage of multithreading. All of the nodes will be documented in this file. To get started with microros development, check out <strong>Installing MicroROS</strong> in <strong>misc</strong>.</p>
 <p>All the nodes, their common resources, execution order, and scheduling are managed in the main.c file in the src folder. If you want to add a .c file with a node, as well as in add_executable section in CMakeLists.txt. Depends on if you include new libraries you might want to add them in CMakeLists.txt too. Important libraries and ports are located in common_microros_libs.h, which is preferable to include in each file within src folder. If you need to define ports or pins, UART for example, you do it there.
 To build an already existing project, execute the following commands inside <code>/microros/</code> (not <code>/microros/src/</code>):
-<pre class="highlight"><code class="language-sh">    mkdir build &amp;&amp; cd build
-    cmake ..
-    make</code></pre>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
+<span class="w">    </span>cmake<span class="w"> </span>..
+<span class="w">    </span>make
+</code></pre></div>
 From here on, after making changes to the code, you can build it simply by running <code>make</code>. Next steps, such as opening communication with ROS or flashing Pico are detailed in <strong>Installing MicroROS</strong>. </p>
 <p><br></p>
 <h2 id="how-to-run"><strong>How to Run</strong></h2>
-<pre class="highlight"><code class="language-sh">sudo chmod 777 /dev/** &amp;&amp; ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/pico -b 115200</code></pre>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">777</span><span class="w"> </span>/dev/**<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>micro_ros_agent<span class="w"> </span>micro_ros_agent<span class="w"> </span>serial<span class="w"> </span>--dev<span class="w"> </span>/dev/pico<span class="w"> </span>-b<span class="w"> </span><span class="m">115200</span>
+</code></pre></div>
 <p><br></p>
 
 
