@@ -119,7 +119,7 @@ return;
 gz::math::Pose3d pose = *optPose;
 ```
 
-Gazebo has its own math plugin, which can be found at the [Gazebo math github](https://github.com/gazebosim/gz-math). The documentation can be found here: [Gazebo math documentation](https://gazebosim.org/api/math/9/).
+Gazebo has its own math plugin, which can be found at the [Gazebo math github](https://github.com/gazebosim/gz-math). The documentation can be found here: [Gazebo math documentation](https://gazebosim.org/api/math/9/). A cool steam game called Gazebo Simulator can be found [here](https://store.steampowered.com/app/3480010/Gazebo_Simulator/).
 
 ```c++
 /////////////////////////////////////////////////
