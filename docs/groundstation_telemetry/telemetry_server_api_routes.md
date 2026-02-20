@@ -60,14 +60,14 @@ Testing URL: `https://vt-autoboat-telemetry.uk:8443`
 | -------- | -------------------------------------------------------------- | ------------------------------------------------------------- |
 | `GET`    | `/instance_manager/test`                                       | Test route for instance management.                           |
 | `GET`    | `/instance_manager/create`                                     | Create a new telemetry instance.                              |
-| `DELETE` | `/instance_manager/delete/<int:instance_id>`                   | Delete a telemetry instance by its ID.                        |
-| `DELETE` | `/instance_manager/delete_all`                                 | Delete all telemetry instances.                               |
-| `DELETE` | `/instance_manager/clean_instances`                            | Remove all telemetry instances not marked for keeping.        |
-| `POST`   | `/instance_manager/set_user/<int:instance_id>/<user_name>`     | Set the user for a telemetry instance.                        |
 | `GET`    | `/instance_manager/get_user/<int:instance_id>`                 | Get the user of a telemetry instance.                         |
-| `POST`   | `/instance_manager/set_name/<int:instance_id>/<instance_name>` | Set the name of a telemetry instance.                         |
 | `GET`    | `/instance_manager/get_name/<int:instance_id>`                 | Get the name of a telemetry instance.                         |
 | `GET`    | `/instance_manager/get_id/<instance_name>`                     | Get the ID of a telemetry instance by its name.               |
 | `GET`    | `/instance_manager/get_instance_info/<int:instance_id>`        | Get detailed information about a specific telemetry instance. |
 | `GET`    | `/instance_manager/get_all_instance_info`                      | Get detailed information about all telemetry instances.       |
 | `GET`    | `/instance_manager/get_ids`                                    | Return all telemetry instance IDs.                            |
+| `POST`   | `/instance_manager/set_name/<int:instance_id>/<instance_name>` | Set the name of a telemetry instance.                         |
+| `POST`   | `/instance_manager/set_user/<int:instance_id>/<user_name>`     | Set the user for a telemetry instance.                        |
+| `DELETE` | `/instance_manager/delete/<int:instance_id>`                   | Delete a telemetry instance by its ID.                        |
+| `DELETE` | `/instance_manager/delete_all`                                 | Delete all telemetry instances.                               |
+| `DELETE` | `/instance_manager/clean_instances`                            | Remove all telemetry instances not marked for keeping.        |
