@@ -21,11 +21,11 @@
       
       
       <link rel="icon" href="../../images/logo.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
-        <title>Telemetry Server - AutoBoat @ VT Documentation</title>
+        <title>Telemetry Server - AutoBoat Documentation</title>
       
     
     
@@ -92,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="AutoBoat @ VT Documentation" class="md-header__button md-logo" aria-label="AutoBoat @ VT Documentation" data-md-component="logo">
+    <a href="../.." title="AutoBoat Documentation" class="md-header__button md-logo" aria-label="AutoBoat Documentation" data-md-component="logo">
       
   <img src="../../images/logo.svg" alt="logo">
 
@@ -105,7 +105,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            AutoBoat @ VT Documentation
+            AutoBoat Documentation
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -201,12 +201,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="AutoBoat @ VT Documentation" class="md-nav__button md-logo" aria-label="AutoBoat @ VT Documentation" data-md-component="logo">
+    <a href="../.." title="AutoBoat Documentation" class="md-nav__button md-logo" aria-label="AutoBoat Documentation" data-md-component="logo">
       
   <img src="../../images/logo.svg" alt="logo">
 
     </a>
-    AutoBoat @ VT Documentation
+    AutoBoat Documentation
   </label>
   
     <div class="md-nav__source">
@@ -2567,6 +2567,31 @@ Testing URL: <code>https://vt-autoboat-telemetry.uk:8443</code></p>
 <td>Get the default autopilot parameters.</td>
 </tr>
 <tr>
+<td><code>GET</code></td>
+<td><code>/autopilot_parameters/get_hash/&lt;int:instance_id&gt;</code></td>
+<td>Get the hash of the current autopilot parameters for a specific instance.</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/autopilot_parameters/get_config/&lt;config_hash&gt;</code></td>
+<td>Get the autopilot configuration for a specific configuration hash.</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/autopilot_parameters/get_hash_description/&lt;config_hash&gt;</code></td>
+<td>Get the description for a specific configuration hash.</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/autopilot_parameters/get_all_hashes</code></td>
+<td>Get all stored autopilot configuration hashes.</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/autopilot_parameters/get_hash_exists/&lt;config_hash&gt;</code></td>
+<td>Check if a specific configuration hash exists.</td>
+</tr>
+<tr>
 <td><code>POST</code></td>
 <td><code>/autopilot_parameters/set/&lt;int:instance_id&gt;</code></td>
 <td>Set the autopilot parameters using the request data.</td>
@@ -2576,9 +2601,28 @@ Testing URL: <code>https://vt-autoboat-telemetry.uk:8443</code></p>
 <td><code>/autopilot_parameters/set_default/&lt;int:instance_id&gt;</code></td>
 <td>Set the default autopilot parameters using the request data.</td>
 </tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>/autopilot_parameters/set_hash_description/&lt;config_hash&gt;/&lt;description&gt;</code></td>
+<td>Set the description for a specific configuration hash.</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>/autopilot_parameters/set_default_from_hash/&lt;int:instance_id&gt;/&lt;config_hash&gt;</code></td>
+<td>Set the default autopilot parameters using a stored configuration hash.</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>/autopilot_parameters/create_config</code></td>
+<td>Create a new autopilot configuration from the request data.</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><code>/autopilot_parameters/delete_config/&lt;config_hash&gt;</code></td>
+<td>Delete a stored autopilot configuration hash.</td>
+</tr>
 </tbody>
 </table>
-<hr />
 <h3 id="boat-status-routes">Boat Status Routes</h3>
 <table>
 <thead>
@@ -2609,9 +2653,18 @@ Testing URL: <code>https://vt-autoboat-telemetry.uk:8443</code></p>
 <td><code>/boat_status/set/&lt;int:instance_id&gt;</code></td>
 <td>Set the boat status using the request data.</td>
 </tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>/boat_status/set_fast/&lt;int:instance_id&gt;</code></td>
+<td>Set the boat status using a list of values corresponding to the boat status mapping.</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>/boat_status/set_mapping/&lt;int:instance_id&gt;</code></td>
+<td>Set the boat status mapping for an instance.</td>
+</tr>
 </tbody>
 </table>
-<hr />
 <h3 id="waypoint-routes">Waypoint Routes</h3>
 <table>
 <thead>
@@ -2644,7 +2697,6 @@ Testing URL: <code>https://vt-autoboat-telemetry.uk:8443</code></p>
 </tr>
 </tbody>
 </table>
-<hr />
 <h3 id="instance-manager-routes">Instance Manager Routes</h3>
 <table>
 <thead>
@@ -2776,7 +2828,7 @@ Testing URL: <code>https://vt-autoboat-telemetry.uk:8443</code></p>
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../../javascripts/mathjax.js"></script>
+        <script src="../../javascript/mathjax.js"></script>
       
         <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
       
