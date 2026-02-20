@@ -1,4 +1,4 @@
-site_name: AutoBoat @ VT Documentation
+site_name: AutoBoat Documentation
 site_url: https://localhost:8000
 repo_url: https://github.com/autoboat-vt
 repo_name: GitHub Organization
@@ -35,7 +35,7 @@ markdown_extensions:
   #     toc_depth: "1-1"
 
 extra_javascript:
-  - javascripts/mathjax.js
+  - javascript/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
 extra_css:

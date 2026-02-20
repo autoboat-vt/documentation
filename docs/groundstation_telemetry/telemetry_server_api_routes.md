@@ -16,27 +16,34 @@ Testing URL: `https://vt-autoboat-telemetry.uk:8443`
 
 ### Autopilot Routes
 
-| Method | Endpoint                                              | Description                                                             |
-| ------ | ----------------------------------------------------- | ----------------------------------------------------------------------- |
-| `GET`  | `/autopilot_parameters/test`                          | Test route for autopilot parameters.                                    |
-| `GET`  | `/autopilot_parameters/get/<int:instance_id>`         | Get the current autopilot parameters for a specific instance.           |
-| `GET`  | `/autopilot_parameters/get_new/<int:instance_id>`     | Get the latest autopilot parameters if they haven't been retrieved yet. |
-| `GET`  | `/autopilot_parameters/get_default/<int:instance_id>` | Get the default autopilot parameters.                                   |
-| `POST` | `/autopilot_parameters/set/<int:instance_id>`         | Set the autopilot parameters using the request data.                    |
-| `POST` | `/autopilot_parameters/set_default/<int:instance_id>` | Set the default autopilot parameters using the request data.            |
-
----
+| Method   | Endpoint                                                                      | Description                                                               |
+| -------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `GET`    | `/autopilot_parameters/test`                                                  | Test route for autopilot parameters.                                      |
+| `GET`    | `/autopilot_parameters/get/<int:instance_id>`                                 | Get the current autopilot parameters for a specific instance.             |
+| `GET`    | `/autopilot_parameters/get_new/<int:instance_id>`                             | Get the latest autopilot parameters if they haven't been retrieved yet.   |
+| `GET`    | `/autopilot_parameters/get_default/<int:instance_id>`                         | Get the default autopilot parameters.                                     |
+| `GET`    | `/autopilot_parameters/get_hash/<int:instance_id>`                            | Get the hash of the current autopilot parameters for a specific instance. |
+| `GET`    | `/autopilot_parameters/get_config/<config_hash>`                              | Get the autopilot configuration for a specific configuration hash.        |
+| `GET`    | `/autopilot_parameters/get_hash_description/<config_hash>`                    | Get the description for a specific configuration hash.                    |
+| `GET`    | `/autopilot_parameters/get_all_hashes`                                        | Get all stored autopilot configuration hashes.                            |
+| `GET`    | `/autopilot_parameters/get_hash_exists/<config_hash>`                         | Check if a specific configuration hash exists.                            |
+| `POST`   | `/autopilot_parameters/set/<int:instance_id>`                                 | Set the autopilot parameters using the request data.                      |
+| `POST`   | `/autopilot_parameters/set_default/<int:instance_id>`                         | Set the default autopilot parameters using the request data.              |
+| `POST`   | `/autopilot_parameters/set_hash_description/<config_hash>/<description>`      | Set the description for a specific configuration hash.                    |
+| `POST`   | `/autopilot_parameters/set_default_from_hash/<int:instance_id>/<config_hash>` | Set the default autopilot parameters using a stored configuration hash.   |
+| `POST`   | `/autopilot_parameters/create_config`                                         | Create a new autopilot configuration from the request data.               |
+| `DELETE` | `/autopilot_parameters/delete_config/<config_hash>`                           | Delete a stored autopilot configuration hash.                             |
 
 ### Boat Status Routes
 
-| Method | Endpoint                                 | Description                                                 |
-| ------ | ---------------------------------------- | ----------------------------------------------------------- |
-| `GET`  | `/boat_status/test`                      | Test route for boat status.                                 |
-| `GET`  | `/boat_status/get/<int:instance_id>`     | Get the current boat status for a specific instance.        |
-| `GET`  | `/boat_status/get_new/<int:instance_id>` | Get the latest boat status if it hasn't been retrieved yet. |
-| `POST` | `/boat_status/set/<int:instance_id>`     | Set the boat status using the request data.                 |
-
----
+| Method | Endpoint                                     | Description                                                                          |
+| ------ | -------------------------------------------- | ------------------------------------------------------------------------------------ |
+| `GET`  | `/boat_status/test`                          | Test route for boat status.                                                          |
+| `GET`  | `/boat_status/get/<int:instance_id>`         | Get the current boat status for a specific instance.                                 |
+| `GET`  | `/boat_status/get_new/<int:instance_id>`     | Get the latest boat status if it hasn't been retrieved yet.                          |
+| `POST` | `/boat_status/set/<int:instance_id>`         | Set the boat status using the request data.                                          |
+| `POST` | `/boat_status/set_fast/<int:instance_id>`    | Set the boat status using a list of values corresponding to the boat status mapping. |
+| `POST` | `/boat_status/set_mapping/<int:instance_id>` | Set the boat status mapping for an instance.                                         |
 
 ### Waypoint Routes
 
@@ -46,8 +53,6 @@ Testing URL: `https://vt-autoboat-telemetry.uk:8443`
 | `GET`  | `/waypoints/get/<int:instance_id>`     | Get the current waypoints for a specific instance.           |
 | `GET`  | `/waypoints/get_new/<int:instance_id>` | Get the latest waypoints if they haven't been retrieved yet. |
 | `POST` | `/waypoints/set/<int:instance_id>`     | Set the waypoints using the request data.                    |
-
----
 
 ### Instance Manager Routes
 

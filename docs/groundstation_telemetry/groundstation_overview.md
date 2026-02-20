@@ -19,7 +19,15 @@ The Ground Station is divided into the following main components:
 
 ### base components
 
-#### constants.py
+#### main.py
+
+This file is the main entry point for the Ground Station application. The code in this file is pretty self-explanatory and
+will probably only need to be modified if you are adding entirely new functionality to the Ground Station. If you need
+to know the specifics of what happens in this file, I recommend reading the code itself.
+
+#### utils
+
+##### constants.py
 
 We will begin with the `constants.py` file, which defines objects that are used throughout the entire codebase.
 In addition, this file checks for the presence of configuration files and assets that are essential for the
@@ -29,21 +37,30 @@ when missing assets, it is best to place that code in this file. Additionally, c
 of the application object created by PyQt. **The icons used in the Ground Station are defined in this file, but are not
 able to be used until the application is registered with PyQt, which happens in the `main.py` file.**
 
-#### thread_classes.py
+##### thread_classes.py
 
 The `thread_classes.py` file contains classes that are used to manage threads within the Ground Station application.
 I decided to places these classes in a seperate file since they don't really feel like widgets, but may be hard to
 find in the `constants.py` file if you didn't know they were there. These classes are essential for handling
 asynchronous operations and ensuring that the Ground Station can perform tasks without blocking the main application thread.
 I highly recommend reading the code in this file to understand how threads are managed and how they interact with the
-rest of the application. Online resources on threads and how they work in PyQt may also be helpful if you are trying to work
-with the code in this file.
+rest of the application. Online resources on threads and how they work in PyQt may also be helpful if you are trying to
+work with the code in this file.
 
-#### main.py
+##### state_manager.py
 
-This file is the main entry point for the Ground Station application. The code in this file is pretty self-explanatory and
-will probably only need to be modified if you are adding entirely new functionality to the Ground Station. If you need
-to know the specifics of what happens in this file, I recommend reading the code itself.
+The `state_manager.py` file contains the code that manages the state of key variables in the Ground Station. It is used to
+make sure that the state of the Ground Station is consistent across all of the different widgets and components. It also
+provides protection against race conditions and makes sure that the state of the Ground Station is not modified in unexpected ways.
+
+##### misc.py
+
+The `misc.py` file contains utility functions that are used throughout the Ground Station codebase.
+These functions are not specific to any one component and are used in multiple places throughout the code.
+This file is a bit of a catch-all for functions that don't really fit anywhere else, but are still important
+for the overall functionality of the Ground Station. If you are looking for a specific function and can't find
+it in the code where you think it should be, it may be worth checking the `misc.py` file to see if it is
+defined there.
 
 ### syntax_highlighters
 
@@ -83,6 +100,12 @@ popups that that are used to modify the state of the Ground Station. This file a
 interface without blocking the main thread. If you are looking to understand how the Ground Station works,
 this is a great place to start.
 
+#### instance_handler.py
+
+This widget is used to manage instances of the simulation and the real boat. It provides a way to view info about all
+available instances, a way to create and delete instances, and a way to connect to an instance. This widget is loaded before
+the `groundstation.py` widget and is used to determine which instance the Ground Station should connect to when it starts up.
+
 #### popup_edit.py
 
 This widget is used to create 'windows' that make it easier to modify text in the Ground Station. It takes highligther
@@ -98,6 +121,13 @@ output and the `console.py` syntax highlighter to provide syntax highlighting fo
 that makes it possible to have the console output displayed in the terminal and in the Ground Station at the same time.
 This is done by using a QThread and some redirection of the standard output streams to capture the console output
 and display it in the widget.
+
+#### graph_viewer.py
+
+This widget is used to display graphs of telemetry data. It uses the [PyQtGraph](https://www.pyqtgraph.org) library to
+create interactive graphs that can display multiple data series at once. The widget also provides functionality to customize
+the appearance of the graphs, such as changing colors, adding legends, and adjusting the axes. The graph viewer is an
+important tool for visualizing telemetry data and gaining insights into the boat's performance and behavior.
 
 #### map_widget
 
@@ -127,35 +157,29 @@ to display the camera feed because of its abibility to natively show base64 enco
 having to do the decoding ourselves. The widget has buttons that allow you to start and stop the camera feed in order to
 save bandwidth and processing power when the camera feed is not needed.
 
-#### autopilot_param_editor
+#### autopilot_config_widget
 
-This widget is used to manage the autopilot parameters of the boat. It provides a scrollable table that features a
-search bar to filter the parameters by name. The widget uses a json file located in the
-`app_data/autopilot_params/params_default.jsonc` file to manage the default configuration for each of the parameters.
-This json file takes the form:
+This directory contains the widgets that are used to manage the autopilot parameters and configurations. It contains three files:
+`config_editor.py`, `config_manager.py`, and `config_widget.py`.
+
+##### config_widget.py
+
+This widget just serves as a wrapper for the `config_editor.py` and `config_manager.py` widgets. It is used to display both of these widgets in one tab of the Ground Station. It doesn't contain much code itself, but it is used to manage the layout of the editor and manager widgets and make sure they are displayed correctly in the Ground Station.
+
+##### config_editor.py
+
+This widget is used to manage the autopilot parameters of the boat. It provides a way to view and edit the parameters, as well as a way to save and load parameter configurations. It also allows you to send the parameters to the boat and receive the current parameters from the boat. This widget is essential for tuning the autopilot and ensuring that the boat is performing optimally. An example json file containing autopilot parameters can be found at `app_data/autopilot_params/params_default.json`. The parameters in this file are not necessarily the best parameters for the boat, but they should be a good starting point for tuning the autopilot. They take the form:
 
 ```json
 {
     "param_name": {
-        "type": "example_type",
-        "default": "example_default_value",
-        "description": "This is a description of the parameter.",
+        "default": "default value of the parameter",
+        "description": "A description of what this parameter does",
     },
     ...
 }
 ```
 
-Where `param_name` is the name of the parameter, `type` is the type of the parameter,
-`default` is the default value of the parameter, and `description` is a description of the parameter.
-The parameter type must be one of the built-in types (i.e `int`, `float`, `str`, `bool`, `list`, `dict`, or `set`)
-in order for the parameter to be usable in the widget. Additional types should be defined in the `constants.py` file
-and properly handled in the code for the widget.
+##### config_manager.py
 
-When the application is started, it copies the contents of the `params_default.jsonc` file to a new file
-in the `autopilot_param_editor` directory called `params_temp.json` (all comments are stripped). This file is used to
-store the current values of the parameters and is updated whenever the user modifies a parameter in the widget. When the
-user clicks the "Save" button, a dialog allows the user to save the current parameters to a new file. If no file is
-selected, the parameters are not saved and the application continues on.
-
-In addition, the widget allows you to send, recieve, and reset each parameter to the value defined in the
-`app_data/autopilot_params/params_default.jsonc` file.
+This widget is used to manage different autopilot configurations, both locally and on the telemetry server. It provides a way to view all available configurations, a way to create and delete configurations, and a way to download configurations from the telemetry server into the `app_data/autopilot_params` directory. This widget is important for keeping track of different parameter configurations and easily switching between them when tuning the autopilot.

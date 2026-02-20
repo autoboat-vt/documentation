@@ -1,0 +1,8 @@
+{
+    "editor.tabSize": 2,
+    "editor.formatOnSave": false,
+    "markdownlint.configFile": ".markdownlint.json",
+    "[markdown]": {
+        "editor.codeActionsOnSave": false,
+    }
+}
