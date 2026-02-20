@@ -2718,34 +2718,9 @@ Testing URL: <code>https://vt-autoboat-telemetry.uk:8443</code></p>
 <td>Create a new telemetry instance.</td>
 </tr>
 <tr>
-<td><code>DELETE</code></td>
-<td><code>/instance_manager/delete/&lt;int:instance_id&gt;</code></td>
-<td>Delete a telemetry instance by its ID.</td>
-</tr>
-<tr>
-<td><code>DELETE</code></td>
-<td><code>/instance_manager/delete_all</code></td>
-<td>Delete all telemetry instances.</td>
-</tr>
-<tr>
-<td><code>DELETE</code></td>
-<td><code>/instance_manager/clean_instances</code></td>
-<td>Remove all telemetry instances not marked for keeping.</td>
-</tr>
-<tr>
-<td><code>POST</code></td>
-<td><code>/instance_manager/set_user/&lt;int:instance_id&gt;/&lt;user_name&gt;</code></td>
-<td>Set the user for a telemetry instance.</td>
-</tr>
-<tr>
 <td><code>GET</code></td>
 <td><code>/instance_manager/get_user/&lt;int:instance_id&gt;</code></td>
 <td>Get the user of a telemetry instance.</td>
-</tr>
-<tr>
-<td><code>POST</code></td>
-<td><code>/instance_manager/set_name/&lt;int:instance_id&gt;/&lt;instance_name&gt;</code></td>
-<td>Set the name of a telemetry instance.</td>
 </tr>
 <tr>
 <td><code>GET</code></td>
@@ -2771,6 +2746,31 @@ Testing URL: <code>https://vt-autoboat-telemetry.uk:8443</code></p>
 <td><code>GET</code></td>
 <td><code>/instance_manager/get_ids</code></td>
 <td>Return all telemetry instance IDs.</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>/instance_manager/set_name/&lt;int:instance_id&gt;/&lt;instance_name&gt;</code></td>
+<td>Set the name of a telemetry instance.</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>/instance_manager/set_user/&lt;int:instance_id&gt;/&lt;user_name&gt;</code></td>
+<td>Set the user for a telemetry instance.</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><code>/instance_manager/delete/&lt;int:instance_id&gt;</code></td>
+<td>Delete a telemetry instance by its ID.</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><code>/instance_manager/delete_all</code></td>
+<td>Delete all telemetry instances.</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><code>/instance_manager/clean_instances</code></td>
+<td>Remove all telemetry instances not marked for keeping.</td>
 </tr>
 </tbody>
 </table>
