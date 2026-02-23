@@ -6,11 +6,10 @@ This simulation node wraps around a Gazebo Harmonic (a general purpose physics s
 
 The ros node acts as a translator from ros messages to gazebo messages, which the simulation publishes/subscribes to to control the motorboat. The node sends messages such as rudder angle and thrust, and it receives the boat's position, heading, velocity, true rudder angle, true thrust, etc.
 
+Currently, there is only the `autopilot_transform_node` ros node in this package, which is the middle man between the simulation nodes and the autopilot.
 ## **How to Run It**
 
-At the moment, the simulation is still on a separate branch in the github. Switch to the `andrews-cool-simulation` branch and rebuild the container. You'll need to build the custom plugins the first time you switch to the branch, which can be done manually or with the `rebuild_plugins.sh` script in `src/motorboat_sim_testing`.
-
-To run the simulation alone, run: 
+At the moment, the simulation is still on a separate branch in the github. Switch to the `andrews-cool-simulation` branch and rebuild the container. To run the simulation alone, run: 
 
 ```sh
 cd /home/ws/src/motorboat_sim_testing
@@ -55,7 +54,6 @@ As to our custom plugins, they are written in C++ and take the following form:
 ```sh
 plugin_name
 ├── CMakeLists.txt
-├── build
 ├── include
 │   └── PluginName.hh
 ├── package.xml
@@ -63,7 +61,7 @@ plugin_name
     └── PluginName.cc
 ```
 
-To rebuild the plugin, you can simply enter the build folder and run `make`. If you altered the CMakeLists.txt, run `cmake ..` in the build folder first.
+To rebuild the plugin, you can simply enter the build folder in /home/ws/build and run `make`. If you altered the CMakeLists.txt, run `cmake ..` in the build folder first.
 
 To create a custom plugin, the documenation can be found here: [Gazebo plugin documentation](https://gazebosim.org/api/sim/8/createsystemplugins.html). Most plugins you will need to make will run at PreUpdate time.
 
@@ -133,9 +131,9 @@ GZ_ADD_PLUGIN_ALIAS(rudder_dynamics::RudderDynamics, "rudder_dynamics::RudderDyn
 The specific methods you put into `GZ_ADD_PLUGIN` depend on which methods you implemented. The .hh files are mostly self explanatory, if you understand C++, you should be alright with those. As for the CMakeLists.txt and package.xml, you'll need some required packages for gazebo, and the package.xml has to be there to run `cmake ..`.
 
 TLDR:
-1. create folder with build, src, and include folders
+1. create folder with src, and include folders
 2. create header and source file and create CMakeLists.txt and package.xml
-3. run "cmake .." and "make" in the build folder
+3. colcon build --symlink-install in /home/ws
 4. fix all the errors bc ur bad at programming
 5. add the path to the build folder to GZ_SIM_SYSTEM_PLUGIN_PATH in .bashrc, which means you need to edit postCreateCommand.sh
 6. add the plugin to your sdf!
