@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../images/logo.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -2390,13 +2390,11 @@
 <h1 id="adding-a-new-ros2-package-to-the-workspace"><p style="text-align: center;"> Adding a New ROS2 Package to the Workspace </p></h1>
 <h2 id="python-packages">Python Packages</h2>
 <p>To create a new ROS2 python package, you should first run the following command in the <code>/home/ws/src</code> folder:</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>pkg<span class="w"> </span>create<span class="w"> </span>&lt;Your<span class="w"> </span>Package<span class="w"> </span>Name<span class="w"> </span>Here&gt;<span class="w"> </span>--build-type<span class="w"> </span>ament_python<span class="w"> </span>--dependencies<span class="w"> </span>rclpy
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">ros2 pkg create &lt;Your Package Name Here&gt; --build-type ament_python --dependencies rclpy</code></pre>
 <p>Once you have created your package, you should see a new folder pop up in <code>/home/ws/src</code> that looks a little bit like this:</p>
 <p><img alt="Test Package Folder Example" src="../../images/test_package_folder_example.png" /></p>
 <p>Once you add the package, ensure that you run the following commands:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/ws<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/.bashrc
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">cd /home/ws &amp;&amp; colcon build --symlink-install &amp;&amp; source ~/.bashrc</code></pre>
 <p>This will rebuild the environment to recognize that the new package exists. Without this, ROS2 won't be able to find your new package.</p>
 <p>A more comprehensive tutorial can be found here: <a href="https://www.youtube.com/watch?v=iBGZ8LEvkCY">Comprehensive tutorial on how to create a ROS2 python package</a></p>
 <p><br></p>

@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../images/logo.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -2330,8 +2330,7 @@
 <h1 id="installing-deepstream"><p style="text-align: center"> Installing Deepstream </p></h1>
 <p>Inside the dev container, make sure your current working directory is <code>/home/ws/</code>.</p>
 <p>Execute this script to start the installation.</p>
-<div class="highlight"><pre><span></span><code>bash<span class="w"> </span>install_deepstream_yolo_dev_container.sh
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">bash install_deepstream_yolo_dev_container.sh</code></pre>
 <p>This installation can take a long time.</p>
 <h1 id="connecting-the-camera"><p style="text-align: center"> Connecting the Camera </p></h1>
 <p>In order to run the object detection module, the Intel RealSense D457 camera must be connected and forwarded to WSL</p>
@@ -2339,29 +2338,25 @@
 <div class="admonition note">
 <p class="admonition-title">Making sure the camera is seen in WSL</p>
 <p>To verify the connection, run this command in the dev container</p>
-<div class="highlight"><pre><span></span><code>v4l2-ctl<span class="w"> </span>--list-devices
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">v4l2-ctl --list-devices</code></pre>
 <p>A properly connected camera will have an output similar to this (the numbers may be different)</p>
-<div class="highlight"><pre><span></span><code>autoboat_user@docker-desktop:/home/ws$<span class="w"> </span>v4l2-ctl<span class="w"> </span>--list-devices
-Intel<span class="o">(</span>R<span class="o">)</span><span class="w"> </span>RealSense<span class="o">(</span>TM<span class="o">)</span><span class="w"> </span>Depth<span class="w"> </span>Ca<span class="w"> </span><span class="o">(</span>usb-0000:00:14.0-1<span class="o">)</span>:
-<span class="w">        </span>/dev/video0
-<span class="w">        </span>/dev/video1
-<span class="w">        </span>/dev/video2
-<span class="w">        </span>/dev/video3
-<span class="w">        </span>/dev/video4
-<span class="w">        </span>/dev/video5
-<span class="w">        </span>/dev/media1
-<span class="w">        </span>/dev/media2
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">autoboat_user@docker-desktop:/home/ws$ v4l2-ctl --list-devices
+Intel(R) RealSense(TM) Depth Ca (usb-0000:00:14.0-1):
+        /dev/video0
+        /dev/video1
+        /dev/video2
+        /dev/video3
+        /dev/video4
+        /dev/video5
+        /dev/media1
+        /dev/media2</code></pre>
 </div>
 <h1 id="building-a-model"><p style="text-align: center"> Building a Model </p></h1>
 <p>To build a model, navigate to the deepstream_yolo directory. This can be done without a camera connected.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/ws/src/object_detection/object_detection/deepstream_yolo/
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">cd /home/ws/src/object_detection/object_detection/deepstream_yolo/</code></pre>
 <p>Place the .pt model file in this directory.</p>
 <p>Run this script to build a .engine model file based on the .pt file. This will take a while.</p>
-<div class="highlight"><pre><span></span><code>bash<span class="w"> </span>build_engine_file.sh<span class="w"> </span>&lt;name_of_pt_file&gt;
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">bash build_engine_file.sh &lt;name_of_pt_file&gt;</code></pre>
 <div class="admonition note">
 <p class="admonition-title">What this does</p>
 <p>In order, what this script does is:</p>
@@ -2400,15 +2395,13 @@ Intel<span class="o">(</span>R<span class="o">)</span><span class="w"> </span>Re
 </div>
 <h1 id="running-the-object-detection-module"><p style="text-align: center"> Running the Object Detection Module </p></h1>
 <p>After a model file has been created, you can run the ROS2 object detection module.</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>object_detection<span class="w"> </span>object_detection
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">ros2 run object_detection object_detection</code></pre>
 <p>Annotated images will be saved to <code>/home/ws/src/object_detection/object_detection/frame_results/</code></p>
 <div class="admonition note">
 <p class="admonition-title">Running without inference</p>
 <p>The steps to build an engine file can be skipped if inference is not required</p>
 <p>To do this, set this environment variable before running the module</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">INFERENCE</span><span class="o">=</span><span class="nb">false</span>
-</code></pre></div>
+<pre class="highlight"><code class="language-sh">export INFERENCE=false</code></pre>
 </div>
 
 

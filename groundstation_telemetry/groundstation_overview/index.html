@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../images/logo.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -3086,13 +3086,12 @@ important tool for visualizing telemetry data and gaining insights into the boat
 It contains a Go server that is used to manage the transfer of waypoints and buoys between the Python code and the
 JavaScript code running in the HTML file in this directory. The Go server exposes a <code>get</code> and <code>set</code> endpoint that modifies
 an array containing the latitude and longitude of the waypoints and buoys which takes the form:</p>
-<div class="highlight"><pre><span></span><code><span class="p">[</span>
-<span class="w">    </span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">],</span>
-<span class="w">    </span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="p">],</span>
-<span class="w">    </span><span class="p">[</span><span class="mf">3.0</span><span class="p">,</span><span class="w"> </span><span class="mf">3.0</span><span class="p">],</span>
-<span class="w">    </span><span class="err">...</span>
-<span class="p">]</span>
-</code></pre></div>
+<pre class="highlight"><code class="language-json">[
+    [1.0, 1.0],
+    [2.0, 2.0],
+    [3.0, 3.0],
+    ...
+]</code></pre>
 <p>Where latitude is the first element of each array and longitude is the second element.
 The JavaScript code in this directory uses the <a href="https://leafletjs.com">Leaflet</a> library
 to display the waypoints and buoys on a map.</p>
@@ -3109,14 +3108,13 @@ save bandwidth and processing power when the camera feed is not needed.</p>
 <p>This widget just serves as a wrapper for the <code>config_editor.py</code> and <code>config_manager.py</code> widgets. It is used to display both of these widgets in one tab of the Ground Station. It doesn't contain much code itself, but it is used to manage the layout of the editor and manager widgets and make sure they are displayed correctly in the Ground Station.</p>
 <h5 id="config_editorpy">config_editor.py</h5>
 <p>This widget is used to manage the autopilot parameters of the boat. It provides a way to view and edit the parameters, as well as a way to save and load parameter configurations. It also allows you to send the parameters to the boat and receive the current parameters from the boat. This widget is essential for tuning the autopilot and ensuring that the boat is performing optimally. An example json file containing autopilot parameters can be found at <code>app_data/autopilot_params/params_default.json</code>. The parameters in this file are not necessarily the best parameters for the boat, but they should be a good starting point for tuning the autopilot. They take the form:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;param_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default value of the parameter&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A description of what this parameter does&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="err">...</span>
-<span class="p">}</span>
-</code></pre></div>
+<pre class="highlight"><code class="language-json">{
+    "param_name": {
+        "default": "default value of the parameter",
+        "description": "A description of what this parameter does",
+    },
+    ...
+}</code></pre>
 <h5 id="config_managerpy">config_manager.py</h5>
 <p>This widget is used to manage different autopilot configurations, both locally and on the telemetry server. It provides a way to view all available configurations, a way to create and delete configurations, and a way to download configurations from the telemetry server into the <code>app_data/autopilot_params</code> directory. This widget is important for keeping track of different parameter configurations and easily switching between them when tuning the autopilot.</p>
 
