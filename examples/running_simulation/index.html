@@ -509,6 +509,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running the Simulation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -525,6 +543,47 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sailboat-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sailboat Simulation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motorboat-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motorboat Simulation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2302,6 +2361,36 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sailboat-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sailboat Simulation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motorboat-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motorboat Simulation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2321,15 +2410,25 @@
 
 
 <h1 id="running-the-simulation"><p style="text-align: center;"> Running the Simulation </p></h1>
-<p>To run the simulation, run the following commands in order <strong>after setting up the development container</strong>:</p>
-<pre class="highlight"><code class="language-sh">sudo docker pull vtautoboat/autoboat_simulation:latest</code></pre>
+<h2 id="sailboat-simulation">Sailboat Simulation</h2>
+<p>To run the sailboat simulation, run the following commands in order <strong>after setting up the development container</strong>:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>vtautoboat/autoboat_simulation:latest
+</code></pre></div>
 <p>This command will pull the simulation docker image, which is where all of the simulation work is actually taking place! <strong>This command only needs to be run once. Once the docker image has been pulled, you shouldn't need to repull</strong>. The command may take a while, but once it is finished, run the following command:</p>
-<pre class="highlight"><code class="language-sh">ros2 launch /home/ws/src/launch/simulation.launch.py</code></pre>
-<p>This command will then start the simulation and autopilot. Initially, however they won't do anything because they don't have any waypoint commands, so what you will need to do is to type in the following command:  </p>
-<pre class="highlight"><code class="language-sh">cd /home/ws/ground_station</code></pre>
-<pre class="highlight"><code class="language-sh">./run.sh</code></pre>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>/home/ws/src/launch/simulation.launch.py
+</code></pre></div>
+<p>This command will then start the simulation and autopilot. Initially, however they won't do anything because they don't have any waypoint commands, so you will need to launch the ground station to send waypoints. In a separate shell, run these commands:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/ws/ground_station
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>./run.sh
+</code></pre></div>
 <p>Next, click on "zoom to boat". This should show you where the boat is currently located (likely longitude 0 and latitude 0 since this is the default location)</p>
 <p>Now, click somewhere on the map and then click "Send Waypoints". This should cause the boat on screen to start moving and indicates that you have correctly set everything up!  </p>
+<h2 id="motorboat-simulation">Motorboat Simulation</h2>
+<p>To run the motorboat simulation, run the following command <strong>after setting up the development container</strong>:</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>/home/ws/src/launch/motorboat_simulation.launch.py
+</code></pre></div>
+<p>Then, in a separate shell, run the same two commands to launch the groundstation as above.</p>
 
 
 

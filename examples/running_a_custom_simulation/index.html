@@ -2314,23 +2314,27 @@
 <p>Before we can build a custom simulation, first we need to clone the autoboat_simulation repository.</p>
 <p>Open up a terminal in the folder you would like to place the code to build a new simulation in. Next type the following commands:</p>
 <hr />
-<pre class="highlight"><code class="language-sh">git clone https://github.com/autoboat-vt/autoboat_simulation 
-cd autoboat_simulation</code></pre>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/autoboat-vt/autoboat_simulation<span class="w"> </span>
+<span class="nb">cd</span><span class="w"> </span>autoboat_simulation
+</code></pre></div>
 <hr />
 <p>Now that you have all of the code on your computer, there is only 1 dependency for working with the simulation and that is docker-buildx. You can install it like this on Windows WSL and Ubuntu:</p>
 <hr />
-<pre class="highlight"><code class="language-sh">sudo apt install docker-buildx</code></pre>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>docker-buildx
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">mac OS Users</p>
 <p>If you are on mac OS, you will need to install docker-buildx using the following command:</p>
-<pre class="highlight"><code class="language-sh">brew install docker-buildx</code></pre>
+<div class="highlight"><pre><span></span><code>brew<span class="w"> </span>install<span class="w"> </span>docker-buildx
+</code></pre></div>
 <p>Make sure to follow the instructions that brew gives you after running this command
 to make sure that docker-buildx is properly installed on your system.</p>
 </div>
 <hr />
 <p>Now, all you have to do to build the simulation now is type in the following command:</p>
 <hr />
-<pre class="highlight"><code class="language-sh">sudo bash build_sim.sh</code></pre>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>bash<span class="w"> </span>build_sim.sh
+</code></pre></div>
 <hr />
 <p>And thats it! Now automatically, the simulation node will instead use the new, custom simulation instead of the default. The simulation itself is quite poorly documented so if you have any questions about it and how to do certain things, please ask Chris.</p>
 <p>If you would like to go back to using the default simulation then all you have to do is delete the simulation docker image and repull the default simulation docker container, the simulation node will pull the default simulation image and build it.</p>
