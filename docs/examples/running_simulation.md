@@ -1,6 +1,8 @@
 # <p style="text-align: center;"> Running the Simulation </p>
 
-To run the simulation, run the following commands in order **after setting up the development container**:
+## Sailboat Simulation
+
+To run the sailboat simulation, run the following commands in order **after setting up the development container**:
 
 
 ```sh
@@ -13,7 +15,7 @@ This command will pull the simulation docker image, which is where all of the si
 ros2 launch /home/ws/src/launch/simulation.launch.py
 ```
 
-This command will then start the simulation and autopilot. Initially, however they won't do anything because they don't have any waypoint commands, so what you will need to do is to type in the following command:  
+This command will then start the simulation and autopilot. Initially, however they won't do anything because they don't have any waypoint commands, so you will need to launch the ground station to send waypoints. In a separate shell, run these commands:
 
 
 ```sh
@@ -28,4 +30,14 @@ Next, click on "zoom to boat". This should show you where the boat is currently 
 
 
 Now, click somewhere on the map and then click "Send Waypoints". This should cause the boat on screen to start moving and indicates that you have correctly set everything up!  
-  
+
+
+## Motorboat Simulation
+
+To run the motorboat simulation, run the following command **after setting up the development container**:
+
+```sh
+ros2 launch /home/ws/src/launch/motorboat_simulation.launch.py
+```
+
+Then, in a separate shell, run the same two commands to launch the groundstation as above.

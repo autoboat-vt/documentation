@@ -2,30 +2,27 @@
 
 ## **Summary**
 
-This simulation node wraps around a Gazebo Harmonic (a general purpose physics simulator) simulation of a motorboat traveling in a free plane of water. The simulation is currently contained in the `andrews-cool-simulation` branch in github, but at the time of reading this, it may have been pushed to main.
+This simulation node wraps around a Gazebo Harmonic (a general purpose physics simulator) simulation of a motorboat traveling in a free plane of water. The source files are in `src/motorboat_simulation/`, which includes the motorboat gazebo file (`motorboat_model.sdf`), the custom plugins, and the `autopilot_transform` ros package.
 
-The ros node acts as a translator from ros messages to gazebo messages, which the simulation publishes/subscribes to to control the motorboat. The node sends messages such as rudder angle and thrust, and it receives the boat's position, heading, velocity, true rudder angle, true thrust, etc.
-
-Currently, there is only the `autopilot_transform_node` ros node in this package, which is the middle man between the simulation nodes and the autopilot.
 ## **How to Run It**
 
-At the moment, the simulation is still on a separate branch in the github. Switch to the `andrews-cool-simulation` branch and rebuild the container. To run the simulation alone, run: 
+To run the simulation alone, run:
 
 ```sh
-cd /home/ws/src/motorboat_sim_testing
-gz sim buoyant_cylinder.sdf
+cd /home/ws/src/motorboat_sim
+gz sim motorboat_model.sdf
 ```
 
 To run the ros node, run:
 
 ```sh
 cd /home/ws/src/launch
-ros2 launch simtest.launch.py
+ros2 launch motorboat_simulation.launch.py
 ```
 
 ## **How it Works**
 
-The gazebo simulation for the motorboat is contained in `buoyant_cylinder.sdf`. These sdf files are essentially JSON written differently, for which the full sdf spec can be found here: [sdformat specification](https://sdformat.org/spec/). The file is a combination of basic data, the shape, mass, initial position, and inertia of all the elements plus the joints that connect them, and plugins, some of which are built-in to gazebo and some of which we wrote ourselves.
+The gazebo simulation for the motorboat is contained in `motorboat_model.sdf`. These sdf files are essentially JSON written differently, for which the full sdf specification can be found here: [sdformat spec](https://sdformat.org/spec/). The file is a combination of basic data, the shape, mass, initial position, and inertia of all the elements plus the joints that connect them, and plugins, some of which are built-in to gazebo and some of which we wrote ourselves.
 
 The file starts with various scenery/light/camera/physics parameters, most of which are fairly standard. Some notable built-in plugins here are `gz-sim-user-commands-system`, which allows us to send gazebo commands (which are sent from the ros node) to control the simulation. The `gz-sim-navsat-system` gives the positional data that the autopilot expects. Below, the model `my_ship` is the boat, which is where the real meat of the program is. Here is where every piece of the boat is defined, with all the plugins that allow our boat to move!
 
@@ -38,14 +35,20 @@ Here are the notable built-in plugins:
 * `gz-sim-thruster-system` - This is what controls the thruster
 * `gz-sim-hydrodynamics-system` - Description below in the **How to Develop** section
 
-Here are our custom plugins:
+Here are our custom plugins for the motorboat:
 
 * `libRudderDynamics.so` - This is our custom LiftDrag plugin. The built-in one is terrible. At some point, this should probably be renamed. In this case, clmax and cdmax refer to the equations of coefficient of lift and coefficient of drag. These coefficients, when plotted vs. angle of attack, form vaguely sinusoidal curves, so find the coefficient of lift vs alpha (aoa) curve for whatever shape/material you're using, then put the max in. For more details, look up more about lift/drag forces.
+
+Additionally, these plugins are used for the sailboat (currently in progress):
+
+* `libFoilDynamics.so` - This is essentially the same as `libRudderDynamics.so`, but it has wind applied to it. At some point, the physics should be altered in this plugin to simulate a real foil.
+* `libSailLimits.so` - Allows us to control the max sail angle in the simulation.
+* `libWindArrow.so` - Displays an arrow in the gazebo simulation above the sailboat to show the direction of the wind.
 
 ## **How to Develop**
 The first thing I'd like to mention is to avoid using AI. I know it's easier, but LLMs are *very* bad with gazebosim and the ros gazebo bridge since the documentation is terrible and there are so few examples online that use Gazebo Harmonic.
 
-To develop on the ros node (contained in `simtest.launch.py`), you need to understand ros and python, for which there are tutorials elsewhere in this documentation. To develop on the gazebo sim, you need to understand gazebo harmonic and the format of sdf files. The current simulations are good examples, but the documentation can be found here: [Gazebo Harmonic Tutorials](https://gazebosim.org/docs/harmonic/tutorials/). The list of built in plugins can be found here: [Gazebo 8.10.0 Systems Documentation](https://gazebosim.org/api/sim/8/namespacegz_1_1sim_1_1systems.html). Some of the plugins there have terrible documentation, so you may need to look elsewhere for examples. Notably, the hydrodynamics plugin has a great explanation here: [Gazebo Hydrodynamics Plugin](https://gazebosim.org/api/sim/8/theory_hydrodynamics.html). If you want to know what the inputs to the hydrodynamics plugin mean, I'd recommend checking out *Fossen, Thor I. Guidance and Control of Ocean Vehicles. United Kingdom: Wiley, 1994* as mentioned in the documentation. You can find it in Newman Library or the Ocean Engineering lounge (allegedly).
+To develop on the ros nodes, you need to understand ros and python, for which there are tutorials elsewhere in this documentation. To develop on the gazebo sim, you need to understand gazebo harmonic and the format of sdf files. The current simulations are good examples, but the documentation can be found here: [Gazebo Harmonic Tutorials](https://gazebosim.org/docs/harmonic/tutorials/). The list of built in plugins can be found here: [Gazebo 8.10.0 Systems Documentation](https://gazebosim.org/api/sim/8/namespacegz_1_1sim_1_1systems.html). Some of the plugins there have terrible documentation, so you may need to look elsewhere for examples. Notably, the hydrodynamics plugin has a great explanation here: [Gazebo Hydrodynamics Plugin](https://gazebosim.org/api/sim/8/theory_hydrodynamics.html). If you want to know what the inputs to the hydrodynamics plugin mean, I'd recommend checking out *Fossen, Thor I. Guidance and Control of Ocean Vehicles. United Kingdom: Wiley, 1994* as mentioned in the documentation. You can find it in Newman Library or the Ocean Engineering lounge (allegedly).
 
 All gazebo plugins are written in C++, so you will need to be able to at least read C++ to work with them. Additionally, at some point when using the built in plugins, you will need to check the source code. It can be found [here](https://github.com/gazebosim/gz-sim/tree/gz-sim8/src/systems).
 
@@ -61,7 +64,7 @@ plugin_name
     └── PluginName.cc
 ```
 
-To rebuild the plugin, you can simply enter the build folder in /home/ws/build and run `make`. If you altered the CMakeLists.txt, run `cmake ..` in the build folder first.
+To rebuild the plugin, you can simply enter the build folder in `/home/ws/build` and run `make`. If you altered the CMakeLists.txt, run `cmake ..` in the build folder first.
 
 To create a custom plugin, the documenation can be found here: [Gazebo plugin documentation](https://gazebosim.org/api/sim/8/createsystemplugins.html). Most plugins you will need to make will run at PreUpdate time.
 
@@ -130,10 +133,11 @@ GZ_ADD_PLUGIN_ALIAS(rudder_dynamics::RudderDynamics, "rudder_dynamics::RudderDyn
 
 The specific methods you put into `GZ_ADD_PLUGIN` depend on which methods you implemented. The .hh files are mostly self explanatory, if you understand C++, you should be alright with those. As for the CMakeLists.txt and package.xml, you'll need some required packages for gazebo, and the package.xml has to be there to run `cmake ..`.
 
-TLDR:
-1. create folder with src, and include folders
-2. create header and source file and create CMakeLists.txt and package.xml
-3. colcon build --symlink-install in /home/ws
-4. fix all the errors bc ur bad at programming
-5. add the path to the build folder to GZ_SIM_SYSTEM_PLUGIN_PATH in .bashrc, which means you need to edit postCreateCommand.sh
-6. add the plugin to your sdf!
+TL;DR:
+How to create a custom plugin:
+1. Create folder with src, and include folders
+2. Create header and source file and create CMakeLists.txt and package.xml
+3. `colcon build --symlink-install` in `/home/ws`
+4. Fix all the errors becuse you're bad at programming
+5. Add the path to the build folder to GZ_SIM_SYSTEM_PLUGIN_PATH in .bashrc, which means you need to edit postCreateCommand.sh
+6. Add the plugin to your sdf!
