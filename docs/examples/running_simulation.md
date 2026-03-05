@@ -12,7 +12,7 @@ sudo docker pull vtautoboat/autoboat_simulation:latest
 This command will pull the simulation docker image, which is where all of the simulation work is actually taking place! **This command only needs to be run once. Once the docker image has been pulled, you shouldn't need to repull**. The command may take a while, but once it is finished, run the following command:
 
 ```sh 
-ros2 launch /home/ws/src/launch/simulation.launch.py
+ros2 launch /home/ws/src/launch/sailboat_simulation.launch.py
 ```
 
 This command will then start the simulation and autopilot. Initially, however they won't do anything because they don't have any waypoint commands, so you will need to launch the ground station to send waypoints. In a separate shell, run these commands:
