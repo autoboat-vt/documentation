@@ -120,4 +120,4 @@ nav:
       - Running ROS2 on Jetson Startup with Systemctl: misc/systemctl.md
       - Automatically Finding Which Port Devices Are on with Udev Rules: misc/udev_rules.md
       - Automating Periodic Scripts with Crontabs: misc/crontabs.md
-      - Known Issues: misc/known_installation_issues.md
+      - Known Issues: misc/known_issues.md
