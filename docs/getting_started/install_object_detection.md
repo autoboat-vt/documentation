@@ -1,4 +1,4 @@
-# <p style="text-align: center"> Before Installing Deepstream </p>
+# <p style="text-align: center"> Before Installing DeepStream </p>
 
 Make sure that you have set up the dev container prior to attempting install.
 
@@ -7,23 +7,29 @@ Make sure that you have set up the dev container prior to attempting install.
     
     This will not work on macOS and ARM systems.
 
-# <p style="text-align: center"> Installing Deepstream </p>
+## <p style="text-align: center"> Installing DeepStream </p>
 
 Inside the dev container, make sure your current working directory is `/home/ws/`.
 
 Execute this script to start the installation.
 
 ```sh
-bash install_deepstream_yolo_dev_container.sh
+bash .devcontainer/old_devcontainer_variant_setup_scripts/install_deepstream_yolo_dev_container.sh
 ```
 
 This installation can take a long time.
 
-# <p style="text-align: center"> Connecting the Camera </p>
+## <p style="text-align: center"> Connecting the Camera </p>
+
+!!!NOTE "Running without camera"
+    If you do not want to run with the camera, or do not have it, run
+    ```sh
+    export CAMERA=false
+    ```
 
 In order to run the object detection module, the Intel RealSense D457 camera must be connected and forwarded to WSL
 
-To forward the camera device to WSL, a GUI can be used like [WSL USB](https://gitlab.com/alelec/wsl-usb-gui) or [these instructions](https://learn.microsoft.com/en-us/windows/wsl/connect-usb) can be followed in Windows Powershell.
+To forward the camera device to WSL, follow [these instructions](../examples/connecting_a_usb_device_to_wsl.md)
 
 !!!Note "Making sure the camera is seen in WSL"
     To verify the connection, run this command in the dev container
@@ -47,48 +53,53 @@ To forward the camera device to WSL, a GUI can be used like [WSL USB](https://gi
             /dev/media2
     ```
 
-# <p style="text-align: center"> Building a Model </p>
+## <p style="text-align: center"> Building an Engine File </p>
 
-To build a model, navigate to the deepstream_yolo directory. This can be done without a camera connected.
+!!!NOTE "Running without inference"
+    If you want to disable inference and skip the model creation, run
+    ```sh
+    export INFERENCE=false
+    ```
+
+To build an engine file, navigate to the deepstream_yolo directory. This can be done without a camera connected.
 
 ```sh
 cd /home/ws/src/object_detection/object_detection/deepstream_yolo/
 ```
 
+You need to know whether this model is Yolo26 or Yolo11.
+
 Place the .pt model file in this directory.
 
-Run this script to build a .engine model file based on the .pt file. This will take a while.
+Run the following script to build a .engine model file based on the .pt file. This will take a while. Fill in `<name_of_pt_file>` without the file extension. For example, if your model is named `yolo26s.pt`, you should enter `yolo26s`.
 
+For Yolo26
 ```sh
-bash build_engine_file.sh <name_of_pt_file>
+# Build an engine file
+bash build_engine_file26.sh <name_of_pt_file>
+
+# For example with model file named yolo26s.pt
+bash build_engine_file26.sh yolo26s
 ```
 
-!!!NOTE "What this does"
-    In order, what this script does is:
+For Yolo11
+```sh
+# Build an engine file
+export YOLO_VER=11
+bash build_engine_file11.sh <name_of_pt_file>
 
-    1. Convert .pt file to .onnx
+# For example with model file named yolo11s.pt
+export YOLO_VER=11
+bash build_engine_file11.sh yolo11s
+```
 
-    2. Modify `config_infer_primary_yolo11.txt` to point to the created .onnx file
+You will see a couple warnings similar to shown below. Those are normal.
 
-    3. Create the .engine file
+![Build Warnings](../images/model_build_warnings.png)
 
-!!!NOTE "Alternative option"
-    This can be split up into separate steps and manually completed
+After running the script, the file will be moved to the `pt_files/` directory. The script will look for files in both the `deepstream_yolo/` directory and `pt_files/` directory, if it exists.
 
-    1. Run `python export_yolo11_dev_container.py <name_of_pt_file>`
-
-    2. Manually modify `config_infer_primary_yolo11.txt`.
-
-        Comment out lines by adding a '#' in the front.
-
-    3. Run `python make_model_engine.py`
-
-!!!NOTE "labels.txt"
-    The `labels.txt` file is used to tell the vision pipeline what class is which. This is purely a label, and it does not matter if certain classes are missing labels (they will be labeled NULL)
-
-    In creating the .onnx file, this labels.txt file will be overwritten based on the classes in the model. For most models that we'll make, this probably does not matter.
-
-# <p style="text-align: center"> Running the Object Detection Module </p>
+## <p style="text-align: center"> Running the Object Detection Module </p>
 
 After a model file has been created, you can run the ROS2 object detection module.
 
@@ -96,13 +107,6 @@ After a model file has been created, you can run the ROS2 object detection modul
 ros2 run object_detection object_detection
 ```
 
-Annotated images will be saved to `/home/ws/src/object_detection/object_detection/frame_results/`
+If you disabled the camera, the video feed will be static.
 
-!!!NOTE "Running without inference"
-    The steps to build an engine file can be skipped if inference is not required
-
-    To do this, set this environment variable before running the module
-    
-    ```sh
-    export INFERENCE=false
-    ```
+For more information and dynamically changing parameters, see the [Object Detection Node](../ros2_packages/object_detection_package/object_detection.md).
