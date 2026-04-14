@@ -37,11 +37,11 @@ Here are the notable built-in plugins:
 
 Here are our custom plugins for the motorboat:
 
-* `libRudderDynamics.so` - This is our custom LiftDrag plugin. The built-in one is terrible. At some point, this should probably be renamed. In this case, clmax and cdmax refer to the equations of coefficient of lift and coefficient of drag. These coefficients, when plotted vs. angle of attack, form vaguely sinusoidal curves, so find the coefficient of lift vs alpha (aoa) curve for whatever shape/material you're using, then put the max in. For more details, look up more about lift/drag forces.
+* `libCustomLiftDrag.so` - This is our custom LiftDrag plugin. The built-in one is pretty bad, look at the source code if you want to know why. In this case, clmax and cdmax refer to the equations of coefficient of lift and coefficient of drag. These coefficients, when plotted vs. angle of attack, form vaguely sinusoidal curves, so find the coefficient of lift vs alpha (aoa) curve for whatever shape/material you're using, then put the max in. For more details, look up more about lift/drag forces.
 
 Additionally, these plugins are used for the sailboat (currently in progress):
 
-* `libFoilDynamics.so` - This is essentially the same as `libRudderDynamics.so`, but it has wind applied to it. At some point, the physics should be altered in this plugin to simulate a real foil.
+* `libFoilDynamics.so` - This is essentially the same as `libCustomLiftDrag.so`, but it has wind applied to it. At some point, the physics should be altered in this plugin to simulate a real foil.
 * `libSailLimits.so` - Allows us to control the max sail angle in the simulation.
 * `libWindArrow.so` - Displays an arrow in the gazebo simulation above the sailboat to show the direction of the wind.
 
@@ -68,7 +68,7 @@ To rebuild the plugin, you can simply enter the build folder in `/home/ws/build`
 
 To create a custom plugin, the documenation can be found here: [Gazebo plugin documentation](https://gazebosim.org/api/sim/8/createsystemplugins.html). Most plugins you will need to make will run at PreUpdate time.
 
-Let's examine RudderDynamics to get an idea of what is necessary in a plugin:
+Let's examine an older version of one of our plugins, RudderDynamics, to get an idea of what is necessary in a plugin:
 
 ```c++
 #include "../include/RudderDynamics.hh"
@@ -133,8 +133,8 @@ GZ_ADD_PLUGIN_ALIAS(rudder_dynamics::RudderDynamics, "rudder_dynamics::RudderDyn
 
 The specific methods you put into `GZ_ADD_PLUGIN` depend on which methods you implemented. The .hh files are mostly self explanatory, if you understand C++, you should be alright with those. As for the CMakeLists.txt and package.xml, you'll need some required packages for gazebo, and the package.xml has to be there to run `cmake ..`.
 
-TL;DR:
-How to create a custom plugin:
+TLDR on how to create a custom plugin:
+
 1. Create folder with src, and include folders
 2. Create header and source file and create CMakeLists.txt and package.xml
 3. `colcon build --symlink-install` in `/home/ws`
