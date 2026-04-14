@@ -2396,11 +2396,11 @@ ros2<span class="w"> </span>launch<span class="w"> </span>motorboat_simulation.l
 </ul>
 <p>Here are our custom plugins for the motorboat:</p>
 <ul>
-<li><code>libRudderDynamics.so</code> - This is our custom LiftDrag plugin. The built-in one is terrible. At some point, this should probably be renamed. In this case, clmax and cdmax refer to the equations of coefficient of lift and coefficient of drag. These coefficients, when plotted vs. angle of attack, form vaguely sinusoidal curves, so find the coefficient of lift vs alpha (aoa) curve for whatever shape/material you're using, then put the max in. For more details, look up more about lift/drag forces.</li>
+<li><code>libCustomLiftDrag.so</code> - This is our custom LiftDrag plugin. The built-in one is pretty bad, look at the source code if you want to know why. In this case, clmax and cdmax refer to the equations of coefficient of lift and coefficient of drag. These coefficients, when plotted vs. angle of attack, form vaguely sinusoidal curves, so find the coefficient of lift vs alpha (aoa) curve for whatever shape/material you're using, then put the max in. For more details, look up more about lift/drag forces.</li>
 </ul>
 <p>Additionally, these plugins are used for the sailboat (currently in progress):</p>
 <ul>
-<li><code>libFoilDynamics.so</code> - This is essentially the same as <code>libRudderDynamics.so</code>, but it has wind applied to it. At some point, the physics should be altered in this plugin to simulate a real foil.</li>
+<li><code>libFoilDynamics.so</code> - This is essentially the same as <code>libCustomLiftDrag.so</code>, but it has wind applied to it. At some point, the physics should be altered in this plugin to simulate a real foil.</li>
 <li><code>libSailLimits.so</code> - Allows us to control the max sail angle in the simulation.</li>
 <li><code>libWindArrow.so</code> - Displays an arrow in the gazebo simulation above the sailboat to show the direction of the wind.</li>
 </ul>
@@ -2419,7 +2419,7 @@ ros2<span class="w"> </span>launch<span class="w"> </span>motorboat_simulation.l
 </code></pre></div>
 <p>To rebuild the plugin, you can simply enter the build folder in <code>/home/ws/build</code> and run <code>make</code>. If you altered the CMakeLists.txt, run <code>cmake ..</code> in the build folder first.</p>
 <p>To create a custom plugin, the documenation can be found here: <a href="https://gazebosim.org/api/sim/8/createsystemplugins.html">Gazebo plugin documentation</a>. Most plugins you will need to make will run at PreUpdate time.</p>
-<p>Let's examine RudderDynamics to get an idea of what is necessary in a plugin:</p>
+<p>Let's examine an older version of one of our plugins, RudderDynamics, to get an idea of what is necessary in a plugin:</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;../include/RudderDynamics.hh&quot;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span>
 
@@ -2474,14 +2474,15 @@ ros2<span class="w"> </span>launch<span class="w"> </span>motorboat_simulation.l
 <span class="n">GZ_ADD_PLUGIN_ALIAS</span><span class="p">(</span><span class="n">rudder_dynamics</span><span class="o">::</span><span class="n">RudderDynamics</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;rudder_dynamics::RudderDynamics&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>The specific methods you put into <code>GZ_ADD_PLUGIN</code> depend on which methods you implemented. The .hh files are mostly self explanatory, if you understand C++, you should be alright with those. As for the CMakeLists.txt and package.xml, you'll need some required packages for gazebo, and the package.xml has to be there to run <code>cmake ..</code>.</p>
-<p>TL;DR:
-How to create a custom plugin:
-1. Create folder with src, and include folders
-2. Create header and source file and create CMakeLists.txt and package.xml
-3. <code>colcon build --symlink-install</code> in <code>/home/ws</code>
-4. Fix all the errors becuse you're bad at programming
-5. Add the path to the build folder to GZ_SIM_SYSTEM_PLUGIN_PATH in .bashrc, which means you need to edit postCreateCommand.sh
-6. Add the plugin to your sdf!</p>
+<p>TLDR on how to create a custom plugin:</p>
+<ol>
+<li>Create folder with src, and include folders</li>
+<li>Create header and source file and create CMakeLists.txt and package.xml</li>
+<li><code>colcon build --symlink-install</code> in <code>/home/ws</code></li>
+<li>Fix all the errors becuse you're bad at programming</li>
+<li>Add the path to the build folder to GZ_SIM_SYSTEM_PLUGIN_PATH in .bashrc, which means you need to edit postCreateCommand.sh</li>
+<li>Add the plugin to your sdf!</li>
+</ol>
 
 
 
