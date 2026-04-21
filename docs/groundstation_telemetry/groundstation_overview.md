@@ -114,6 +114,12 @@ and font size as arguments and uses a QSignal to return the modified text when t
 closes the window. This widget is used in the Ground Station to edit buoy data, some data types in the autopilot
 parameter editor, and the telemetry data 'limits' that are used to determine when a warning or error should be displayed.
 
+#### popup_telemetry_config.py
+
+This widget is used to create a window that allows for the editing of map appearance configurations, such as displaying
+sailboat debugging symbols. This widget is opened by the button labeled `Map Appearance Config` at the bottom of the Ground
+Station.
+
 #### console_output.py
 
 This widget is used to display the console output of the Ground Station. It uses a QPlainTextEdit to display the
