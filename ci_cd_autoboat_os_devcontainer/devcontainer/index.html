@@ -1,0 +1,2311 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://localhost:8000/ci_cd_autoboat_os_devcontainer/devcontainer/">
+      
+      
+        <link rel="prev" href="../autoboat_operating_system/">
+      
+      
+        <link rel="next" href="../common_devcontainer_issues_and_how_to_solve_them/">
+      
+      
+      <link rel="icon" href="../../images/logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Devcontainer - AutoBoat Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../styles/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#devcontainer" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AutoBoat Documentation" class="md-header__button md-logo" aria-label="AutoBoat Documentation" data-md-component="logo">
+      
+  <img src="../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AutoBoat Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Devcontainer
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/autoboat-vt" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Organization
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AutoBoat Documentation" class="md-nav__button md-logo" aria-label="AutoBoat Documentation" data-md-component="logo">
+      
+  <img src="../../images/logo.svg" alt="logo">
+
+    </a>
+    AutoBoat Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/autoboat-vt" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub Organization
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/installing_docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installing Docker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/setting_up_dev_environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setting Up the Development Container
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/installing_microros/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installing MicroROS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/how_to_develop_website/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to Start Developing on the Website
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/install_object_detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installing and Running Deepstream for Object Detection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Examples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/running_simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Running the Simulation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/connecting_a_usb_device_to_wsl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Connecting A USB Device to WSL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/adding_documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Adding Documentation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/how_we_handle_external_libraries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Adding A New External Pip Libraries that We Can Edit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    System Diagrams
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            System Diagrams
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system_diagrams/diagram_of_groundstation_telemetry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Communication Between Groundstation and Autopilot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system_diagrams/diagram_of_simulations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How the Simulation Works and Communicates with ROS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system_diagrams/diagram_of_ros_nodes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ROS2 Node Diagrams
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Groundstation/Telemetry
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Groundstation/Telemetry
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../groundstation_telemetry/new_member_info/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    New Member Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../groundstation_telemetry/groundstation_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Groundstation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../groundstation_telemetry/telemetry_server_api_routes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Telemetry Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ROS2 Packages and Nodes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            ROS2 Packages and Nodes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Autopilot Package
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Autopilot Package
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_packages/autopilot_package/common_documentation_between_the_motorboat_autopilot_and_the_sailboat_autopilot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common Documentation Between the Motorboat Autopilot and the Sailboat Autopilot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_packages/autopilot_package/sailboat_autopilot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sailboat Autopilot Node
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_packages/autopilot_package/motorboat_autopilot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Motorboat Autopilot Node
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_packages/autopilot_package/telemetry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Telemetry
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Sensors Package
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            Sensors Package
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_packages/sensors_package/gps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GPS Node
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_packages/sensors_package/rc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RC (Remote Controller) Node
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_packages/sensors_package/wind_sensor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Wind Sensor Node
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    VESC Package
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            VESC Package
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_packages/vesc_package/vesc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    VESC Node
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Microros Package
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            Microros Package
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_packages/microros_package/microros/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Raspberry Pi Pico Microros Node
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Object Detection Package
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            Object Detection Package
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_packages/object_detection_package/object_detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Object Detection Node
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_6" id="__nav_6_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AutoBoat Messages Package
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_6">
+            <span class="md-nav__icon md-icon"></span>
+            AutoBoat Messages Package
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_packages/autoboat_messages_package/autoboat_msgs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AutoBoat Messages Node
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_7" id="__nav_6_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Simulation Package
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_7">
+            <span class="md-nav__icon md-icon"></span>
+            Simulation Package
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_packages/simulation_package/sailboat_simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sailboat Simulation Node
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_8" id="__nav_6_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    New Simulation Package
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_8">
+            <span class="md-nav__icon md-icon"></span>
+            New Simulation Package
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_packages/new_simulation_package/motorboat_simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Motorboat Simulation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    CI/CD, AutoboatOS, and the Devcontainer
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            CI/CD, AutoboatOS, and the Devcontainer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ci_cd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CI/CD
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autoboat_operating_system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AutoboatOS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Devcontainer
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Devcontainer
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-do-we-need-a-devcontainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Do We Need A Devcontainer?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-happens-to-the-files-you-changed-in-the-devcontainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Happens to The Files You Changed in the Devcontainer?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-are-all-of-the-files-in-the-devcontainer-folder-structured" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Are All of the Files in the .devcontainer Folder Structured?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-devcontainer-variants" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Are Devcontainer Variants?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-change-the-devcontainer-variant-you-are-currently-using" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Change the Devcontainer Variant You Are Currently Using
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-test-custom-docker-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Test Custom Docker Images
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-does-the-devcontainer-interact-with-the-cicd-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Does the Devcontainer Interact with the CI/CD Pipeline?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../common_devcontainer_issues_and_how_to_solve_them/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common Devcontainer Issues and How to Solve Them
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hardware
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Hardware
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/wiring_color_scheme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Wiring Color Scheme
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/squircuit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Squircuit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Funding/ Business
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Funding/ Business
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../finances/SEC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SEC Funding
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Misc
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Misc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/potential_security_risks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Potential Security Risks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/standards_and_definitions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Units, Standards, and Definitions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/systemctl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Running ROS2 on Jetson Startup with Systemctl
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/udev_rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Automatically Finding Which Port Devices Are on with Udev Rules
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/crontabs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Automating Periodic Scripts with Crontabs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../misc/known_issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Known Issues
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-do-we-need-a-devcontainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Do We Need A Devcontainer?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-happens-to-the-files-you-changed-in-the-devcontainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Happens to The Files You Changed in the Devcontainer?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-are-all-of-the-files-in-the-devcontainer-folder-structured" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Are All of the Files in the .devcontainer Folder Structured?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-devcontainer-variants" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Are Devcontainer Variants?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-change-the-devcontainer-variant-you-are-currently-using" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Change the Devcontainer Variant You Are Currently Using
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-test-custom-docker-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Test Custom Docker Images
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-does-the-devcontainer-interact-with-the-cicd-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      How Does the Devcontainer Interact with the CI/CD Pipeline?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="devcontainer"><p style="text-align: center;"> Devcontainer </p></h1>
+<p>This documentation assumes that you are familiar with what docker containers/ images are and how they work at a basic level. Please see the following resources if you would like to learn more:</p>
+<ul>
+<li><a href="https://docs.docker.com/guides/docker-overview/">Docker Overview</a>  </li>
+<li><a href="https://www.youtube.com/watch?v=0Rq1aw8ppMk&amp;t=216s">Docker Video Explanation 1</a>  </li>
+<li><a href="https://www.youtube.com/watch?v=WoZobj2Ruj0&amp;t=313s">Docker Video Explanation 2</a>   </li>
+</ul>
+<p><br></p>
+<p>The devcontainer is a Docker container that we can develop new software inside of using an IDE like VSCode. The devcontainer standard is a standard that standardises how these IDEs open these Docker containers and what functionality they need to support. The devcontainer standard basically defines how the devcontainer.json file is supposed to be structured and what it can include. Everything that interacts with the devcontainer.json can be found in .devcontainer. You can find more information about the devcontainer standard in the following links: https://containers.dev/implementors/spec/, https://containers.dev/overview, and https://containers.dev/implementors/json_reference/.</p>
+<p><br></p>
+<h2 id="why-do-we-need-a-devcontainer"><p style="text-align: center;"> Why Do We Need A Devcontainer?</p></h2>
+<p>Devcontainers allow us to simplify the installation process of our software between the unlimited different configurations, operating systems, package managers, architectures, currently installed packages etc. You simply have to install the devcontainer extension for vscode and build the devcontainer and then thats it! No lengthy installation scripts that must work on any computer regardless of operating system and architecture. Docker also allows us to isolate our software from the rest of your computer, so that everything works regardless of whats on your computer! In addition, isolating this software from the rest of your computer allows us to ensure that if a piece of software works on your computer, it will work on everyone's computer and whatever computer that we are deploying the code onto. The last important thing that devcontainers allow us to do is to is to have a standard set of extensions for our IDE, which allows us to automatically configure things like intellisense without the user needing to spend all day configuring their extensions.</p>
+<p><br></p>
+<h2 id="what-happens-to-the-files-you-changed-in-the-devcontainer"><p style="text-align: center;"> What Happens to The Files You Changed in the Devcontainer?</p></h2>
+<p>Lets say you just changed a file in the /home/ws folder in the devcontainer. What happens to this file and can your progress get deleted if you close the devcontainer or rebuild it?</p>
+<p>Thankfully, via a process called bind mounting in docker, any change that you make inside of the devcontainer in the /home/ws folder will automatically update on your native operating system's filesystem (for linux or macos users) or inside of your WSL filesystem for windows users! This means that you can never "lose your progress" if you rebuild or close the devcontainer! The only thing that you should be familiar with is that once you rebuild the devcontainer, it will delete any packages that you may have installed inside of the devcontainer or any files outside of the /home/ws directory, so just keep that in mind and try to never rebuild the devcontainer unless you are ok with deleting all installed packages. For normal use, you should only "reopen" the devcontainer. </p>
+<p>Bind mounting is a fairly standard and simple process that docker containers support, which allows us to mirror any file changes inside of our docker container to your native operating system's filesystem in the case of linux/macos and WSL in the case of windows. Therefore, no matter what happens to the devcontainer, your changes will be automatically saved where you initially cloned the github repository, so there is no need to worry! You can read more about bind mounting here: https://docs.docker.com/engine/storage/bind-mounts/. </p>
+<p><br></p>
+<h2 id="how-are-all-of-the-files-in-the-devcontainer-folder-structured"><p style="text-align: center;"> How Are All of the Files in the .devcontainer Folder Structured?</p></h2>
+<p>This section will basically just outline all of the files inside of the .devcontainer (which are all of the files that interact with the devcontainer)</p>
+<p>Before we go into exactly what each of these files do, we have to make sure that you properly understand some of the vocabulary of docker. A <strong>Host</strong> is the computer that is running the docker container. On linux/ macOS this is your actual computer/ operating system and on windows the host is considered to be your WSL installation. </p>
+<p><strong>devcontainer.json</strong>:
+  This file determines pretty much everything about the devcontainer and most of the other files are simply called by this one. This file specifies all of the vscode extensions that should be installed to the devcontainer, all of the arguments for the "docker run" command, the username of the user inside of the devcontainer, etc. There is an interesting workaround here, with the GPU which is the following line in "runArgs": <code>"${localEnv:DOCKER_GPU_RUN_ARGS:--env}", "${localEnv:DOCKER_RUNTIME_RUN_ARGS:IGNORE_THIS=hi}"</code>. All this means is that if DOCKER_GPU_RUN_ARGS and DOCKER_RUNTIME_RUN_ARGS are not set, then we take on the following run argument: <code>--env IGNORE_THIS=hi</code> which basically does nothing. If we would like to enable GPUs inside of the devcontainer then we should set the environment variable DOCKER_GPU_RUN_ARGS to --runtime=nvidia and set DOCKER_RUNTIME_RUN_ARGS to --gpus=all.</p>
+<p><strong>postCreateCommand.sh</strong>:
+  This command is run on the <strong>Docker Container</strong> right after it starts up and is used for final docker container initialization that requires the mounted filesystem/ github repository. For example, we need to know the exact code of the repository to properly run <code>colcon build --symlink-install</code> and build the project and generate the proper symlinks.  </p>
+<p><strong>initializeCommand.sh</strong>:
+  This command is run on the <strong>Host</strong> computer before the docker container starts up. This is primarily used right now in order to ensure that whenever you rebuild the devcontainer that you have the most up to date version of the docker image for the devcontainer. Please note that the vscode implementation of the initializeCommand is actually bugged and is different from what the devcontainer standard actually requires; please see the following link for a more thorough explanation: https://github.com/microsoft/vscode-remote-release/issues/9278. </p>
+<p><strong>host_setup.sh</strong>:
+  This command is run by the user on the <strong>HOST</strong> computer by the user once when initially setting up the devcontainer. It ensures that you have the proper packages and environment variables installed on your computer in order to allow the devcontainer to access your display and GPU for the groundstation and computer vision training respectively. This file also does other miscellaneous things such as installing proper udev rules for all of the connected devices that we support.</p>
+<p><strong>host_environment_variables</strong>:
+  This is basically a bash script that is run whenever the bashrc or profilerc is run on the host operating system. These consist of any environment variables that the host needs to have to get certain functionality from the devcontainer such as GPU support or devcontainer variants.</p>
+<p><strong>devcontainer_environment_variables</strong>:
+  This file is generated by host_setup.sh and is used by the devcontainer.json. All of the environment variables specified in this file are automatically imported into the --env-file argument for running docker containers as seen here: https://stackoverflow.com/questions/68122419/how-do-i-create-a-env-file-in-docker. This file can be used for setting the username visible to the groundstation and setting the display that the groundstation should render to. An example of the contents of this file can be seen below:</p>
+<div class="highlight"><pre><span></span><code>devcontainer_environment_variables
+
+<span class="nv">DISPLAY</span><span class="o">=</span>:0
+<span class="nv">USER</span><span class="o">=</span>animated
+</code></pre></div>
+<p><strong>Dockerfile</strong>:
+  This is the dockerfile that describes the docker image that the devcontainer.json uses and describes which packages should be installed into the devcontainer and how. <strong>PLEASE NOTE</strong> if you edit the dockerfile and rebuild the devcontainer, nothing will happen because the docker image that the devcontainer uses is pulled directly from docker hub (https://hub.docker.com/u/vtautoboat), which is the place where the CI/CD pipeline stores the docker images that we create after you push to main or create a new version tag. The issue is that in order to get your custom docker image to show up in docker hub, you would need to first push to main, which defeats the purpose of testing before you push to main. The resolution to this issue is discussed thoroughly in the next section titled "How to Test Custom Docker Images".  </p>
+<p><strong>required_pip_packages.txt</strong>:
+  This lists all of the python package requirements that the python ros2 packages and the groundstation require to run properly. The python packages listed in here are automatically installed via the Dockerfile. This is similar to a requirements.txt file if you have ever worked on other python based repositories, but it is slightly renamed to increase clarity.</p>
+<p><br></p>
+<h2 id="what-are-devcontainer-variants"><p style="text-align: center;"> What Are Devcontainer Variants?</p></h2>
+<p>Devcontainer variants allow us to have different devcontainers for each of the things people might want to develop on. For example, if you want to develop on computer vision algorithms or if you want to do firmware/ microros development, you might want radically different software installed. Because of that, we actually have multiple devcontainers that we can use as a drop in replacement for the "base" devcontainer. </p>
+<p>The following are the currently available devcontainer variants:
+- vtautoboat/development_image
+- vtautoboat/development_image_microros
+- vtautoboat/development_image_deepstream</p>
+<h2 id="how-to-change-the-devcontainer-variant-you-are-currently-using"><p style="text-align: center;"> How to Change the Devcontainer Variant You Are Currently Using</p></h2>
+<p>In order to switch the devcontainer variant you are currently working with, you have to perform the following steps:</p>
+<p>Go to the .devcontainer/host_environment_variables.sh file that should be automatically created from host_setup.sh.</p>
+<p><img alt="host_environment_variables" src="../../images/host_environment_variables.png" /></p>
+<p>Then edit the line that says <code>export DEVCONTAINER_VARIANT=vtautoboat/development_image</code> and edit it so that the DEVCONTAINER_VARIANT environment variable contains the name of the devcontainer you want to use. For instance, if you want to use the microros devcontainer, then you should edit the line to be <code>export DEVCONTAINER_VARIANT=vtautoboat/development_image_microros</code>. </p>
+<p>Once you have changed this line and saved the file, then close vscode and then go to a WSL terminal or normal linux/ macos terminal thats open at the root of the autoboat_vt repository and then run the following command:</p>
+<p><code>source ~/.bashrc &amp;&amp; code .</code></p>
+<p>This will refresh your bashrc and open vscode on your autoboat_vt repository. Once vscode opens, please run "Rebuild without Cache and Reopen Container" to rebuild the devcontainer so that it now rebuilds the new devcontainer variant of your choice.</p>
+<p><img alt="rebuild_reopen_devcontainer" src="../../images/rebuild_reopen_devcontainer.png" /></p>
+<p>Now you should be running the devcontainer variant of your choice and you should have everything preinstalled.</p>
+<p><br></p>
+<h2 id="how-to-test-custom-docker-images"><p style="text-align: center;"> How to Test Custom Docker Images</p></h2>
+<p>If you would like to create and test your own docker images for your individual branch, then you need to do is to build the image so that you have it locally using docker build, push the image to docker hub, and use your custom docker image as a "devcontainer_variant".</p>
+<p>You can use the following command to build the docker image. Make sure to run this in the root of the repository and edit the "temp_tag" part with whatever your branch's name is. For example for a branch called motorboat_simulation, you would replace "temp_tag" with "motorboat_simulation". Keep note of what this tag is, we will need it in future commands.</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>vtautoboat/development_image:temp_tag<span class="w"> </span>-f<span class="w"> </span>.devcontainer/Dockerfile<span class="w"> </span>.
+</code></pre></div>
+<p>Next, go to your browser and go to docker hub and log into docker hub using the autoboat docker hub account. If you do not have the credentials for the autoboat docker hub account, please ask an officer and they should be able to help you. Once you have logged in on your browser, run the following command and follow the given instructions to log into docker hub in your terminal:</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>login
+</code></pre></div>
+<p>Once you have been successfully logged in, run the following command to push your custom image to docker hub. Remember to replace "temp_tag" with the name of the branch you are working on.</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>push<span class="w"> </span>vtautoboat/development_image:temp_tag
+</code></pre></div>
+<p>Now, your custom docker image should show up as a devcontainer variant! You should be able to edit .devcontainer/host_environment_variables to point to this new devcontainer variant. Next you just have to close vscode, run <code>source ~/.bashrc &amp;&amp; code .</code>, and then rebuild the devcontainer to open a devcontainer based on your custom docker image. When you are ready to pull request to main, your custom docker image will automatically be used as the default devcontainer that will be installed on everybody's computer. This process is handled automatically via the CI/CD pipeline by building the default devcontainer off of whatever dockerfile is found in the "main" branch of the repository.</p>
+<p><br></p>
+<h2 id="how-does-the-devcontainer-interact-with-the-cicd-pipeline"><p style="text-align: center;"> How Does the Devcontainer Interact with the CI/CD Pipeline?</p></h2>
+<p>When a commmit is pushed to main or a new version is created and pushed to the github repository, the CI/CD pipeline will automatically build the vtautoboat/development_image and vtautoboat/development_image_microros docker images and push them to docker hub. There is a trigger on docker hub to update the vtautoboat/development_image_deepstream automatically whenever the vtautoboat/development_image is updated. This is not built on the github action because unfortunately it requires more disk space to build than github actions is willing to give us for free.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../../javascript/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
