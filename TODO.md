@@ -20,3 +20,9 @@ add documentation on devcontainer variants and update the microros installation 
 
 
 Add documentation on a new jetson device driver guide with links to udev rules stuff and the standardized messages/ topics these device drivers should be using.
+
+
+
+
+
+I NEED TO ADD DOCUMENTATION FOR CHANGING DEVCONTAINER VARIANT FOR MICROROS INSTALLATION. RIGHT NOW THE INSTALLATION FOR MICROROS DOES NOT USE THE DEVCONTAINER VARIANTS

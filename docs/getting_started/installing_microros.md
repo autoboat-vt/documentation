@@ -15,6 +15,7 @@ Don't forget to source your ~/.bashrc file:
 	source ~/.bashrc
 ```
 
+
 !!!NOTE
 	Notice that you need to establish communication between Pi Pico and WSL by USB to flash it. If you are on Windows, download and install the latest release of USB support software from <a href="https://gitlab.com/alelec/wsl-usb-gui/-/releases/">WSL USB GUI Releases</a>. By default, devices are not automatically shared with WSL, so you will need to manually autoattach. For more information, check out the documentation on connecting to a USB device in WSL.
 
