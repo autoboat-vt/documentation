@@ -6,7 +6,7 @@ If you would like to learn more about CI/CD with github, please take a look at t
 
 <br>
 
-## <p style="text-align: center;"> Summary of What the CI/CD Pipeline Is Tring To Do</p>
+## <p style="text-align: center;"> Summary of What the CI/CD Pipeline Is Trying To Do</p>
 
 
 ### CI/CD Pipeline Summary
