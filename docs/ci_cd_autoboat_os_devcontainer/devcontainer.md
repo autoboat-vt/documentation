@@ -81,6 +81,7 @@ USER=animated
 Devcontainer variants allow us to have different devcontainers for each of the things people might want to develop on. For example, if you want to develop on computer vision algorithms or if you want to do firmware/ microros development, you might want radically different software installed. Because of that, we actually have multiple devcontainers that we can use as a drop in replacement for the "base" devcontainer. 
 
 The following are the currently available devcontainer variants:
+
 - vtautoboat/development_image
 - vtautoboat/development_image_microros
 - vtautoboat/development_image_deepstream
