@@ -36,13 +36,3 @@ float32 desired_vesc_duty_cycle
 The "control_type_for_vesc" can take on the following values: **"rpm"**, **"duty_cycle"**, or **"current"**. Each of these are different ways to control the propeller motor by telling the VESC what you want the desired RPM to be, telling the VESC what you want the duty cycle (basically voltage to the motor) to be, or telling the VESC what you want the current to the motor to be. The VESC's job is to use the control type and your desired values, and get as close to that as possible; for the purposes of this project, how it does that is basically magic. 
 
 If control_type_for_vesc is "rpm", then the only other entry in the struct that matters is the "desired_vesc_rpm" entry which tells the motor what the desired RPM is. All other entries are basically ignored. The same happens with the rest of the control types. So to summarize, only 2 of the entries in the struct ever matter at one time, and it depends on the value of the "control_type_for_vesc" string.
-
-
-
-<br>
-
-## **How to Run**
-
-```sh
-ros2 run vesc vesc
-```

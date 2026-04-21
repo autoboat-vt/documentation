@@ -37,7 +37,7 @@ git clone https://github.com/autoboat-vt/autoboat_vt && cd autoboat_vt
 Then we need to set your computer up to use your display and GPU inside of the devcontainer by running the following command:
   
 ```sh
-bash .devcontainer/setup_display_and_gpu.sh
+bash .devcontainer/host_setup.sh && source ~/.bashrc
 ```
 
 If the script asks you for your WSL password, please provide it. Once the script finishes running, open up that folder in VSCode by typing the following into the same terminal:

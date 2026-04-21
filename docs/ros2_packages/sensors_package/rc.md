@@ -23,12 +23,3 @@ If you would like to have some more resources on the receiver and transmitter th
 [TX12 Transmitter User Manual](https://cdn.shopify.com/s/files/1/0609/8324/7079/files/TX12_1.pdf?v=1736839330)
 
 [Misc Radiomaster Documentation Collection (not necessary unless we want to buy another radiomaster product)](https://radiomasterrc.com/pages/user-manuals)
-
-
-<br>
-
-## **How to Run**
-
-```sh
-ros2 run sensors rc
-```

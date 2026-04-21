@@ -13,14 +13,3 @@ The NMEA0183 message structure is very simple. The basics are that they always s
 
 Our wind sensor device sends its sub-messages in the following order:
 ![Wind Sensor Message Order](../../images/wind_sensor_message_order.png)
-
-
-
-
-<br>
-
-## **How to Run**
-
-```sh
-ros2 run wind_sensor wind_sensor
-```

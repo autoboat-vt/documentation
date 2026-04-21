@@ -12,12 +12,3 @@ The simulation node is basically a wrapper around the sailboat_gym repository, w
 
 
 The simulation node simply imports the sailboat_gym repository and then ties specific actions to publishers and subscribers. For instance, if you publish a sail and rudder command, then the simulation node will pass that onto the sailboat_gym repository which will correspondingly control the boat in the simulation.
-
-
-<br>
-
-## **How to Run**
-
-```sh
-ros2 run simulation simulation
-```

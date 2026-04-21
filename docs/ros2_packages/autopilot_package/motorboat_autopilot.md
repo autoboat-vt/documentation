@@ -12,12 +12,3 @@ We would like the contactor to be controlled by RC command primarily, but we wou
 
 
 **TLDR**: this is kinda just how I chose to do it since all of the other RC functions are described in the autopilot and all of the reasons above are retroactive cope
-
-
-<br>
-
-## **How to Run**
-
-```sh
-ros2 run autopilot motorboat_autopilot
-```

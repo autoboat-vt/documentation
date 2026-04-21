@@ -13,11 +13,3 @@ The reason that this is a separate node from the autopilot nodes is that we woul
 If you would like more information on the telemetry node and what information it receives and how it communicates with the telemetry server/ groundstation, please see the [ros system diagrams](../../system_diagrams/diagram_of_ros_nodes.md) and the [system diagram specifically for the groundstation/ telemetry](../../system_diagrams/diagram_of_groundstation_telemetry.md).
 
 If you would like to learn more about the specific https routes that are available in the telemetry server and what their role is, then please refer to the [telemetry server documentation](../../groundstation_telemetry/telemetry_server_api_routes.md).
-
-<br>
-
-## **How to Run**
-
-```sh
-ros2 run autopilot telemetry
-```

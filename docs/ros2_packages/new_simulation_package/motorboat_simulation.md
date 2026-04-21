@@ -2,7 +2,7 @@
 
 ## **Summary**
 
-This simulation node wraps around a Gazebo Harmonic (a general purpose physics simulator) simulation of a motorboat traveling in a free plane of water. The source files are in `src/motorboat_simulation/`, which includes the motorboat gazebo file (`motorboat_model.sdf`), the custom plugins, and the `autopilot_transform` ros package.
+This simulation node wraps around a Gazebo Harmonic (a general purpose physics simulator) simulation of a motorboat traveling in a free plane of water. The source files are in `src/motorboat_simulation/`, which includes the motorboat gazebo file (`motorboat_model.sdf`), the custom plugins, and the `simulation_transform` ros package.
 
 ## **How to Run It**
 
@@ -16,8 +16,7 @@ gz sim motorboat_model.sdf
 To run the ros node, run:
 
 ```sh
-cd /home/ws/src/launch
-ros2 launch motorboat_simulation.launch.py
+ros2 launch autoboat_launch motorboat_simulation.launch.py
 ```
 
 ## **How it Works**

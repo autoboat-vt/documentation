@@ -6,11 +6,3 @@ This node is responsible for communicating back and forth between our GPS ([Spar
 We use the sparkfun-ublox-gps pip package to communicate with the gps, although in the future, we could look into the pyubx2 library as that seems to have more features. 
 
 In the future we may also want to look into RTK (real time kinematics) to increase our GPS accuracy, but even without that, our GPS module is really precise with 0.5 meter accuracy! RTK would be nice though because it allows us to apply less aggressive filtering techniques and still get good results.
-
-<br>
-
-## **How to Run**
-
-```sh
-ros2 run sensors gps
-```

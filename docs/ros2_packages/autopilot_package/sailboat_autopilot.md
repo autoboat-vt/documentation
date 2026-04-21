@@ -45,12 +45,3 @@ So then that begs the question, how large should the decision zone be. Well a co
 This formula is not perfect and can often be very wrong due to factors like noisy sensor data, the wind shifting, the boat drifting due to water currents, etc; however, it provides a good baseline for us to use in our algorithm.
 
 Using the decision zone tacking strategy and constantely updating the size of our decision zone, we can efficiently sail upwind!
-
-
-<br>
-
-## **How to Run**
-
-```sh
-ros2 run autopilot sailboat_autopilot
-```

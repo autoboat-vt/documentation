@@ -101,9 +101,12 @@ nav:
       - New Simulation Package:
           - Motorboat Simulation: ros2_packages/new_simulation_package/motorboat_simulation.md
 
-      - What About the Other Nodes: ros2_packages/other_nodes/what_about_the_other_nodes.md
 
-
+  - CI/CD, AutoboatOS, and the Devcontainer:
+      - CI/CD: ci_cd_autoboat_os_devcontainer/ci_cd.md
+      - AutoboatOS: ci_cd_autoboat_os_devcontainer/autoboat_operating_system.md
+      - Devcontainer: ci_cd_autoboat_os_devcontainer/devcontainer.md
+      - Common Devcontainer Issues and How to Solve Them: ci_cd_autoboat_os_devcontainer/common_devcontainer_issues_and_how_to_solve_them.md
 
   - Hardware:
       - Wiring Color Scheme: hardware/wiring_color_scheme.md
