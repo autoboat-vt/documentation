@@ -1,5 +1,3 @@
-**TODO TODO DOCUMENT THE WEIRD GPU WORKAROUND AND HOW GPU SUPPORT WORKS**
-
 # <p style="text-align: center;"> Devcontainer </p>
 
 This documentation assumes that you are familiar with what docker containers/ images are and how they work at a basic level. Please see the following resources if you would like to learn more:
@@ -43,20 +41,23 @@ This section will basically just outline all of the files inside of the .devcont
 Before we go into exactly what each of these files do, we have to make sure that you properly understand some of the vocabulary of docker. A **Host** is the computer that is running the docker container. On linux/ macOS this is your actual computer/ operating system and on windows the host is considered to be your WSL installation. 
 
 
-- devcontainer.json:
-  - This file determines pretty much everything about the devcontainer and most of the other files are simply called by this one. This file specifies all of the vscode extensions that should be installed to the devcontainer, all of the arguments for the "docker run" command, the username of the user inside of the devcontainer, etc.
+**devcontainer.json**:
+  This file determines pretty much everything about the devcontainer and most of the other files are simply called by this one. This file specifies all of the vscode extensions that should be installed to the devcontainer, all of the arguments for the "docker run" command, the username of the user inside of the devcontainer, etc. There is an interesting workaround here, with the GPU which is the following line in "runArgs": `"${localEnv:DOCKER_GPU_RUN_ARGS:--env}", "${localEnv:DOCKER_RUNTIME_RUN_ARGS:IGNORE_THIS=hi}"`. All this means is that if DOCKER_GPU_RUN_ARGS and DOCKER_RUNTIME_RUN_ARGS are not set, then we take on the following run argument: `--env IGNORE_THIS=hi` which basically does nothing. If we would like to enable GPUs inside of the devcontainer then we should set the environment variable DOCKER_GPU_RUN_ARGS to --runtime=nvidia and set DOCKER_RUNTIME_RUN_ARGS to --gpus=all.
 
-- postCreateCommand.sh:
-  - This command is run on the **Docker Container** right after it starts up and is used for final docker container initialization that requires the mounted filesystem/ github repository. For example, we need to know the exact code of the repository to properly run `colcon build --symlink-install` and build the project and generate the proper symlinks.  
+**postCreateCommand.sh**:
+  This command is run on the **Docker Container** right after it starts up and is used for final docker container initialization that requires the mounted filesystem/ github repository. For example, we need to know the exact code of the repository to properly run `colcon build --symlink-install` and build the project and generate the proper symlinks.  
 
-- initializeCommand.sh:
-  - This command is run on the **Host** computer before the docker container starts up. This is primarily used right now in order to ensure that whenever you rebuild the devcontainer that you have the most up to date version of the docker image for the devcontainer. Please note that the vscode implementation of the initializeCommand is actually bugged and is different from what the devcontainer standard actually requires; please see the following link for a more thorough explanation: https://github.com/microsoft/vscode-remote-release/issues/9278. 
+**initializeCommand.sh**:
+  This command is run on the **Host** computer before the docker container starts up. This is primarily used right now in order to ensure that whenever you rebuild the devcontainer that you have the most up to date version of the docker image for the devcontainer. Please note that the vscode implementation of the initializeCommand is actually bugged and is different from what the devcontainer standard actually requires; please see the following link for a more thorough explanation: https://github.com/microsoft/vscode-remote-release/issues/9278. 
 
-- host_setup.sh:
-  - This command is run by the user on the **HOST** computer by the user once when initially setting up the devcontainer. It ensures that you have the proper packages and environment variables installed on your computer in order to allow the devcontainer to access your display and GPU for the groundstation and computer vision training respectively. This file also does other miscellaneous things such as installing proper udev rules for all of the connected devices that we support.
+**host_setup.sh**:
+  This command is run by the user on the **HOST** computer by the user once when initially setting up the devcontainer. It ensures that you have the proper packages and environment variables installed on your computer in order to allow the devcontainer to access your display and GPU for the groundstation and computer vision training respectively. This file also does other miscellaneous things such as installing proper udev rules for all of the connected devices that we support.
 
-- devcontainer_environment_variables:
-  - This file is generated by host_setup.sh and is used by the devcontainer.json. All of the environment variables specified in this file are automatically imported into the --env-file argument for running docker containers as seen here: https://stackoverflow.com/questions/68122419/how-do-i-create-a-env-file-in-docker. This file can be used for setting the username visible to the groundstation and setting the display that the groundstation should render to. An example of the contents of this file can be seen below:
+**host_environment_variables**:
+  This is basically a bash script that is run whenever the bashrc or profilerc is run on the host operating system. These consist of any environment variables that the host needs to have to get certain functionality from the devcontainer such as GPU support or devcontainer variants.
+
+**devcontainer_environment_variables**:
+  This file is generated by host_setup.sh and is used by the devcontainer.json. All of the environment variables specified in this file are automatically imported into the --env-file argument for running docker containers as seen here: https://stackoverflow.com/questions/68122419/how-do-i-create-a-env-file-in-docker. This file can be used for setting the username visible to the groundstation and setting the display that the groundstation should render to. An example of the contents of this file can be seen below:
 
 ```bash
 devcontainer_environment_variables
@@ -65,11 +66,11 @@ DISPLAY=:0
 USER=animated
 ```
 
-- Dockerfile:
-  - This is the dockerfile that describes the docker image that the devcontainer.json uses and describes which packages should be installed into the devcontainer and how. **PLEASE NOTE** if you edit the dockerfile and rebuild the devcontainer, nothing will happen because the docker image that the devcontainer uses is pulled directly from docker hub (https://hub.docker.com/u/vtautoboat), which is the place where the CI/CD pipeline stores the docker images that we create after you push to main or create a new version tag. The issue is that in order to get your custom docker image to show up in docker hub, you would need to first push to main, which defeats the purpose of testing before you push to main. The resolution to this issue is discussed thoroughly in the next section titled "How to Test Custom Docker Images".  
+**Dockerfile**:
+  This is the dockerfile that describes the docker image that the devcontainer.json uses and describes which packages should be installed into the devcontainer and how. **PLEASE NOTE** if you edit the dockerfile and rebuild the devcontainer, nothing will happen because the docker image that the devcontainer uses is pulled directly from docker hub (https://hub.docker.com/u/vtautoboat), which is the place where the CI/CD pipeline stores the docker images that we create after you push to main or create a new version tag. The issue is that in order to get your custom docker image to show up in docker hub, you would need to first push to main, which defeats the purpose of testing before you push to main. The resolution to this issue is discussed thoroughly in the next section titled "How to Test Custom Docker Images".  
 
-- required_pip_packages.txt:
-  - This lists all of the python package requirements that the python ros2 packages and the groundstation require to run properly. The python packages listed in here are automatically installed via the Dockerfile. This is similar to a requirements.txt file if you have ever worked on other python based repositories, but it is slightly renamed to increase clarity.
+**required_pip_packages.txt**:
+  This lists all of the python package requirements that the python ros2 packages and the groundstation require to run properly. The python packages listed in here are automatically installed via the Dockerfile. This is similar to a requirements.txt file if you have ever worked on other python based repositories, but it is slightly renamed to increase clarity.
 
 
 <br>
