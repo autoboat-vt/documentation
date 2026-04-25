@@ -2817,25 +2817,25 @@ It also adds code to your shell's startup file (e.g. .bashrc) to ensure that the
 <h2 id="how-to-change-the-devcontainer-variant-you-are-currently-using"><p style="text-align: center;">How to Change the Devcontainer Variant You Are Currently Using</p></h2>
 <p>In order to switch the devcontainer variant you are currently working with, you have to perform the following steps:</p>
 <ol>
-<li>Go to the <code>.devcontainer/host_environment_variables.sh</code> file that should be automatically created from <code>host_setup.sh</code>.</li>
-</ol>
-<p><img alt="host_environment_variables" src="../../images/host_environment_variables.png" /></p>
-<ol>
+<li>
+<p>Go to the <code>.devcontainer/host_environment_variables.sh</code> file that should be automatically created from <code>host_setup.sh</code>.
+<img alt="host_environment_variables" src="../../images/host_environment_variables.png" /></p>
+</li>
 <li>
 <p>Then edit the line that says <code>export DEVCONTAINER_VARIANT=vtautoboat/development_image</code> so that the <code>DEVCONTAINER_VARIANT</code> environment variable contains the name of the devcontainer you want to use. For instance, if you want to use the microROS devcontainer, then you should edit the line to be <code>export DEVCONTAINER_VARIANT=vtautoboat/development_image_microros</code>. </p>
 </li>
 <li>
-<p>Once you have changed this line and saved the file, then close VSCode and then go to a WSL terminal or normal Linux/macOS terminal thats open at the root of the autoboat_vt repository and then run the following command:</p>
-</li>
-</ol>
-<p><div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/.bashrc<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>code<span class="w"> </span>.
+<p>Once you have changed this line and saved the file, then close VSCode and then go to a WSL terminal or normal Linux/macOS terminal thats open at the root of the autoboat_vt repository and then run the following command:
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/.bashrc<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>code<span class="w"> </span>.
 </code></pre></div>
 This will refresh your <code>.bashrc</code> and open VSCode on your autoboat_vt repository. </p>
-<ol>
-<li>Once VSCode opens, please run "Rebuild without Cache and Reopen Container" to rebuild the devcontainer so that it now uses the new devcontainer variant of your choice.</li>
+</li>
+<li>
+<p>Once VSCode opens, please run "Rebuild without Cache and Reopen Container" to rebuild the devcontainer so that it now uses the new devcontainer variant of your choice.
+<img alt="rebuild_reopen_devcontainer" src="../../images/rebuild_reopen_devcontainer.png" />
+Now you should be running the devcontainer variant of your choice and you should have everything preinstalled.</p>
+</li>
 </ol>
-<p><img alt="rebuild_reopen_devcontainer" src="../../images/rebuild_reopen_devcontainer.png" /></p>
-<p>Now you should be running the devcontainer variant of your choice and you should have everything preinstalled.</p>
 <h2 id="how-to-test-custom-docker-images"><p style="text-align: center;"> How to Test Custom Docker Images</p></h2>
 <p>If you would like to create and test your own Docker images for your individual branch, then you need to build the image so that you have it locally using Docker build, push the image to Docker hub, and use your custom Docker image as a "devcontainer_variant".</p>
 <ol>
