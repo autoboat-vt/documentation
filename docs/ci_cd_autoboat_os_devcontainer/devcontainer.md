@@ -1,64 +1,52 @@
-# <p style="text-align: center;"> Devcontainer </p>
+# <p style="text-align: center;">Devcontainer 101</p>
 
-This documentation assumes that you are familiar with what docker containers/ images are and how they work at a basic level. Please see the following resources if you would like to learn more:
+!!!NOTE "Wait what is Docker again?"
+    This documentation assumes that you are familiar with what Docker containers/images are and how they work at a basic level. If you are not familiar with Docker, please review the following: 
+    [Installing Docker Documentation](../getting_started/installing_docker.md)
 
-- [Docker Overview](https://docs.docker.com/guides/docker-overview/)  
-- [Docker Video Explanation 1](https://www.youtube.com/watch?v=0Rq1aw8ppMk&t=216s)  
-- [Docker Video Explanation 2](https://www.youtube.com/watch?v=WoZobj2Ruj0&t=313s)   
+## <p style="text-align: center;">Why Do We Need A Devcontainer?</p>
 
+A *devcontainer* is a development environment that is built on top of a Docker container. This has the following advantages:
 
+- It allows us to isolate our software from the rest of the user's computer, which allows us to ensure that if a piece of software works on your computer, it will work on everyone's computer and whatever computer that we are deploying the code onto.
+- It allows us to have a standardized development environment that works without needing to worry about the user's operating system, architecture, currently installed packages, etc.
+- It allows us to have a standardized set of extensions for VSCode that are automatically installed and configured to work with our codebase.
 
-<br>
+## <p style="text-align: center;">What Happens to The Files You Changed in the Devcontainer?</p>
 
-The devcontainer is a Docker container that we can develop new software inside of using an IDE like VSCode. The devcontainer standard is a standard that standardises how these IDEs open these Docker containers and what functionality they need to support. The devcontainer standard basically defines how the devcontainer.json file is supposed to be structured and what it can include. Everything that interacts with the devcontainer.json can be found in .devcontainer. You can find more information about the devcontainer standard in the following links: https://containers.dev/implementors/spec/, https://containers.dev/overview, and https://containers.dev/implementors/json_reference/.
+Lets say you just implemented an awesome new feature to the Groundstation, but now want to exit the devcontainer for whatever reason. You may worry that the totally dope new code you just wrote will be lost to the man who lives inside the computer.
 
+Fret not my friend! The files inside your devcontainer are actually the *same* files as the ones **outside the devcontainer**. This is possible thanks to *[bind mounting](https://docs.docker.com/engine/storage/bind-mounts)*, a feature of Docker that allows us to expose files from outside the devcontainer which can then be edited from inside the devcontainer. **Any** change you make to the files inside the devcontainer will automatically be reflected on your native operating system's filesystem (for Linux or macOS users) or inside of your WSL filesystem for Windows users. Please see the below figure for a visual representation of this concept:
 
-<br>
+![Bind Mounting](../images/docker_bind.png)
 
-## <p style="text-align: center;"> Why Do We Need A Devcontainer?</p>
+Thus, you can rest assured that any changes you make to the code inside the devcontainer will be reflected on your computer's filesystem and will not be lost when you exit the devcontainer.
 
-Devcontainers allow us to simplify the installation process of our software between the unlimited different configurations, operating systems, package managers, architectures, currently installed packages etc. You simply have to install the devcontainer extension for vscode and build the devcontainer and then thats it! No lengthy installation scripts that must work on any computer regardless of operating system and architecture. Docker also allows us to isolate our software from the rest of your computer, so that everything works regardless of whats on your computer! In addition, isolating this software from the rest of your computer allows us to ensure that if a piece of software works on your computer, it will work on everyone's computer and whatever computer that we are deploying the code onto. The last important thing that devcontainers allow us to do is to is to have a standard set of extensions for our IDE, which allows us to automatically configure things like intellisense without the user needing to spend all day configuring their extensions.
+## <p style="text-align: center;">How Are All of the Files in the `.devcontainer` Folder Structured?</p>
 
+### `devcontainer.json`
+This is the main file that describes the devcontainer and how it should be built. This file is used by VSCode to know how to build the devcontainer and what docker image to use, what extensions to install, what commands to run on startup, etc.
 
-<br>
+### `host_setup.sh`
+This file is run once by the user on the host computer when initially setting up the devcontainer. It ensures that you have the proper packages installed and environment variables set on your computer in order to allow the devcontainer to access your display and GPU for the Groundstation and computer vision. This file also does other miscellaneous things such as installing proper udev rules for all of the connected devices that we support.
 
+### `initializeCommand.sh`  
+This command is run on the host computer before the Docker container starts up. This is primarily used to ensure that whenever you rebuild the devcontainer, that you have the most up to date version of the Docker image for the devcontainer. Please note that the VSCode implementation of the `initializeCommand` is actually bugged and is different from what the devcontainer standard actually requires; please see the following link for a more thorough explanation: <https://github.com/microsoft/vscode-remote-release/issues/9278>. 
 
-## <p style="text-align: center;"> What Happens to The Files You Changed in the Devcontainer?</p>
+### `postCreateCommand.sh`
+This file is run before the `.bashrc` file run and is where we setup any librariers or packages that need to be installed inside the devcontainer after the docker image is built. This is also where we can put any commands that we want to run every time we start up the devcontainer such as sourcing the ROS2 workspace or setting up environment variables. It is in a way similar to the `.bashrc` file, but it is only run once when the devcontainer is first created and not every time a new terminal is opened inside the devcontainer.
 
-Lets say you just changed a file in the /home/ws folder in the devcontainer. What happens to this file and can your progress get deleted if you close the devcontainer or rebuild it?
+### `host_environment_variables`
+This is a file generated by `host_setup.sh` that contains environment variables that are used by `devcontainer.json`. An example of the contents of this file can be seen below:
+```bash
+# Host environment variables for autoboat-vt
+export DEVCONTAINER_VARIANT=vtautoboat/development_image
+export docker.for.mac.host.internal:0
+```
+It also adds code to your shell's startup file (e.g. .bashrc) to ensure that these environment variables are automatically loaded into your environment every time you open a new terminal.
 
-Thankfully, via a process called bind mounting in docker, any change that you make inside of the devcontainer in the /home/ws folder will automatically update on your native operating system's filesystem (for linux or macos users) or inside of your WSL filesystem for windows users! This means that you can never "lose your progress" if you rebuild or close the devcontainer! The only thing that you should be familiar with is that once you rebuild the devcontainer, it will delete any packages that you may have installed inside of the devcontainer or any files outside of the /home/ws directory, so just keep that in mind and try to never rebuild the devcontainer unless you are ok with deleting all installed packages. For normal use, you should only "reopen" the devcontainer. 
-
-Bind mounting is a fairly standard and simple process that docker containers support, which allows us to mirror any file changes inside of our docker container to your native operating system's filesystem in the case of linux/macos and WSL in the case of windows. Therefore, no matter what happens to the devcontainer, your changes will be automatically saved where you initially cloned the github repository, so there is no need to worry! You can read more about bind mounting here: https://docs.docker.com/engine/storage/bind-mounts/. 
-
-
-<br>
-
-## <p style="text-align: center;"> How Are All of the Files in the .devcontainer Folder Structured?</p>
-
-This section will basically just outline all of the files inside of the .devcontainer (which are all of the files that interact with the devcontainer)
-
-Before we go into exactly what each of these files do, we have to make sure that you properly understand some of the vocabulary of docker. A **Host** is the computer that is running the docker container. On linux/ macOS this is your actual computer/ operating system and on windows the host is considered to be your WSL installation. 
-
-
-**devcontainer.json**:
-  This file determines pretty much everything about the devcontainer and most of the other files are simply called by this one. This file specifies all of the vscode extensions that should be installed to the devcontainer, all of the arguments for the "docker run" command, the username of the user inside of the devcontainer, etc. There is an interesting workaround here, with the GPU which is the following line in "runArgs": `"${localEnv:DOCKER_GPU_RUN_ARGS:--env}", "${localEnv:DOCKER_RUNTIME_RUN_ARGS:IGNORE_THIS=hi}"`. All this means is that if DOCKER_GPU_RUN_ARGS and DOCKER_RUNTIME_RUN_ARGS are not set, then we take on the following run argument: `--env IGNORE_THIS=hi` which basically does nothing. If we would like to enable GPUs inside of the devcontainer then we should set the environment variable DOCKER_GPU_RUN_ARGS to --runtime=nvidia and set DOCKER_RUNTIME_RUN_ARGS to --gpus=all.
-
-**postCreateCommand.sh**:
-  This command is run on the **Docker Container** right after it starts up and is used for final docker container initialization that requires the mounted filesystem/ github repository. For example, we need to know the exact code of the repository to properly run `colcon build --symlink-install` and build the project and generate the proper symlinks.  
-
-**initializeCommand.sh**:
-  This command is run on the **Host** computer before the docker container starts up. This is primarily used right now in order to ensure that whenever you rebuild the devcontainer that you have the most up to date version of the docker image for the devcontainer. Please note that the vscode implementation of the initializeCommand is actually bugged and is different from what the devcontainer standard actually requires; please see the following link for a more thorough explanation: https://github.com/microsoft/vscode-remote-release/issues/9278. 
-
-**host_setup.sh**:
-  This command is run by the user on the **HOST** computer by the user once when initially setting up the devcontainer. It ensures that you have the proper packages and environment variables installed on your computer in order to allow the devcontainer to access your display and GPU for the groundstation and computer vision training respectively. This file also does other miscellaneous things such as installing proper udev rules for all of the connected devices that we support.
-
-**host_environment_variables**:
-  This is basically a bash script that is run whenever the bashrc or profilerc is run on the host operating system. These consist of any environment variables that the host needs to have to get certain functionality from the devcontainer such as GPU support or devcontainer variants.
-
-**devcontainer_environment_variables**:
-  This file is generated by host_setup.sh and is used by the devcontainer.json. All of the environment variables specified in this file are automatically imported into the --env-file argument for running docker containers as seen here: https://stackoverflow.com/questions/68122419/how-do-i-create-a-env-file-in-docker. This file can be used for setting the username visible to the groundstation and setting the display that the groundstation should render to. An example of the contents of this file can be seen below:
-
+### `devcontainer_environment_variables`
+This file is generated by `host_setup.sh` and is used by `devcontainer.json`. All of the environment variables specified in this file are automatically imported into the `--env-file` argument for running Docker containers as seen here: <https://stackoverflow.com/questions/68122419/how-do-i-create-a-env-file-in-docker>. This file can be used for setting the username visible to the Groundstation and setting the display that the Groundstation should render to. An example of the contents of this file can be seen below:
 ```bash
 devcontainer_environment_variables
 
@@ -66,81 +54,66 @@ DISPLAY=:0
 USER=animated
 ```
 
-**Dockerfile**:
-  This is the dockerfile that describes the docker image that the devcontainer.json uses and describes which packages should be installed into the devcontainer and how. **PLEASE NOTE** if you edit the dockerfile and rebuild the devcontainer, nothing will happen because the docker image that the devcontainer uses is pulled directly from docker hub (https://hub.docker.com/u/vtautoboat), which is the place where the CI/CD pipeline stores the docker images that we create after you push to main or create a new version tag. The issue is that in order to get your custom docker image to show up in docker hub, you would need to first push to main, which defeats the purpose of testing before you push to main. The resolution to this issue is discussed thoroughly in the next section titled "How to Test Custom Docker Images".  
+### `Dockerfile`:
+  This is the Dockerfile that describes the Docker image that the `devcontainer.json` uses. **PLEASE NOTE** if you edit the Dockerfile and rebuild the devcontainer, nothing will happen because the Docker image that the devcontainer uses is pulled directly from Docker hub (<https://hub.docker.com/u/vtautoboat>), which is the place where the CI/CD pipeline stores the Docker images that we create after you push to main or create a new version tag. The issue is that in order to get your custom Docker image to show up in Docker hub, you would need to first push to main, which defeats the purpose of testing before you push to main. The resolution to this issue is discussed thoroughly in the next [section](#how-to-test-custom-docker-images) of this document.
 
-**required_pip_packages.txt**:
-  This lists all of the python package requirements that the python ros2 packages and the groundstation require to run properly. The python packages listed in here are automatically installed via the Dockerfile. This is similar to a requirements.txt file if you have ever worked on other python based repositories, but it is slightly renamed to increase clarity.
+### `required_pip_packages.txt`
+  This lists all of the Python package requirements that the Python ROS2 packages and the Groundstation require to run properly. The python packages listed in here are automatically installed via the Dockerfile. This is similar to a `requirements.txt` file if you have ever worked on other Python projects, but it is renamed for clarity.
 
+## <p style="text-align: center;">What Are Devcontainer Variants?</p>
 
-<br>
-
-
-## <p style="text-align: center;"> What Are Devcontainer Variants?</p>
-
-Devcontainer variants allow us to have different devcontainers for each of the things people might want to develop on. For example, if you want to develop on computer vision algorithms or if you want to do firmware/ microros development, you might want radically different software installed. Because of that, we actually have multiple devcontainers that we can use as a drop in replacement for the "base" devcontainer. 
+We need to have different variants of the devcontainer because different branches may require different dependencies. However, not all branches require different dependencies, so it would be a waste of disk space to have a different devcontainer for every single branch. Thus, we have a few different devcontainer variants that we use for different branches depending on the dependencies that they require. For instance, if you are working on a branch that requires microROS, then you would want to use the `vtautoboat/development_image_microros` devcontainer variant because it has microROS already installed and set up. However, if you are working on a branch that does not require microROS, then you can just use the `vtautoboat/development_image` devcontainer variant which does not have microROS installed and thus takes up less disk space.
 
 The following are the currently available devcontainer variants:
 
-- vtautoboat/development_image
-- vtautoboat/development_image_microros
-- vtautoboat/development_image_deepstream
+- `vtautoboat/development_image`
+- `vtautoboat/development_image_microros`
+- `vtautoboat/development_image_deepstream`
 
-
-
-## <p style="text-align: center;"> How to Change the Devcontainer Variant You Are Currently Using</p>
+## <p style="text-align: center;">How to Change the Devcontainer Variant You Are Currently Using</p>
 
 In order to switch the devcontainer variant you are currently working with, you have to perform the following steps:
 
-Go to the .devcontainer/host_environment_variables.sh file that should be automatically created from host_setup.sh.
+1. Go to the `.devcontainer/host_environment_variables.sh` file that should be automatically created from `host_setup.sh`.
 
 ![host_environment_variables](../images/host_environment_variables.png)
 
-Then edit the line that says `export DEVCONTAINER_VARIANT=vtautoboat/development_image` and edit it so that the DEVCONTAINER_VARIANT environment variable contains the name of the devcontainer you want to use. For instance, if you want to use the microros devcontainer, then you should edit the line to be `export DEVCONTAINER_VARIANT=vtautoboat/development_image_microros`. 
+2. Then edit the line that says `export DEVCONTAINER_VARIANT=vtautoboat/development_image` so that the `DEVCONTAINER_VARIANT` environment variable contains the name of the devcontainer you want to use. For instance, if you want to use the microROS devcontainer, then you should edit the line to be `export DEVCONTAINER_VARIANT=vtautoboat/development_image_microros`. 
 
-Once you have changed this line and saved the file, then close vscode and then go to a WSL terminal or normal linux/ macos terminal thats open at the root of the autoboat_vt repository and then run the following command:
+3. Once you have changed this line and saved the file, then close VSCode and then go to a WSL terminal or normal Linux/macOS terminal thats open at the root of the autoboat_vt repository and then run the following command:
 
-```source ~/.bashrc && code .```
+```bash
+source ~/.bashrc && code .
+```
+This will refresh your `.bashrc` and open VSCode on your autoboat_vt repository. 
 
-This will refresh your bashrc and open vscode on your autoboat_vt repository. Once vscode opens, please run "Rebuild without Cache and Reopen Container" to rebuild the devcontainer so that it now rebuilds the new devcontainer variant of your choice.
+4. Once VSCode opens, please run "Rebuild without Cache and Reopen Container" to rebuild the devcontainer so that it now uses the new devcontainer variant of your choice.
 
 ![rebuild_reopen_devcontainer](../images/rebuild_reopen_devcontainer.png)
 
 Now you should be running the devcontainer variant of your choice and you should have everything preinstalled.
 
-
-<br>
-
-
 ## <p style="text-align: center;"> How to Test Custom Docker Images</p>
 
-If you would like to create and test your own docker images for your individual branch, then you need to do is to build the image so that you have it locally using docker build, push the image to docker hub, and use your custom docker image as a "devcontainer_variant".
+If you would like to create and test your own Docker images for your individual branch, then you need to build the image so that you have it locally using Docker build, push the image to Docker hub, and use your custom Docker image as a "devcontainer_variant".
 
-You can use the following command to build the docker image. Make sure to run this in the root of the repository and edit the "temp_tag" part with whatever your branch's name is. For example for a branch called motorboat_simulation, you would replace "temp_tag" with "motorboat_simulation". Keep note of what this tag is, we will need it in future commands.
-
-```sh
+1. The command below will build your custom Docker image. Make sure to run this in the root of the repository and edit the `temp_tag` part with whatever your branch's name is. For example for a branch called `motorboat_simulation`, you would replace `temp_tag` with `motorboat_simulation`. Keep note of what this tag is as we will need it in future commands.
+```bash
 docker build -t vtautoboat/development_image:temp_tag -f .devcontainer/Dockerfile .
 ```
 
-Next, go to your browser and go to docker hub and log into docker hub using the autoboat docker hub account. If you do not have the credentials for the autoboat docker hub account, please ask an officer and they should be able to help you. Once you have logged in on your browser, run the following command and follow the given instructions to log into docker hub in your terminal:
-
-
-```sh
+2. Next, go to your browser and open Docker hub. Log into Docker hub using the autoboat Docker hub account. If you do not have the credentials for the autoboat Docker hub account, please ask an officer and they should be able to help you. Once you have logged in on your browser, run the following command and follow the given instructions to log into Docker hub in your terminal:
+```bash
 docker login
 ```
 
-Once you have been successfully logged in, run the following command to push your custom image to docker hub. Remember to replace "temp_tag" with the name of the branch you are working on.
-
-```sh
+3. Once you have been successfully logged in, run the following command to push your custom image to Docker hub. Remember to replace `temp_tag` with the name of the branch you are working on.
+```bash
 docker push vtautoboat/development_image:temp_tag
 ```
 
-Now, your custom docker image should show up as a devcontainer variant! You should be able to edit .devcontainer/host_environment_variables to point to this new devcontainer variant. Next you just have to close vscode, run `source ~/.bashrc && code .`, and then rebuild the devcontainer to open a devcontainer based on your custom docker image. When you are ready to pull request to main, your custom docker image will automatically be used as the default devcontainer that will be installed on everybody's computer. This process is handled automatically via the CI/CD pipeline by building the default devcontainer off of whatever dockerfile is found in the "main" branch of the repository.
-
-
-<br>
-
+4. Now, your custom docker image should show up as a devcontainer variant! You should now be able to edit `.devcontainer/host_environment_variables` to point to this new devcontainer variant. After editing `.devcontainer/host_environment_variables`, you just have to close VSCode, run `source ~/.bashrc && code .`, and then rebuild the devcontainer to open a devcontainer based on your custom Docker image. When you are ready to pull request to main, your custom Docker image will automatically be used as the default devcontainer that will be installed on everybody's computer. This process is handled automatically via the CI/CD pipeline by building the default devcontainer off of whatever Dockerfile is found in the main branch of the repository.
 
 ## <p style="text-align: center;"> How Does the Devcontainer Interact with the CI/CD Pipeline?</p>
 
-When a commmit is pushed to main or a new version is created and pushed to the github repository, the CI/CD pipeline will automatically build the vtautoboat/development_image and vtautoboat/development_image_microros docker images and push them to docker hub. There is a trigger on docker hub to update the vtautoboat/development_image_deepstream automatically whenever the vtautoboat/development_image is updated. This is not built on the github action because unfortunately it requires more disk space to build than github actions is willing to give us for free.
+When a commmit is pushed to main or a new version is created and pushed to the Github repository, the CI/CD pipeline will automatically build the `vtautoboat/development_image` and `vtautoboat/development_image_microros` Docker images and push them to Docker hub. There is a trigger on Docker hub to update the `vtautoboat/development_image_deepstream` automatically whenever the `vtautoboat/development_image` is updated. This is not built on the Github action because unfortunately it requires more disk space to build than Github actions is willing to give us for free.
