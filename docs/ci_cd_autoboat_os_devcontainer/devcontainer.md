@@ -75,22 +75,18 @@ The following are the currently available devcontainer variants:
 In order to switch the devcontainer variant you are currently working with, you have to perform the following steps:
 
 1. Go to the `.devcontainer/host_environment_variables.sh` file that should be automatically created from `host_setup.sh`.
-
 ![host_environment_variables](../images/host_environment_variables.png)
 
 2. Then edit the line that says `export DEVCONTAINER_VARIANT=vtautoboat/development_image` so that the `DEVCONTAINER_VARIANT` environment variable contains the name of the devcontainer you want to use. For instance, if you want to use the microROS devcontainer, then you should edit the line to be `export DEVCONTAINER_VARIANT=vtautoboat/development_image_microros`. 
 
 3. Once you have changed this line and saved the file, then close VSCode and then go to a WSL terminal or normal Linux/macOS terminal thats open at the root of the autoboat_vt repository and then run the following command:
-
 ```bash
 source ~/.bashrc && code .
 ```
 This will refresh your `.bashrc` and open VSCode on your autoboat_vt repository. 
 
 4. Once VSCode opens, please run "Rebuild without Cache and Reopen Container" to rebuild the devcontainer so that it now uses the new devcontainer variant of your choice.
-
 ![rebuild_reopen_devcontainer](../images/rebuild_reopen_devcontainer.png)
-
 Now you should be running the devcontainer variant of your choice and you should have everything preinstalled.
 
 ## <p style="text-align: center;"> How to Test Custom Docker Images</p>
