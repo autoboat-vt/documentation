@@ -2662,10 +2662,12 @@ If you want to to learn more about CI/CD with Github, please see the below links
 <h3 id="scripts-folder"><p style="text-align: center;"> Scripts Folder</p></h3>
 <p>This folder simply contains helper scripts that the <code>build-and-release.yml</code> workflow file uses so that we can keep the workflow file as clean as possible. The workflow file is already long enough, and it doesn't need to be longer by inlining bash scripts.</p>
 <h3 id="deb-folder"><p style="text-align: center;"> Deb Folder</p></h3>
-<p>This folder contains all of the files required to construct the Debian packages. This includes:
-- Post installation commands
-- Commands to run when removing the Debian packages
-- Package requirements and descriptions</p>
+<p>This folder contains all of the files required to construct the Debian packages. This includes:</p>
+<ul>
+<li>Post installation commands</li>
+<li>Commands to run when removing the Debian packages</li>
+<li>Package requirements and descriptions</li>
+</ul>
 <p>Some tutorials for building Debian packages:</p>
 <ul>
 <li><a href="https://linuxopsys.com/build-debian-packages">https://linuxopsys.com/build-debian-packages</a></li>
