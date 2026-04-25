@@ -47,6 +47,7 @@ This folder simply contains helper scripts that the `build-and-release.yml` work
 ### <p style="text-align: center;"> Deb Folder</p>
 
 This folder contains all of the files required to construct the Debian packages. This includes:
+
 - Post installation commands
 - Commands to run when removing the Debian packages
 - Package requirements and descriptions
