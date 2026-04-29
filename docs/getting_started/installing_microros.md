@@ -5,7 +5,7 @@ To create a layer of protection between Jetson and high voltages, and extend the
 To install microros on your machine, run the following command. Note that the installation will take approximately 5 GB:
 
 ```sh
-	cd /home/ws/src/microros
+	cd /home/ws/microros
 	bash microros_setup.sh
 ```
 
