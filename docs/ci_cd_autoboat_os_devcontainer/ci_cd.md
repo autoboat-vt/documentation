@@ -1,14 +1,18 @@
-# <p style="text-align: center;"> Continuous Integration/ Continous Deployment (CI/CD) </p>
+# <p style="text-align: center;"> Continuous Integration/Continous Deployment (CI/CD) </p>
 
-The purpose of the CI/CD pipeline is to allow us to automatically perform certain actions whenever we push new changes to the main branch of the repository. These can include rebuilding binaries for both intel and arm CPUs, rebuilding the docker image that the devcontainer uses and pushing that docker image to docker hub so other people can easily use it, creating a new "github release" which allows people to install autoboat binaries via the apt package manager, etc etc. All of the files related to the CI/CD pipeline can be found in the .github folder.
+The purpose of the CI/CD pipeline is to automatically perform certain actions when we push changes to the main branch of the repository. Some examples of these actions include:
 
-If you would like to learn more about CI/CD with github, please take a look at the following resources: https://docs.github.com/en/actions and https://docs.docker.com/build/ci/github-actions/
+- Rebuilding binaries for both Intel and Arm CPUs
+- Rebuilding the Docker image that the devcontainer uses and pushing that image to Docker hub
+- Creating a new Github release which allows people to install Autoboat binaries via the `apt` package manager
 
-<br>
+All of the files related to the CI/CD pipeline can be found in the `.github` folder.  
+If you want to to learn more about CI/CD with Github, please see the below links:
+ 
+- <https://docs.github.com/en/actions>
+- <https://docs.docker.com/build/ci/github-actions>
 
 ## <p style="text-align: center;"> Summary of What the CI/CD Pipeline Is Trying To Do</p>
-
-
 ### CI/CD Pipeline Summary
 | Feature | Pull Request (PR) | Push to `main` | Version Tag (`v*`) |
 | :--- | :---: | :---: | :---: |
@@ -19,20 +23,36 @@ If you would like to learn more about CI/CD with github, please take a look at t
 | **Create Official Release** | ❌ | ❌ | ✅ |
 | **Multi-Arch Manifests** | ❌ | ✅ | ✅ |
 
-
-
-## <p style="text-align: center;"> File Structure of the .github Folder</p>
-
+## <p style="text-align: center;"> File Structure of the `.github` Folder</p>
 ### <p style="text-align: center;"> Workflows Folder</p>
 
-This is the main folder that contains most of the information about how to run the CI/CD pipeline. The main file is the build-and-release.yml, which is a standard github actions yaml file that defines each of the different jobs that the CI/CD pipeline must run. For example, this contains all of the logic to automatically build/ push the devcontainer variants, building/ distributing ros2 binaries, and publishing official releases. If you would like to learn more about github actions, how they work, syntax, etc etc then you can find the official documentation here: https://docs.github.com/en/actions.
+The files in this folder are used to define the different workflows that should run when certain events happen. Currently it contains two files:
 
+- `build-and-release.yml`: This is the main workflow file that defines the CI/CD pipeline. It contains the logic for:
+    - Building each devcontainer variant and pushing those images to Docker hub
+    - Building the Debian packages for both Intel and Arm CPUs and pushing those packages to our `apt` repository
+    - Creating a new Github release when we push a new version tag (e.g. `v1.0.0`) to the repository
+
+- `docker-bake.hcl`: This file is used to define the different Docker build targets that we want to build when we push changes to the main branch. This file is used by the `build-and-release.yml` workflow file to build the different Docker images that the devcontainer uses and push those images to Docker hub.
+
+To learn more about Github workflows, please see the following links:
+
+- <https://docs.github.com/en/actions>
+- <https://docs.docker.com/build/ci/github-actions>
 
 ### <p style="text-align: center;"> Scripts Folder</p>
 
-This folder simply contains helper scripts that the build-and-release.yml workflow file uses so that we can keep the workflow file as clean as possible. The workflow file is already long enough, and it doesn't need to be longer by inlining bash scripts.
-
+This folder simply contains helper scripts that the `build-and-release.yml` workflow file uses so that we can keep the workflow file as clean as possible. The workflow file is already long enough, and it doesn't need to be longer by inlining bash scripts.
 
 ### <p style="text-align: center;"> Deb Folder</p>
 
-This folder contains all of the files required to construct the debian packages. This includes post installation commands, commands to run when removing the debian packages, package requirements, and package descriptions. Some tutorials for building debian packages can be found here: https://linuxopsys.com/build-debian-packages and https://blog.heckel.io/2015/10/18/how-to-create-debian-package-and-debian-repository/.
+This folder contains all of the files required to construct the Debian packages. This includes:
+
+- Post installation commands
+- Commands to run when removing the Debian packages
+- Package requirements and descriptions
+
+Some tutorials for building Debian packages:
+
+- <https://linuxopsys.com/build-debian-packages>
+- <https://blog.heckel.io/2015/10/18/how-to-create-debian-package-and-debian-repository>
