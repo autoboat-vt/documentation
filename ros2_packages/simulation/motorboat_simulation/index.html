@@ -8,31 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://localhost:8000/ros2_packages/sensors_package/gps/">
+        <link rel="canonical" href="https://localhost:8000/ros2_packages/simulation/motorboat_simulation/">
       
       
-        <link rel="prev" href="../../autopilot_package/telemetry/">
+        <link rel="prev" href="../../autoboat_messages_package/autoboat_msgs/">
       
       
-        <link rel="next" href="../rc/">
-      
-      
-        
+        <link rel="next" href="../../../ci_cd_autoboat_os_devcontainer/ci_cd/">
       
       
       <link rel="icon" href="../../../images/logo.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>GPS Node - AutoBoat Documentation</title>
+        <title>Motorboat Simulation - AutoBoat Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -59,6 +56,7 @@
 
     
     
+    
   </head>
   
   
@@ -76,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gps" class="md-skip">
+        <a href="#motorboat-simulation" class="md-skip">
           Skip to content
         </a>
       
@@ -111,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              GPS Node
+              Motorboat Simulation
             
           </span>
         </div>
@@ -168,7 +166,7 @@
         <a href="https://github.com/autoboat-vt" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub Organization
@@ -213,7 +211,7 @@
       <a href="https://github.com/autoboat-vt" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub Organization
@@ -235,14 +233,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Home
-  
-
     
   </span>
-  
   
 
       </a>
@@ -273,14 +266,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Getting Started
-  
-
     
   </span>
-  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -289,11 +277,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            
-  
-    Getting Started
-  
-
+            Getting Started
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -309,14 +293,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Installing Docker
-  
-
     
   </span>
-  
   
 
       </a>
@@ -337,14 +316,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Setting Up the Development Container
-  
-
     
   </span>
-  
   
 
       </a>
@@ -360,19 +334,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../getting_started/installing_microros/" class="md-nav__link">
+      <a href="../../../getting_started/installing_firmware_dependencies/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    
-  
-    Installing MicroROS
-  
-
+    Installing Firmware Dependencies
     
   </span>
-  
   
 
       </a>
@@ -393,14 +362,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     How to Start Developing on the Website
-  
-
     
   </span>
-  
   
 
       </a>
@@ -421,14 +385,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Installing and Running Deepstream for Object Detection
-  
-
     
   </span>
-  
   
 
       </a>
@@ -467,14 +426,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Examples
-  
-
     
   </span>
-  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -483,11 +437,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            
-  
-    Examples
-  
-
+            Examples
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -503,14 +453,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Running the Simulation
-  
-
     
   </span>
-  
   
 
       </a>
@@ -531,14 +476,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Connecting A USB Device to WSL
-  
-
     
   </span>
-  
   
 
       </a>
@@ -559,14 +499,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Adding Documentation
-  
-
     
   </span>
-  
   
 
       </a>
@@ -587,14 +522,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Adding A New External Pip Libraries that We Can Edit
-  
-
     
   </span>
-  
   
 
       </a>
@@ -633,14 +563,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     System Diagrams
-  
-
     
   </span>
-  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -649,11 +574,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            
-  
-    System Diagrams
-  
-
+            System Diagrams
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -669,14 +590,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Communication Between Groundstation and Autopilot
-  
-
     
   </span>
-  
   
 
       </a>
@@ -697,14 +613,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     How the Simulation Works and Communicates with ROS
-  
-
     
   </span>
-  
   
 
       </a>
@@ -725,14 +636,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     ROS2 Node Diagrams
-  
-
     
   </span>
-  
   
 
       </a>
@@ -771,14 +677,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Groundstation/Telemetry
-  
-
     
   </span>
-  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -787,11 +688,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
-            
-  
-    Groundstation/Telemetry
-  
-
+            Groundstation/Telemetry
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -807,14 +704,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     New Member Overview
-  
-
     
   </span>
-  
   
 
       </a>
@@ -835,14 +727,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Groundstation
-  
-
     
   </span>
-  
   
 
       </a>
@@ -863,14 +750,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Telemetry Server
-  
-
     
   </span>
-  
   
 
       </a>
@@ -911,14 +793,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     ROS2 Packages and Nodes
-  
-
     
   </span>
-  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -927,11 +804,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
-            
-  
-    ROS2 Packages and Nodes
-  
-
+            ROS2 Packages and Nodes
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -958,14 +831,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Autopilot Package
-  
-
     
   </span>
-  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -974,11 +842,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6_1">
             <span class="md-nav__icon md-icon"></span>
-            
-  
-    Autopilot Package
-  
-
+            Autopilot Package
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -994,14 +858,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Common Documentation Between the Motorboat Autopilot and the Sailboat Autopilot
-  
-
     
   </span>
-  
   
 
       </a>
@@ -1022,14 +881,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Sailboat Autopilot Node
-  
-
     
   </span>
-  
   
 
       </a>
@@ -1050,14 +904,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Motorboat Autopilot Node
-  
-
     
   </span>
-  
   
 
       </a>
@@ -1078,14 +927,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Telemetry
-  
-
     
   </span>
-  
   
 
       </a>
@@ -1106,20 +950,18 @@
                 
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
         
           
           <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
@@ -1127,27 +969,18 @@
   
   
   <span class="md-ellipsis">
-    
-  
-    Sensors Package
-  
-
+    Drivers Package
     
   </span>
-  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6_2">
             <span class="md-nav__icon md-icon"></span>
-            
-  
-    Sensors Package
-  
-
+            Drivers Package
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1155,83 +988,20 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    GPS Node
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../drivers_package/gps/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    
-  
     GPS Node
-  
-
     
   </span>
-  
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Summary
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1244,19 +1014,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../rc/" class="md-nav__link">
+      <a href="../../drivers_package/rc/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    
-  
     RC (Remote Controller) Node
-  
-
     
   </span>
-  
   
 
       </a>
@@ -1272,19 +1037,37 @@
   
   
     <li class="md-nav__item">
-      <a href="../wind_sensor/" class="md-nav__link">
+      <a href="../../drivers_package/wind_sensor/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    
-  
     Wind Sensor Node
-  
-
     
   </span>
   
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../drivers_package/vesc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    VESC Node
+    
+  </span>
   
 
       </a>
@@ -1324,14 +1107,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
-    VESC Package
-  
-
+    Object Detection Package
     
   </span>
-  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1340,11 +1118,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6_3">
             <span class="md-nav__icon md-icon"></span>
-            
-  
-    VESC Package
-  
-
+            Object Detection Package
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1355,19 +1129,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../vesc_package/vesc/" class="md-nav__link">
+      <a href="../../object_detection_package/object_detection/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    
-  
-    VESC Node
-  
-
+    Object Detection Node
     
   </span>
-  
   
 
       </a>
@@ -1407,14 +1176,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
-    Microros Package
-  
-
+    AutoBoat Messages Package
     
   </span>
-  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1423,177 +1187,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6_4">
             <span class="md-nav__icon md-icon"></span>
-            
-  
-    Microros Package
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../microros_package/microros/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Raspberry Pi Pico Microros Node
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Object Detection Package
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_5">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Object Detection Package
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../object_detection_package/object_detection/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Object Detection Node
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6_6" id="__nav_6_6_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    AutoBoat Messages Package
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_6">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    AutoBoat Messages Package
-  
-
+            AutoBoat Messages Package
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1609,14 +1203,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     AutoBoat Messages Node
-  
-
     
   </span>
-  
   
 
       </a>
@@ -1637,46 +1226,39 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_6_7" id="__nav_6_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
             
   
   
   <span class="md-ellipsis">
-    
-  
     Simulation Package
-  
-
     
   </span>
-  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_5">
             <span class="md-nav__icon md-icon"></span>
-            
-  
-    Simulation Package
-  
-
+            Simulation Package
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1684,108 +1266,98 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../../simulation_package/sailboat_simulation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
     
   
-    Sailboat Simulation Node
-  
-
-    
-  </span>
   
   
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
+    <li class="md-nav__item md-nav__item--active">
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_8" >
-        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
           
-          <label class="md-nav__link" for="__nav_6_8" id="__nav_6_8_label" tabindex="0">
-            
   
   
   <span class="md-ellipsis">
-    
-  
-    New Simulation Package
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_8">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    New Simulation Package
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../new_simulation_package/motorboat_simulation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
     Motorboat Simulation
-  
-
     
   </span>
   
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Motorboat Simulation
+    
+  </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-run-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Run It
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How it Works
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-develop" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Develop
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1829,14 +1401,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     CI/CD, AutoboatOS, and the Devcontainer
-  
-
     
   </span>
-  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -1845,11 +1412,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
-            
-  
-    CI/CD, AutoboatOS, and the Devcontainer
-  
-
+            CI/CD, AutoboatOS, and the Devcontainer
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1865,14 +1428,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     CI/CD
-  
-
     
   </span>
-  
   
 
       </a>
@@ -1893,14 +1451,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     AutoboatOS
-  
-
     
   </span>
-  
   
 
       </a>
@@ -1921,14 +1474,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Devcontainer
-  
-
     
   </span>
-  
   
 
       </a>
@@ -1949,14 +1497,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Common Devcontainer Issues and How to Solve Them
-  
-
     
   </span>
-  
   
 
       </a>
@@ -1995,14 +1538,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
-    Hardware
-  
-
+    Firmware
     
   </span>
-  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -2011,11 +1549,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
-            
-  
-    Hardware
-  
-
+            Firmware
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2026,19 +1560,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../hardware/wiring_color_scheme/" class="md-nav__link">
+      <a href="../../../firmware/microros/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    
-  
-    Wiring Color Scheme
-  
-
+    Raspberry Pi Pico Microros Node
     
   </span>
-  
   
 
       </a>
@@ -2054,19 +1583,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../hardware/squircuit/" class="md-nav__link">
+      <a href="../../../firmware/unittests/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    
-  
-    Squircuit
-  
-
+    Unit Tests
     
   </span>
-  
   
 
       </a>
@@ -2105,14 +1629,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
-    Funding/ Business
-  
-
+    Hardware
     
   </span>
-  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -2121,11 +1640,7 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
-            
-  
-    Funding/ Business
-  
-
+            Hardware
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2136,19 +1651,37 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../finances/SEC/" class="md-nav__link">
+      <a href="../../../hardware/wiring_color_scheme/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    
-  
-    SEC Funding
-  
-
+    Wiring Color Scheme
     
   </span>
   
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hardware/squircuit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Squircuit
+    
+  </span>
   
 
       </a>
@@ -2187,14 +1720,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
-    Misc
-  
-
+    Funding/ Business
     
   </span>
-  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -2203,11 +1731,75 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
+            Funding/ Business
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
+              
+                
   
-    Misc
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../finances/SEC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SEC Funding
+    
+  </span>
   
 
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Misc
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Misc
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2223,14 +1815,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Potential Security Risks
-  
-
     
   </span>
-  
   
 
       </a>
@@ -2251,14 +1838,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Units, Standards, and Definitions
-  
-
     
   </span>
-  
   
 
       </a>
@@ -2279,14 +1861,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Running ROS2 on Jetson Startup with Systemctl
-  
-
     
   </span>
-  
   
 
       </a>
@@ -2307,14 +1884,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Automatically Finding Which Port Devices Are on with Udev Rules
-  
-
     
   </span>
-  
   
 
       </a>
@@ -2335,14 +1907,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Automating Periodic Scripts with Crontabs
-  
-
     
   </span>
-  
   
 
       </a>
@@ -2363,14 +1930,9 @@
   
   
   <span class="md-ellipsis">
-    
-  
     Known Issues
-  
-
     
   </span>
-  
   
 
       </a>
@@ -2415,9 +1977,34 @@
         <li class="md-nav__item">
   <a href="#summary" class="md-nav__link">
     <span class="md-ellipsis">
+      Summary
+    </span>
+  </a>
+  
+</li>
       
-        Summary
+        <li class="md-nav__item">
+  <a href="#how-to-run-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Run It
+    </span>
+  </a>
+  
+</li>
       
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How it Works
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-develop" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Develop
     </span>
   </a>
   
@@ -2433,7 +2020,6 @@
           
           
             <div class="md-content" data-md-component="content">
-              
               <article class="md-content__inner md-typeset">
                 
                   
@@ -2443,11 +2029,117 @@
   
 
 
-<h1 id="gps"><p style="text-align: center;"> GPS </p></h1>
+<h1 id="motorboat-simulation"><p style="text-align: center;"> Motorboat Simulation </p></h1>
 <h2 id="summary"><strong>Summary</strong></h2>
-<p>This node is responsible for communicating back and forth between our GPS (<a href="https://www.sparkfun.com/products/15005">Sparkfun NEO-M8P-2</a>) and using various filtering techniques to clean the data and make it less noisy. Our GPS gives us both position and velocity data by tracking satellites in the sky, so performance may vary depending on how cloudy it is. </p>
-<p>We use the sparkfun-ublox-gps pip package to communicate with the gps, although in the future, we could look into the pyubx2 library as that seems to have more features. </p>
-<p>In the future we may also want to look into RTK (real time kinematics) to increase our GPS accuracy, but even without that, our GPS module is really precise with 0.5 meter accuracy! RTK would be nice though because it allows us to apply less aggressive filtering techniques and still get good results.</p>
+<p>This simulation node wraps around a Gazebo Harmonic (a general purpose physics simulator) simulation of a motorboat traveling in a free plane of water. The source files are in <code>ros_packages/simulation/</code>, which includes the motorboat gazebo file (<code>motorboat_model.sdf</code>), the custom plugins, and the <code>simulation_transform</code> ros package.</p>
+<h2 id="how-to-run-it"><strong>How to Run It</strong></h2>
+<p>To run the simulation alone, run:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/ws/ros_packages/simulation/simulation_models/models
+gz<span class="w"> </span>sim<span class="w"> </span>motorboat_model.sdf
+</code></pre></div>
+<p>To run the ros node, run:</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoboat_launch<span class="w"> </span>motorboat_simulation.launch.py
+</code></pre></div>
+<h2 id="how-it-works"><strong>How it Works</strong></h2>
+<p>The gazebo simulation for the motorboat is contained in <code>motorboat_model.sdf</code>. These sdf files are essentially JSON written differently, for which the full sdf specification can be found here: <a href="https://sdformat.org/spec/">sdformat spec</a>. The file is a combination of basic data, the shape, mass, initial position, and inertia of all the elements plus the joints that connect them, and plugins, some of which are built-in to gazebo and some of which we wrote ourselves.</p>
+<p>The file starts with various scenery/light/camera/physics parameters, most of which are fairly standard. Some notable built-in plugins here are <code>gz-sim-user-commands-system</code>, which allows us to send gazebo commands (which are sent from the ros node) to control the simulation. The <code>gz-sim-navsat-system</code> gives the positional data that the autopilot expects. Below, the model <code>my_ship</code> is the boat, which is where the real meat of the program is. Here is where every piece of the boat is defined, with all the plugins that allow our boat to move!</p>
+<p>First, the boat's parts are mostly life-scale, with the measurements being taken from the most recent boats on hand and the masses being estimated. Notably, the boat's hull is split into four pieces because of the buoyancy plugin, which only acts at the center of mass because it's terrible. The inertia tensors are calculated manually, either from a formula or solidworks. A description of the inertia tensors can be found <a href="https://www.mathworks.com/help/releases/R2021b/physmod/sm/ug/specify-custom-inertia.html#mw_b043ec69-835b-4ca9-8769-af2e6f1b190c">here</a> and in the sdformat specification.</p>
+<p>Here are the notable built-in plugins:</p>
+<ul>
+<li><code>gz-sim-joint-position-controller-system</code> - This is what controls the rudder</li>
+<li><code>gz-sim-odometry-publisher-system</code> - Publishes position and velocity messages</li>
+<li><code>gz-sim-thruster-system</code> - This is what controls the thruster</li>
+<li><code>gz-sim-hydrodynamics-system</code> - Description below in the <strong>How to Develop</strong> section</li>
+</ul>
+<p>Here are our custom plugins for the motorboat:</p>
+<ul>
+<li><code>libCustomLiftDrag.so</code> - This is our custom LiftDrag plugin. The built-in one is pretty bad, look at the source code if you want to know why. In this case, clmax and cdmax refer to the equations of coefficient of lift and coefficient of drag. These coefficients, when plotted vs. angle of attack, form vaguely sinusoidal curves, so find the coefficient of lift vs alpha (aoa) curve for whatever shape/material you're using, then put the max in. For more details, look up more about lift/drag forces.</li>
+</ul>
+<p>Additionally, these plugins are used for the sailboat (currently in progress):</p>
+<ul>
+<li><code>libFoilDynamics.so</code> - This is essentially the same as <code>libCustomLiftDrag.so</code>, but it has wind applied to it. At some point, the physics should be altered in this plugin to simulate a real foil.</li>
+<li><code>libSailLimits.so</code> - Allows us to control the max sail angle in the simulation.</li>
+<li><code>libWindArrow.so</code> - Displays an arrow in the gazebo simulation above the sailboat to show the direction of the wind.</li>
+</ul>
+<h2 id="how-to-develop"><strong>How to Develop</strong></h2>
+<p>The first thing I'd like to mention is to avoid using AI. I know it's easier, but LLMs are <em>very</em> bad with gazebosim and the ros gazebo bridge since the documentation is terrible and there are so few examples online that use Gazebo Harmonic.</p>
+<p>To develop on the ros nodes, you need to understand ros and python, for which there are tutorials elsewhere in this documentation. To develop on the gazebo sim, you need to understand gazebo harmonic and the format of sdf files. The current simulations are good examples, but the documentation can be found here: <a href="https://gazebosim.org/docs/harmonic/tutorials/">Gazebo Harmonic Tutorials</a>. The list of built in plugins can be found here: <a href="https://gazebosim.org/api/sim/8/namespacegz_1_1sim_1_1systems.html">Gazebo 8.10.0 Systems Documentation</a>. Some of the plugins there have terrible documentation, so you may need to look elsewhere for examples. Notably, the hydrodynamics plugin has a great explanation here: <a href="https://gazebosim.org/api/sim/8/theory_hydrodynamics.html">Gazebo Hydrodynamics Plugin</a>. If you want to know what the inputs to the hydrodynamics plugin mean, I'd recommend checking out <em>Fossen, Thor I. Guidance and Control of Ocean Vehicles. United Kingdom: Wiley, 1994</em> as mentioned in the documentation. You can find it in Newman Library or the Ocean Engineering lounge (allegedly).</p>
+<p>All gazebo plugins are written in C++, so you will need to be able to at least read C++ to work with them. Additionally, at some point when using the built in plugins, you will need to check the source code. It can be found <a href="https://github.com/gazebosim/gz-sim/tree/gz-sim8/src/systems">here</a>.</p>
+<p>As to our custom plugins, they are written in C++ and take the following form:</p>
+<div class="highlight"><pre><span></span><code>plugin_name
+├──<span class="w"> </span>CMakeLists.txt
+├──<span class="w"> </span>include
+│<span class="w">   </span>└──<span class="w"> </span>PluginName.hh
+├──<span class="w"> </span>package.xml
+└──<span class="w"> </span>src
+<span class="w">    </span>└──<span class="w"> </span>PluginName.cc
+</code></pre></div>
+<p>To rebuild the plugin, you can simply enter the build folder in <code>/home/ws/build</code> and run <code>make</code>. If you altered the CMakeLists.txt, run <code>cmake ..</code> in the build folder first.</p>
+<p>To create a custom plugin, the documenation can be found here: <a href="https://gazebosim.org/api/sim/8/createsystemplugins.html">Gazebo plugin documentation</a>. Most plugins you will need to make will run at PreUpdate time.</p>
+<p>Let's examine an older version of one of our plugins, RudderDynamics, to get an idea of what is necessary in a plugin:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;../include/RudderDynamics.hh&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">rudder_dynamics</span>
+<span class="p">{</span>
+
+<span class="c1">/////////////////////////////////////////////////</span>
+<span class="n">RudderDynamics</span><span class="o">::</span><span class="n">RudderDynamics</span><span class="p">()</span>
+<span class="o">:</span><span class="w"> </span><span class="n">rho_</span><span class="p">(</span><span class="mf">1000.1</span><span class="p">),</span>
+<span class="w">  </span><span class="n">cp_</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span>
+<span class="w">  </span><span class="n">forward_</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span>
+<span class="w">  </span><span class="n">upward_</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span>
+<span class="w">  </span><span class="n">area_</span><span class="p">(</span><span class="mf">1.0</span><span class="p">),</span>
+<span class="w">  </span><span class="n">clmax_</span><span class="p">(</span><span class="mf">1.5</span><span class="p">),</span>
+<span class="w">  </span><span class="n">cdmax_</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="n">rclcpp</span><span class="o">::</span><span class="n">get_logger</span><span class="p">(</span><span class="s">&quot;RudderDynamics&quot;</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;RudderDynamics plugin constructed&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">/////////////////////////////////////////////////</span>
+<span class="n">RudderDynamics</span><span class="o">::~</span><span class="n">RudderDynamics</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+
+<span class="c1">/////////////////////////////////////////////////</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">RudderDynamics::Configure</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">gz</span><span class="o">::</span><span class="n">sim</span><span class="o">::</span><span class="n">Entity</span><span class="w"> </span><span class="o">&amp;</span><span class="n">_entity</span><span class="p">,</span>
+<span class="w">                             </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">sdf</span><span class="o">::</span><span class="n">Element</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">_sdf</span><span class="p">,</span>
+<span class="w">                             </span><span class="n">gz</span><span class="o">::</span><span class="n">sim</span><span class="o">::</span><span class="n">EntityComponentManager</span><span class="w"> </span><span class="o">&amp;</span><span class="n">_ecm</span><span class="p">,</span>
+<span class="w">                             </span><span class="n">gz</span><span class="o">::</span><span class="n">sim</span><span class="o">::</span><span class="n">EventManager</span><span class="w"> </span><span class="o">&amp;</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_info</span><span class="p">.</span><span class="n">paused</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+</code></pre></div>
+<p>Every plugin is not required to have its own namespace, it's just the convention we use. The <code>RCLCPP_INFO(rclcpp::get_logger("RudderDynamics"),</code> is how to send logs to the console. The <code>if (_info.paused)</code> is very important, as your plugin will keep running when the simulation is paused if it's not there, which will probably break it!</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Get world linear velocity</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">optVel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">links_</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">WorldLinearVelocity</span><span class="p">(</span><span class="n">_ecm</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">optVel</span><span class="p">)</span>
+<span class="k">return</span><span class="p">;</span>
+<span class="n">gz</span><span class="o">::</span><span class="n">math</span><span class="o">::</span><span class="n">Vector3d</span><span class="w"> </span><span class="n">vel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">optVel</span><span class="p">;</span>
+
+<span class="c1">// Get world pose</span>
+<span class="k">auto</span><span class="w"> </span><span class="n">optPose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">links_</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">WorldPose</span><span class="p">(</span><span class="n">_ecm</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">optPose</span><span class="p">)</span>
+<span class="k">return</span><span class="p">;</span>
+<span class="n">gz</span><span class="o">::</span><span class="n">math</span><span class="o">::</span><span class="n">Pose3d</span><span class="w"> </span><span class="n">pose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">optPose</span><span class="p">;</span>
+</code></pre></div>
+<p>Gazebo has its own math plugin, which can be found at the <a href="https://github.com/gazebosim/gz-math">Gazebo math github</a>. The documentation can be found here: <a href="https://gazebosim.org/api/math/9/">Gazebo math documentation</a>. A cool steam game called Gazebo Simulator can be found <a href="https://store.steampowered.com/app/3480010/Gazebo_Simulator/">here</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">/////////////////////////////////////////////////</span>
+<span class="n">GZ_ADD_PLUGIN</span><span class="p">(</span><span class="n">rudder_dynamics</span><span class="o">::</span><span class="n">RudderDynamics</span><span class="p">,</span>
+<span class="w">              </span><span class="n">gz</span><span class="o">::</span><span class="n">sim</span><span class="o">::</span><span class="n">System</span><span class="p">,</span>
+<span class="w">              </span><span class="n">rudder_dynamics</span><span class="o">::</span><span class="n">RudderDynamics</span><span class="o">::</span><span class="n">ISystemConfigure</span><span class="p">,</span>
+<span class="w">              </span><span class="n">rudder_dynamics</span><span class="o">::</span><span class="n">RudderDynamics</span><span class="o">::</span><span class="n">ISystemPreUpdate</span><span class="p">)</span>
+
+<span class="n">GZ_ADD_PLUGIN_ALIAS</span><span class="p">(</span><span class="n">rudder_dynamics</span><span class="o">::</span><span class="n">RudderDynamics</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;rudder_dynamics::RudderDynamics&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>The specific methods you put into <code>GZ_ADD_PLUGIN</code> depend on which methods you implemented. The .hh files are mostly self explanatory, if you understand C++, you should be alright with those. As for the CMakeLists.txt and package.xml, you'll need some required packages for gazebo, and the package.xml has to be there to run <code>cmake ..</code>.</p>
+<p>TLDR on how to create a custom plugin:</p>
+<ol>
+<li>Create folder with src, and include folders</li>
+<li>Create header and source file and create CMakeLists.txt and package.xml</li>
+<li><code>colcon build --symlink-install</code> in <code>/home/ws</code></li>
+<li>Fix all the errors becuse you're bad at programming</li>
+<li>Add the path to the build folder to GZ_SIM_SYSTEM_PLUGIN_PATH in .bashrc, which means you need to edit postCreateCommand.sh</li>
+<li>Add the plugin to your sdf!</li>
+</ol>
 
 
 
@@ -2496,11 +2188,10 @@
     
     
       
-      
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "content.code.select"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
         <script src="../../../javascript/mathjax.js"></script>
       
