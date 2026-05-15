@@ -68,3 +68,139 @@ Here are some nice things to know about Docker before you start developing. Thes
 - Understand how to build an image, run an image (create a container), and how to push images to docker hub
 - Understand simple commands in a Dockerfile and how to make a Dockerfile
 
+
+<br>
+
+<br>
+
+
+For a full dependency breakdown for all of the tecchnologies we use and you should be familiar with before working on a specific subsystem in the codebase, please see below. This does not include pip packages, and if you would like to see the pip packages we require on, please see .devcontainer/required_pip_packages.txt since that will always be up to date by definition.
+
+
+**All**:
+
+- linux
+
+- bash
+
+- git
+
+- docker (but really only if something goes wrong or if you want to edit the devcontainer)
+
+
+
+**Formatters/ Linters**:
+
+- ruff
+
+- biome
+
+- taplo
+
+
+
+**CI/CD**:
+
+- python
+
+- c++
+
+- docker
+
+- devcontainer
+
+- chroot
+
+- github actions
+
+- systemctl
+
+- udev rules
+
+
+
+**Groundstation**:
+
+- python
+
+- bun/ typescript/ javascript
+
+- pyqt/ pyside
+
+- leaflet
+
+- vite
+
+
+
+**Simulation**:
+
+- python
+
+- gazebo
+
+
+
+**Autopilot**:
+
+- python
+
+- ros2
+
+
+
+**Jetson Driver Development**:
+
+- python
+
+- ros2
+
+- udev rules
+
+
+
+**C++ Autopilot/ Drivers**:
+
+- c++
+
+- ros2
+
+- cmake
+
+- nlohmann_json
+
+- cpr
+
+- ros-humble-serial-driver
+
+- udev_lib
+
+- libboost
+
+
+
+**Computer Vision**:
+
+- python
+
+- deepstream
+
+- yolo models
+
+- opencv
+
+- librealsense2/ realsense sdk
+
+
+
+**Firmware**:
+
+- c++
+
+- microros
+
+- freertos
+
+- raspberry pi pico sdk
+
+- cmake
