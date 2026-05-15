@@ -69,7 +69,7 @@ Some tutorials for building Debian packages:
 
 - **autoboatvt**: This is the base debian package that only contains the autopilot and jetson driver code binaries.
 
-- **autoboatvt-microros-agent**: This package contains the microros_agent binaries which allow ROS nodes running on the actual computer (either your computer or the Jetson/ other flight computer) to communicate with the "firmware" running on the raspberry pi pico via serial. To learn more about microros see: https://www.yahboom.net/public/upload/upload-html/1706694373/Install%20and%20start%20microros%20agent.html (scroll all the way down for the example on serial communication).
+- **autoboatvt-microros-agent**: This package contains the microros_agent binaries which allow ROS nodes running on the actual computer (either your computer or the Jetson/ other flight computer) to communicate with the "firmware" running on the raspberry pi pico via serial. To learn more about the microros agent see: https://www.yahboom.net/public/upload/upload-html/1706694373/Install%20and%20start%20microros%20agent.html (scroll all the way down for the example on serial communication).
 
 - **autoboatvt-firmware-dependencies**: This package contains everything needed to start developing on firmware code all packaged into a single debian package! This installs pico-sdk (which is the raspberry pi pico's library), picotool (which allows us to flash programs and reboot the raspberry pi pico through the terminal), and micro_ros_raspberrypi_pico_sdk (which allows us to integrate microros with the raspberry pi pico sdk).
 
