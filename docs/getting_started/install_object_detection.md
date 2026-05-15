@@ -64,7 +64,7 @@ To forward the camera device to WSL, follow [these instructions](../examples/con
 To build an engine file, navigate to the deepstream_yolo directory. This can be done without a camera connected.
 
 ```sh
-cd /home/ws/src/object_detection/object_detection/deepstream_yolo/
+cd /home/ws/ros_packages/object_detection/object_detection/deepstream_yolo/
 ```
 
 You need to know whether this model is Yolo26 or Yolo11.

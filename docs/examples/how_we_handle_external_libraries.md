@@ -8,7 +8,7 @@ Sometimes, we would like to use external pip packages, but still be able to edit
 Inside of the vesc ros2 package, we have the pyvesc library, which is very similar to the copy of the pyvesc library you can find here: [Official pyvesc Library](https://github.com/LiamBindle/PyVESC). This is where we would normally like to place our custom pip packages since it is easy to find what pip packages each ros2 package would like to use. Also, whenever you clone a git repository, it generates a folder named **.git** which contains all of the history of the repository. In short, we don't care about the history of the repository and in fact keeping this file makes it more annoying to use it in our codebase by automatically creating a nested repository. Nested repositories can become a nightmare to deal with, so to make all of our lives easier, just delete the .git folder. You can do so by using the rm -rf command:
 
 ```sh
-rm -rf src/vesc/pyvesc/.git
+rm -rf ros_packages/drivers/drivers/motor_controller/pyvesc/.git
 ```
 
 Now that we have that working, we will need to make it so that we automatically install that package whenever someone runs `bash docker_dev_environment_setup.sh`. So, we need to add a line into the docker_dev_environment_setup.sh file like so:

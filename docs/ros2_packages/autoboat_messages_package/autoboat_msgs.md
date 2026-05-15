@@ -10,7 +10,7 @@ This package contains various custom messages types that nodes would need to sen
 
 **WaypointList**: A list of NavSatFix objects (https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/NavSatFix.html) that represents a list of waypoints. These are passed around and then interpretted by the autopilot to figure out how it should move to get to those waypoints.
 
-**VESCControlData**: Contains all of the data that you need to send in order to command the vesc
+**VESCControlData**: Contains all of the data that you need to send in order to command the vesc on how to drive the motor
 
 **VESCTelemetryData**: Telemetry data from the VESC that gives us feedback about how fast the motor is spinning, how much voltage/ current is being used, etc
 

@@ -62,12 +62,12 @@ USER=animated
 
 ## <p style="text-align: center;">What Are Devcontainer Variants?</p>
 
-We need to have different variants of the devcontainer because different branches may require different dependencies. However, not all branches require different dependencies, so it would be a waste of disk space to have a different devcontainer for every single branch. Thus, we have a few different devcontainer variants that we use for different branches depending on the dependencies that they require. For instance, if you are working on a branch that requires microROS, then you would want to use the `vtautoboat/development_image_microros` devcontainer variant because it has microROS already installed and set up. However, if you are working on a branch that does not require microROS, then you can just use the `vtautoboat/development_image` devcontainer variant which does not have microROS installed and thus takes up less disk space.
+We need to have different variants of the devcontainer because some parts of the codebase may require fairly large dependencies that are only useful for that part of the codebase. However, many require the same dependencies, so it would be a waste of disk space to have a different devcontainer for every single subsystem in the codebase. Thus, we have only a few different devcontainer variants that we use for different parts of the codebase depending on the dependencies that they require. For instance, if you are working on the firmware, then you would want to use the `vtautoboat/development_image_firmware` devcontainer variant because it has all of the firmware dependencies already installed and set up. However, if you are not working on the firmware, then you can just use the `vtautoboat/development_image` devcontainer variant which does not have firmware dependencies installed and thus takes up much less disk space.
 
 The following are the currently available devcontainer variants:
 
 - `vtautoboat/development_image`
-- `vtautoboat/development_image_microros`
+- `vtautoboat/development_image_firmware`
 - `vtautoboat/development_image_deepstream`
 
 ## <p style="text-align: center;">How to Change the Devcontainer Variant You Are Currently Using</p>
@@ -77,7 +77,7 @@ In order to switch the devcontainer variant you are currently working with, you 
 1. Go to the `.devcontainer/host_environment_variables.sh` file that should be automatically created from `host_setup.sh`.
 ![host_environment_variables](../images/host_environment_variables.png)
 
-2. Then edit the line that says `export DEVCONTAINER_VARIANT=vtautoboat/development_image` so that the `DEVCONTAINER_VARIANT` environment variable contains the name of the devcontainer you want to use. For instance, if you want to use the microROS devcontainer, then you should edit the line to be `export DEVCONTAINER_VARIANT=vtautoboat/development_image_microros`. 
+2. Then edit the line that says `export DEVCONTAINER_VARIANT=vtautoboat/development_image` so that the `DEVCONTAINER_VARIANT` environment variable contains the name of the devcontainer you want to use. For instance, if you want to use the microROS devcontainer, then you should edit the line to be `export DEVCONTAINER_VARIANT=vtautoboat/development_image_firmware`. 
 
 3. Once you have changed this line and saved the file, then close VSCode and then go to a WSL terminal or normal Linux/macOS terminal thats open at the root of the autoboat_vt repository and then run the following command:
 ```bash
@@ -112,4 +112,4 @@ docker push vtautoboat/development_image:temp_tag
 
 ## <p style="text-align: center;"> How Does the Devcontainer Interact with the CI/CD Pipeline?</p>
 
-When a commmit is pushed to main or a new version is created and pushed to the Github repository, the CI/CD pipeline will automatically build the `vtautoboat/development_image` and `vtautoboat/development_image_microros` Docker images and push them to Docker hub. There is a trigger on Docker hub to update the `vtautoboat/development_image_deepstream` automatically whenever the `vtautoboat/development_image` is updated. This is not built on the Github action because unfortunately it requires more disk space to build than Github actions is willing to give us for free.
+When a commmit is pushed to main or a new version is created and pushed to the Github repository, the CI/CD pipeline will automatically build the `vtautoboat/development_image` and `vtautoboat/development_image_firmware` Docker images and push them to Docker hub. There is a trigger on Docker hub to update the `vtautoboat/development_image_deepstream` automatically whenever the `vtautoboat/development_image` is updated. This is not built on the Github action because unfortunately it requires more disk space to build than Github actions is willing to give us for free.

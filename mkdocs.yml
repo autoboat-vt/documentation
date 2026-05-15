@@ -48,7 +48,7 @@ nav:
       - Installing Docker: getting_started/installing_docker.md
       - Setting Up the Development Container: getting_started/setting_up_dev_environment.md
     #   - What Did You Just Install?: getting_started/what_did_you_just_install.md
-      - Installing MicroROS: getting_started/installing_microros.md
+      - Installing Firmware Dependencies: getting_started/installing_firmware_dependencies.md
       - How to Start Developing on the Website: getting_started/how_to_develop_website.md
       - Installing and Running Deepstream for Object Detection: getting_started/install_object_detection.md
 
@@ -78,16 +78,12 @@ nav:
           - Motorboat Autopilot Node: ros2_packages/autopilot_package/motorboat_autopilot.md
           - Telemetry: ros2_packages/autopilot_package/telemetry.md
 
-      - Sensors Package:
-          - GPS Node: ros2_packages/sensors_package/gps.md
-          - RC (Remote Controller) Node: ros2_packages/sensors_package/rc.md
-          - Wind Sensor Node: ros2_packages/sensors_package/wind_sensor.md
 
-      - VESC Package:
-          - VESC Node: ros2_packages/vesc_package/vesc.md
-
-      - Microros Package:
-          - Raspberry Pi Pico Microros Node: ros2_packages/microros_package/microros.md
+      - Drivers Package:
+          - GPS Node: ros2_packages/drivers_package/gps.md
+          - RC (Remote Controller) Node: ros2_packages/drivers_package/rc.md
+          - Wind Sensor Node: ros2_packages/drivers_package/wind_sensor.md
+          - VESC Node: ros2_packages/drivers_package/vesc.md
 
       - Object Detection Package:
           - Object Detection Node: ros2_packages/object_detection_package/object_detection.md
@@ -95,11 +91,11 @@ nav:
       - AutoBoat Messages Package:
           - AutoBoat Messages Node: ros2_packages/autoboat_messages_package/autoboat_msgs.md
 
-      - Simulation Package:
-          - Sailboat Simulation Node: ros2_packages/simulation_package/sailboat_simulation.md
+    #   - Old Sailboat Simulation Package:
+    #       - Sailboat Simulation Node: ros2_packages/simulation_package/sailboat_simulation.md
     
-      - New Simulation Package:
-          - Motorboat Simulation: ros2_packages/new_simulation_package/motorboat_simulation.md
+      - Simulation Package:
+          - Motorboat Simulation: ros2_packages/simulation/motorboat_simulation.md
 
 
   - CI/CD, AutoboatOS, and the Devcontainer:
@@ -107,6 +103,10 @@ nav:
       - AutoboatOS: ci_cd_autoboat_os_devcontainer/autoboat_operating_system.md
       - Devcontainer: ci_cd_autoboat_os_devcontainer/devcontainer.md
       - Common Devcontainer Issues and How to Solve Them: ci_cd_autoboat_os_devcontainer/common_devcontainer_issues_and_how_to_solve_them.md
+  
+  - Firmware:
+      - Raspberry Pi Pico Microros Node: firmware/microros.md
+      - Unit Tests: firmware/unittests.md
 
   - Hardware:
       - Wiring Color Scheme: hardware/wiring_color_scheme.md

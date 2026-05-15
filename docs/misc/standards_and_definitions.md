@@ -12,6 +12,14 @@ Unless stated otherwise, all variables are in SI units (meters, seconds, etc). A
 - Full Autonomy Maneuver: The full autonomy maneuver is only really used for the sailboat in a fully autonomous mode. This describes whether the boat is currently tacking clockwise, tacking counterclockwise, or is normally sailing and navigating towards a specific heading.
 
 
+
+## Rudder Angle Meaning in the Autopilot
+
+In the autopilot, whenever it has a positive rudder angle, that means that the rudder angle should turn the boat clockwise and whenever the autopilot has a negative rudder angle, that means the rudder should turn the boat counter clockwise. This should be handled on the simulation and firmware side.
+
+
+<br>
+
 ## Wind Angle/ Vector Standards
 
 There are several ways of measuring the wind direction and intensity that are each useful in different situations. The following are the main standards that we have chosen to go with; these exact definitions aren't standard across sailers, and you probably won't even find the words "Global True Wind Angle" anywhere online, but we believe that it is useful for our application and hopefully you will see why.

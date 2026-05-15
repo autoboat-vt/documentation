@@ -52,10 +52,10 @@ Set these before running the ROS2 node
 - `export INFERENCE=false`: Disables inference and triangulation.
 - `export CAMERA=false`: Disables the camera.
 
-### <p style="text-align: center"> Changin CV parameters while running </p>
+### <p style="text-align: center"> Changing CV parameters while running </p>
 Open a new terminal and navigate to to the object_detection folder.
 ```sh
-cd /home/ws/src/object_detection/object_detection
+cd /home/ws/ros_packages/object_detection/object_detection
 ```
 Run the `publish_cv_params.py` script.
 ```sh

@@ -6,7 +6,7 @@ To set up, run `source /opt/ros/humble/setup.bash` in the devcontainer.
 Run the following in the devcontainer.
 ### Without Unit Tests
 ```bash
-cmake -B build -S src/microros
+cmake -B build -S microros
 cmake --build build
 ```
 Output: `build/pico_microros.uf2`
@@ -14,7 +14,7 @@ Upload this to your Pico.
 
 ### With Unit Tests
 ```bash
-cmake -B build_unit_tests -S src/microros -DBUILD_UNIT_TESTS=ON
+cmake -B build_unit_tests -S microros -DBUILD_UNIT_TESTS=ON
 cmake --build build_unit_tests
 ```
 
@@ -38,7 +38,7 @@ Run `./build_unit_tests/unit_tests` in the devcontainer
 
 ## Adding New Tests
 
-Edit `src/microros/src/unittests.cpp` and add new `TEST_CASE` blocks:
+Edit `microros/src/unittests.cpp` and add new `TEST_CASE` blocks:
 
 ```cpp
 TEST_CASE("My new test", "[test][pico]") {

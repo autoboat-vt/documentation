@@ -2,13 +2,13 @@
 
 ## Python Packages
 
-To create a new ROS2 python package, you should first run the following command in the `/home/ws/src` folder:
+To create a new ROS2 python package, you should first run the following command in the `/home/ws/ros_packages` folder:
 
 ```sh
 ros2 pkg create <Your Package Name Here> --build-type ament_python --dependencies rclpy
 ```
 
-Once you have created your package, you should see a new folder pop up in `/home/ws/src` that looks a little bit like this:
+Once you have created your package, you should see a new folder pop up in `/home/ws/ros_packages` that looks a little bit like this:
 
 
 ![Test Package Folder Example](../images/test_package_folder_example.png)

@@ -5,14 +5,14 @@ To create a layer of protection between Jetson and high voltages, and extend the
 To install microros on your machine, run the following command. Note that the installation will take approximately 5 GB:
 
 ```sh
-	cd /home/ws/microros
-	bash microros_setup.sh
+cd /home/ws/microros
+bash firmware_setup.sh
 ```
 
 Don't forget to source your ~/.bashrc file:
 
 ```sh
-	source ~/.bashrc
+source ~/.bashrc
 ```
 
 
@@ -22,18 +22,18 @@ Don't forget to source your ~/.bashrc file:
 
 To flash Pi Pico with a .uf2 file, plug Pico into your computer while pressing the Boot Select button (you may release it after Pi Pico is in) and run:
 ```sh
-	picotool_load #write/the/address/of/your/file/here
+picotool_load #write/the/address/of/your/file/here
 ```
 
 The Pi Pico cannot communicate with the computer while it is in Boot Select mode. To exit it, you can uplug it and replug it from the USB port. Alretnatively, you may run:
 ```sh
-	picotool_reboot -F
+picotool_reboot -F
 ```
 
 Then, to establish communication with Pi Pico, run the following commands:
 
 ```sh
-	sudo chmod 666 /dev/ttyACM0 && ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyACM0 -b 115200
+sudo chmod 666 /dev/ttyACM0 && ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyACM0 -b 115200
 ```
 
 If you encounter problems during the installation, consult Elias.
@@ -43,28 +43,28 @@ If you encounter problems during the installation, consult Elias.
 
 If you want to get started with microros, a good idea would be to try to flash Pi Pico with the example file. Note that you would need to build it first:
 ```sh
-	cd $PICO_MICROROS_SDK_PATH
-	mkdir build && cd build
-	cmake ..
-	make
-	picotool_load pico_micro_ros_example.uf2
+cd $PICO_MICROROS_SDK_PATH
+mkdir build && cd build
+cmake ..
+make
+picotool_load pico_micro_ros_example.uf2
 ```
 
 
 Then, proceed to open the serial communication:
 ```sh
-	sudo chmod 666 /dev/ttyACM0 && ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyACM0 -b 115200
+sudo chmod 666 /dev/ttyACM0 && ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyACM0 -b 115200
 ```
 
 And finally, open a new terminal, and type
 ```sh
-	source ~/.bashrc
-	ros2 topic list
+source ~/.bashrc
+ros2 topic list
 ```
 
 If you have done everything correctly, `/pico_publisher` would show up in the list of topics. You can watch its output by typing:
 
 ```sh
-	ros2 topic echo /pico_publisher
+ros2 topic echo /pico_publisher
 ```
 
