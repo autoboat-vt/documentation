@@ -22,7 +22,7 @@
         
       
       
-      <link rel="icon" href="../../images/logo.svg">
+      <link rel="icon" href="../../assets/images/logo.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
@@ -61,20 +61,7 @@
 
     
     
-  
-<meta property="og:type" content="website" />
-<meta property="og:title" content="AutoBoat Documentation - AutoBoat Documentation" />
-<meta property="og:description" content="Documentation for the Virginia Tech AutoBoat team." />
-<meta property="og:image" content="https://autoboat-vt.github.io/assets/images/social/examples/how_we_handle_external_libraries.png" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:url" content="https://autoboat-vt.github.io/examples/how_we_handle_external_libraries/" />
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content="AutoBoat Documentation - AutoBoat Documentation" />
-<meta property="twitter:description" content="Documentation for the Virginia Tech AutoBoat team." />
-<meta property="twitter:image" content="https://autoboat-vt.github.io/assets/images/social/examples/how_we_handle_external_libraries.png" />
-</head>
+  </head>
   
   
     
@@ -109,7 +96,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="AutoBoat Documentation" class="md-header__button md-logo" aria-label="AutoBoat Documentation" data-md-component="logo">
       
-  <img src="../../images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -225,7 +212,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="AutoBoat Documentation" class="md-nav__button md-logo" aria-label="AutoBoat Documentation" data-md-component="logo">
       
-  <img src="../../images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
     AutoBoat Documentation
@@ -2287,12 +2274,12 @@
 
 <h1 id="how-to-add-external-pip-libraries-that-we-can-edit"><p style="text-align: center;"> How to Add External Pip Libraries that We Can Edit</p></h1>
 <p>Sometimes, we would like to use external pip packages, but still be able to edit the source code for them on the fly. One great example of this is the pyvesc library for the VESC node, where there are some minor differences between what the library does by default and what we want the library to do. In order to acheieve this, we will take advantage of the "-e" option in pip install, which allows us to install a <em>local pip package</em> as editable. Taking the example of the pyvesc library, here is how the source code is laid out:</p>
-<p><img alt="pyvesc library example" src="../../images/pyvesc_library_example.png" /></p>
+<p><img alt="pyvesc library example" src="../../assets/images/pyvesc_library_example.png" /></p>
 <p>Inside of the vesc ros2 package, we have the pyvesc library, which is very similar to the copy of the pyvesc library you can find here: <a href="https://github.com/LiamBindle/PyVESC">Official pyvesc Library</a>. This is where we would normally like to place our custom pip packages since it is easy to find what pip packages each ros2 package would like to use. Also, whenever you clone a git repository, it generates a folder named <strong>.git</strong> which contains all of the history of the repository. In short, we don't care about the history of the repository and in fact keeping this file makes it more annoying to use it in our codebase by automatically creating a nested repository. Nested repositories can become a nightmare to deal with, so to make all of our lives easier, just delete the .git folder. You can do so by using the rm -rf command:</p>
 <div class="highlight"><pre><span></span><code>rm<span class="w"> </span>-rf<span class="w"> </span>ros_packages/drivers/drivers/motor_controller/pyvesc/.git
 </code></pre></div>
 <p>Now that we have that working, we will need to make it so that we automatically install that package whenever someone runs <code>bash docker_dev_environment_setup.sh</code>. So, we need to add a line into the docker_dev_environment_setup.sh file like so:</p>
-<p><img alt="docker dev environment setup example for pyvesc" src="../../images/pyvesc_docker_dev_environment_setup.png" /></p>
+<p><img alt="docker dev environment setup example for pyvesc" src="../../assets/images/pyvesc_docker_dev_environment_setup.png" /></p>
 <p>This will automatically install the local pip package in editable mode, so if you make a change in the code of the pip package, then it will automatically reflect in any code that uses that package. If we did not have it in editable mode, then we would need to rebuild the package everytime we make a change to the source code. Now, to install the pip package, simply rerun <code>bash docker_dev_environment_setup.sh</code> and it should be ready to import in any python script inside of the dev container!</p>
 
 

@@ -22,7 +22,7 @@
         
       
       
-      <link rel="icon" href="../../../images/logo.svg">
+      <link rel="icon" href="../../../assets/images/logo.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
@@ -61,20 +61,7 @@
 
     
     
-  
-<meta property="og:type" content="website" />
-<meta property="og:title" content="AutoBoat Documentation - AutoBoat Documentation" />
-<meta property="og:description" content="Documentation for the Virginia Tech AutoBoat team." />
-<meta property="og:image" content="https://autoboat-vt.github.io/assets/images/social/ros2_packages/drivers_package/wind_sensor.png" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:url" content="https://autoboat-vt.github.io/ros2_packages/drivers_package/wind_sensor/" />
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content="AutoBoat Documentation - AutoBoat Documentation" />
-<meta property="twitter:description" content="Documentation for the Virginia Tech AutoBoat team." />
-<meta property="twitter:image" content="https://autoboat-vt.github.io/assets/images/social/ros2_packages/drivers_package/wind_sensor.png" />
-</head>
+  </head>
   
   
     
@@ -109,7 +96,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../../.." title="AutoBoat Documentation" class="md-header__button md-logo" aria-label="AutoBoat Documentation" data-md-component="logo">
       
-  <img src="../../../images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -225,7 +212,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="AutoBoat Documentation" class="md-nav__button md-logo" aria-label="AutoBoat Documentation" data-md-component="logo">
       
-  <img src="../../../images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo">
 
     </a>
     AutoBoat Documentation
@@ -2357,12 +2344,12 @@
 <h1 id="wind-sensor"><p style="text-align: center;"> Wind Sensor </p></h1>
 <h2 id="summary"><strong>Summary</strong></h2>
 <p>This node is responsible for communicating back and forth between our wind sensor (<a href="https://calypsoinstruments.com/shop/product/ultra-low-power-ultrasonic-wind-meter-pro-ulp-pro-197?category=2#attr=116,117,120">Calypso Wind Sensor</a>). The wind sensor gives us NMEA0183 sentences that look may look like the picture below.<br />
-<img alt="NMEA Sentence Example" src="../../../images/nmea_sentence_example.png" /></p>
+<img alt="NMEA Sentence Example" src="../../../assets/images/nmea_sentence_example.png" /></p>
 <p><br></p>
 <p>The NMEA0183 message structure is very simple. The basics are that they always send a "$" when the message starts and separates different sub-messages with commas. If you would like to read more about NMEA0183, you can do so here: <a href="https://receiverhelp.trimble.com/alloy-gnss/en-us/NMEA-0183messages_MessageOverview.html">NMEA0183 explanation</a>.</p>
 <p><br></p>
 <p>Our wind sensor device sends its sub-messages in the following order:
-<img alt="Wind Sensor Message Order" src="../../../images/wind_sensor_message_order.png" /></p>
+<img alt="Wind Sensor Message Order" src="../../../assets/images/wind_sensor_message_order.png" /></p>
 
 
 

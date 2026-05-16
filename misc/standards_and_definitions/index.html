@@ -22,7 +22,7 @@
         
       
       
-      <link rel="icon" href="../../images/logo.svg">
+      <link rel="icon" href="../../assets/images/logo.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
@@ -61,20 +61,7 @@
 
     
     
-  
-<meta property="og:type" content="website" />
-<meta property="og:title" content="AutoBoat Documentation - AutoBoat Documentation" />
-<meta property="og:description" content="Documentation for the Virginia Tech AutoBoat team." />
-<meta property="og:image" content="https://autoboat-vt.github.io/assets/images/social/misc/standards_and_definitions.png" />
-<meta property="og:image:type" content="image/png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:url" content="https://autoboat-vt.github.io/misc/standards_and_definitions/" />
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:title" content="AutoBoat Documentation - AutoBoat Documentation" />
-<meta property="twitter:description" content="Documentation for the Virginia Tech AutoBoat team." />
-<meta property="twitter:image" content="https://autoboat-vt.github.io/assets/images/social/misc/standards_and_definitions.png" />
-</head>
+  </head>
   
   
     
@@ -109,7 +96,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="../.." title="AutoBoat Documentation" class="md-header__button md-logo" aria-label="AutoBoat Documentation" data-md-component="logo">
       
-  <img src="../../images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -225,7 +212,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../.." title="AutoBoat Documentation" class="md-nav__button md-logo" aria-label="AutoBoat Documentation" data-md-component="logo">
       
-  <img src="../../images/logo.svg" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
     AutoBoat Documentation
@@ -2560,14 +2547,14 @@
 <p><br></p>
 <h3 id="apparent-wind-angle">Apparent Wind Angle</h3>
 <p>Apparent Wind Angle: The <a href="https://en.wikipedia.org/wiki/Apparent_wind">Apparent Wind</a> is the wind measured on top of the boat. Imagine for a second that you are on a speedboat with no wind outside. When the speed boat is moving quickly, then you can feel the wind brush over your face because you are moving quickly even though there is no real wind. This is because you are moving into the air around you, which creates the sensation of wind and works in a similar way to <a href="https://en.wikipedia.org/wiki/Relative_velocity">relative motion</a>. The following Youtube video gives a pretty good explanation of apparent wind: <a href="https://www.youtube.com/watch?v=ndL1FcTRPwU">Apparent Wind Explanation Youtube Video</a>. The way that we measure this angle is counter-clockwise from the centerline of the boat, which visually looks like this if the boat is facing upwards:</p>
-<p><img alt="Apparent Wind Angles Visualization" src="../../images/apparent_wind_angles_visualization.png" /></p>
+<p><img alt="Apparent Wind Angles Visualization" src="../../assets/images/apparent_wind_angles_visualization.png" /></p>
 <p>This means that if the boat is going downwind, then the wind angle is 0 degrees. If the boat is going upwind, then the wind angle is 180 degrees. If the wind is blowing towards the left side of the boat, then the wind angle is 90 degrees. This measurement of the apparent wind direction and speed is really useful for managing the exact position of our sail because the direction that our sail should be pointing is dictated mainly by the apparent wind angle. The exact behaviour of the sail will always be defined by a lookup table, so for instance, if the boat is headed downwind, then the sail should be out all of the way. If the boat is heading directly upwind, then you will want to pull the sails all the way in.  </p>
 <h3 id="how-are-wind-vectors-calculated">How Are Wind Vectors Calculated?</h3>
 <p>In the next section about the true wind angle, we will talk about the true wind vector and the apparent wind vector, so it may be useful to define them since we have not talked about them before. Whenever we are talking about a wind vector in any standard, the vectors always have a specific definition in relation to their corresponding wind angles and magnitudes and it is the following:</p>
 <p><span class="arithmatex">\(\text{wind_vector_x} = \text{wind_magnitude} * cos(\text{wind_angle})\)</span></p>
 <p><span class="arithmatex">\(\text{wind_vector_y} = \text{wind_magnitude} * sin(\text{wind_angle})\)</span> </p>
 <p>This gives some pretty funky results when we start talking about the global true wind angle, but I promise it makes the math easier if you are able to follow along. Here are the x and y axes labeled for the apparent wind angle using this definition of the apparent wind vector:</p>
-<p><img alt="Apparent Wind Vector Axes Labeled" src="../../images/apparent_wind_vector_axes_labeled.png" /></p>
+<p><img alt="Apparent Wind Vector Axes Labeled" src="../../assets/images/apparent_wind_vector_axes_labeled.png" /></p>
 <p>This means that the axes that the apparent wind vector are based off of change if the heading/ direction of the boat changes. <strong>You have to keep this fact in mind when doing calculations with the apparent wind vector because this is very important</strong>.</p>
 <h3 id="true-wind-angle">True Wind Angle</h3>
 <p>The true wind vector is basically just the wind speed of the location as measured by a stationary sensor, and is just computed by taking the apparent wind vector and adding the local velocity vector of the boat. <strong>You must make sure that the velocity vector is measured using the same axes as the apparent wind vector. This is called the local velocity vector and is mentioned in a following section</strong>. </p>
