@@ -1,195 +1,195 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://localhost:8000/</loc>
+         <loc>https://autoboat-vt.github.io/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/ci_cd_autoboat_os_devcontainer/autoboat_operating_system/</loc>
+         <loc>https://autoboat-vt.github.io/ci_cd_autoboat_os_devcontainer/autoboat_operating_system/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/ci_cd_autoboat_os_devcontainer/ci_cd/</loc>
+         <loc>https://autoboat-vt.github.io/ci_cd_autoboat_os_devcontainer/ci_cd/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/ci_cd_autoboat_os_devcontainer/common_devcontainer_issues_and_how_to_solve_them/</loc>
+         <loc>https://autoboat-vt.github.io/ci_cd_autoboat_os_devcontainer/common_devcontainer_issues_and_how_to_solve_them/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/ci_cd_autoboat_os_devcontainer/devcontainer/</loc>
+         <loc>https://autoboat-vt.github.io/ci_cd_autoboat_os_devcontainer/devcontainer/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/examples/adding_a_new_ros2_node/</loc>
+         <loc>https://autoboat-vt.github.io/examples/adding_a_new_ros2_node/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/examples/adding_a_new_ros2_package/</loc>
+         <loc>https://autoboat-vt.github.io/examples/adding_a_new_ros2_package/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/examples/adding_documentation/</loc>
+         <loc>https://autoboat-vt.github.io/examples/adding_documentation/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/examples/connecting_a_usb_device_to_wsl/</loc>
+         <loc>https://autoboat-vt.github.io/examples/connecting_a_usb_device_to_wsl/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/examples/how_we_handle_external_libraries/</loc>
+         <loc>https://autoboat-vt.github.io/examples/how_we_handle_external_libraries/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/examples/running_a_custom_simulation/</loc>
+         <loc>https://autoboat-vt.github.io/examples/running_a_custom_simulation/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/examples/running_individual_nodes/</loc>
+         <loc>https://autoboat-vt.github.io/examples/running_individual_nodes/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/examples/running_simulation/</loc>
+         <loc>https://autoboat-vt.github.io/examples/running_simulation/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/finances/SEC/</loc>
+         <loc>https://autoboat-vt.github.io/finances/SEC/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/firmware/microros/</loc>
+         <loc>https://autoboat-vt.github.io/firmware/microros/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/firmware/unittests/</loc>
+         <loc>https://autoboat-vt.github.io/firmware/unittests/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/getting_started/how_to_develop_website/</loc>
+         <loc>https://autoboat-vt.github.io/getting_started/how_to_develop_website/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/getting_started/install_object_detection/</loc>
+         <loc>https://autoboat-vt.github.io/getting_started/install_object_detection/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/getting_started/installing_docker/</loc>
+         <loc>https://autoboat-vt.github.io/getting_started/installing_docker/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/getting_started/installing_firmware_dependencies/</loc>
+         <loc>https://autoboat-vt.github.io/getting_started/installing_firmware_dependencies/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/getting_started/setting_up_dev_environment/</loc>
+         <loc>https://autoboat-vt.github.io/getting_started/setting_up_dev_environment/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/getting_started/what_did_you_just_install/</loc>
+         <loc>https://autoboat-vt.github.io/getting_started/what_did_you_just_install/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/groundstation_telemetry/groundstation_overview/</loc>
+         <loc>https://autoboat-vt.github.io/groundstation_telemetry/groundstation_overview/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/groundstation_telemetry/new_member_info/</loc>
+         <loc>https://autoboat-vt.github.io/groundstation_telemetry/new_member_info/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/groundstation_telemetry/telemetry_server_api_routes/</loc>
+         <loc>https://autoboat-vt.github.io/groundstation_telemetry/telemetry_server_api_routes/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/hardware/squircuit/</loc>
+         <loc>https://autoboat-vt.github.io/hardware/squircuit/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/hardware/wiring_color_scheme/</loc>
+         <loc>https://autoboat-vt.github.io/hardware/wiring_color_scheme/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/misc/crontabs/</loc>
+         <loc>https://autoboat-vt.github.io/misc/crontabs/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/misc/known_issues/</loc>
+         <loc>https://autoboat-vt.github.io/misc/known_issues/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/misc/potential_security_risks/</loc>
+         <loc>https://autoboat-vt.github.io/misc/potential_security_risks/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/misc/standards_and_definitions/</loc>
+         <loc>https://autoboat-vt.github.io/misc/standards_and_definitions/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/misc/systemctl/</loc>
+         <loc>https://autoboat-vt.github.io/misc/systemctl/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/misc/udev_rules/</loc>
+         <loc>https://autoboat-vt.github.io/misc/udev_rules/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/ros2_packages/autoboat_messages_package/autoboat_msgs/</loc>
+         <loc>https://autoboat-vt.github.io/ros2_packages/autoboat_messages_package/autoboat_msgs/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/ros2_packages/autopilot_package/common_documentation_between_the_motorboat_autopilot_and_the_sailboat_autopilot/</loc>
+         <loc>https://autoboat-vt.github.io/ros2_packages/autopilot_package/common_documentation_between_the_motorboat_autopilot_and_the_sailboat_autopilot/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/ros2_packages/autopilot_package/motorboat_autopilot/</loc>
+         <loc>https://autoboat-vt.github.io/ros2_packages/autopilot_package/motorboat_autopilot/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/ros2_packages/autopilot_package/sailboat_autopilot/</loc>
+         <loc>https://autoboat-vt.github.io/ros2_packages/autopilot_package/sailboat_autopilot/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/ros2_packages/autopilot_package/telemetry/</loc>
+         <loc>https://autoboat-vt.github.io/ros2_packages/autopilot_package/telemetry/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/ros2_packages/drivers_package/gps/</loc>
+         <loc>https://autoboat-vt.github.io/ros2_packages/drivers_package/gps/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/ros2_packages/drivers_package/rc/</loc>
+         <loc>https://autoboat-vt.github.io/ros2_packages/drivers_package/rc/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/ros2_packages/drivers_package/vesc/</loc>
+         <loc>https://autoboat-vt.github.io/ros2_packages/drivers_package/vesc/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/ros2_packages/drivers_package/wind_sensor/</loc>
+         <loc>https://autoboat-vt.github.io/ros2_packages/drivers_package/wind_sensor/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/ros2_packages/object_detection_package/object_detection/</loc>
+         <loc>https://autoboat-vt.github.io/ros2_packages/object_detection_package/object_detection/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/ros2_packages/old_simulation_package/sailboat_simulation/</loc>
+         <loc>https://autoboat-vt.github.io/ros2_packages/old_simulation_package/sailboat_simulation/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/ros2_packages/simulation/motorboat_simulation/</loc>
+         <loc>https://autoboat-vt.github.io/ros2_packages/simulation/motorboat_simulation/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/system_diagrams/diagram_of_groundstation_telemetry/</loc>
+         <loc>https://autoboat-vt.github.io/system_diagrams/diagram_of_groundstation_telemetry/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/system_diagrams/diagram_of_ros_nodes/</loc>
+         <loc>https://autoboat-vt.github.io/system_diagrams/diagram_of_ros_nodes/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
     <url>
-         <loc>https://localhost:8000/system_diagrams/diagram_of_simulations/</loc>
+         <loc>https://autoboat-vt.github.io/system_diagrams/diagram_of_simulations/</loc>
          <lastmod>2026-05-16</lastmod>
     </url>
 </urlset>
