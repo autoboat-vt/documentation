@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: CI/CD
 ---
 
 # <p style="text-align: center;"> Continuous Integration/Continous Deployment (CI/CD) </p>

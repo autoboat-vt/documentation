@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: Known Issues
 ---
 
 # <p style="text-align: center;"> Known Issues</p>

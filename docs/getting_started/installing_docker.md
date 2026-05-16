@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: Install Docker
 ---
 
 # <p style="text-align: center"> Installing Docker </p>

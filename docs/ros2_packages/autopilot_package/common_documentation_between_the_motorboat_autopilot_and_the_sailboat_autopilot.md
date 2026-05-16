@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: Autopilot Common Docs
 ---
 
 # <p style="text-align: center;"> Autopilot Nodes </p>

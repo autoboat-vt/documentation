@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: Motorboat Simulation
 ---
 
 # <p style="text-align: center;"> Motorboat Simulation </p>

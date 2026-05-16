@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: Develop Website
 ---
 
 # <p style="text-align: center;">**How to Start Developing on the Website**</p>

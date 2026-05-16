@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: Firmware Dependencies
 ---
 
 # <p style="text-align: center;"> Installing Firmware Dependencies </p>

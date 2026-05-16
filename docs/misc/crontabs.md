@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: Crontabs
 ---
 
 # <p style="text-align: center;"> Crontabs </p>

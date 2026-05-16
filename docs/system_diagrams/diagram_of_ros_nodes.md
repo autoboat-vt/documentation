@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: ROS Nodes Diagram
 ---
 
 # <p style="text-align: center;"> How Nodes Interact on the Sailboat Simulation </p>

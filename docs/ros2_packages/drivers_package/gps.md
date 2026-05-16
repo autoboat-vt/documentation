@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: GPS
 ---
 
 # <p style="text-align: center;"> GPS </p>

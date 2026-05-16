@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: Run Nodes
 ---
 
 # <p style="text-align: center;"> Running Individual Nodes for Testing </p>

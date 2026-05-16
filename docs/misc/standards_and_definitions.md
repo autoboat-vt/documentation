@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: Standards and Definitions
 ---
 
 # <p style="text-align: center;"> Standards and Definitions</p>

@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: Custom Simulation
 ---
 
 # <p style="text-align: center;"> Running A Custom Simulation </p>

@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: AutoBoat Documentation
 ---
 
 # <p style="text-align: center;"> Welcome to the Virginia Tech AutoBoat Documentation!</p>

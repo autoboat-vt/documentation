@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: Simulation Diagram
 ---
 
 # <p style="text-align: center;"> How Each of the Different Codebases Contributing to the Simulation Interact </p>

@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: AutoBoat Messages
 ---
 
 # <p style="text-align: center;"> AutoBoat Messages </p>

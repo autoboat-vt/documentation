@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: Sailboat Autopilot
 ---
 
 # <p style="text-align: center;"> Sailboat Autopilot </p>

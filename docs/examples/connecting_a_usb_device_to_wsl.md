@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: USB to WSL
 ---
 
 # <p style="text-align: center;"> Connecting a USB Device to WSL </p>

@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: Add Documentation
 ---
 
 # <p style="text-align: center;"> Adding Documentation </p>

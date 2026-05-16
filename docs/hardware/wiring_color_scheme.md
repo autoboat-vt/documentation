@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: Wiring Colors
 ---
 
 # <p style="text-align: center;"> Wiring Color Schemes </p>

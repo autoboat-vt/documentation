@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: AutoboatOS
 ---
 
 # <p style="text-align: center;"> AutoboatOS </p>

@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: Dev Environment
 ---
 
 # <p style="text-align: center;"> Before Setting Up the Dev Environment </p>

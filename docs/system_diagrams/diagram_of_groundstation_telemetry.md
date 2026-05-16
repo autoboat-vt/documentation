@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: Groundstation Telemetry
 ---
 
 # <p style="text-align: center;">Flow of Information Between Groundstation and Autopilot Node </p>

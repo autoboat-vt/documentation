@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: Wind Sensor
 ---
 
 # <p style="text-align: center;"> Wind Sensor </p>

@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: Object Detection
 ---
 
 # <p style="text-align: center;">Object Detection</p>

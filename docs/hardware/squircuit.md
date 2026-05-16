@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: Squircuit
 ---
 
 # <p style="text-align: center;"> Squircuit </p>

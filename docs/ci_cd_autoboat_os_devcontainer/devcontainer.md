@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: Devcontainer
 ---
 
 # <p style="text-align: center;">Devcontainer 101</p>

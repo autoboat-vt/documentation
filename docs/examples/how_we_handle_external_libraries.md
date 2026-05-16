@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: External Libraries
 ---
 
 # <p style="text-align: center;"> How to Add External Pip Libraries that We Can Edit</p>

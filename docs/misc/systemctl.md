@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: systemctl
 ---
 
 # <p style="text-align: center;"> What is Systemctl?</p>

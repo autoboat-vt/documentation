@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: Groundstation
 ---
 
 ## Introduction

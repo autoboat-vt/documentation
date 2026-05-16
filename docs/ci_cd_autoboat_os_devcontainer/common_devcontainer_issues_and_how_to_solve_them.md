@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: Devcontainer Issues
 ---
 
 # <p style="text-align: center;">Common Devcontainer Issues and How to Solve Them</p>

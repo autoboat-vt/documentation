@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: Autopilot Telemetry
 ---
 
 # <p style="text-align: center;"> Telemetry </p>

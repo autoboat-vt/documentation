@@ -1,6 +1,5 @@
-
 ---
-title: AutoBoat Documentation 
+title: What You Installed
 ---
 
 # <p style="text-align: center;"> What is Docker and How Does it Work? </p>

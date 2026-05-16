@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: RC
 ---
 
 # <p style="text-align: center;"> RC (Remote Controller) </p>

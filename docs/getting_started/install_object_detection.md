@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: Install Object Detection
 ---
 
 # <p style="text-align: center"> Before Installing DeepStream </p>

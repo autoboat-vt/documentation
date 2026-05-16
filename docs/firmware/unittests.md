@@ -1,5 +1,5 @@
 ---
-title: AutoBoat Documentation 
+title: Unit Tests
 ---
 
 # Unit tests with Catch2
