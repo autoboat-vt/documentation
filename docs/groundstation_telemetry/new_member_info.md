@@ -1,5 +1,6 @@
 ---
 title: New Members
+description: Overview for new team members.
 ---
 
 ## Introduction

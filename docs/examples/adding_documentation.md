@@ -1,5 +1,6 @@
 ---
 title: Add Documentation
+description: Add a new documentation page.
 ---
 
 # <p style="text-align: center;"> Adding Documentation </p>

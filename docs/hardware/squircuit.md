@@ -1,5 +1,6 @@
 ---
 title: Squircuit
+description: Squircuit hardware reference.
 ---
 
 # <p style="text-align: center;"> Squircuit </p>

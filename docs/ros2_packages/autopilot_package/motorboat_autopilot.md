@@ -1,5 +1,6 @@
 ---
 title: Motorboat Autopilot
+description: Motorboat autopilot node overview.
 ---
 
 # <p style="text-align: center;"> Sailboat Autopilot </p>

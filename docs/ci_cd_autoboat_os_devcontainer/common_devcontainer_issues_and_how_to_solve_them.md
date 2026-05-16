@@ -1,5 +1,6 @@
 ---
 title: Devcontainer Issues
+description: Common devcontainer issues and fixes.
 ---
 
 # <p style="text-align: center;">Common Devcontainer Issues and How to Solve Them</p>

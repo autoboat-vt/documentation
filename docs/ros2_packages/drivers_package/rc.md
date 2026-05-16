@@ -1,5 +1,6 @@
 ---
 title: RC
+description: Remote controller node usage.
 ---
 
 # <p style="text-align: center;"> RC (Remote Controller) </p>

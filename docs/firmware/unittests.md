@@ -1,5 +1,6 @@
 ---
 title: Unit Tests
+description: Firmware unit testing guide.
 ---
 
 # Unit tests with Catch2

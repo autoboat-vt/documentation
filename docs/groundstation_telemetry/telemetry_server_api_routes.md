@@ -1,5 +1,6 @@
 ---
 title: Telemetry API
+description: Telemetry server API routes.
 ---
 
 ## Introduction

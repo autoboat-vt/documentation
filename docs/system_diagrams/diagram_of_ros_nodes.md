@@ -1,5 +1,6 @@
 ---
 title: ROS Nodes Diagram
+description: Diagram of ROS2 nodes and links.
 ---
 
 # <p style="text-align: center;"> How Nodes Interact on the Sailboat Simulation </p>

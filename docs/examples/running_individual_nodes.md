@@ -1,5 +1,6 @@
 ---
 title: Run Nodes
+description: Run individual ROS2 nodes for testing.
 ---
 
 # <p style="text-align: center;"> Running Individual Nodes for Testing </p>

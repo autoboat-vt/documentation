@@ -1,5 +1,6 @@
 ---
 title: Groundstation
+description: Groundstation overview and usage.
 ---
 
 ## Introduction

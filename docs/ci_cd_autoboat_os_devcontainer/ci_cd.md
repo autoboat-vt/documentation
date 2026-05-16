@@ -1,5 +1,6 @@
 ---
 title: CI/CD
+description: CI/CD pipeline overview.
 ---
 
 # <p style="text-align: center;"> Continuous Integration/Continous Deployment (CI/CD) </p>

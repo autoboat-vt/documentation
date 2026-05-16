@@ -1,5 +1,6 @@
 ---
 title: Autopilot Common Docs
+description: Shared docs for sailboat and motorboat autopilots.
 ---
 
 # <p style="text-align: center;"> Autopilot Nodes </p>

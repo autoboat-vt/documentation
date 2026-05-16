@@ -1,5 +1,6 @@
 ---
 title: Motorboat Simulation
+description: Motorboat simulation node details.
 ---
 
 # <p style="text-align: center;"> Motorboat Simulation </p>

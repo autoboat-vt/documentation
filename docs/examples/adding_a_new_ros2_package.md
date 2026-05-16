@@ -1,5 +1,6 @@
 ---
 title: Add ROS2 Package
+description: Create a new ROS2 package.
 ---
 
 # <p style="text-align: center;"> Adding a New ROS2 Package to the Workspace </p>

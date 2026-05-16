@@ -1,5 +1,6 @@
 ---
 title: USB to WSL
+description: Connect a USB device to WSL.
 ---
 
 # <p style="text-align: center;"> Connecting a USB Device to WSL </p>

@@ -1,5 +1,6 @@
 ---
 title: Wiring Colors
+description: Wiring color scheme reference.
 ---
 
 # <p style="text-align: center;"> Wiring Color Schemes </p>

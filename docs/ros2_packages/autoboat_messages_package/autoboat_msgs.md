@@ -1,5 +1,6 @@
 ---
 title: AutoBoat Messages
+description: AutoBoat message definitions and usage.
 ---
 
 # <p style="text-align: center;"> AutoBoat Messages </p>

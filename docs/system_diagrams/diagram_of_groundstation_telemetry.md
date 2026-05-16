@@ -1,5 +1,6 @@
 ---
 title: Groundstation Telemetry
+description: Diagram of groundstation telemetry flow.
 ---
 
 # <p style="text-align: center;">Flow of Information Between Groundstation and Autopilot Node </p>

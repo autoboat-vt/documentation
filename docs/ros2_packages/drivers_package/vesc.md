@@ -1,5 +1,6 @@
 ---
 title: VESC
+description: VESC driver node usage.
 ---
 
 # <p style="text-align: center;"> VESC (Vedder Electric Speed Controller) </p>

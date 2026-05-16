@@ -1,5 +1,6 @@
 ---
 title: Object Detection
+description: Object detection node details.
 ---
 
 # <p style="text-align: center;">Object Detection</p>

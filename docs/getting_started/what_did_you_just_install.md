@@ -1,5 +1,6 @@
 ---
 title: What You Installed
+description: Overview of what the installation steps add.
 ---
 
 # <p style="text-align: center;"> What is Docker and How Does it Work? </p>

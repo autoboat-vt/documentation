@@ -1,5 +1,6 @@
 ---
 title: Firmware Dependencies
+description: Install firmware toolchains and SDKs.
 ---
 
 # <p style="text-align: center;"> Installing Firmware Dependencies </p>

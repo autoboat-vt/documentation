@@ -1,5 +1,6 @@
 ---
 title: Simulation Diagram
+description: Diagram of simulation communications.
 ---
 
 # <p style="text-align: center;"> How Each of the Different Codebases Contributing to the Simulation Interact </p>

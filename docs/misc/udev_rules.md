@@ -1,5 +1,6 @@
 ---
 title: Udev Rules
+description: Udev rules for device discovery.
 ---
 
 # <p style="text-align: center;"> What are UDev Rules and How Do We Use Them</p>

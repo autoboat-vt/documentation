@@ -1,5 +1,6 @@
 ---
 title: Add ROS2 Node
+description: Add a new ROS2 node.
 ---
 
 # <p style="text-align: center;"> Adding a New ROS2 Node to A Package </p>

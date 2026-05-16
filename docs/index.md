@@ -1,5 +1,6 @@
 ---
 title: AutoBoat Documentation
+description: Documentation for the Virginia Tech AutoBoat team.
 ---
 
 # <p style="text-align: center;"> Welcome to the Virginia Tech AutoBoat Documentation!</p>

@@ -1,5 +1,6 @@
 ---
 title: Install Object Detection
+description: Prepare and install object detection dependencies.
 ---
 
 # <p style="text-align: center"> Before Installing DeepStream </p>

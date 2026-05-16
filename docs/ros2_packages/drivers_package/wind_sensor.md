@@ -1,5 +1,6 @@
 ---
 title: Wind Sensor
+description: Wind sensor node usage.
 ---
 
 # <p style="text-align: center;"> Wind Sensor </p>

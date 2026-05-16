@@ -1,5 +1,6 @@
 ---
 title: External Libraries
+description: How we handle external libraries.
 ---
 
 # <p style="text-align: center;"> How to Add External Pip Libraries that We Can Edit</p>

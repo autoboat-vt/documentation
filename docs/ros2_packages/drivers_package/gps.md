@@ -1,5 +1,6 @@
 ---
 title: GPS
+description: GPS node configuration and usage.
 ---
 
 # <p style="text-align: center;"> GPS </p>
