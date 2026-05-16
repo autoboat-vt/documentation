@@ -9,15 +9,24 @@ theme:
   favicon: images/logo.svg
   palette:
     scheme: slate
+  icon:
+    repo: fontawesome/brands/github
   features:
     - content.code.copy
     - content.code.select
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.instant.preview
+    - search.suggest
+    - search.share
 
 plugins:
   - optimize
   - search
+  - social
 
 markdown_extensions:
+  - pymdownx.betterem
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
@@ -38,6 +47,7 @@ markdown_extensions:
   #     toc_depth: "1-1"
 
 extra_javascript:
+  - javascript/static_title.js
   - javascript/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
@@ -50,7 +60,7 @@ nav:
   - Getting Started:
       - Installing Docker: getting_started/installing_docker.md
       - Setting Up the Development Container: getting_started/setting_up_dev_environment.md
-    #   - What Did You Just Install?: getting_started/what_did_you_just_install.md
+      #   - What Did You Just Install?: getting_started/what_did_you_just_install.md
       - Installing Firmware Dependencies: getting_started/installing_firmware_dependencies.md
       - How to Start Developing on the Website: getting_started/how_to_develop_website.md
       - Installing and Running Deepstream for Object Detection: getting_started/install_object_detection.md
@@ -81,7 +91,6 @@ nav:
           - Motorboat Autopilot Node: ros2_packages/autopilot_package/motorboat_autopilot.md
           - Telemetry: ros2_packages/autopilot_package/telemetry.md
 
-
       - Drivers Package:
           - GPS Node: ros2_packages/drivers_package/gps.md
           - RC (Remote Controller) Node: ros2_packages/drivers_package/rc.md
@@ -94,19 +103,18 @@ nav:
       - AutoBoat Messages Package:
           - AutoBoat Messages Node: ros2_packages/autoboat_messages_package/autoboat_msgs.md
 
-    #   - Old Sailboat Simulation Package:
-    #       - Sailboat Simulation Node: ros2_packages/simulation_package/sailboat_simulation.md
-    
+      #   - Old Sailboat Simulation Package:
+      #       - Sailboat Simulation Node: ros2_packages/simulation_package/sailboat_simulation.md
+
       - Simulation Package:
           - Motorboat Simulation: ros2_packages/simulation/motorboat_simulation.md
-
 
   - CI/CD, AutoboatOS, and the Devcontainer:
       - CI/CD: ci_cd_autoboat_os_devcontainer/ci_cd.md
       - AutoboatOS: ci_cd_autoboat_os_devcontainer/autoboat_operating_system.md
       - Devcontainer: ci_cd_autoboat_os_devcontainer/devcontainer.md
       - Common Devcontainer Issues and How to Solve Them: ci_cd_autoboat_os_devcontainer/common_devcontainer_issues_and_how_to_solve_them.md
-  
+
   - Firmware:
       - Raspberry Pi Pico Microros Node: firmware/microros.md
       - Unit Tests: firmware/unittests.md
@@ -115,11 +123,9 @@ nav:
       - Wiring Color Scheme: hardware/wiring_color_scheme.md
       - Squircuit: hardware/squircuit.md
 
-
-  
   - Funding/ Business:
       - SEC Funding: finances/SEC.md
-      
+
   - Misc:
       - Potential Security Risks: misc/potential_security_risks.md
       - Units, Standards, and Definitions: misc/standards_and_definitions.md
