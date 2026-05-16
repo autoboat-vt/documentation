@@ -50,7 +50,7 @@ To learn more about Github workflows, please see the following links:
 - <https://docs.github.com/en/actions>
 - <https://docs.docker.com/build/ci/github-actions>
 
-### <p style="text-align: center;">`workflows/debian_package_files` Folder</p>
+#### <p style="text-align: center;">`debian_package_files` Folder</p>
 
 This folder contains all of the files required to construct the Debian packages. This includes:
 
