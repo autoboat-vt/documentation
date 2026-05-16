@@ -1,3 +1,7 @@
+---
+title: AutoBoat Documentation 
+---
+
 # <p style="text-align: center;"> AutoBoat Messages </p>
 
 ## **Summary**

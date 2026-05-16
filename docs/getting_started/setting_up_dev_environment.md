@@ -1,3 +1,7 @@
+---
+title: AutoBoat Documentation 
+---
+
 # <p style="text-align: center;"> Before Setting Up the Dev Environment </p>
 
 Make sure that you have installed Docker before doing this step. The following steps will not work if Docker is not installed on your machine. The easiest way to check whether docker is installed correctly, open a terminal and type `docker`. If an error doesn't pop up that means that you can proceed!

@@ -1,3 +1,7 @@
+---
+title: AutoBoat Documentation 
+---
+
 # <p style="text-align: center;">**How to Start Developing on the Website**</p>
 
 Our website is hosted using Virginia Tech's website hosting platform called S4 Web Hosting, which can be found here: [S4 Web Hosting Link](https://4help.vt.edu/sp?id=sc_cat_item&sys_id=229f35ffdbd80700e3a0f839af96193a&pathname=%2Fsp%3Fid%3Dsc_cat_item%26sys_id%3D229f35ffdbd80700e3a0f839af96193a).

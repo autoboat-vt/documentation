@@ -1,3 +1,7 @@
+---
+title: AutoBoat Documentation 
+---
+
 # <p style="text-align: center;"> What is Systemctl?</p>
 
 Systemctl is essentially a way to schedule scripts to run when a machine starts up, and this is super useful on the Jetson on the actual boat, because it allows us to start up the autopilot ROS nodes without SSH'ing into the Jetson all of the time. Before we started using systemctl, every single time we power cycled the boat, we would have to SSH into the boat and manually run `ros2 launch ......`, but now with systemctl, this command automatically runs for us everytime the boat starts up.

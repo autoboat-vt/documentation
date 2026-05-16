@@ -1,3 +1,7 @@
+---
+title: AutoBoat Documentation 
+---
+
 # <p style="text-align: center;"> How Nodes Interact on the Sailboat Simulation </p>
 
 ![ROS2 Sailboat Simulation Node Diagram](../images/sailboat_simulation_node_diagram.png)

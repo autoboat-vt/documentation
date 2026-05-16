@@ -1,3 +1,7 @@
+---
+title: AutoBoat Documentation 
+---
+
 ## Introduction
 
 This document provides an overview of the Telemetry Server API routes, detailing the available endpoints, their functionalities, and how they facilitate communication between the telemetry node and the groundstation. The Telemetry Server API is a critical component of the overall architecture, enabling efficient data exchange and management of boat operations.

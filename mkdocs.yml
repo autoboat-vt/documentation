@@ -2,6 +2,7 @@ site_name: AutoBoat Documentation
 site_url: https://localhost:8000
 repo_url: https://github.com/autoboat-vt
 repo_name: GitHub Organization
+
 theme:
   name: material
   logo: images/logo.svg
@@ -11,8 +12,10 @@ theme:
   features:
     - content.code.copy
     - content.code.select
-# theme:
-#   name: readthedocs
+
+plugins:
+  - optimize
+  - search
 
 markdown_extensions:
   - pymdownx.inlinehilite

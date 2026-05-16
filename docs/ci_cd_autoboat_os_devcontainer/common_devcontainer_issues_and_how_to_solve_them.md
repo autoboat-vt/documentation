@@ -1,3 +1,7 @@
+---
+title: AutoBoat Documentation 
+---
+
 # <p style="text-align: center;">Common Devcontainer Issues and How to Solve Them</p>
 This page will detail how to figure out why your devcontainer is having an error and how to solve the common ones that new users run into a lot. 
 

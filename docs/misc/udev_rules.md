@@ -1,3 +1,7 @@
+---
+title: AutoBoat Documentation 
+---
+
 # <p style="text-align: center;"> What are UDev Rules and How Do We Use Them</p>
 
 Udev Rules allow us to rename specific devices, so that we can very easily access them through code. Devices can usually be found in the /dev/ folder in linux and are generally accessed like devices. For example, a USB device *could* be found as /dev/ttyACM0, and in order to access that device, you have to provide that specific filepath. However, notice how I said "*could* be found" because this actually depends on the number of USB devices connected to your computer/ Jetson and if your computer/ Jetson is feeling devious today. The USB device could actually be found at /dev/ttyACM1, /dev/ttyACM2, etc etc. In other words, just providing the filepath is unreliable.

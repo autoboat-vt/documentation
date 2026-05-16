@@ -1,3 +1,7 @@
+---
+title: AutoBoat Documentation 
+---
+
 # <p style="text-align: center"> Before Installing DeepStream </p>
 
 Make sure that you have set up the dev container prior to attempting install.

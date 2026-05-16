@@ -1,3 +1,7 @@
+---
+title: AutoBoat Documentation 
+---
+
 # <p style="text-align: center;"> Installing Firmware Dependencies </p>
 
 To create a layer of protection between Jetson and high voltages, and extend the number of GPIO pins we have access to, we use an RP2040 microcontroller, which communicates via a serial connection. Luckily, we are able to extend our software infrastructure to it through the microros platform. It runs nodes directly on the microcontroller, and then allows them to publish and listen on topics through the USB serial connection. Due to resource-restricted nature of the microcontrollers, the code is written in C and many of the principles when writing nodes for Jetson are inapplicable.

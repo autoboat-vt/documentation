@@ -1,3 +1,7 @@
+---
+title: AutoBoat Documentation 
+---
+
 # Heres where I put potential security risks which don't matter at all right now but may matter in the future.
 
 In the future though if we ever want to open source this and release it as a tool for others to use or a product, this would be where to start.  

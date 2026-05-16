@@ -1,3 +1,7 @@
+---
+title: AutoBoat Documentation 
+---
+
 # Unit tests with Catch2
 
 These are the instructions to build the Pico SDK and Catch2 unit tests on Windows.

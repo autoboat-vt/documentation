@@ -1,3 +1,7 @@
+---
+title: AutoBoat Documentation 
+---
+
 # <p style="text-align: center;"> VESC (Vedder Electric Speed Controller) </p>
 
 

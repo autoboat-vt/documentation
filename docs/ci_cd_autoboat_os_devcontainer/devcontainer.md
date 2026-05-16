@@ -1,3 +1,7 @@
+---
+title: AutoBoat Documentation 
+---
+
 # <p style="text-align: center;">Devcontainer 101</p>
 
 !!!NOTE "Wait what is Docker again?"

@@ -1,4 +1,8 @@
 
+---
+title: AutoBoat Documentation 
+---
+
 # <p style="text-align: center;"> What is Docker and How Does it Work? </p>
 
 Docker is essentially a way to share custom (super fast) virtual machines. A Dockerfile is the instructions to create these virtual machines. These are then compiled into Docker Images which are the virtual machines stopped at whatever point the Dockerfile told it to stop at. When you run a Docker Image, you get a Docker Container. A Docker Container is the actual virtual machine that you can interact with and work with.  

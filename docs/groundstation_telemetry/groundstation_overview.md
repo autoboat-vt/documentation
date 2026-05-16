@@ -1,3 +1,7 @@
+---
+title: AutoBoat Documentation 
+---
+
 ## Introduction
 
 This document provides an overview of the Ground Station system, detailing its components, functionalities, and how it

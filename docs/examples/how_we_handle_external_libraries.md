@@ -1,3 +1,7 @@
+---
+title: AutoBoat Documentation 
+---
+
 # <p style="text-align: center;"> How to Add External Pip Libraries that We Can Edit</p>
 
 Sometimes, we would like to use external pip packages, but still be able to edit the source code for them on the fly. One great example of this is the pyvesc library for the VESC node, where there are some minor differences between what the library does by default and what we want the library to do. In order to acheieve this, we will take advantage of the "-e" option in pip install, which allows us to install a *local pip package* as editable. Taking the example of the pyvesc library, here is how the source code is laid out:

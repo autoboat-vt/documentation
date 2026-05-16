@@ -1,4 +1,8 @@
-# <p style="text-align: center;"> Flow of Information Between Groundstation and Autopilot Node </p>
+---
+title: AutoBoat Documentation 
+---
+
+# <p style="text-align: center;">Flow of Information Between Groundstation and Autopilot Node </p>
 
 ![Diagram of Groundstation Telemetry](../images/diagram_of_groundstation_telemetry.png)
 
