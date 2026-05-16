@@ -22,14 +22,14 @@ Back in the day, we used to have to use a command line tool called [usbipd-win](
 
 - Click on the .msi release option for Windows:
 
-![WSL USB GUI Releases Image](../images/wsl_usb_gui_releases.png)
+![WSL USB GUI Releases Image](../assets/images/wsl_usb_gui_releases.png)
 
 
 - Run the installer and click through all of the options with the defaults until you have installed WSL USB GUI
 
 - Once you have finished installing the program, you should see the following show up if you search for WSL USB in the Windows search bar:
 
-![WSL USB Search Bar](../images/wsl_usb_search_bar.png)
+![WSL USB Search Bar](../assets/images/wsl_usb_search_bar.png)
 
 - Run WSL USB GUI
 

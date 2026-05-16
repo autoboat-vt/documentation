@@ -52,24 +52,24 @@ code .
 ```
 
 
-Install the Docker Dev Containers Extension on VSCode. It should look like the following: ![Docker Dev Containers VSCode](../images/dev_container_ext.png)
+Install the Docker Dev Containers Extension on VSCode. It should look like the following: ![Docker Dev Containers VSCode](../assets/images/dev_container_ext.png)
 
 
 !!!NOTE "mac OS Users" 
     To test whether or not XQuartz is working correctly, run either `xeyes` or `xclock` in your terminal. Your should see a new window appear with one of the following images.
 
-    <p style="text-align: center;">![xclock](../images/xclock.png)![xeyes](../images/xeyes.png)</p>
+    <p style="text-align: center;">![xclock](../assets/images/xclock.png)![xeyes](../assets/images/xeyes.png)</p>
 
     If you see one of these images, then XQuartz is working correctly.
 
-Build and enter dev container for the repo by typing in the following into the search bar at the top `>dev containers build`. You should see something similar to this at the top: ![alt text](../images/dev_container_search_bar.png). Wait for a moment as the container sets itself up!
+Build and enter dev container for the repo by typing in the following into the search bar at the top `>dev containers build`. You should see something similar to this at the top: ![alt text](../assets/images/dev_container_search_bar.png). Wait for a moment as the container sets itself up!
 
 # <p style="text-align: center;"> Final Setup after Loading Development Container </p>
 
 
 Once you are inside your development container, you can then open up a terminal by hitting the plus button:
 
-![alt text](../images/open_terminal_button.png)
+![alt text](../assets/images/open_terminal_button.png)
 
 !!!NOTE "mac OS Users" 
     To test the connection to the Docker container, run the following commands in the terminal in the Docker container:
@@ -89,7 +89,7 @@ Restart VSCode by closing it and reopening it to make sure all of the changes re
 If you would like to close the container and resume development on it some other time then heres how you do that.
 First, open a VSCode window and click on the search bar at the very top. Instead of searching like you would normally, instead type `>open folder in container`. Remember to include the "\>" as thats what allows your VSCode search bar to run commands. Once you do that you should get a popup that looks something like this:
 
-![Open Folder in Container](../images/open_folder_in_container_vscode.png)
+![Open Folder in Container](../assets/images/open_folder_in_container_vscode.png)
 
 Click on Dev Containers: Open Folder in Container.
 This should navigate you to a file explorer. Using it, simply navigate to the folder that you cloned the github repo into and you should be back to your development container.
