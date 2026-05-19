@@ -22,7 +22,6 @@ theme:
     - search.share
 
 plugins:
-  - optimize
   - search
 
 markdown_extensions:
