@@ -1,3 +1,8 @@
+---
+title: Known Issues
+description: Known issues and workarounds.
+---
+
 # <p style="text-align: center;"> Known Issues</p>
 
 
@@ -6,7 +11,7 @@
 <br>
 
 - If the groundstation gives the following error when you boot it up: 
-![groundstation_error1](../images/known_issues_groundstation_error1.png) then run the following command in a WSL terminal if you are on windows, or on a linux terminal if you are on linux: 
+![groundstation_error1](../assets/images/known_issues_groundstation_error1.png) then run the following command in a WSL terminal if you are on windows, or on a linux terminal if you are on linux: 
 
 ```sh
 echo "xhost + >> /dev/null" >> ~/.bashrc && source ~/.bashrc

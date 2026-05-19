@@ -1,3 +1,8 @@
+---
+title: Devcontainer
+description: Devcontainer setup and usage.
+---
+
 # <p style="text-align: center;">Devcontainer 101</p>
 
 !!!NOTE "Wait what is Docker again?"
@@ -18,7 +23,7 @@ Lets say you just implemented an awesome new feature to the Groundstation, but n
 
 Fret not my friend! The files inside your devcontainer are actually the *same* files as the ones **outside the devcontainer**. This is possible thanks to *[bind mounting](https://docs.docker.com/engine/storage/bind-mounts)*, a feature of Docker that allows us to expose files from outside the devcontainer which can then be edited from inside the devcontainer. **Any** change you make to the files inside the devcontainer will automatically be reflected on your native operating system's filesystem (for Linux or macOS users) or inside of your WSL filesystem for Windows users. Please see the below figure for a visual representation of this concept:
 
-![Bind Mounting](../images/docker_bind.png)
+![Bind Mounting](../assets/images/docker_bind.png)
 
 Thus, you can rest assured that any changes you make to the code inside the devcontainer will be reflected on your computer's filesystem and will not be lost when you exit the devcontainer.
 
@@ -75,7 +80,7 @@ The following are the currently available devcontainer variants:
 In order to switch the devcontainer variant you are currently working with, you have to perform the following steps:
 
 1. Go to the `.devcontainer/host_environment_variables.sh` file that should be automatically created from `host_setup.sh`.
-![host_environment_variables](../images/host_environment_variables.png)
+![host_environment_variables](../assets/images/host_environment_variables.png)
 
 2. Then edit the line that says `export DEVCONTAINER_VARIANT=vtautoboat/development_image` so that the `DEVCONTAINER_VARIANT` environment variable contains the name of the devcontainer you want to use. For instance, if you want to use the firmware devcontainer, then you should edit the line to be `export DEVCONTAINER_VARIANT=vtautoboat/development_image_firmware`. 
 
@@ -86,7 +91,7 @@ source ~/.bashrc && code .
 This will refresh your `.bashrc` and open VSCode on your autoboat_vt repository. 
 
 4. Once VSCode opens, please run "Rebuild without Cache and Reopen Container" to rebuild the devcontainer so that it now uses the new devcontainer variant of your choice.
-![rebuild_reopen_devcontainer](../images/rebuild_reopen_devcontainer.png)
+![rebuild_reopen_devcontainer](../assets/images/rebuild_reopen_devcontainer.png)
 Now you should be running the devcontainer variant of your choice and you should have everything preinstalled.
 
 ## <p style="text-align: center;"> How to Test Custom Docker Images</p>

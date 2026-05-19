@@ -1,3 +1,8 @@
+---
+title: Autopilot Telemetry
+description: Autopilot telemetry topics and usage.
+---
+
 # <p style="text-align: center;"> Telemetry </p>
 
 ## **Summary**

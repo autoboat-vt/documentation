@@ -1,3 +1,8 @@
+---
+title: Sailboat Simulation
+description: Sailboat simulation node details.
+---
+
 # <p style="text-align: center;"> Sailboat Simulation </p>
 
 ## **Summary**

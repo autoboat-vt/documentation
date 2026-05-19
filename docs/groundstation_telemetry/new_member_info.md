@@ -1,3 +1,8 @@
+---
+title: New Members
+description: Overview for new team members.
+---
+
 ## Introduction
 
 This document provides information for new members interested in working on either the Ground Station or Telemetry Server components of the Autoboat project. It outlines the necessary skills and knowledge required to effectively contribute to these parts of the codebase, and where to find relevant resources for learning.

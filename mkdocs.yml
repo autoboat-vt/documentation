@@ -1,20 +1,32 @@
 site_name: AutoBoat Documentation
-site_url: https://localhost:8000
+site_description: Documentation for the Virginia Tech AutoBoat team.
+site_url: https://autoboat-vt.github.io/
 repo_url: https://github.com/autoboat-vt
 repo_name: GitHub Organization
+
 theme:
   name: material
-  logo: images/logo.svg
-  favicon: images/logo.svg
+  logo: assets/images/logo.svg
+  favicon: assets/images/logo.svg
   palette:
     scheme: slate
+  icon:
+    repo: fontawesome/brands/github
   features:
     - content.code.copy
     - content.code.select
-# theme:
-#   name: readthedocs
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.instant.preview
+    - search.suggest
+    - search.share
+
+plugins:
+  - optimize
+  - search
 
 markdown_extensions:
+  - pymdownx.betterem
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
@@ -35,6 +47,7 @@ markdown_extensions:
   #     toc_depth: "1-1"
 
 extra_javascript:
+  - javascript/static_title.js
   - javascript/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 

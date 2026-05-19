@@ -1,3 +1,8 @@
+---
+title: Add ROS2 Package
+description: Create a new ROS2 package.
+---
+
 # <p style="text-align: center;"> Adding a New ROS2 Package to the Workspace </p>
 
 ## Python Packages
@@ -11,7 +16,7 @@ ros2 pkg create <Your Package Name Here> --build-type ament_python --dependencie
 Once you have created your package, you should see a new folder pop up in `/home/ws/ros_packages` that looks a little bit like this:
 
 
-![Test Package Folder Example](../images/test_package_folder_example.png)
+![Test Package Folder Example](../assets/images/test_package_folder_example.png)
 
 Once you add the package, ensure that you run the following commands:
 

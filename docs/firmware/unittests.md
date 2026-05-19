@@ -1,3 +1,8 @@
+---
+title: Unit Tests
+description: Firmware unit testing guide.
+---
+
 # Unit tests with Catch2
 
 These are the instructions to build the Pico SDK and Catch2 unit tests on Windows.

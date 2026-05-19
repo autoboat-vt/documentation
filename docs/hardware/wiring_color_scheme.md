@@ -1,3 +1,8 @@
+---
+title: Wiring Colors
+description: Wiring color scheme reference.
+---
+
 # <p style="text-align: center;"> Wiring Color Schemes </p>
 
 In order to efficiently wire our numerous peripheral devices, we decided to use a coloring standard that will simplify identifying what wire belongs to what interface.

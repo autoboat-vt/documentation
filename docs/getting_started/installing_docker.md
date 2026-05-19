@@ -1,3 +1,8 @@
+---
+title: Install Docker
+description: Install Docker for the AutoBoat development environment.
+---
+
 # <p style="text-align: center"> Installing Docker </p>
 
 !!!NOTE "NOTE: If You Meet Difficulties Installing Docker"

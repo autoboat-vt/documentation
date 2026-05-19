@@ -1,3 +1,8 @@
+---
+title: Standards and Definitions
+description: Units, standards, and definitions.
+---
+
 # <p style="text-align: center;"> Standards and Definitions</p>
 
 ## Units:
@@ -32,7 +37,7 @@ There are several ways of measuring the wind direction and intensity that are ea
 
 Apparent Wind Angle: The [Apparent Wind](https://en.wikipedia.org/wiki/Apparent_wind) is the wind measured on top of the boat. Imagine for a second that you are on a speedboat with no wind outside. When the speed boat is moving quickly, then you can feel the wind brush over your face because you are moving quickly even though there is no real wind. This is because you are moving into the air around you, which creates the sensation of wind and works in a similar way to [relative motion](https://en.wikipedia.org/wiki/Relative_velocity). The following Youtube video gives a pretty good explanation of apparent wind: [Apparent Wind Explanation Youtube Video](https://www.youtube.com/watch?v=ndL1FcTRPwU). The way that we measure this angle is counter-clockwise from the centerline of the boat, which visually looks like this if the boat is facing upwards:
 
-![Apparent Wind Angles Visualization](../images/apparent_wind_angles_visualization.png)
+![Apparent Wind Angles Visualization](../assets/images/apparent_wind_angles_visualization.png)
 
 
 This means that if the boat is going downwind, then the wind angle is 0 degrees. If the boat is going upwind, then the wind angle is 180 degrees. If the wind is blowing towards the left side of the boat, then the wind angle is 90 degrees. This measurement of the apparent wind direction and speed is really useful for managing the exact position of our sail because the direction that our sail should be pointing is dictated mainly by the apparent wind angle. The exact behaviour of the sail will always be defined by a lookup table, so for instance, if the boat is headed downwind, then the sail should be out all of the way. If the boat is heading directly upwind, then you will want to pull the sails all the way in.  
@@ -49,7 +54,7 @@ $\text{wind_vector_y} = \text{wind_magnitude} * sin(\text{wind_angle})$
 
 This gives some pretty funky results when we start talking about the global true wind angle, but I promise it makes the math easier if you are able to follow along. Here are the x and y axes labeled for the apparent wind angle using this definition of the apparent wind vector:
 
-![Apparent Wind Vector Axes Labeled](../images/apparent_wind_vector_axes_labeled.png)
+![Apparent Wind Vector Axes Labeled](../assets/images/apparent_wind_vector_axes_labeled.png)
 
 
 This means that the axes that the apparent wind vector are based off of change if the heading/ direction of the boat changes. **You have to keep this fact in mind when doing calculations with the apparent wind vector because this is very important**.

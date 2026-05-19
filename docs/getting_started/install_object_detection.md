@@ -1,3 +1,8 @@
+---
+title: Install Object Detection
+description: Prepare and install object detection dependencies.
+---
+
 # <p style="text-align: center"> Before Installing DeepStream </p>
 
 Make sure that you have set up the dev container prior to attempting install.
@@ -95,7 +100,7 @@ bash build_engine_file11.sh yolo11s
 
 You will see a couple warnings similar to shown below. Those are normal.
 
-![Build Warnings](../images/model_build_warnings.png)
+![Build Warnings](../assets/images/model_build_warnings.png)
 
 After running the script, the file will be moved to the `pt_files/` directory. The script will look for files in both the `deepstream_yolo/` directory and `pt_files/` directory, if it exists.
 

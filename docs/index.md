@@ -1,3 +1,8 @@
+---
+title: Home
+description: Welcome to the Virginia Tech AutoBoat Documentation!
+---
+
 # <p style="text-align: center;"> Welcome to the Virginia Tech AutoBoat Documentation!</p>
 This documentation is intended to be a comprehensive guide to everything related to the [Virginia Tech AutoBoat software stack](https://github.com/autoboat-vt). Here, you will find guides on how to set up your development environment, how to install all of the necessary dependencies, how to use actually the software, and explanations of how the software works under the hood.
 

@@ -1,3 +1,8 @@
+---
+title: Groundstation
+description: Groundstation overview and usage.
+---
+
 ## Introduction
 
 This document provides an overview of the Ground Station system, detailing its components, functionalities, and how it

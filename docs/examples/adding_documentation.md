@@ -1,3 +1,8 @@
+---
+title: Add Documentation
+description: Add a new documentation page.
+---
+
 # <p style="text-align: center;"> Adding Documentation </p>
 
 As a team, we want our software and hardware decisions well-documented and kept in one place to ensure that new members can easily learn the big and complex system they work with, as well as quickly be plugged into development process. As such, after achieving a significant milestone, it is highly recommended to document it and contribute to this website. It is a lot easier than it sounds.
