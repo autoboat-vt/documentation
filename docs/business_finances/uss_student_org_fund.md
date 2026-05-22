@@ -24,7 +24,9 @@ You can request funding for a particular item via GobblerConnect by going to the
 It doesn't show the USS funding here, but whenever the funding opens up in the fall, it will show the normal funding for RSO's (Registered Student Organizations). RSO's are the designation for a particular "type" of student organization and AutoBoat currently is an RSO, although this may change in the near future. The mechanics of RSOs vs USLPs vs the other types of student organizations aren't really important right now. The only important part is knowing that we are an RSO.
 
 
-You can go to the following link if you would like to learn more about accessing USS funds: https://campuslife.vt.edu/content/campuslife_vt_edu/en/Student_Orgs/orgfunding/_jcr_content/content/download/file.res/Requesting%20Payment%20for%20Approved%20Student%20Organization%20Funding%20Requests.pdf
+You can go to the following link if you would like to learn more about accessing USS funds: 
+
+- https://campuslife.vt.edu/content/campuslife_vt_edu/en/Student_Orgs/orgfunding/_jcr_content/content/download/file.res/Requesting%20Payment%20for%20Approved%20Student%20Organization%20Funding%20Requests.pdf
 
 
 ## Funding Categories, Maximums, and General Rules
