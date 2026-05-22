@@ -9,6 +9,8 @@ If you would like to get access to the autoboat team email, you need to email th
 
 This email is our primary official means of communication with the team. If we need to correspond with the ware lab manager, the head organizer of the PEP competition, make recruitement emails, etc they should all be done through this email.
 
+Once you have access you can access the email simply by visiting the following url: https://outlook.cloud.microsoft/mail/autoboat@vt.edu/
+
 
 The person you need to contact in order to get access to the autoboat team email can be found below:
 
