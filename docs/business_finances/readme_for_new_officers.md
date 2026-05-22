@@ -22,7 +22,6 @@ Make sure that you are added to the following:
 - Make sure you have access to the Astrobotics + AutoBoat Leads discord server, which is our primary channel of communication with them. If we need anything from them or they need anything from us they will tell us there. If you do not, please ask a past officer to invite you to the server.
 
 - Go through all of the funding guides and get set up with stuff such as SEC bank information early!
-
   - [SEC Fund Documentation](sec_fund.md)
 
   - [PEP Fund Documentation](pep_fund.md)
@@ -41,7 +40,3 @@ Be sure to be monitoring your email for anything from the ware lab manager (Dewe
 
 
 Also, since we usually change officers at the end of the year, make sure that the team has filled out the student organization reregistration form. You should be able to see it in GobblerConnect under our organization settings in the forms tab if you have the "Officer". Please make sure that someone does that because if someone doesn't then it introduces a whole host of headaches like not being able to attend Gobblerfest.
-
-
-
-TODO TODO. PIN THIS DOCUMENTATION PAGE IN THE OFFICERS CHAT.

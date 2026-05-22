@@ -8,7 +8,7 @@ description: AOE funding documentation.
 
 ## Engineering Fee Fund
 
-We get around $5000 dollars every year from the AOE department via their Engineering Fee Fund. This funding source is **not reimbursement based** and instead in order to access it, there is a form you have to access and once you fill it out, the AOE department will order that item for you. These funds may not be used for travel purposes. TODO TODO TODO TODO TODO
+We get around $5000 dollars every year from the AOE department via their Engineering Fee Fund. This funding source is **not reimbursement based** and instead in order to access it, there is a form you have to access and once you fill it out, the AOE department will order that item for you. These funds may not be used for travel purposes. 
 
 In order to get access to this fund, at the beginning of the year, you need to fill out a whole funding application where you have to put a bunch of line items you would like to get funding for and how much they cost. The AOE department will then use that to estimate how much money you will need for the year and then they will allocate that money to the team. These line items don't matter as much as SEC in the sense where every time you try to access the funds, the AOE department doesn't go and check what is in the line items and if what you just asked for funding for was actually in the line items. The line items are more so there just to estimate how much money you will need as a team.
 
