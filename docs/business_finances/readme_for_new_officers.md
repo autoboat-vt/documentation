@@ -22,15 +22,15 @@ Make sure that you are added to the following:
 - Make sure you have access to the Astrobotics + AutoBoat Leads discord server, which is our primary channel of communication with them. If we need anything from them or they need anything from us they will tell us there. If you do not, please ask a past officer to invite you to the server.
 
 - Go through all of the funding guides and get set up with stuff such as SEC bank information early!
-  - [SEC Fund Documentation](sec_fund.md)
+    - [SEC Fund Documentation](sec_fund.md)
 
-  - [PEP Fund Documentation](pep_fund.md)
+    - [PEP Fund Documentation](pep_fund.md)
 
-  - [Ware Lab Stipend Documentation](ware_lab_stipend.md)
+    - [Ware Lab Stipend Documentation](ware_lab_stipend.md)
 
-  - [AOE Fund Documentatation](aoe_fund.md)
+    - [AOE Fund Documentatation](aoe_fund.md)
 
-  - [USS Student Organization Funding Documentation](uss_student_org_fund.md)
+    - [USS Student Organization Funding Documentation](uss_student_org_fund.md)
 
 
 

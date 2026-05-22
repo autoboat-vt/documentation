@@ -87,7 +87,9 @@ These are all subject to change. Please consult the most up to date version of t
 
 
 You can learn more at the following links:
+
 - https://campuslife.vt.edu/content/campuslife_vt_edu/en/Student_Orgs/orgfunding/_jcr_content/content/vtcontainer_260361155/vtcontainer-content/vtmultitab_396657388/vt-items_0/download_copy_copy/file.res/2025-2026%20USS%20Appropriations%20Policy%20and%20Procedure.pdf
+
 - https://campuslife.vt.edu/Student_Orgs/orgfunding.html
 
 
