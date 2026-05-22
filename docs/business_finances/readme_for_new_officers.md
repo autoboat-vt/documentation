@@ -3,7 +3,7 @@ title: README For New Officers
 description: New officers should read this to know what they have to do to get started.
 ---
 
-# PLEASE READ ME NEW OFFICERS
+# PLEASE READ ME, NEW OFFICERS
 
 ## New Officer Checklist
 
@@ -20,6 +20,8 @@ Make sure that you are added to the following:
 - Make sure you also have a label on the GobblerConnect page that corresponds to your role on the team so other people outside the team can know who you are and email you if need be. If you do not, then please ask one of the current officers to do this for you.
 
 - Make sure you have access to the Astrobotics + AutoBoat Leads discord server, which is our primary channel of communication with them. If we need anything from them or they need anything from us they will tell us there. If you do not, please ask a past officer to invite you to the server.
+
+- For anyone that needs to access the GitHub, make sure you are listed as an administrator on the GitHub, so you have full permissions. Once again this can be done by asking a relevant past officer.
 
 - Go through all of the funding guides and get set up with stuff such as SEC bank information early!
     - [SEC Fund Documentation](sec_fund.md)
