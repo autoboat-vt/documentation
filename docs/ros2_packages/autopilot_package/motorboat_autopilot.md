@@ -24,7 +24,7 @@ We would like the contactor to be controlled by RC command primarily, but we wou
 
 We would like the autopilot to slow down on curves because if the boat goes too fast while it is turning, then it may lose balance and tip over/ become unstable. In order to prevent this, sadly we cannot go full throttle at all times and we have to have some code in place to handle slowing down on curves. To do this, we make the desired rpm of the propeller motor based on the desired rudder angle using the following formula, where the min_rpm, max_rpm, and rpm_decay_rate are all autopilot parameters that the user gets to choose from the groundstation.
 
-$\text{desired_rpm} = \text{min_rpm} + (\text{max_rpm} - \text{min_rpm}) * e^{-\text{rpm_decay_rate} * \text{rudder_angle}}$
+$$ \text{desired_rpm} = \text{min_rpm} + (\text{max_rpm} - \text{min_rpm}) * e^{-\text{rpm_decay_rate} * \text{rudder_angle}} $$
 
 
 This formula uses exponential decay between 2 different value, the min rpm and max rpm. Whenever the boat is going straight, the rpm will be very close to max_rpm, and whenever the boat is turned too much, the rpm will go closer to the min_rpm. The decay rate just says how much to slow down as you turn your rudder more and more.

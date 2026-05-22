@@ -16,7 +16,7 @@ Here are some resources to understand the CRSF protocol:
 [Source Code for an Arduino CRSF Parser](https://github.com/stepinside/Arduino-CRSF)
 
 
-:p Yeah thats it, there aren't many good resources unfortunately.
+:p Yeah that's it, there aren't many good resources unfortunately.
 
 
 If you would like to have some more resources on the receiver and transmitter they are available here:

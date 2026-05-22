@@ -45,7 +45,7 @@ able to be used until the application is registered with PyQt, which happens in 
 ##### thread_classes.py
 
 The `thread_classes.py` file contains classes that are used to manage threads within the Ground Station application.
-I decided to places these classes in a seperate file since they don't really feel like widgets, but may be hard to
+I decided to places these classes in a separate file since they don't really feel like widgets, but may be hard to
 find in the `constants.py` file if you didn't know they were there. These classes are essential for handling
 asynchronous operations and ensuring that the Ground Station can perform tasks without blocking the main application thread.
 I highly recommend reading the code in this file to understand how threads are managed and how they interact with the
@@ -113,7 +113,7 @@ the `groundstation.py` widget and is used to determine which instance the Ground
 
 #### popup_edit.py
 
-This widget is used to create 'windows' that make it easier to modify text in the Ground Station. It takes highligther
+This widget is used to create 'windows' that make it easier to modify text in the Ground Station. It takes highlighter
 (such as one of the syntax highlighters defined in the `syntax_highlighters` directory), some initial text, a tab width,
 and font size as arguments and uses a QSignal to return the modified text when the user clicks the "Save" button or
 closes the window. This widget is used in the Ground Station to edit buoy data, some data types in the autopilot

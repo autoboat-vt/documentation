@@ -17,6 +17,9 @@ A *devcontainer* is a development environment that is built on top of a Docker c
 - It allows us to have a standardized development environment that works without needing to worry about the user's operating system, architecture, currently installed packages, etc.
 - It allows us to have a standardized set of extensions for VSCode that are automatically installed and configured to work with our codebase.
 
+The devcontainer standard isn't limited to just vscode and in fact, you can use it with almost every modern IDE. There may be some extra setup that you need to do in order to get all of the intellisense and extensions properly configured, but for the most part it just works! We recommend just using vscode for newer members since it is much easier to set up and most of our tutorials are made for vscode.
+
+
 ## <p style="text-align: center;">What Happens to The Files You Changed in the Devcontainer?</p>
 
 Lets say you just implemented an awesome new feature to the Groundstation, but now want to exit the devcontainer for whatever reason. You may worry that the totally dope new code you just wrote will be lost to the man who lives inside the computer.
@@ -84,7 +87,7 @@ In order to switch the devcontainer variant you are currently working with, you 
 
 2. Then edit the line that says `export DEVCONTAINER_VARIANT=vtautoboat/development_image` so that the `DEVCONTAINER_VARIANT` environment variable contains the name of the devcontainer you want to use. For instance, if you want to use the firmware devcontainer, then you should edit the line to be `export DEVCONTAINER_VARIANT=vtautoboat/development_image_firmware`. 
 
-3. Once you have changed this line and saved the file, then close VSCode and then go to a WSL terminal or normal Linux/macOS terminal thats open at the root of the autoboat_vt repository and then run the following command:
+3. Once you have changed this line and saved the file, then close VSCode and then go to a WSL terminal or normal Linux/macOS terminal that's open at the root of the autoboat_vt repository and then run the following command:
 ```bash
 source ~/.bashrc && code .
 ```
@@ -117,4 +120,4 @@ docker push vtautoboat/development_image:temp_tag
 
 ## <p style="text-align: center;"> How Does the Devcontainer Interact with the CI/CD Pipeline?</p>
 
-When a commmit is pushed to main or a new version is created and pushed to the Github repository, the CI/CD pipeline will automatically build the `vtautoboat/development_image` and `vtautoboat/development_image_firmware` Docker images and push them to Docker hub. There is a trigger on Docker hub to update the `vtautoboat/development_image_deepstream` automatically whenever the `vtautoboat/development_image` is updated. This is not built on the Github action because unfortunately it requires more disk space to build than Github actions is willing to give us for free.
+When a commit is pushed to main or a new version is created and pushed to the Github repository, the CI/CD pipeline will automatically build the `vtautoboat/development_image` and `vtautoboat/development_image_firmware` Docker images and push them to Docker hub. There is a trigger on Docker hub to update the `vtautoboat/development_image_deepstream` automatically whenever the `vtautoboat/development_image` is updated. This is not built on the Github action because unfortunately it requires more disk space to build than Github actions is willing to give us for free.

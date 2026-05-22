@@ -58,6 +58,6 @@ sudo bash build_sim.sh
 
 -----
 
-And thats it! Now automatically, the simulation node will instead use the new, custom simulation instead of the default. The simulation itself is quite poorly documented so if you have any questions about it and how to do certain things, please ask Chris.
+And that's it! Now automatically, the simulation node will instead use the new, custom simulation instead of the default. The simulation itself is quite poorly documented so if you have any questions about it and how to do certain things, please ask Chris.
 
 If you would like to go back to using the default simulation then all you have to do is delete the simulation docker image and repull the default simulation docker container, the simulation node will pull the default simulation image and build it.

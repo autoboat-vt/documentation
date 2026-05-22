@@ -70,7 +70,7 @@ plugin_name
 
 To rebuild the plugin, you can simply enter the build folder in `/home/ws/build` and run `make`. If you altered the CMakeLists.txt, run `cmake ..` in the build folder first.
 
-To create a custom plugin, the documenation can be found here: [Gazebo plugin documentation](https://gazebosim.org/api/sim/8/createsystemplugins.html). Most plugins you will need to make will run at PreUpdate time.
+To create a custom plugin, the documentation can be found here: [Gazebo plugin documentation](https://gazebosim.org/api/sim/8/createsystemplugins.html). Most plugins you will need to make will run at PreUpdate time.
 
 Let's examine an older version of one of our plugins, RudderDynamics, to get an idea of what is necessary in a plugin:
 
@@ -142,6 +142,6 @@ TLDR on how to create a custom plugin:
 1. Create folder with src, and include folders
 2. Create header and source file and create CMakeLists.txt and package.xml
 3. `colcon build --symlink-install` in `/home/ws`
-4. Fix all the errors becuse you're bad at programming
+4. Fix all the errors because you're bad at programming
 5. Add the path to the build folder to GZ_SIM_SYSTEM_PLUGIN_PATH in .bashrc, which means you need to edit postCreateCommand.sh
 6. Add the plugin to your sdf!

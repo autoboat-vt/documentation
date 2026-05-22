@@ -5,13 +5,13 @@ description: Using systemctl for services.
 
 # <p style="text-align: center;"> What is Systemctl?</p>
 
-Systemctl is essentially a way to schedule scripts to run when a machine starts up, and this is super useful on the Jetson on the actual boat, because it allows us to start up the autopilot ROS nodes without SSH'ing into the Jetson all of the time. Before we started using systemctl, every single time we power cycled the boat, we would have to SSH into the boat and manually run `ros2 launch ......`, but now with systemctl, this command automatically runs for us everytime the boat starts up.
+Systemctl is essentially a way to schedule scripts to run when a machine starts up, and this is super useful on the Jetson on the actual boat, because it allows us to start up the autopilot ROS nodes without SSH'ing into the Jetson all of the time. Before we started using systemctl, every single time we power cycled the boat, we would have to SSH into the boat and manually run `ros2 launch ......`, but now with systemctl, this command automatically runs for us every time the boat starts up.
 
 
 
 ## <p style="text-align: center;"> Some Useful Stuff to Know How to Do in Systemctl</p>
 
-Theres a whole bunch of things that are very useful to know how to do with systemctl processes. For example, how to create a new .service file, how to use `sudo systemctl enable myservice.service` (which enables the service to start on boot), how to use `sudo systemctl start myservice.service` (which starts the service right now), how to use `sudo systemctl stop myservice.service` (which stops the service from running right now), `sudo systemctl disable myservice.service` (which disables the service to start on boot), and `sudo journalctl -u myservice.service` (which shows you the print logs from a specific service).
+There's a whole bunch of things that are very useful to know how to do with systemctl processes. For example, how to create a new .service file, how to use `sudo systemctl enable myservice.service` (which enables the service to start on boot), how to use `sudo systemctl start myservice.service` (which starts the service right now), how to use `sudo systemctl stop myservice.service` (which stops the service from running right now), `sudo systemctl disable myservice.service` (which disables the service to start on boot), and `sudo journalctl -u myservice.service` (which shows you the print logs from a specific service).
 
 
 
@@ -78,7 +78,7 @@ sudo mv ~/Downloads/motorboat.service /etc/systemd/system/motorboat.service
 sudo systemctl enable motorboat.service
 ```
 
-Thats it! Now these commands will run every single time the Jetson finishes booting up.
+That's it! Now these commands will run every single time the Jetson finishes booting up.
 
 <br>
 

@@ -88,7 +88,7 @@ Restart VSCode by closing it and reopening it to make sure all of the changes re
 # <p style="text-align: center;"> Connecting Back to The Dev Container </p>
 
 If you would like to close the container and resume development on it some other time then heres how you do that.
-First, open a VSCode window and click on the search bar at the very top. Instead of searching like you would normally, instead type `>open folder in container`. Remember to include the "\>" as thats what allows your VSCode search bar to run commands. Once you do that you should get a popup that looks something like this:
+First, open a VSCode window and click on the search bar at the very top. Instead of searching like you would normally, instead type `>open folder in container`. Remember to include the "\>" as that's what allows your VSCode search bar to run commands. Once you do that you should get a popup that looks something like this:
 
 ![Open Folder in Container](../assets/images/open_folder_in_container_vscode.png)
 

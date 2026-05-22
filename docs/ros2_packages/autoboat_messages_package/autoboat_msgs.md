@@ -13,7 +13,7 @@ This package contains various custom messages types that nodes would need to sen
 ## **Contains the Following Messages**
 **RCData**: A standardized way to send RC Data based on the Radiomaster TX12 buttons. Includes both joysticks and all switches/ buttons
 
-**WaypointList**: A list of NavSatFix objects (https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/NavSatFix.html) that represents a list of waypoints. These are passed around and then interpretted by the autopilot to figure out how it should move to get to those waypoints.
+**WaypointList**: A list of NavSatFix objects (https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/NavSatFix.html) that represents a list of waypoints. These are passed around and then interpreted by the autopilot to figure out how it should move to get to those waypoints.
 
 **VESCControlData**: Contains all of the data that you need to send in order to command the vesc on how to drive the motor
 

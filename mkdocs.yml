@@ -123,8 +123,16 @@ nav:
       - Wiring Color Scheme: hardware/wiring_color_scheme.md
       - Squircuit: hardware/squircuit.md
 
-  - Funding/ Business:
-      - SEC Funding: finances/SEC.md
+  - Business/ Funding:
+      - PLEASE READ ME NEW OFFICERS: business_finances/readme_for_new_officers.md
+      - SEC Funding: business_finances/sec_fund.md
+      - AOE Funding: business_finances/aoe_fund.md
+      - USS Student Organizations Funding: business_finances/uss_student_org_fund.md
+      - PEP Funding: business_finances/pep_fund.md
+      - Ware Lab Stipend: business_finances/ware_lab_stipend.md
+      - Accessing All of the Team's Accounts and Passwords: business_finances/accessing_all_of_the_teams_accounts_and_passwords.md
+      - Getting Access to the AutoBoat Team Email: business_finances/getting_access_autoboat_team_email.md
+      - Recruitement Guide: business_finances/recruitement_guide.md
 
   - Misc:
       - Potential Security Risks: misc/potential_security_risks.md
