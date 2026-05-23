@@ -10,10 +10,10 @@
       
       
       
-        <link rel="canonical" href="https://autoboat-vt.github.io/misc/systemctl/">
+        <link rel="canonical" href="https://autoboat-vt.github.io/ci_cd_autoboat_os_devcontainer/systemctl/">
       
       
-        <link rel="prev" href="../standards_and_definitions/">
+        <link rel="prev" href="../common_devcontainer_issues_and_how_to_solve_them/">
       
       
         <link rel="next" href="../udev_rules/">
@@ -1564,18 +1564,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
           <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
@@ -1596,7 +1598,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1614,7 +1616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci_cd_autoboat_os_devcontainer/ci_cd/" class="md-nav__link">
+      <a href="../ci_cd/" class="md-nav__link">
         
   
   
@@ -1642,7 +1644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci_cd_autoboat_os_devcontainer/autoboat_operating_system/" class="md-nav__link">
+      <a href="../autoboat_operating_system/" class="md-nav__link">
         
   
   
@@ -1670,7 +1672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci_cd_autoboat_os_devcontainer/devcontainer/" class="md-nav__link">
+      <a href="../devcontainer/" class="md-nav__link">
         
   
   
@@ -1698,7 +1700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ci_cd_autoboat_os_devcontainer/common_devcontainer_issues_and_how_to_solve_them/" class="md-nav__link">
+      <a href="../common_devcontainer_issues_and_how_to_solve_them/" class="md-nav__link">
         
   
   
@@ -1706,6 +1708,153 @@
     
   
     Common Devcontainer Issues and How to Solve Them
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running ROS2 on Jetson Startup with Systemctl
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running ROS2 on Jetson Startup with Systemctl
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#some-useful-stuff-to-know-how-to-do-in-systemctl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Some Useful Stuff to Know How to Do in Systemctl
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-of-a-systemctl-file-that-we-have-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example of a Systemctl File That We Have Used
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-deploy-the-example-systemctl-file-onto-a-jetson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Deploy The Example Systemctl File onto a Jetson
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extra-resources-to-learn-more-about-systemctl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extra Resources to Learn More About Systemctl
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../udev_rules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automatically Finding Which Port Devices Are on with Udev Rules
   
 
     
@@ -2256,20 +2405,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
         
           
           <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
@@ -2290,7 +2437,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2308,7 +2455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../potential_security_risks/" class="md-nav__link">
+      <a href="../../misc/potential_security_risks/" class="md-nav__link">
         
   
   
@@ -2336,7 +2483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../standards_and_definitions/" class="md-nav__link">
+      <a href="../../misc/standards_and_definitions/" class="md-nav__link">
         
   
   
@@ -2361,185 +2508,10 @@
                 
   
   
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Running ROS2 on Jetson Startup with Systemctl
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Running ROS2 on Jetson Startup with Systemctl
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#some-useful-stuff-to-know-how-to-do-in-systemctl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Some Useful Stuff to Know How to Do in Systemctl
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-of-a-systemctl-file-that-we-have-used" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example of a Systemctl File That We Have Used
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-deploy-the-example-systemctl-file-onto-a-jetson" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How Deploy The Example Systemctl File onto a Jetson
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extra-resources-to-learn-more-about-systemctl" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Extra Resources to Learn More About Systemctl
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
   
   
     <li class="md-nav__item">
-      <a href="../udev_rules/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Automatically Finding Which Port Devices Are on with Udev Rules
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../crontabs/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Automating Periodic Scripts with Crontabs
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../known_issues/" class="md-nav__link">
+      <a href="../../misc/known_issues/" class="md-nav__link">
         
   
   
