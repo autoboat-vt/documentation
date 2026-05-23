@@ -8,7 +8,7 @@ description: Automating periodic scripts with crontabs.
 
 
 !!!NOTE "NOTE: We are currently not using crontabs anymore"
-    It turns out that via systemctl, you can easily replicate what we were trying to do with crontabs, so we will not be using it. This documentation will stay here for legacy reasons
+    It turns out that via udev rules, you can easily replicate what we were trying to do with crontabs, so we will not be using it. This documentation will stay here for legacy reasons
 
 
 ### <p style="text-align: center;"> What are Crontabs? </p>
