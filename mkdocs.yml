@@ -116,7 +116,7 @@ nav:
       - Common Devcontainer Issues and How to Solve Them: ci_cd_autoboat_os_devcontainer/common_devcontainer_issues_and_how_to_solve_them.md
       - Running ROS2 on Jetson Startup with Systemctl: ci_cd_autoboat_os_devcontainer/systemctl.md
       - Automatically Finding Which Port Devices Are on with Udev Rules: ci_cd_autoboat_os_devcontainer/udev_rules.md
-      - Automating Periodic Scripts with Crontabs: ci_cd_autoboat_os_devcontainer/crontabs.md
+      # - Automating Periodic Scripts with Crontabs: ci_cd_autoboat_os_devcontainer/crontabs.md
 
   - Firmware:
       - Raspberry Pi Pico Microros Node: firmware/microros.md
