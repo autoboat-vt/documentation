@@ -29,6 +29,9 @@ If you want to to learn more about CI/CD with Github, please see the below links
 | **Multi-Arch Manifests** | ❌ | ✅ | ✅ |
 
 ## <p style="text-align: center;">File Structure of the `.github` Folder</p>
+
+<br>
+
 ### <p style="text-align: center;">`workflows` Folder</p>
 
 The files in this folder are used to define the different workflows that should run when certain events happen. Currently it contains the following files:
@@ -50,6 +53,10 @@ To learn more about Github workflows, please see the following links:
 
 - <https://docs.github.com/en/actions>
 - <https://docs.docker.com/build/ci/github-actions>
+
+<br>
+
+
 
 #### <p style="text-align: center;">`debian_package_files` Folder</p>
 
