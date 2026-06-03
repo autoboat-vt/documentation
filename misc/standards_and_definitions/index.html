@@ -2556,6 +2556,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#suggestions-for-writing-classes-and-managing-state-for-the-autopilot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Suggestions for Writing Classes And Managing State for the Autopilot
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2731,6 +2742,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#suggestions-for-writing-classes-and-managing-state-for-the-autopilot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Suggestions for Writing Classes And Managing State for the Autopilot
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2799,6 +2821,9 @@
 <p><span class="arithmatex">\(\text{local_velocity_vector_y} = \text{boat_speed} * sin(\text{local_velocity_angle})\)</span></p>
 <p>arctan2 is defined as simply a function that takes in the x and y components of a vector and outputs the angle that vector makes counter-clockwise from the x axis. See the following link for more details: <a href="https://en.wikipedia.org/wiki/Atan2">Arctan2 Wikipedia Page</a></p>
 <p>Now, similarly to the apparent/ true wind angle, local_velocity_vector_x faces the same direction as the centerline of the boat, and local_velocity_vector_y faces to the left of the boat. This version of the velocity vector can now be added to the apparent wind vector since now both of them are being measured the same way.</p>
+<h2 id="suggestions-for-writing-classes-and-managing-state-for-the-autopilot">Suggestions for Writing Classes And Managing State for the Autopilot</h2>
+<p>When working with objects in any programming you should be very intentional with how you manage "state" (ie self. variables in python or member variables/ attributes in c++). This is one of the primary things that differentiates easy to read/ understand programs and difficult/ messy code, other than good systems documentation. When working on the autopilot there is a general rule that the only functions that should modify the state of the class should be the publically accessible functions of that class and the ROS2 callbacks. This is intended to make it very clear where you are modifying the state and if someone wants to "go to definition" on a function that they are using from that class, they can immediately see where the state is being modified. Also, we generally want to avoid changing the "state" of a class in functions and if we can, we almost always want to pass the state in as an argument of the funcion, since this makes it very explicit what the function should output and makes it very easy to test!</p>
+<p>Other than that, you want to ideally keep as little state as possible and adopt more of a functional programming perspective. Functional progamming is a opposing programming philosophy to object oriented programming that says that your program shall have no "state", and your entire program shall work by composing functions. Now, functional programming in its most extreme sense is kind of insane and the stuff you need to do in order to get it to work for real programs is also kind of insane, but we don't have to abolish "state" entirely. The difference between object oriented programming and functional programming is somewhat of a spectrum, and we can lie closer to functional programming or closer to object oriented programming. Ideally, we would like to sit much closer to functional programming, while still having some state for things like loggers/ parameters dictionaries that we don't want to pass into every function every single time, and using classes to group related functions together. The loggers and parameters dictionaries are mostly fine to keep as state since they are functionally immutable and the code writter does not have to worry about the value of those variables changing between function calls.</p>
 
 
 
