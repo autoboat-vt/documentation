@@ -14,7 +14,7 @@ The best way to get started is to follow the [Getting Started Guide](getting_sta
 ## *<p style="text-align: center;"> What Frameworks and Tools Should I Learn? </p>*
 
 !!!NOTE
-	**TLDR**: You should absolutely be familiar with ROS2 Humble, Git, and how to use a unix shell before you start working on this codebase. You may also want to learn Docker since it is extremely widely used and may be useful to know, but this is not necessary to work on the codebase.
+	**TLDR**: You should absolutely be familiar with ROS2 Humble, Git, and how to use a Unix shell before you start working on this codebase. You may also want to learn Docker since it is extremely widely used and may be useful to know, but this is not necessary to work on the codebase.
 
 **Linux/Terminal**: Since this codebase is primarily developed and run on Linux based systems (Ubuntu based specifically), it is important to have a basic understanding of how to use a unix shell. This includes understanding basic commands such as `ls`, `cd`, `cp`, `mv`, `rm`, `mkdir`, `touch`, `nano`/`vim`/`code` (for editing files), and how to run scripts. The more familiar you are with the inner workings of a unix based system, the easier it will be to navigate and understand the codebase. Here are some resources to help you get started:
 
@@ -209,3 +209,8 @@ For a full dependency breakdown for all of the tecchnologies we use and you shou
 - raspberry pi pico sdk
 
 - cmake
+
+<br>
+## *<p style="text-align: center;"> New Officer Information </p>*
+
+If you are a new officer, then you should check out the [README For New Officers](business_finances/readme_for_new_officers.md) which has a checklist of all of the things you need to do to get set up as an officer and also has some additional notes that you should be aware of as a new officer.
