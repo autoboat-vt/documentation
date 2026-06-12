@@ -1,3 +1,4 @@
+.DEFAULT_GOAL := release
 .SHELLFLAGS := -c
 SHELL := /usr/bin/env bash
 
