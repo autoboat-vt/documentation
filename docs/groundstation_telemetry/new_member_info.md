@@ -5,14 +5,14 @@ description: Overview for new team members.
 
 ## Introduction
 
-This document provides information for new members interested in working on either the Ground Station or Telemetry Server components of the Autoboat project. It outlines the necessary skills and knowledge required to effectively contribute to these parts of the codebase, and where to find relevant resources for learning.
+This document provides information for new members interested in working on either the Groundstation or Telemetry Server components of the Autoboat project. It outlines the necessary skills and knowledge required to effectively contribute to these parts of the codebase, and where to find relevant resources for learning.
 
 ## Recommended Skills and Knowledge
 
-To work on the Ground Station or Telemetry Server, you should have a solid understanding (_or be willing to learn_) the following:
+To work on the Groundstation or Telemetry Server, you should have a solid understanding (_or be willing to learn_) the following:
 
-- **Python Programming**: Both the Ground Station and Telemetry Server are written almost entirely in Python. You should be comfortable with Python syntax, data structures, and libraries.
-- **PyQt Framework**: The Ground Station utilizes the [PyQt](https://doc.qt.io/archives/qtforpython-5/contents.html) framework for its graphical user interface. The library is quite extensive, so you don't need to know everything about it, but you should be familiar with the basics of creating windows, widgets, and handling events.
+- **Python Programming**: Both the Groundstation and Telemetry Server are written almost entirely in Python. You should be comfortable with Python syntax, data structures, and libraries.
+- **PyQt Framework**: The Groundstation utilizes the [PyQt](https://doc.qt.io/archives/qtforpython-5/contents.html) framework for its graphical user interface. The library is quite extensive, so you don't need to know everything about it, but you should be familiar with the basics of creating windows, widgets, and handling events.
 - **Networking Concepts**: Understanding basic networking concepts such as sockets, TCP/IP, and data transmission will be beneficial, especially when working with the Telemetry Server.
 - **Multithreading**: Both components may utilize multithreading to handle concurrent tasks. Its not strictly necessary to be an expert in this area, but a basic understanding of threads and how they work in Python will be helpful.
 
@@ -27,8 +27,8 @@ Here are some resources to help you get started with the necessary skills:
     - [Automate the Boring Stuff with Python](https://automatetheboringstuff.com)
 
 - **PyQt Framework**:
-    - [PyQt5 Documentation](https://doc.qt.io/archives/qtforpython-5/contents.html)
-    - [PyQt5 Tutorial](https://www.learnpyqt.com/tutorials/)
+    - [Pyside 6 Documentation](https://doc.qt.io/qtforpython-6/index.html)
+    - [Pyside 6 Tutorial](https://doc.qt.io/qtforpython-6/tutorials/index.html)
 
 - **Networking Concepts**:
     - [Python Networking Programming](https://realpython.com/python-sockets/)
@@ -44,7 +44,7 @@ If you have any questions or need help getting started, please reach out on the 
 
 ## Next Steps
 
-Once you feel comfortable with the necessary skills and have familiarized yourself with the codebase, you can start contributing to the Ground Station and Telemetry Server components. Here are some suggested next steps:
+Once you feel comfortable with the necessary skills and have familiarized yourself with the codebase, you can start contributing to the Groundstation and Telemetry Server components. Here are some suggested next steps:
 
 - Take some time to read through the code to learn how the Ground Station and Telemetry Server are structured.
 - Look for small issues or features that you can work on to get familiar with the codebase and development process.
