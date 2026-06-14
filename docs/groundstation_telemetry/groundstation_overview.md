@@ -58,6 +58,11 @@ The `state_manager.py` file contains the code that manages the state of key vari
 make sure that the state of the Ground Station is consistent across all of the different widgets and components. It also
 provides protection against race conditions and makes sure that the state of the Ground Station is not modified in unexpected ways.
 
+##### data_logger.py
+
+The `data_logger.py` file contains classes and functions for logging telemetry data to CSV files. It handles the
+formatting and writing of telemetry data, supporting both synchronous and asynchronous logging modes.
+
 ##### misc.py
 
 The `misc.py` file contains utility functions that are used throughout the Ground Station codebase.
@@ -93,6 +98,40 @@ is designed to improve the readability of console messages, making it easier to 
 warnings, and errors. It uses the base highlighter class to implement specific highlighting rules for console
 output, ensuring that messages are displayed in a clear and organized manner.
 
+### dialog_templates
+
+The `dialog_templates/` directory in `src/utils/` contains reusable dialog widgets and convenience functions.
+
+#### base_dialog.py
+
+The `base_dialog.py` file contains the `BaseDialog` class - the base class for all dialog widgets in the Ground Station.
+It provides:
+- Title, message, and optional icon display
+- "Remember my decision" checkbox support
+- Standard result handling for dialog acceptance/rejection
+
+#### custom_buttons_dialog.py
+
+The `custom_buttons_dialog.py` file contains the `CustomMessageBoxDialog` class and `show_message_box()` function.
+It provides custom message dialogs with configurable buttons and optional "remember choice" checkbox.
+
+#### text_input_dialog.py
+
+The `text_input_dialog.py` file contains the `InputDialog` class and `show_input_dialog()` function.
+It wraps Qt's `QInputDialog` to provide consistent text, integer, and float input dialogs.
+
+### widget_size_controllers
+
+#### bounded_aspect_widget.py
+
+The `bounded_aspect_widget.py` file contains a widget that maintains a bounded aspect ratio for its child widget.
+This is useful for widgets that need to maintain a specific aspect ratio regardless of the parent widget's size.
+
+#### preserve_aspect_widget.py
+
+The `preserve_aspect_widget.py` file contains a widget that preserves the aspect ratio of its child widget while
+allowing it to be resized. This is useful for displaying content that should not be distorted when resized.
+
 ### widgets
 
 #### groundstation.py
@@ -113,16 +152,16 @@ the `groundstation.py` widget and is used to determine which instance the Ground
 
 #### popup_edit.py
 
-This widget is used to create 'windows' that make it easier to modify text in the Ground Station. It takes highlighter
-(such as one of the syntax highlighters defined in the `syntax_highlighters` directory), some initial text, a tab width,
-and font size as arguments and uses a QSignal to return the modified text when the user clicks the "Save" button or
-closes the window. This widget is used in the Ground Station to edit buoy data, some data types in the autopilot
-parameter editor, and the telemetry data 'limits' that are used to determine when a warning or error should be displayed.
+It is used to create 'windows' that make it easier to modify text in the Ground Station. It takes highlighter (such as one of the 
+syntax highlighters defined in the `syntax_highlighters` directory), some initial text, a tab width, and font size as arguments and uses a
+QSignal to return the modified text when the user clicks the "Save" button or closes the window. This widget is used in
+the Ground Station to edit buoy data, some data types in the autopilot parameter editor, and the telemetry data 'limits'
+that are used to determine when a warning or error should be displayed.
 
 #### popup_telemetry_config.py
 
-This widget is used to create a window that allows for the editing of map appearance configurations, such as displaying
-sailboat debugging symbols. This widget is opened by the button labeled `Map Appearance Config` at the bottom of the Ground
+It is used to create a window that allows for the editing of map appearance configurations, such as displaying sailboat
+debugging symbols. This widget is opened by the button labeled `Map Appearance Config` at the bottom of the Ground
 Station.
 
 #### console_output.py
@@ -142,9 +181,25 @@ important tool for visualizing telemetry data and gaining insights into the boat
 
 #### map_widget
 
-This directory contains the code that is used to make displaying the waypoints and buoys on a interactive map possible.
-It contains a Go server that is used to manage the transfer of waypoints and buoys between the Python code and the
-JavaScript code running in the HTML file in this directory. The Go server exposes a `get` and `set` endpoint that modifies
+This directory contains the code that is used to make displaying the waypoints and buoys on an interactive map possible.
+
+##### waypoints_handler.py
+
+This file contains the `WaypointsHandler` class, an HTTP request handler that manages waypoint data. It provides
+endpoints to get and set waypoints (latitude/longitude pairs) and handles CORS for cross-origin requests.
+
+##### server.py
+
+This file runs a `ThreadingHTTPServer` on `constants.MAP_SERVER_PORT` that uses `WaypointsHandler` to serve
+waypoint data to the JavaScript map frontend.
+
+##### map_options_handler.py
+
+This widget is used to create a window that allows for the editing of map appearance configurations, such as displaying
+sailboat debugging symbols. This widget is opened by the button labeled `Map Appearance Config` at the bottom of the Ground Station.
+
+The map widget uses a server to manage the transfer of waypoints and buoys between the Python code and the
+JavaScript code running in the HTML file. The server exposes `get` and `set` endpoints that modify
 an array containing the latitude and longitude of the waypoints and buoys which takes the form:
 
 ```json
@@ -164,7 +219,7 @@ to display the waypoints and buoys on a map.
 
 This widget is used to display the camera feed from the boat. It uses a QThread from the `thread_classes.py` file to
 fetch the camera feed and then runs some JavaScript code to display the feed in a HTML file. We are using an HTML file
-to display the camera feed because of its abibility to natively show base64 encoded images, saving us the trouble of
+to display the camera feed because of its ability to natively show base64 encoded images, saving us the trouble of
 having to do the decoding ourselves. The widget has buttons that allow you to start and stop the camera feed in order to
 save bandwidth and processing power when the camera feed is not needed.
 
@@ -194,3 +249,8 @@ This widget is used to manage the autopilot parameters of the boat. It provides 
 ##### config_manager.py
 
 This widget is used to manage different autopilot configurations, both locally and on the telemetry server. It provides a way to view all available configurations, a way to create and delete configurations, and a way to download configurations from the telemetry server into the `app_data/autopilot_params` directory. This widget is important for keeping track of different parameter configurations and easily switching between them when tuning the autopilot.
+
+#### user_guide.py
+
+This widget displays a user guide overlay with documentation on how to use the Ground Station. It provides
+interactive help without leaving the application.
