@@ -7,9 +7,9 @@ description: Develop and test the documentation website.
 
 Our website is hosted using Virginia Tech's website hosting platform called S4 Web Hosting, which can be found here: [S4 Web Hosting Link](https://4help.vt.edu/sp?id=sc_cat_item&sys_id=229f35ffdbd80700e3a0f839af96193a&pathname=%2Fsp%3Fid%3Dsc_cat_item%26sys_id%3D229f35ffdbd80700e3a0f839af96193a).
 
-Since it is impractical to ask Virginia Tech's S4 Web Hosting team to add someone as a developer every time we want to add someone new to the website, we keep a copy of the website code in our Github orgranization. This way someone with access to both repositories can clone our repository to their computer and, using Git, set both the Github and S4 Web Hosting repositories to be "remotes" for their local copy of the website code. Then, when we want to push the changes from our Github repository to the S4 Web Hosting repository, we simply push to the S4 Web Hosting remote. This way, we can easily add new developers to the website without needing to ask the S4 Web Hosting team to add them every time.
+Since it is impractical to ask Virginia Tech's S4 Web Hosting team to add someone as a developer every time we want to add someone new to the website, we keep a copy of the website code in our Github organization. This way someone with access to both repositories can clone our repository to their computer and, using Git, set both the Github and S4 Web Hosting repositories to be "remotes" for their local copy of the website code. Then, when we want to push the changes from our Github repository to the S4 Web Hosting repository, we simply push to the S4 Web Hosting remote. This way, we can easily add new developers to the website without needing to ask the S4 Web Hosting team to add them every time.
 
-Diagram of the process:  
+Mini diagram of the process:  
 Your local computer -> Github repository -> S4 Web Hosting repository
 
 ## <p style="text-align: center;">Getting Access to the S4 Site</p>
