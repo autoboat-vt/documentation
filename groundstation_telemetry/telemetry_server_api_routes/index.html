@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/images/logo.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -944,6 +944,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="API Routes Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deployment-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment at a glance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -996,6 +1013,67 @@
     <span class="md-ellipsis">
       
         Instance Manager Routes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wire-format-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wire Format Notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wire Format Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-body-parsing-the-jsonloadsrequestjson-gotcha" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request body parsing - the json.loads(request.json) gotcha
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boat_status-fast-update-binary-payload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        boat_status fast-update binary payload
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagnostic-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagnostic messages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#readwrite-lock-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read/write lock manager
       
     </span>
   </a>
@@ -2618,6 +2696,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="API Routes Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deployment-at-a-glance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment at a glance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2681,6 +2776,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#wire-format-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wire Format Notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Wire Format Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-body-parsing-the-jsonloadsrequestjson-gotcha" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request body parsing - the json.loads(request.json) gotcha
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boat_status-fast-update-binary-payload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        boat_status fast-update binary payload
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagnostic-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagnostic messages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#readwrite-lock-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read/write lock manager
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2704,13 +2860,46 @@
   <h1>Telemetry Server</h1>
 
 <h2 id="introduction">Introduction</h2>
-<p>This document provides an overview of the Telemetry Server API routes, detailing the available endpoints, their functionalities, and how they facilitate communication between the telemetry node and the groundstation. The Telemetry Server API is a critical component of the overall architecture, enabling efficient data exchange and management of boat operations.</p>
+<p>This document provides an overview of the Telemetry Server API routes, detailing the available endpoints, their functionalities, and how they facilitate communication between the telemetry node and the groundstation. The Telemetry Server API is a critical component of the overall architecture, enabling efficient data exchange and management of boat operations. The server lives in its own repository at <a href="https://github.com/autoboat-vt/telemetry_server"><code>autoboat-vt/telemetry_server</code></a>.</p>
 <p><strong>Diagram showing how each component interacts with each other</strong>
 <img alt="Diagram of Groundstation Telemetry" src="../../assets/images/diagram_of_groundstation_telemetry.png" /></p>
 <h2 id="api-routes-overview">API Routes Overview</h2>
-<p>The Telemetry Server API is implemented using Python's <a href="https://flask.palletsprojects.com/en/stable">Flask</a> framework and is hosted on <a href="https://aws.amazon.com/lightsail">AWS Lightsail</a>.</p>
+<p>The Telemetry Server API is implemented using Python's <a href="https://flask.palletsprojects.com/en/stable">Flask</a> framework with <a href="https://flask-sqlalchemy.palletsprojects.com/en/stable">Flask-SQLAlchemy</a> as the ORM. The production stack runs as a Docker Compose cluster fronted by a Cloudflare Tunnel.</p>
 <p>Production URL: <code>https://vt-autoboat-telemetry.uk</code><br />
-Testing URL: <code>https://vt-autoboat-telemetry.uk:8443</code></p>
+Testing URL: <code>https://test.vt-autoboat-telemetry.uk</code></p>
+<p>The testing instance runs on port <code>6001</code> inside the container and the production instance runs on port <code>8000</code>; both are Gunicorn apps. The Cloudflare tunnel routes the public hostnames to the right container, so no inbound ports need to be open on the host. The <code>cron</code> sidecar calls <code>/instance_manager/clean_instances</code> every 5 minutes to evict stale instances.</p>
+<h3 id="deployment-at-a-glance">Deployment at a glance</h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>telemetry-prod</code></td>
+<td>Gunicorn app on <code>:8000</code> (production)</td>
+</tr>
+<tr>
+<td><code>telemetry-test</code></td>
+<td>Gunicorn app on <code>:6001</code> (testing)</td>
+</tr>
+<tr>
+<td><code>cloudflared</code></td>
+<td>Outbound tunnel to Cloudflare; routes hostnames to containers</td>
+</tr>
+<tr>
+<td><code>cron</code></td>
+<td>Calls <code>/instance_manager/clean_instances</code> every 5 min</td>
+</tr>
+<tr>
+<td><code>tailscale</code></td>
+<td>Optional (<code>--profile tailscale</code>). SSH access from your tailnet.</td>
+</tr>
+</tbody>
+</table>
+<p>Multi-arch images (<code>linux/amd64</code> + <code>linux/arm64</code>) are published on every push to <code>main</code> to both GHCR (<code>ghcr.io/autoboat-vt/telemetry_server:latest</code>) and Docker Hub (<code>docker.io/vtautoboat/telemetry_server:latest</code>). See the <a href="https://github.com/autoboat-vt/telemetry_server#readme">telemetry_server README</a> for full deploy instructions. For local development without Docker: <code>pip install -e .</code> then <code>flask run</code> (or <code>gunicorn "autoboat_telemetry_server:create_app()"</code>).</p>
 <h2 id="routes">Routes</h2>
 <h3 id="autopilot-routes">Autopilot Routes</h3>
 <table>
@@ -2771,6 +2960,11 @@ Testing URL: <code>https://vt-autoboat-telemetry.uk:8443</code></p>
 <td><code>POST</code></td>
 <td><code>/autopilot_parameters/set/&lt;int:instance_id&gt;</code></td>
 <td>Set the autopilot parameters using the request data.</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>/autopilot_parameters/update_existing_parameter/&lt;int:instance_id&gt;/&lt;parameter_key&gt;</code></td>
+<td>Update a single existing autopilot parameter by key.</td>
 </tr>
 <tr>
 <td><code>POST</code></td>
@@ -2924,6 +3118,11 @@ Testing URL: <code>https://vt-autoboat-telemetry.uk:8443</code></p>
 <td>Return all telemetry instance IDs.</td>
 </tr>
 <tr>
+<td><code>GET</code></td>
+<td><code>/instance_manager/get_diagnostic_message/&lt;int:instance_id&gt;</code></td>
+<td>Get the diagnostic message for a telemetry instance.</td>
+</tr>
+<tr>
 <td><code>POST</code></td>
 <td><code>/instance_manager/set_name/&lt;int:instance_id&gt;/&lt;instance_name&gt;</code></td>
 <td>Set the name of a telemetry instance.</td>
@@ -2932,6 +3131,11 @@ Testing URL: <code>https://vt-autoboat-telemetry.uk:8443</code></p>
 <td><code>POST</code></td>
 <td><code>/instance_manager/set_user/&lt;int:instance_id&gt;/&lt;user_name&gt;</code></td>
 <td>Set the user for a telemetry instance.</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>/instance_manager/set_diagnostic_message/&lt;int:instance_id&gt;</code></td>
+<td>Set the diagnostic message for a telemetry instance.</td>
 </tr>
 <tr>
 <td><code>DELETE</code></td>
@@ -2950,6 +3154,44 @@ Testing URL: <code>https://vt-autoboat-telemetry.uk:8443</code></p>
 </tr>
 </tbody>
 </table>
+<h2 id="wire-format-notes">Wire Format Notes</h2>
+<p>These are cross-repo invariants. If you change one side (firmware, ground station, server, or website) you must coordinate the change with all the others.</p>
+<h3 id="request-body-parsing-the-jsonloadsrequestjson-gotcha">Request body parsing - the <code>json.loads(request.json)</code> gotcha</h3>
+<p>The boat's telemetry node sends JSON bodies as <strong>JSON-encoded strings</strong> (double-encoded: the request body is a JSON string whose content is itself JSON). The server's <code>json.loads(request.json)</code> decode depends on this. Do not "simplify" the node to send a plain JSON body, or every <code>POST</code> route will break.</p>
+<h3 id="boat_status-fast-update-binary-payload"><code>boat_status</code> fast-update binary payload</h3>
+<p><code>POST /boat_status/set_fast/&lt;int:instance_id&gt;</code> takes a raw binary body, not JSON. The bytes are deserialized positionally against the instance's <code>boat_status_mapping</code> using <code>ctypes.LittleEndianStructure.from_buffer_copy</code>. This means:</p>
+<ul>
+<li>You <strong>must</strong> call <code>POST /boat_status/set_mapping/&lt;int:instance_id&gt;</code> first to define the field order and ctypes types (e.g. <code>[["speed", "c_float"], ["heading", "c_float"], ...]</code>).</li>
+<li>The binary payload's field order <strong>must exactly match</strong> the mapping order. <code>from_buffer_copy</code> is positional - if you add or reorder a field in the mapping on the firmware side, fast updates will silently decode to garbage on the server.</li>
+<li>Coordinate any field-order change with the firmware, the server's <code>set_mapping</code> route, the ground station's display, and the website.</li>
+</ul>
+<h3 id="diagnostic-messages">Diagnostic messages</h3>
+<p><code>POST /instance_manager/set_diagnostic_message/&lt;int:instance_id&gt;</code> takes a JSON body of <code>[intensity, message]</code>, where <code>intensity</code> is a <code>DiagnosticMessageIntensity</code> enum value:</p>
+<table>
+<thead>
+<tr>
+<th>Intensity</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1</code></td>
+<td>INFO</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>WARNING</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td>ERROR</td>
+</tr>
+</tbody>
+</table>
+<p>This enum is defined on the server and consumed by both the ground station and the website. If the server changes the int mapping, both consumers must follow.</p>
+<h3 id="readwrite-lock-manager">Read/write lock manager</h3>
+<p>All routes (except <code>/test</code>) are wrapped by <code>@shared_lock_manager.require_read_lock</code> or <code>@require_write_lock</code> decorators from <code>lock_manager.py</code>. The <code>get_new/*</code> routes take a write lock because they flip a "new flag" as a side effect. You don't need to do anything special to call the routes, but be aware that concurrent writers are serialized.</p>
 
 
 
@@ -3007,7 +3249,7 @@ Testing URL: <code>https://vt-autoboat-telemetry.uk:8443</code></p>
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.code.select", "navigation.instant", "navigation.instant.progress", "navigation.instant.preview", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="../../javascript/static_title.js"></script>
       

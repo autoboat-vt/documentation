@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/images/logo.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2649,13 +2649,16 @@
 
 <h2 id="introduction">Introduction</h2>
 <p>This document provides information for new members interested in working on either the Groundstation or Telemetry Server components of the Autoboat project. It outlines the necessary skills and knowledge required to effectively contribute to these parts of the codebase, and where to find relevant resources for learning.</p>
+<p>The Groundstation lives in the main <a href="https://github.com/autoboat-vt/autoboat_vt"><code>autoboat-vt/autoboat_vt</code></a> repository under <code>ground_station/</code>, and the Telemetry Server is its own repository at <a href="https://github.com/autoboat-vt/telemetry_server"><code>autoboat-vt/telemetry_server</code></a>. Both are written primarily in Python. The Groundstation also embeds a small Vite/TypeScript/Leaflet frontend (the map widget), so a little bit of web knowledge goes a long way.</p>
 <h2 id="recommended-skills-and-knowledge">Recommended Skills and Knowledge</h2>
 <p>To work on the Groundstation or Telemetry Server, you should have a solid understanding (<em>or be willing to learn</em>) the following:</p>
 <ul>
-<li><strong>Python Programming</strong>: Both the Groundstation and Telemetry Server are written almost entirely in Python. You should be comfortable with Python syntax, data structures, and libraries.</li>
-<li><strong>PyQt Framework</strong>: The Groundstation utilizes the <a href="https://doc.qt.io/archives/qtforpython-5/contents.html">PyQt</a> framework for its graphical user interface. The library is quite extensive, so you don't need to know everything about it, but you should be familiar with the basics of creating windows, widgets, and handling events.</li>
-<li><strong>Networking Concepts</strong>: Understanding basic networking concepts such as sockets, TCP/IP, and data transmission will be beneficial, especially when working with the Telemetry Server.</li>
-<li><strong>Multithreading</strong>: Both components may utilize multithreading to handle concurrent tasks. Its not strictly necessary to be an expert in this area, but a basic understanding of threads and how they work in Python will be helpful.</li>
+<li><strong>Python Programming</strong>: Both the Groundstation and Telemetry Server are written almost entirely in Python. You should be comfortable with Python syntax, data structures, and libraries. The Telemetry Server uses <a href="https://flask.palletsprojects.com/en/stable">Flask</a> and <a href="https://flask-sqlalchemy.palletsprojects.com/en/stable">SQLAlchemy</a>, while the Groundstation uses <a href="https://qtpy.readthedocs.io/en/stable/"><code>qtpy</code></a> (a Qt abstraction layer that lets us run on either PySide6 or PyQt without code changes) for its GUI.</li>
+<li><strong>Qt / PySide6 (via qtpy)</strong>: The Groundstation GUI is built on Qt through <code>qtpy</code>. You should <em>never</em> import <code>PyQt5</code> or <code>PyQt6</code> directly - always go through <code>qtpy</code> so the backend stays swappable. You don't need to know the whole Qt API, but you should be familiar with creating windows/widgets, signals and slots, and <code>QThread</code>.</li>
+<li><strong>TypeScript / Vite / Leaflet (Groundstation only)</strong>: The map widget in <code>ground_station/src/widgets/map_widget/frontend/</code> is a small <a href="https://vitejs.dev">Vite</a> + <a href="https://www.typescriptlang.org">TypeScript</a> app that renders waypoints and buoys on a <a href="https://leafletjs.com">Leaflet</a> map. You don't need to be a web expert, but basic familiarity with TS, npm/bun, and JS build tooling is useful if you want to touch the map.</li>
+<li><strong>Networking / HTTP Concepts</strong>: The Groundstation and boat talk to the Telemetry Server over HTTPS REST endpoints (Flask). Understanding basic HTTP methods (GET/POST/DELETE), JSON, and request/response cycles will be helpful, especially when working with the Telemetry Server. See <a href="../telemetry_server_api_routes/">Telemetry Server API Routes</a> for the full route surface.</li>
+<li><strong>Multithreading</strong>: Both components use threads. The Groundstation uses <code>QThread</code> (see <code>src/utils/thread_classes.py</code>) for asynchronous work, and the Telemetry Server uses a read/write lock manager (<code>lock_manager.py</code>) to coordinate concurrent requests. A basic understanding of threads and locks in Python will be helpful.</li>
+<li><strong>Docker / Compose (Telemetry Server only)</strong>: The Telemetry Server is deployed as a multi-service Docker Compose stack (Gunicorn app, Cloudflare tunnel, cron, optional Tailscale). You don't need Docker to develop locally, but it helps to understand the deployment model.</li>
 </ul>
 <p>It's hard to be an expert in all of these areas, so don't worry if you are not. The most important thing is to be willing to learn and ask questions when you need help. You will learn much quicker by doing and asking questions when you get stuck than by trying to learn everything beforehand.</p>
 <h2 id="learning-resources">Learning Resources</h2>
@@ -2669,14 +2672,31 @@
 </ul>
 </li>
 <li>
-<p><strong>PyQt Framework</strong>:</p>
+<p><strong>Qt / PySide6 (via qtpy)</strong>:</p>
 <ul>
-<li><a href="https://doc.qt.io/qtforpython-6/index.html">Pyside 6 Documentation</a></li>
-<li><a href="https://doc.qt.io/qtforpython-6/tutorials/index.html">Pyside 6 Tutorial</a></li>
+<li><a href="https://doc.qt.io/qtforpython-6/index.html">PySide6 Documentation</a></li>
+<li><a href="https://doc.qt.io/qtforpython-6/tutorials/index.html">PySide6 Tutorials</a></li>
+<li><a href="https://qtpy.readthedocs.io/en/stable/">qtpy Documentation</a></li>
 </ul>
 </li>
 <li>
-<p><strong>Networking Concepts</strong>:</p>
+<p><strong>TypeScript / Vite / Leaflet (for the map widget)</strong>:</p>
+<ul>
+<li><a href="https://vitejs.dev/guide/">Vite Getting Started</a></li>
+<li><a href="https://www.typescriptlang.org/docs/handbook/intro.html">TypeScript Handbook</a></li>
+<li><a href="https://leafletjs.com/SlavaUkraini/quick-start.html">Leaflet Quick Start</a></li>
+<li><a href="https://bun.sh/docs">Bun (the runner we use)</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Flask / SQLAlchemy (for the Telemetry Server)</strong>:</p>
+<ul>
+<li><a href="https://flask.palletsprojects.com/en/stable/quickstart/">Flask Quickstart</a></li>
+<li><a href="https://flask-sqlalchemy.palletsprojects.com/en/stable/">Flask-SQLAlchemy</a></li>
+</ul>
+</li>
+<li>
+<p><strong>Networking / HTTP Concepts</strong>:</p>
 <ul>
 <li><a href="https://realpython.com/python-sockets/">Python Networking Programming</a></li>
 <li><a href="https://docs.python.org/3/library/socket.html">Socket Programming in Python</a></li>
@@ -2689,13 +2709,21 @@
 <li><a href="https://realpython.com/intro-to-python-threading">Multithreading in Python Tutorial</a></li>
 </ul>
 </li>
+<li>
+<p><strong>Docker / Compose (for Telemetry Server deployment)</strong>:</p>
+<ul>
+<li><a href="https://docs.docker.com/get-started/overview/">Docker Overview</a></li>
+<li><a href="https://docs.docker.com/compose/">Docker Compose</a></li>
+</ul>
+</li>
 </ul>
 <h2 id="getting-help">Getting Help</h2>
 <p>If you have any questions or need help getting started, please reach out on the Discord server if you are having trouble with anything. The Discord server is great place to get help since we can only meet in person so often. It is also a good place to hang out with other members of the team, discuss ideas, and participate in some team bonding!</p>
 <h2 id="next-steps">Next Steps</h2>
 <p>Once you feel comfortable with the necessary skills and have familiarized yourself with the codebase, you can start contributing to the Groundstation and Telemetry Server components. Here are some suggested next steps:</p>
 <ul>
-<li>Take some time to read through the code to learn how the Ground Station and Telemetry Server are structured.</li>
+<li>Clone <a href="https://github.com/autoboat-vt/autoboat_vt"><code>autoboat-vt/autoboat_vt</code></a> and read through <code>ground_station/src/</code> to learn how the Groundstation is structured. You can launch it locally with <code>cd ground_station &amp;&amp; ./run.sh</code> (after installing <a href="https://www.python.org/downloads">Python</a> 3.10+ and <a href="https://bun.sh">Bun</a>).</li>
+<li>Clone <a href="https://github.com/autoboat-vt/telemetry_server"><code>autoboat-vt/telemetry_server</code></a> and read through <code>src/autoboat_telemetry_server/</code> to learn how the Telemetry Server is structured. You can run it locally without Docker using <code>pip install -e .</code> then <code>flask run</code> (or <code>gunicorn "autoboat_telemetry_server:create_app()"</code> for a production-like setup).</li>
 <li>Look for small issues or features that you can work on to get familiar with the codebase and development process.</li>
 <li>Honestly working on the project in any capacity will help you learn faster than anything else, so don't feel like you need to start with something big right away. Just start small and work your way up!</li>
 </ul>
@@ -2756,7 +2784,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.code.select", "navigation.instant", "navigation.instant.progress", "navigation.instant.preview", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="../../javascript/static_title.js"></script>
       

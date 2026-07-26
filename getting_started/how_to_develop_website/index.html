@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/images/logo.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -509,13 +509,52 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#git-configuration-for-dual-remotes" class="md-nav__link">
+  <a href="#git-configuration-for-deploy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Git Configuration for Dual Remotes
+        Git Configuration for Deploy
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Git Configuration for Deploy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deploying-with-scriptsdeploysh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deploying with scripts/deploy.sh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI/CD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2633,13 +2672,52 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#git-configuration-for-dual-remotes" class="md-nav__link">
+  <a href="#git-configuration-for-deploy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Git Configuration for Dual Remotes
+        Git Configuration for Deploy
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Git Configuration for Deploy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deploying-with-scriptsdeploysh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deploying with scripts/deploy.sh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI/CD
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pages
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2723,16 +2801,72 @@ Your local computer -&gt; Github repository -&gt; S4 Web Hosting repository</p>
 </li>
 </ol>
 <p>At the top of the screen, there is a button to copy the newly created personal access token. If you refresh the page, this button will disappear so make sure you copy the personal access token and keep it somewhere on your computer. You will be asked to provide it whenever you have to push code from your computer to the website GitLab.</p>
-<h2 id="git-configuration-for-dual-remotes"><p style="text-align: center;">Git Configuration for Dual Remotes</p></h2>
-<p>Run the following commands on your computer to clone the repository and to set everything up on your computer:</p>
+<h2 id="git-configuration-for-deploy"><p style="text-align: center;">Git Configuration for Deploy</p></h2>
+<p>Run the following commands once on your computer to clone the repo and add the S4 GitLab remote:</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/autoboat-vt/website<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>website
-git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>aoe_sites<span class="w"> </span>https://code.vt.edu/s4-hosting-sites/aoe/sailbot
+git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>aoe_sites<span class="w"> </span>ssh://git@code.vt.edu/s4-hosting-sites/aoe/sailbot
 </code></pre></div>
-<p>Then, whenever you want to push your changes to the gitlab and github, run the following commands:</p>
+<p>(Use the <code>ssh://</code> form if you set up an SSH key; if you are using a personal access token instead, use <code>https://code.vt.edu/s4-hosting-sites/aoe/sailbot</code> and you will be prompted for your username and token on push.)</p>
+<h3 id="deploying-with-scriptsdeploysh"><p style="text-align: center;">Deploying with <code>scripts/deploy.sh</code></p></h3>
+<p>Deployments are done with the <code>scripts/deploy.sh</code> script. <strong>Do not</strong> push source files directly to <code>aoe_sites</code> - the S4 site only serves compiled static assets. The script:</p>
+<ol>
+<li>Runs <code>bun run build</code> (or <code>npm run build</code>) to produce a fresh <code>dist/</code>.</li>
+<li>Fetches the latest <code>aoe_sites/main</code> into a temporary worktree.</li>
+<li>Replaces the worktree contents with the new <code>dist/</code> output (plus any required top-level files like <code>.gitlab-ci.yml</code>).</li>
+<li>Commits and fast-forward pushes to <code>aoe_sites/main</code>.</li>
+</ol>
+<p>The S4 service then syncs <code>main</code> to the S3 bucket that backs <code>autoboat.aoe.vt.edu</code>, usually within a minute.</p>
+<p>To deploy:</p>
+<div class="highlight"><pre><span></span><code>./scripts/deploy.sh
+</code></pre></div>
+<p>You still push source changes to GitHub in the normal way:</p>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
-git<span class="w"> </span>push<span class="w"> </span>aoe_sites<span class="w"> </span>main
 </code></pre></div>
-<p>Running <code>git push</code> on "aoe_sites" will deploy the site to the Gitlab (and therefore actually deploy it to the real website) and running <code>git push</code> on "origin" will deploy the site to the Github.</p>
+<h3 id="cicd"><p style="text-align: center;">CI/CD</p></h3>
+<p>GitHub Actions runs a <strong>build-only</strong> check on every pull request to confirm the site compiles and tests pass. There is <strong>no automatic deploy from CI</strong> - deployments only happen when a human runs <code>scripts/deploy.sh</code> locally. This is intentional: it lets us control exactly when the public site updates.</p>
+<h3 id="pages"><p style="text-align: center;">Pages</p></h3>
+<p>The site has the following top-level routes (defined in <code>src/App.tsx</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Route</th>
+<th>Page component</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td><code>Home</code></td>
+<td>Landing page with hero and quick info.</td>
+</tr>
+<tr>
+<td><code>/ourteam</code></td>
+<td><code>OurTeam</code></td>
+<td>Team member profiles and subteam breakdown.</td>
+</tr>
+<tr>
+<td><code>/fleet</code></td>
+<td><code>Fleet</code></td>
+<td>Photos and specs of the boats we have built.</td>
+</tr>
+<tr>
+<td><code>/live</code></td>
+<td><code>Live</code></td>
+<td>Live telemetry map (pulls from the telemetry server).</td>
+</tr>
+<tr>
+<td><code>/sponsors</code></td>
+<td><code>Sponsors</code></td>
+<td>Current and past sponsors.</td>
+</tr>
+<tr>
+<td><code>/gallery</code></td>
+<td><code>Gallery</code></td>
+<td>Photo and video gallery.</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -2790,7 +2924,7 @@ git<span class="w"> </span>push<span class="w"> </span>aoe_sites<span class="w">
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.code.select", "navigation.instant", "navigation.instant.progress", "navigation.instant.preview", "search.suggest", "search.share"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="../../javascript/static_title.js"></script>
       
