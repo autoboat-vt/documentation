@@ -18,10 +18,13 @@ pip install -r requirements.txt   # one-time
 mkdocs serve                      # live preview at http://127.0.0.1:8000
 mkdocs build                      # build into site/
 mkdocs gh-deploy                  # build + push site/ to gh-pages branch (deploys to GitHub Pages)
-make release                      # git add -A && commit && push && mkdocs gh-deploy
+./scripts/release.sh              # full flow: strict build → commit → push → deploy
+./scripts/release.sh --deploy     # rebuild + deploy only (skip git on main)
 ```
 
-Prefer `mkdocs serve` while editing — it hot-reloads. Only run `mkdocs gh-deploy` (or `make release`) when changes are ready to go live; there is no staging environment.
+Prefer `mkdocs serve` while editing — it hot-reloads. Use `./scripts/release.sh` when changes are ready to go live;
+there is no staging environment. The script runs `mkdocs build --strict` first (so broken links and missing images
+fail the release) and asks for confirmation before `gh-deploy`.
 
 ## Editing conventions
 
