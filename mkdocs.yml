@@ -98,6 +98,8 @@ nav:
 
           - Object Detection Package:
                 - Object Detection Node: ros2_packages/object_detection_package/object_detection.md
+                - Localization Node: ros2_packages/object_detection_package/localization.md
+                - Changing CV and Localization Parameters: ros2_packages/object_detection_package/changing_params.md
 
           - AutoBoat Messages Package:
                 - AutoBoat Messages Node: ros2_packages/autoboat_messages_package/autoboat_msgs.md
