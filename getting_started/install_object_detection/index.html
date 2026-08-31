@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/images/logo.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -494,6 +494,34 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Installing DeepStream">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deepstream-dev-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DeepStream Dev Container
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deepstream-installation-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DeepStream Installation Script
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1431,6 +1459,62 @@
     
   
     Object Detection Node
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_packages/object_detection_package/localization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Localization Node
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ros2_packages/object_detection_package/changing_params/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changing CV and Localization Parameters
   
 
     
@@ -2574,6 +2658,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Installing DeepStream">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deepstream-dev-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DeepStream Dev Container
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deepstream-installation-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DeepStream Installation Script
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2633,10 +2745,18 @@
 <p>Make sure that you have set up the dev container prior to attempting install.</p>
 <div class="admonition note">
 <p class="admonition-title">General</p>
-<p>In order to run inference, an NVIDIA 30x series GPU or newer is required.</p>
+<p>In order to run inference, an NVIDIA 20x series GPU or newer is required.</p>
 <p>This will not work on macOS and ARM systems.</p>
 </div>
 <h2 id="installing-deepstream"><p style="text-align: center"> Installing DeepStream </p></h2>
+<p>There are two ways to install DeepStream.</p>
+<ul>
+<li>With the DeepStream dev container</li>
+<li>Through an installation script</li>
+</ul>
+<h3 id="deepstream-dev-container"><p style="text-align: center"> DeepStream Dev Container </p></h3>
+<p>The easiest method is to switch to the DeepStream dev container, <code>vtautoboat/development_image_deepstream</code>. See <a href="../../ci_cd_autoboat_os_devcontainer/devcontainer/#how-to-change-the-devcontainer-variant-you-are-currently-using">how to change your your dev container variant</a>.</p>
+<h3 id="deepstream-installation-script"><p style="text-align: center"> DeepStream Installation Script </p></h3>
 <p>Inside the dev container, make sure your current working directory is <code>/home/ws/</code>.</p>
 <p>Execute this script to start the installation.</p>
 <div class="highlight"><pre><span></span><code>bash<span class="w"> </span>.devcontainer/old_devcontainer_variant_setup_scripts/install_deepstream_yolo_dev_container.sh
@@ -2649,7 +2769,7 @@
 <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CAMERA</span><span class="o">=</span><span class="nb">false</span>
 </code></pre></div></p>
 </div>
-<p>In order to run the object detection module, the Intel RealSense D457 camera must be connected and forwarded to WSL</p>
+<p>In order to run the object detection module, the camera must be connected and forwarded to WSL</p>
 <p>To forward the camera device to WSL, follow <a href="../../examples/connecting_a_usb_device_to_wsl/">these instructions</a></p>
 <div class="admonition note">
 <p class="admonition-title">Making sure the camera is seen in WSL</p>
