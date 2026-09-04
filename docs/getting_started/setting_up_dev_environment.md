@@ -21,7 +21,14 @@ Make sure that you have installed Docker before doing this step. The following s
     3. *Restart XQuartz*.
 
 
-Also ensure that you have VSCode or some other IDE that supports docker dev environments installed (**If you are using Windows you install VSCode in WSL as well as on Windows**). For the purposes of this documentation, we will be using VSCode but there are plenty of other IDEs that support this and they each have their own documentation for how to get this setup.
+Also ensure that you have VSCode or some other IDE that supports docker dev environments installed (**If you are using Windows you install VSCode in WSL as well as on Windows**). For the purposes of this documentation, we will be using VSCode but there are plenty of other IDEs that support this and they each have their own documentation for how to get this setup. VSCode is just the one we most strongly support. 
+
+To ensure vscode is fully working for this tutorial, after you install vscode, please run the following command in a windows terminal to make sure we can install VSCode into WSL. 
+
+```
+code --install-extension ms-vscode-remote.remote-wsl
+wsl --shutdown
+```
 
 # <p style="text-align: center;"> Installing the Development Container </p>
 

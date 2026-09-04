@@ -120,4 +120,4 @@ docker push vtautoboat/development_image:temp_tag
 
 ## <p style="text-align: center;"> How Does the Devcontainer Interact with the CI/CD Pipeline?</p>
 
-When a commit is pushed to main or a new version is created and pushed to the Github repository, the CI/CD pipeline will automatically build the `vtautoboat/development_image` and `vtautoboat/development_image_firmware` Docker images and push them to Docker hub. There is a trigger on Docker hub to update the `vtautoboat/development_image_deepstream` automatically whenever the `vtautoboat/development_image` is updated. This is not built on the Github action because unfortunately it requires more disk space to build than Github actions is willing to give us for free.
+When a commit is pushed to main or a new version is created and pushed to the Github repository, the CI/CD pipeline will automatically build the `vtautoboat/development_image`, `vtautoboat/development_image_firmware`, and `vtautoboat/development_image_deepstream` Docker images and push them to Docker hub.
