@@ -1,9 +1,9 @@
 ---
-title: Recruitement Guide
+title: Recruitment Guide
 description: Guide on best ways to recruit new members.
 ---
 
 
-# Recruitement Guide
+# Recruitment Guide
 
 TODO TODO UNDER CONSTRUCTION

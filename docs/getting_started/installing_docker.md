@@ -17,18 +17,18 @@ In order to install Docker on windows, first we must install WSL (Windows Subsys
 Open the command prompt ***with administrator privileges*** and type the following commands:
 
 ``` sh
-wsl.exe --install -d Ubuntu-22.04
+wsl.exe --install -d Ubuntu-24.04
 ```
 
 ``` sh
-wsl --set-default Ubuntu-22.04
+wsl --set-default Ubuntu-24.04
 ```
 
 Enter your user info to complete the installation.  
 
 ---------
 
-With these steps, this will have installed WSL and Ubuntu 22.04. Docker requires Ubuntu WSL to work on Windows. For more information see the official WSL documentation: [Official WSL Documentation](https://learn.microsoft.com/en-us/windows/wsl/install).
+With these steps, this will have installed WSL and Ubuntu 24.04. Docker requires Ubuntu WSL to work on Windows. For more information see the official WSL documentation: [Official WSL Documentation](https://learn.microsoft.com/en-us/windows/wsl/install).
 
 Next, we must install the Docker desktop application and connect it up to WSL.  
 

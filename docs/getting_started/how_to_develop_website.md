@@ -7,9 +7,9 @@ description: Develop and test the documentation website.
 
 Our website is hosted using Virginia Tech's website hosting platform called S4 Web Hosting, which can be found here: [S4 Web Hosting Link](https://4help.vt.edu/sp?id=sc_cat_item&sys_id=229f35ffdbd80700e3a0f839af96193a&pathname=%2Fsp%3Fid%3Dsc_cat_item%26sys_id%3D229f35ffdbd80700e3a0f839af96193a).
 
-Since it is impractical to ask Virginia Tech's S4 Web Hosting team to add someone as a developer every time we want to add someone new to the website, we keep a copy of the website code in our Github orgranization. This way someone with access to both repositories can clone our repository to their computer and, using Git, set both the Github and S4 Web Hosting repositories to be "remotes" for their local copy of the website code. Then, when we want to push the changes from our Github repository to the S4 Web Hosting repository, we simply push to the S4 Web Hosting remote. This way, we can easily add new developers to the website without needing to ask the S4 Web Hosting team to add them every time.
+Since it is impractical to ask Virginia Tech's S4 Web Hosting team to add someone as a developer every time we want to add someone new to the website, we keep a copy of the website code in our Github organization. This way someone with access to both repositories can clone our repository to their computer and, using Git, set both the Github and S4 Web Hosting repositories to be "remotes" for their local copy of the website code. Then, when we want to push the changes from our Github repository to the S4 Web Hosting repository, we simply push to the S4 Web Hosting remote. This way, we can easily add new developers to the website without needing to ask the S4 Web Hosting team to add them every time.
 
-Diagram of the process:  
+Mini diagram of the process:  
 Your local computer -> Github repository -> S4 Web Hosting repository
 
 ## <p style="text-align: center;">Getting Access to the S4 Site</p>
@@ -64,20 +64,53 @@ If you are unable to set up an SSH key, you can use a personal access token to a
 
 At the top of the screen, there is a button to copy the newly created personal access token. If you refresh the page, this button will disappear so make sure you copy the personal access token and keep it somewhere on your computer. You will be asked to provide it whenever you have to push code from your computer to the website GitLab.
 
-## <p style="text-align: center;">Git Configuration for Dual Remotes</p>
+## <p style="text-align: center;">Git Configuration for Deploy</p>
 
-Run the following commands on your computer to clone the repository and to set everything up on your computer:
+Run the following commands once on your computer to clone the repo and add the S4 GitLab remote:
 
 ```sh
 git clone https://github.com/autoboat-vt/website && cd website
-git remote add aoe_sites https://code.vt.edu/s4-hosting-sites/aoe/sailbot
+git remote add aoe_sites ssh://git@code.vt.edu/s4-hosting-sites/aoe/sailbot
 ```
 
-Then, whenever you want to push your changes to the gitlab and github, run the following commands:
+(Use the `ssh://` form if you set up an SSH key; if you are using a personal access token instead, use `https://code.vt.edu/s4-hosting-sites/aoe/sailbot` and you will be prompted for your username and token on push.)
+
+### <p style="text-align: center;">Deploying with `scripts/deploy.sh`</p>
+
+Deployments are done with the `scripts/deploy.sh` script. **Do not** push source files directly to `aoe_sites` - the S4 site only serves compiled static assets. The script:
+
+1. Runs `bun run build` (or `npm run build`) to produce a fresh `dist/`.
+2. Fetches the latest `aoe_sites/main` into a temporary worktree.
+3. Replaces the worktree contents with the new `dist/` output (plus any required top-level files like `.gitlab-ci.yml`).
+4. Commits and fast-forward pushes to `aoe_sites/main`.
+
+The S4 service then syncs `main` to the S3 bucket that backs `autoboat.aoe.vt.edu`, usually within a minute.
+
+To deploy:
+
+```sh
+./scripts/deploy.sh
+```
+
+You still push source changes to GitHub in the normal way:
 
 ```sh
 git push origin main
-git push aoe_sites main
 ```
 
-Running `git push` on "aoe_sites" will deploy the site to the Gitlab (and therefore actually deploy it to the real website) and running `git push` on "origin" will deploy the site to the Github.
+### <p style="text-align: center;">CI/CD</p>
+
+GitHub Actions runs a **build-only** check on every pull request to confirm the site compiles and tests pass. There is **no automatic deploy from CI** - deployments only happen when a human runs `scripts/deploy.sh` locally. This is intentional: it lets us control exactly when the public site updates.
+
+### <p style="text-align: center;">Pages</p>
+
+The site has the following top-level routes (defined in `src/App.tsx`):
+
+| Route       | Page component     | Purpose                                              |
+| ----------- | ------------------ | ---------------------------------------------------- |
+| `/`         | `Home`             | Landing page with hero and quick info.               |
+| `/ourteam`  | `OurTeam`          | Team member profiles and subteam breakdown.          |
+| `/fleet`    | `Fleet`            | Photos and specs of the boats we have built.         |
+| `/live`     | `Live`             | Live telemetry map (pulls from the telemetry server).|
+| `/sponsors` | `Sponsors`         | Current and past sponsors.                           |
+| `/gallery`  | `Gallery`          | Photo and video gallery.                             |

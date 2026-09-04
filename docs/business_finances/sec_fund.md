@@ -16,7 +16,7 @@ You can generally see the funding deadline for each funding allocation in airtab
 
 <br>
 
-For additional information, you can always consult this page: https://www.sec.vt.edu/philanthropy/funds/policies/reimbursement-process.html
+For additional information, you can always consult this page: <https://www.sec.vt.edu/philanthropy/funds/policies/reimbursement-process.html>
 
 
 
@@ -40,16 +40,16 @@ In order to access the airtable page, which we use to look at how much more fund
 
 ## Setting up Banking Information For Reimbursements
 
-Before putting in a reimbursement request you also have to get your banking information set up with SEC so they can send you a direct bank transfer for reimbursement. You can get this set up after you put in a reimbursement but it is just more annoying and much more stressful than getting it done before you have already spent money. To do so, please email secdof@vt.edu to get your direct bank transfer information set up. After you finish getting your information set up, you should be able to just fill out the reimbursement form telling them to send the reimbursement to "Your Legal Name" and "Your VT Email" and it should just work.
+Before putting in a reimbursement request you also have to get your banking information set up with SEC so they can send you a direct bank transfer for reimbursement. You can get this set up after you put in a reimbursement but it is just more annoying and much more stressful than getting it done before you have already spent money. To do so, please email [secdof@vt.edu](mailto:secdof@vt.edu) to get your direct bank transfer information set up. After you finish getting your information set up, you should be able to just fill out the reimbursement form telling them to send the reimbursement to "Your Legal Name" and "Your VT Email" and it should just work.
 
 
 ## Filling out The SEC Reimbursement Form
 
-First, before filling out the form, make sure you have a receipt from the vendor/ supplier that complies with the following receipt requirements: https://www.sec.vt.edu/philanthropy/funds/policies/receipts.html. If the receipt that you submit to SEC does not follow these requirements, then you should make sure to get one from the supplier. If you have multiple receipts that together cover all of the information that SEC requires, then you can stitch those into a single pdf and submit that as your receipt.
+First, before filling out the form, make sure you have a receipt from the vendor/ supplier that complies with the following receipt requirements: <https://www.sec.vt.edu/philanthropy/funds/policies/receipts.html>. If the receipt that you submit to SEC does not follow these requirements, then you should make sure to get one from the supplier. If you have multiple receipts that together cover all of the information that SEC requires, then you can stitch those into a single pdf and submit that as your receipt.
 
 To access the SEC Reimbursement Form, please go to the following form: 
 
-- https://www.sec.vt.edu/philanthropy/funds/reimbursements.html
+- <https://www.sec.vt.edu/philanthropy/funds/reimbursements.html>
 
 Once you finish filling out the form it usually takes anywhere from 1-2 weeks for them to process your reimbursement, accept/ reject the reimbursement, and send you the reimbursement money to your bank account. If your reimbursement ever gets rejected, you can always fix the reason why it got rejected and resubmit the reimbursement.
 

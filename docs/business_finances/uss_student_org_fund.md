@@ -3,13 +3,11 @@ title: USS Student Organization Funding
 description: USS student organization funding documentation.
 ---
 
-
 # USS Student Organization Funding
 
 ## Overview
 
 This is a **reimbursement** based fund that you do not have to apply to or really do much to access. The main downside is that you have to order things very far ahead of time, so this should mainly be used for travel and items that you know you will need ahead of time, but the fund gives us a very good amount of money, so we should definitely use it!
-
 
 ## Accessing the Funds
 
@@ -23,10 +21,9 @@ You can request funding for a particular item via GobblerConnect by going to the
 
 It doesn't show the USS funding here, but whenever the funding opens up in the fall, it will show the normal funding for RSO's (Registered Student Organizations). RSO's are the designation for a particular "type" of student organization and AutoBoat currently is an RSO, although this may change in the near future. The mechanics of RSOs vs USLPs vs the other types of student organizations aren't really important right now. The only important part is knowing that we are an RSO.
 
-
 You can go to the following link if you would like to learn more about accessing USS funds: 
 
-- https://campuslife.vt.edu/content/campuslife_vt_edu/en/Student_Orgs/orgfunding/_jcr_content/content/download/file.res/Requesting%20Payment%20for%20Approved%20Student%20Organization%20Funding%20Requests.pdf
+- <https://campuslife.vt.edu/content/campuslife_vt_edu/en/Student_Orgs/orgfunding/_jcr_content/content/download/file.res/Requesting%20Payment%20for%20Approved%20Student%20Organization%20Funding%20Requests.pdf>
 
 
 ## Funding Categories, Maximums, and General Rules
@@ -86,15 +83,11 @@ These are all subject to change. Please consult the most up to date version of t
 - Cultural food tastings: $1,500/year
 
 
-
-
 You can learn more at the following links:
 
-- https://campuslife.vt.edu/content/campuslife_vt_edu/en/Student_Orgs/orgfunding/_jcr_content/content/vtcontainer_260361155/vtcontainer-content/vtmultitab_396657388/vt-items_0/download_copy_copy/file.res/2025-2026%20USS%20Appropriations%20Policy%20and%20Procedure.pdf
+- <https://campuslife.vt.edu/content/campuslife_vt_edu/en/Student_Orgs/orgfunding/_jcr_content/content/vtcontainer_260361155/vtcontainer-content/vtmultitab_396657388/vt-items_0/download_copy_copy/file.res/2025-2026%20USS%20Appropriations%20Policy%20and%20Procedure.pdf>
 
-- https://campuslife.vt.edu/Student_Orgs/orgfunding.html
-
-
+- <https://campuslife.vt.edu/Student_Orgs/orgfunding.html>
 
 
-If you have any questions, you can always email appropriations@vt.edu or orgfunding@vt.edu
+If you have any questions, you can always email [appropriations@vt.edu](mailto:appropriations@vt.edu) or [orgfunding@vt.edu](mailto:orgfunding@vt.edu).

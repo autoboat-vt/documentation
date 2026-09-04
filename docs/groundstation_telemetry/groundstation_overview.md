@@ -7,8 +7,25 @@ description: Groundstation overview and usage.
 
 This document provides an overview of the Ground Station system, detailing its components, functionalities, and how it
 integrates with other systems. The Ground Station is a critical part of the overall architecture, enabling communication
-with the telemetry server and facilitating the management of boat operations. Link to PyQt documentation:
-[PyQt Documentation](https://doc.qt.io/archives/qtforpython-5/contents.html)
+with the telemetry server and facilitating the management of boat operations. It lives in the
+[`autoboat-vt/autoboat_vt`](https://github.com/autoboat-vt/autoboat_vt) repository under `ground_station/`.
+
+The GUI is built on Qt through [`qtpy`](https://qtpy.readthedocs.io/en/stable/) (so it runs on either PySide6 or PyQt
+without code changes). **Never import `PyQt5` or `PyQt6` directly - always go through `qtpy`.** Qt/PySide6 docs:
+[PySide6 Documentation](https://doc.qt.io/qtforpython-6/index.html)
+
+### Running the Groundstation
+
+From a host with a display (not inside the headless devcontainer):
+
+```bash
+cd ground_station
+chmod +x run.sh   # first time only
+./run.sh
+```
+
+`run.sh` starts the Vite map server on `127.0.0.1:5173` and then launches the PyQt app. Prerequisites are
+[Python](https://www.python.org/downloads) 3.10+ and [Bun](https://bun.sh) (see `ground_station/README.md`).
 
 ## Components Overview
 
@@ -19,8 +36,9 @@ application to continue running. If you have code that you suspect may throw an 
 in a try/except block and handle the exception appropriately (ask Barrett if you are unsure how to handle it).
 
 All data that persists between runs of the Ground Station and its assets are stored in the `app_data` directory.
-I have tried to split up the code in the Ground Station into logical components to make it easier to understand and modify.
-The Ground Station is divided into the following main components:
+Persistent UI state lives in `app_data/git_ignore/app_state.json` and is managed by the singleton `StateManager`
+(`constants.SM`) in `src/utils/state_manager.py`. I have tried to split up the code in the Ground Station into logical
+components to make it easier to understand and modify. The Ground Station is divided into the following main components:
 
 ### base components
 
@@ -58,6 +76,11 @@ The `state_manager.py` file contains the code that manages the state of key vari
 make sure that the state of the Ground Station is consistent across all of the different widgets and components. It also
 provides protection against race conditions and makes sure that the state of the Ground Station is not modified in unexpected ways.
 
+##### data_logger.py
+
+The `data_logger.py` file contains classes and functions for logging telemetry data to CSV files. It handles the
+formatting and writing of telemetry data, supporting both synchronous and asynchronous logging modes.
+
 ##### misc.py
 
 The `misc.py` file contains utility functions that are used throughout the Ground Station codebase.
@@ -67,9 +90,18 @@ for the overall functionality of the Ground Station. If you are looking for a sp
 it in the code where you think it should be, it may be worth checking the `misc.py` file to see if it is
 defined there.
 
-### syntax_highlighters
+##### popup_edit.py
 
-#### base_highlighter.py
+The `popup_edit.py` file contains the `TextEditWindow` class, which creates a pop-up window for editing text in the
+Ground Station. It takes a syntax highlighter (such as one of the highlighters defined in the `syntax_highlighters`
+directory), some initial text, a tab width, and a font size as arguments, and uses a Qt signal to return the modified
+text when the user clicks the "Save" button or closes the window. It is used in the Ground Station to edit buoy data,
+some data types in the autopilot parameter editor, and the telemetry data "limits" that are used to determine when a
+warning or error should be displayed.
+
+##### syntax_highlighters
+
+###### base_highlighter.py
 
 The `base_highlighter.py` file contains the base class for syntax highlighters used in the Ground Station. I wanted to
 take the QSyntaxHighlighter class and write some methods that would make it easier to write syntax highlighters for
@@ -79,19 +111,59 @@ not meant to be used directly, but rather to be overridden in subclasses that im
 functionality. If you are writing a syntax highlighter for the Ground Station, you should start by subclassing this
 class and implementing the methods that are relevant to your use case.
 
-#### json.py
+###### json.py
 
 The `json.py` file contains a syntax highlighter specifically designed for JSON files. It extends the base highlighter
 class and implements the necessary methods to provide syntax highlighting for JSON syntax. This highlighter is used
 to enhance the readability of JSON files within the Ground Station, making it easier to work with configuration
 files and other JSON data.
 
-#### console.py
+###### console.py
 
 The `console.py` file contains a syntax highlighter for the console output within the Ground Station. This highlighter
 is designed to improve the readability of console messages, making it easier to identify important information,
 warnings, and errors. It uses the base highlighter class to implement specific highlighting rules for console
 output, ensuring that messages are displayed in a clear and organized manner.
+
+##### dialog_templates
+
+The `dialog_templates/` directory contains reusable dialog widgets and convenience functions.
+
+###### base_dialog.py
+
+The `base_dialog.py` file contains the `BaseDialog` class - the base class for all dialog widgets in the Ground Station.
+It provides:
+- Title, message, and optional icon display
+- "Remember my decision" checkbox support
+- Standard result handling for dialog acceptance/rejection
+
+###### custom_buttons_dialog.py
+
+The `custom_buttons_dialog.py` file contains the `CustomMessageBoxDialog` class and `show_message_box()` function.
+It provides custom message dialogs with configurable buttons and optional "remember choice" checkbox.
+
+###### text_input_dialog.py
+
+The `text_input_dialog.py` file contains the `InputDialog` class and `show_input_dialog()` function.
+It wraps Qt's `QInputDialog` to provide consistent text, integer, and float input dialogs.
+
+###### coordinate_input_dialog.py
+
+The `coordinate_input_dialog.py` file contains a dialog for manually entering latitude/longitude waypoints as text
+instead of clicking on the map. It is opened from the keybind handler when the user presses the "add waypoint by
+coordinate" keybind.
+
+##### widget_size_controllers
+
+###### bounded_aspect_widget.py
+
+The `bounded_aspect_widget.py` file contains a widget that maintains a bounded aspect ratio for its child widget.
+This is useful for widgets that need to maintain a specific aspect ratio regardless of the parent widget's size.
+
+###### preserve_aspect_widget.py
+
+The `preserve_aspect_widget.py` file contains a widget that preserves the aspect ratio of its child widget while
+allowing it to be resized. This is useful for displaying content that should not be distorted when resized.
 
 ### widgets
 
@@ -111,20 +183,6 @@ This widget is used to manage instances of the simulation and the real boat. It 
 available instances, a way to create and delete instances, and a way to connect to an instance. This widget is loaded before
 the `groundstation.py` widget and is used to determine which instance the Ground Station should connect to when it starts up.
 
-#### popup_edit.py
-
-This widget is used to create 'windows' that make it easier to modify text in the Ground Station. It takes highlighter
-(such as one of the syntax highlighters defined in the `syntax_highlighters` directory), some initial text, a tab width,
-and font size as arguments and uses a QSignal to return the modified text when the user clicks the "Save" button or
-closes the window. This widget is used in the Ground Station to edit buoy data, some data types in the autopilot
-parameter editor, and the telemetry data 'limits' that are used to determine when a warning or error should be displayed.
-
-#### popup_telemetry_config.py
-
-This widget is used to create a window that allows for the editing of map appearance configurations, such as displaying
-sailboat debugging symbols. This widget is opened by the button labeled `Map Appearance Config` at the bottom of the Ground
-Station.
-
 #### console_output.py
 
 This widget is used to display the console output of the Ground Station. It uses a QPlainTextEdit to display the
@@ -142,9 +200,25 @@ important tool for visualizing telemetry data and gaining insights into the boat
 
 #### map_widget
 
-This directory contains the code that is used to make displaying the waypoints and buoys on a interactive map possible.
-It contains a Go server that is used to manage the transfer of waypoints and buoys between the Python code and the
-JavaScript code running in the HTML file in this directory. The Go server exposes a `get` and `set` endpoint that modifies
+This directory contains the code that is used to make displaying the waypoints and buoys on an interactive map possible.
+
+##### waypoints_handler.py
+
+This file contains the `WaypointsHandler` class, an HTTP request handler that manages waypoint data. It provides
+endpoints to get and set waypoints (latitude/longitude pairs) and handles CORS for cross-origin requests.
+
+##### server.py
+
+This file runs a `ThreadingHTTPServer` on `constants.MAP_SERVER_PORT` that uses `WaypointsHandler` to serve
+waypoint data to the JavaScript map frontend.
+
+##### map_options_handler.py
+
+This widget is used to create a window that allows for the editing of map appearance configurations, such as displaying
+sailboat debugging symbols. This widget is opened by the button labeled `Map Appearance Config` at the bottom of the Ground Station.
+
+The map widget uses a server to manage the transfer of waypoints and buoys between the Python code and the
+JavaScript code running in the HTML file. The server exposes `get` and `set` endpoints that modify
 an array containing the latitude and longitude of the waypoints and buoys which takes the form:
 
 ```json
@@ -157,16 +231,41 @@ an array containing the latitude and longitude of the waypoints and buoys which 
 ```
 
 Where latitude is the first element of each array and longitude is the second element.
-The JavaScript code in this directory uses the [Leaflet](https://leafletjs.com) library
-to display the waypoints and buoys on a map.
+The TypeScript/JavaScript frontend lives in the `frontend/` subdirectory and is a small [Vite](https://vitejs.dev)
+app built with [Leaflet](https://leafletjs.com). The `tsconfig.json` `include` is hard-scoped to that
+`frontend/` directory, so do not add map-widget TS files outside of it. The frontend is built/served by Vite
+during development (`run.sh` starts it on `127.0.0.1:5173`) and embedded in the PyQt app via a `QWebEngineView`.
+
+The frontend source files are:
+
+| File            | Purpose                                                              |
+| --------------- | -------------------------------------------------------------------- |
+| `index.html`    | Vite entry HTML that mounts the map.                                 |
+| `main.ts`       | App entry: initializes Leaflet, wires up the WebSocket/HTTP polling. |
+| `types.ts`      | Shared TypeScript types (waypoints, buoys, boat state, etc.).        |
+| `global.d.ts`   | Ambient declarations for assets/Vite-injected globals.               |
+| `boat.ts`       | Renders the boat marker and updates its position/heading.            |
+| `marker.ts`     | Generic marker helpers (positioning, icons, popups).                 |
+| `waypoints.ts`  | Fetches and draws the waypoint polyline from the Python server.      |
+| `buoys.ts`      | Fetches and draws buoy markers from the Python server.               |
+| `keybinds.ts`   | Frontend-side keyboard handlers (e.g. click-to-add-waypoint).        |
+| `svg.ts`        | SVG icons used for boat/buoy markers (e.g. the sailboat debug symbol).|
 
 #### camera_widget
 
-This widget is used to display the camera feed from the boat. It uses a QThread from the `thread_classes.py` file to
-fetch the camera feed and then runs some JavaScript code to display the feed in a HTML file. We are using an HTML file
-to display the camera feed because of its abibility to natively show base64 encoded images, saving us the trouble of
-having to do the decoding ourselves. The widget has buttons that allow you to start and stop the camera feed in order to
-save bandwidth and processing power when the camera feed is not needed.
+This directory contains the camera feed widget. It has two files: `camera.py` (the Python widget) and
+`camera.html` (the HTML used to render the feed).
+
+##### camera.py
+
+The Python widget. It uses a QThread from the `thread_classes.py` file to fetch the camera feed from the boat
+and forwards each frame to the HTML view as a base64-encoded image. It exposes buttons to start and stop the
+feed so you can save bandwidth and processing power when the camera is not needed.
+
+##### camera.html
+
+The HTML file loaded by a `QWebEngineView` to display the feed. We use an HTML file because it can natively
+render base64-encoded images, saving us the trouble of decoding them in Python.
 
 #### autopilot_config_widget
 
@@ -194,3 +293,46 @@ This widget is used to manage the autopilot parameters of the boat. It provides 
 ##### config_manager.py
 
 This widget is used to manage different autopilot configurations, both locally and on the telemetry server. It provides a way to view all available configurations, a way to create and delete configurations, and a way to download configurations from the telemetry server into the `app_data/autopilot_params` directory. This widget is important for keeping track of different parameter configurations and easily switching between them when tuning the autopilot.
+
+#### user_guide.py
+
+This widget displays a user guide overlay with documentation on how to use the Ground Station. It provides
+interactive help without leaving the application.
+
+#### keybind_widget
+
+This directory contains the keyboard-shortcut system for the Ground Station. It contains three files:
+`__init__.py`, `keybind_manager.py`, and `keybind_widget.py`.
+
+##### keybind_manager.py
+
+The `keybind_manager.py` file contains the `KeybindManager` class, which registers global key sequences
+(left-click to add a waypoint, right-click to remove the nearest one, manual coordinate entry, etc.) and
+dispatches them to the appropriate handlers. This is where you would register a new keybind.
+
+##### keybind_widget.py
+
+The `keybind_widget.py` file contains a small widget that lists all currently-registered keybinds and their
+descriptions, so users can discover what shortcuts are available without reading the code.
+
+#### easter_eggs
+
+This directory contains hidden game widgets that are launched via secret key sequences. They are not part of
+the core Ground Station functionality but are fun additions. Each game is in its own subdirectory:
+
+- `pong_widget/` - a Pong clone
+- `snake_widget/` - a Snake clone
+- `tetris_widget/` - a Tetris clone
+
+Each game subdirectory follows the same two-file pattern:
+
+| File              | Purpose                                                                |
+| ----------------- | ---------------------------------------------------------------------- |
+| `<game>_game.py`  | The game logic and Qt rendering loop.                               |
+| `<game>_audio.py` | Sound effects (synthesized via `QSound`/NumPy, no external assets). |
+
+For example, `pong_widget/` contains `pong_game.py` and `pong_audio.py`, `snake_widget/` contains
+`snake_game.py` and `snake_audio.py`, and `tetris_widget/` contains `tetris_game.py` and `tetris_audio.py`.
+
+If you are adding a new easter egg, follow the same subdirectory-per-game pattern (with a `<game>_game.py` and
+`<game>_audio.py` file), and register its launch keybind in `keybind_widget/keybind_manager.py`.

@@ -8,11 +8,22 @@ description: Prepare and install object detection dependencies.
 Make sure that you have set up the dev container prior to attempting install.
 
 !!!NOTE "General"
-    In order to run inference, an NVIDIA 30x series GPU or newer is required.
+    In order to run inference, an NVIDIA 20x series GPU or newer is required.
     
     This will not work on macOS and ARM systems.
 
 ## <p style="text-align: center"> Installing DeepStream </p>
+
+There are two ways to install DeepStream.
+
+- With the DeepStream dev container
+- Through an installation script
+
+### <p style="text-align: center"> DeepStream Dev Container </p>
+
+The easiest method is to switch to the DeepStream dev container, `vtautoboat/development_image_deepstream`. See [how to change your your dev container variant](../ci_cd_autoboat_os_devcontainer/devcontainer.md#how-to-change-the-devcontainer-variant-you-are-currently-using).
+
+### <p style="text-align: center"> DeepStream Installation Script </p>
 
 Inside the dev container, make sure your current working directory is `/home/ws/`.
 
@@ -32,7 +43,7 @@ This installation can take a long time.
     export CAMERA=false
     ```
 
-In order to run the object detection module, the Intel RealSense D457 camera must be connected and forwarded to WSL
+In order to run the object detection module, the camera must be connected and forwarded to WSL
 
 To forward the camera device to WSL, follow [these instructions](../examples/connecting_a_usb_device_to_wsl.md)
 
