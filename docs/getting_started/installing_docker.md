@@ -24,7 +24,7 @@ wsl.exe --install -d Ubuntu-24.04
 wsl --set-default Ubuntu-24.04
 ```
 
-Enter your user info to complete the installation.  
+Enter your user info and **restart your computer** to complete the installation.  
 
 ---------
 
