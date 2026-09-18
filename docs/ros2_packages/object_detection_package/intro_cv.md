@@ -21,7 +21,7 @@ Our computer vision system has 2 primary tasks: find objects and locate objects.
 
 Our YOLO26 model, in the nvinfer plugin, puts bounding boxes around every boat and buoy it sees. The bounding boxes are passed to nvtracker, which gives everything a unique id. These ids help us track individual objects on the water.
 
-Our first publisher is raw bounding box data. This is received by the localization node to do stereo depth estimation and triangulation.
+Our first publisher is raw bounding box data. This is received by the localization node to do stereo depth estimation and triangulation. The second publisher is by the localization node and publishes a list of objects and their coordinates.
 
 ### Explanation of our Pipeline
 
