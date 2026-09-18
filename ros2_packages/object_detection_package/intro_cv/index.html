@@ -2773,7 +2773,12 @@
 
 <h1 id="what-does-our-computer-vision-pipeline-do"><p style="text-align: center"> What Does Our Computer Vision Pipeline Do? </p></h1>
 <p>Our computer vision pipeline is powered by a DeepStream pipeline with a YOLO26 inference model.</p>
-<p><img alt="deepstream_diagram" src="../../../assets/images/deepstream_diagram_vertical.png" /></p>
+<p align="center">
+    <img src="../../assets/images/deepstream_diagram_vertical.png" alt="DeepStream Diagram" />
+</p>
+
+<!-- ![DeepStream Diagram](../../assets/images/deepstream_diagram_vertical.png) -->
+
 <h2 id="what-is-nvidia-deepstream">What Is NVIDIA DeepStream?</h2>
 <p><a href="https://developer.nvidia.com/deepstream-sdk">NVIDIA DeepStream</a> is an open-source toolkit built on <a href="https://gstreamer.freedesktop.org/">Gstreamer</a>. Gstreamer is a popular computer vision tool because of its ease of use, modularity, and adaptability. A Gstreamer pipeline is built with a series of "plugins" that connect together. DeepStream expands on this by creating custom plugins to do gpu-accelerated tasks, like inference. Additionally, DeepStream allows for batched processing, allowing multi-source video streams to be processed efficiently.</p>
 <h2 id="what-do-we-do">What Do We Do?</h2>
@@ -2792,8 +2797,8 @@
 <p>The primary advantages to DeepStream and Gstreamer are performance, modularity, and future expandability.</p>
 <p>Something like OpenCV is easy to get started with, but it very quickly starts to bog down the system. With DeepStream, we can use heavier models while still maintaining a stable 30 fps. Additionally, the modularity allows us to easily connect different plugins together to do new tasks. Having a single plugin like nvmultistreamtiler saves us a lot of effort when trying to visualize more than one stream. And finally, for future expandability, DeepStream offers so many features that we are not even using yet.</p>
 <h2 id="potential-long-term-improvements">Potential Long-Term Improvements</h2>
-<p><a href="https://github.com/obss/sahi">SAHI</a> is an inference method that divides the frame into smaller pieces. Instead of doing one pass on the entire frame, we divide it into smaller sections and infer on those instead. Our model uses a 640x640 pixel image as input, so our 1280x720 image gets downscaled and padded. The biggest advantage of SAHI is better accuracy on small objects, but it could have negative performance impacts.</p>
-<p>Nvtracker has the option to connect a re-identification model. While we haven't really worried about this, if an object disappears for more than about a quarter second, the tracker will give it a new id. Because of our filtering in the triangulation algorithm, this is not that much of an issue, but it does cause us to have a lot of "ghost" objects.</p>
+<p><a href="https://github.com/obss/sahi">SAHI</a> is an inference method that divides the frame into smaller pieces. Instead of doing one pass on the entire frame, we divide it into smaller sections and infer on those instead. Our model uses a 640x640 pixel image as input, so our 1280x720 image gets downscaled and padded. The biggest advantage of SAHI is better accuracy on small objects, but it could have negative performance impacts. While there isn't a way to directly implement the SAHI library, we should be able to implement it ourselves manually.</p>
+<p>Nvtracker has the option to connect a <a href="https://docs.nvidia.com/metropolis/deepstream/7.1/text/DS_plugin_gst-nvtracker.html#setup-and-usage-of-re-id-model">re-identification model</a>. While we haven't really worried about this, if an object disappears for more than about a quarter second, the tracker will give it a new id. Because of our filtering in the triangulation algorithm, this is not that much of an issue, but it does cause us to have a lot of "ghost" objects.</p>
 <p>A feature that is not relevant right now, but could be later is secondary inference. Our nvinfer plugin is set into primary mode meaning it performs inference directly on the frame. A secondary inference would be put after the primary inference and would infer on objects already detected. For example, if we wanted to detect navigational markers and buoys to follow the channel, the primary nvinfer would look at the image and find markers and buoys. Then, the secondary nvinfer would look at the markers and buoys already found and determine if they are green or red.</p>
 <h2 id="useful-documentation-pages">Useful Documentation Pages</h2>
 <ul>
