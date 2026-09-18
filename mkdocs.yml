@@ -77,6 +77,7 @@ nav:
           - Communication Between Groundstation and Autopilot: system_diagrams/diagram_of_groundstation_telemetry.md
           - How the Simulation Works and Communicates with ROS: system_diagrams/diagram_of_simulations.md
           - ROS2 Node Diagrams: system_diagrams/diagram_of_ros_nodes.md
+          - DeepStream Diagram: system_diagrams/diagram_of_deepstream.md
 
     - Groundstation/Telemetry:
           - New Member Overview: groundstation_telemetry/new_member_info.md
@@ -100,6 +101,7 @@ nav:
                 - Object Detection Node: ros2_packages/object_detection_package/object_detection.md
                 - Localization Node: ros2_packages/object_detection_package/localization.md
                 - Changing CV and Localization Parameters: ros2_packages/object_detection_package/changing_params.md
+                - What is Our Computer Vision Pipeline?: ros2_packages/object_detection_package/intro_cv.md
 
           - AutoBoat Messages Package:
                 - AutoBoat Messages Node: ros2_packages/autoboat_messages_package/autoboat_msgs.md
