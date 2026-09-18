@@ -2810,7 +2810,7 @@
 <h2 id="what-do-we-do">What Do We Do?</h2>
 <p>Our computer vision system has 2 primary tasks: find objects and locate objects. Finding the objects is done by the object_detection node, and locating the objects is done by the localization node.</p>
 <p>Our YOLO26 model, in the nvinfer plugin, puts bounding boxes around every boat and buoy it sees. The bounding boxes are passed to nvtracker, which gives everything a unique id. These ids help us track individual objects on the water.</p>
-<p>Our first publisher is raw bounding box data. This is received by the localization node to do stereo depth estimation and triangulation.</p>
+<p>Our first publisher is raw bounding box data. This is received by the localization node to do stereo depth estimation and triangulation. The second publisher is by the localization node and publishes a list of objects and their coordinates.</p>
 <h3 id="explanation-of-our-pipeline">Explanation of our Pipeline</h3>
 <p>Our pipeline starts with a camera, accessed by <a href="https://gstreamer.freedesktop.org/documentation/video4linux2/v4l2src.html?gi-language=python">v4l2src</a>. The camera we currently use is a <a href="https://www.stereolabs.com/store/products/zed-2i">Zed 2i Stereo Camera</a>. </p>
 <p>Because our camera outputs the left and right camera streams as a single side-by-side stream, we split the frame in half with <a href="https://docs.nvidia.com/metropolis/deepstream/7.1/text/DS_plugin_gst-nvvideoconvert.html">nvvideoconvert's</a> src-crop function and send each to the muxer in parallel.</p>
