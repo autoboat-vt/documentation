@@ -57,12 +57,12 @@ nav:
     - Home: index.md
 
     - Getting Started:
-          - Installing Docker: getting_started/installing_docker.md
-          - Setting Up the Development Container: getting_started/setting_up_dev_environment.md
+          - Installing Docker (Required): getting_started/installing_docker.md
+          - Setting Up the Development Container (Required): getting_started/setting_up_dev_environment.md
           #   - What Did You Just Install?: getting_started/what_did_you_just_install.md
-          - Installing Firmware Dependencies: getting_started/installing_firmware_dependencies.md
-          - How to Start Developing on the Website: getting_started/how_to_develop_website.md
-          - Installing and Running Deepstream for Object Detection: getting_started/install_object_detection.md
+          - Installing Firmware Dependencies (Optional): getting_started/installing_firmware_dependencies.md
+          - How to Start Developing on the Website (Optional): getting_started/how_to_develop_website.md
+          - Installing and Running Deepstream for Object Detection (Optional): getting_started/install_object_detection.md
 
     - Examples:
           - Running the Simulation: examples/running_simulation.md
