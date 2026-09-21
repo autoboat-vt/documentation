@@ -1891,6 +1891,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Common Devcontainer Errors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#missing-devcontainerdevcontainer_environment_variables-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Missing .devcontainer/devcontainer_environment_variables File
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2675,6 +2692,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Common Devcontainer Errors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#missing-devcontainerdevcontainer_environment_variables-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Missing .devcontainer/devcontainer_environment_variables File
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -2710,6 +2744,11 @@ to the side; this is where our error trace will be located. See below for an exa
 <p>Generally the real error message is above the message that says "Run <code>docker run --help</code> for more information". In this case, I added an extra <code>--a</code> 
 in one of the lines where I was specifying my <code>runArgs</code> for the container: <code>--net=host --a</code>.</p>
 <h2 id="common-devcontainer-errors"><p style="text-align: center;"> Common Devcontainer Errors</p></h2>
+<h4 id="missing-devcontainerdevcontainer_environment_variables-file"><p style="text-align: center;">Missing .devcontainer/devcontainer_environment_variables File</p></h4>
+<p><img alt="devcontainer_common_errors1" src="../../assets/images/devcontainer_common_errors1.png" /></p>
+<p>This file is meant to be automatically generated from the .devcontainer/host_setup.sh file, so if this file is missing then you likely forgot to run the following command from the getting_started documentation: <code>bash .devcontainer/host_setup.sh &amp;&amp; source ~/.bashrc</code>. Solving it is fairly simple if this is the case: simply close vscode, open a WSL terminal in the autoboat_vt folder (wherever you cloned the repository), run <code>bash .devcontainer/host_setup.sh &amp;&amp; source ~/.bashrc</code>, and finally run <code>code .</code>. Follow the rest of the steps to rebuild the devcontainer and it should work. </p>
+<p>The only case where this solution should fail is if the host_setup script fails, in which case you should probably contact an officer.</p>
+<p><br></p>
 <p><strong>TODO TODO TODO TODO TODO POPULATE THIS AS PEOPLE HAVE ISSUES</strong></p>
 
 
