@@ -22,4 +22,16 @@ in one of the lines where I was specifying my `runArgs` for the container: `--ne
 
 ## <p style="text-align: center;"> Common Devcontainer Errors</p>
 
+
+#### <p style="text-align: center;">Missing .devcontainer/devcontainer_environment_variables File</p>
+
+![devcontainer_common_errors1](../assets/images/devcontainer_common_errors1.png)
+
+This file is meant to be automatically generated from the .devcontainer/host_setup.sh file, so if this file is missing then you likely forgot to run the following command from the getting_started documentation: `bash .devcontainer/host_setup.sh && source ~/.bashrc`. Solving it is fairly simple if this is the case: simply close vscode, open a WSL terminal in the autoboat_vt folder (wherever you cloned the repository), run `bash .devcontainer/host_setup.sh && source ~/.bashrc`, and finally run `code .`. Follow the rest of the steps to rebuild the devcontainer and it should work. 
+
+The only case where this solution should fail is if the host_setup script fails, in which case you should probably contact an officer.
+
+
+<br>
+
 **TODO TODO TODO TODO TODO POPULATE THIS AS PEOPLE HAVE ISSUES**
