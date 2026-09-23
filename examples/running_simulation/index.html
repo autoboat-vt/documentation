@@ -569,10 +569,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sailboat-simulation" class="md-nav__link">
+  <a href="#motorboat-simulation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Sailboat Simulation
+        Motorboat Simulation
       
     </span>
   </a>
@@ -580,10 +580,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#motorboat-simulation" class="md-nav__link">
+  <a href="#sailboat-simulation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Motorboat Simulation
+        Sailboat Simulation
       
     </span>
   </a>
@@ -2656,10 +2656,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sailboat-simulation" class="md-nav__link">
+  <a href="#motorboat-simulation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Sailboat Simulation
+        Motorboat Simulation
       
     </span>
   </a>
@@ -2667,10 +2667,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#motorboat-simulation" class="md-nav__link">
+  <a href="#sailboat-simulation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Motorboat Simulation
+        Sailboat Simulation
       
     </span>
   </a>
@@ -2698,6 +2698,18 @@
 
 
 <h1 id="running-the-simulation"><p style="text-align: center;"> Running the Simulation </p></h1>
+<h2 id="motorboat-simulation">Motorboat Simulation</h2>
+<p>To run the motorboat simulation, run the following command <strong>after setting up the development container</strong>:</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoboat_launch<span class="w"> </span>motorboat_simulation.launch.py
+</code></pre></div>
+<p>This command will then start the simulation and autopilot. Initially, however they won't do anything because they don't have any waypoint commands, so you will need to launch the ground station to send waypoints. In a separate shell, run these commands:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/ws/ground_station
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>./run.sh
+</code></pre></div>
+<p>Next, click on "zoom to boat". This should show you where the boat is currently located (likely longitude 0 and latitude 0 since this is the default location)</p>
+<p>Now, click somewhere on the map and then click "Send Waypoints". This should cause the boat on screen to start moving and indicates that you have correctly set everything up!</p>
+<p><br></p>
 <h2 id="sailboat-simulation">Sailboat Simulation</h2>
 <p>To run the sailboat simulation, run the following commands in order <strong>after setting up the development container</strong>:</p>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>vtautoboat/autoboat_simulation:latest
@@ -2711,12 +2723,7 @@
 <div class="highlight"><pre><span></span><code>./run.sh
 </code></pre></div>
 <p>Next, click on "zoom to boat". This should show you where the boat is currently located (likely longitude 0 and latitude 0 since this is the default location)</p>
-<p>Now, click somewhere on the map and then click "Send Waypoints". This should cause the boat on screen to start moving and indicates that you have correctly set everything up!  </p>
-<h2 id="motorboat-simulation">Motorboat Simulation</h2>
-<p>To run the motorboat simulation, run the following command <strong>after setting up the development container</strong>:</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>autoboat_launch<span class="w"> </span>motorboat_simulation.launch.py
-</code></pre></div>
-<p>Then, in a separate shell, run the same two commands to launch the groundstation as above.</p>
+<p>Now, click somewhere on the map and then click "Send Waypoints". This should cause the boat on screen to start moving and indicates that you have correctly set everything up!</p>
 
 
 
