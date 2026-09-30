@@ -77,10 +77,10 @@ To forward the camera device to WSL, follow [these instructions](../examples/con
     export INFERENCE=false
     ```
 
-To build an engine file, navigate to the deepstream_yolo directory. This can be done without a camera connected.
+To build an engine file, navigate to the scripts directory. This can be done without a camera connected.
 
 ```sh
-cd /home/ws/ros_packages/object_detection/object_detection/deepstream_yolo/
+cd /home/ws/scripts/
 ```
 
 You need to know whether this model is Yolo26 or Yolo11.
@@ -102,7 +102,7 @@ You will see a couple warnings similar to shown below. Those are normal.
 
 ![Build Warnings](../assets/images/model_build_warnings.png)
 
-After running the script, the file will be moved to the `pt_files/` directory. The script will look for files in both the `deepstream_yolo/` directory and `pt_files/` directory, if it exists.
+After running the script, the file will be moved to the `ros_pacakges/object_detection/object_detection/config/yolo<ver>/pt_files/` directory. The script will look for files in both the `scripts/` directory and `pt_files/` directory, if it exists.
 
 ## <p style="text-align: center"> Running the Object Detection Module </p>
 
