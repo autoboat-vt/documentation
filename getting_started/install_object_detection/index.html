@@ -2858,7 +2858,6 @@ Intel<span class="o">(</span>R<span class="o">)</span><span class="w"> </span>Re
 <p>You need to know whether this model is Yolo26 or Yolo11.</p>
 <p>Place the .pt model file in this directory.</p>
 <p>Run the following script to build a .engine model file based on the .pt file. This will take a while. Fill in <code>&lt;name_of_pt_file&gt;</code> without the file extension. For example, if your model is named <code>yolo26s.pt</code>, you should enter <code>yolo26s</code>.</p>
-<p>For Yolo26
 <div class="highlight"><pre><span></span><code><span class="c1"># Build an engine file</span>
 bash<span class="w"> </span>build_engine_file_yolo.sh<span class="w"> </span>&lt;yolo_version&gt;<span class="w"> </span>&lt;name_of_pt_file&gt;
 
@@ -2867,7 +2866,7 @@ bash<span class="w"> </span>build_engine_file_yolo.sh<span class="w"> </span><sp
 
 <span class="c1"># For example with model file named yolo11n.pt</span>
 bash<span class="w"> </span>build_engine_file_yolo.sh<span class="w"> </span><span class="m">11</span><span class="w"> </span>yolo11n
-</code></pre></div></p>
+</code></pre></div>
 <p>You will see a couple warnings similar to shown below. Those are normal.</p>
 <p><img alt="Build Warnings" src="../../assets/images/model_build_warnings.png" /></p>
 <p>After running the script, the file will be moved to the <code>ros_pacakges/object_detection/object_detection/config/yolo&lt;ver&gt;/pt_files/</code> directory. The script will look for files in both the <code>scripts/</code> directory and <code>pt_files/</code> directory, if it exists.</p>
