@@ -92,21 +92,10 @@ Run the following script to build a .engine model file based on the .pt file. Th
 For Yolo26
 ```sh
 # Build an engine file
-bash build_engine_file26.sh <name_of_pt_file>
+bash build_engine_file_yolo.sh <yolo_version> <name_of_pt_file>
 
 # For example with model file named yolo26s.pt
-bash build_engine_file26.sh yolo26s
-```
-
-For Yolo11
-```sh
-# Build an engine file
-export YOLO_VER=11
-bash build_engine_file11.sh <name_of_pt_file>
-
-# For example with model file named yolo11s.pt
-export YOLO_VER=11
-bash build_engine_file11.sh yolo11s
+bash build_engine_file_yolo.sh 26 yolo26s
 ```
 
 You will see a couple warnings similar to shown below. Those are normal.

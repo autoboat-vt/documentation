@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="As0CrjLSm1lUz9W3Ie-j">
+    <mxGraphModel dx="2618" dy="929" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="PlicEUkZWVsrMzCrubss-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;Camera source&lt;br&gt;v4l2src&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="140" x="-10" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-38" edge="1" parent="1" source="PlicEUkZWVsrMzCrubss-6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=0;" target="PlicEUkZWVsrMzCrubss-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-39" edge="1" parent="1" source="PlicEUkZWVsrMzCrubss-6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=0;" target="PlicEUkZWVsrMzCrubss-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f4f8;strokeColor=#6c8ebf;" value="tee" vertex="1">
+          <mxGeometry height="60" width="140" x="150" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;Stream Multiplexer&lt;br&gt;nvstreammux&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="140" x="510" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;Primary Inference&lt;br&gt;nvinfer&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="140" x="670" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-42" edge="1" parent="1" source="PlicEUkZWVsrMzCrubss-10" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=0;" target="PlicEUkZWVsrMzCrubss-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Object Tracker&lt;br&gt;nvtracker" vertex="1">
+          <mxGeometry height="60" width="140" x="830" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#b85450;" value="Stream Tiler&lt;br&gt;nvmultistreamtiler" vertex="1">
+          <mxGeometry height="60" width="140" x="1050" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-48" edge="1" parent="1" source="PlicEUkZWVsrMzCrubss-13" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=0;" target="PlicEUkZWVsrMzCrubss-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4ec;strokeColor=#b85450;" value="On-Screen Display&lt;br&gt;nvdsosd" vertex="1">
+          <mxGeometry height="60" width="140" x="1210" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;Output Sink&lt;br&gt;Display / File&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="140" x="1590" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-15" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#fff9e6;strokeColor=#d6b656;" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;Get Bounding Boxes" vertex="1">
+          <mxGeometry height="70" width="160" x="990" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-16" parent="1" style="document;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" value="Configuration&lt;br&gt;Model Engine, Labels, Tracker Config" vertex="1">
+          <mxGeometry height="80" width="160" x="610" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-17" edge="1" parent="1" source="PlicEUkZWVsrMzCrubss-5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=classic;html=1;" target="PlicEUkZWVsrMzCrubss-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-20" edge="1" parent="1" source="PlicEUkZWVsrMzCrubss-8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=classic;html=1;" target="PlicEUkZWVsrMzCrubss-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-21" edge="1" parent="1" source="PlicEUkZWVsrMzCrubss-9" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=classic;html=1;" target="PlicEUkZWVsrMzCrubss-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-24" edge="1" parent="1" source="PlicEUkZWVsrMzCrubss-12" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=classic;html=1;" target="PlicEUkZWVsrMzCrubss-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-27" edge="1" parent="1" source="PlicEUkZWVsrMzCrubss-16" style="edgeStyle=orthogonalEdgeStyle;rounded=1;dashed=1;endArrow=classic;html=1;" target="PlicEUkZWVsrMzCrubss-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-28" edge="1" parent="1" source="PlicEUkZWVsrMzCrubss-16" style="edgeStyle=orthogonalEdgeStyle;rounded=1;dashed=1;endArrow=classic;html=1;" target="PlicEUkZWVsrMzCrubss-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-35" edge="1" parent="1" source="PlicEUkZWVsrMzCrubss-29" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=0;" target="PlicEUkZWVsrMzCrubss-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-29" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f4f8;strokeColor=#6c8ebf;" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Crop left side&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;nvvideoconvert&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="140" x="330" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-36" edge="1" parent="1" source="PlicEUkZWVsrMzCrubss-30" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=0;" target="PlicEUkZWVsrMzCrubss-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-30" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f4f8;strokeColor=#6c8ebf;" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Crop right side&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;nvvideoconvert&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="140" x="330" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-43" edge="1" parent="1" source="PlicEUkZWVsrMzCrubss-41" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=0;" target="PlicEUkZWVsrMzCrubss-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-41" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Probe" vertex="1">
+          <mxGeometry height="40" width="40" x="990" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-46" edge="1" parent="1" source="PlicEUkZWVsrMzCrubss-41" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;curved=0;dashed=1;" target="PlicEUkZWVsrMzCrubss-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-51" edge="1" parent="1" source="PlicEUkZWVsrMzCrubss-47" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=0;" target="PlicEUkZWVsrMzCrubss-50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-47" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="&lt;div&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;Framerate reducer&lt;/span&gt;&lt;/div&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;videorate&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="140" x="1370" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-52" edge="1" parent="1" source="PlicEUkZWVsrMzCrubss-50" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=0;" target="PlicEUkZWVsrMzCrubss-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-50" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" value="&lt;div&gt;&lt;span style=&quot;font-weight: normal;&quot;&gt;Probe&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="40" x="1530" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-53" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#fff9e6;strokeColor=#d6b656;" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;Get Frame" vertex="1">
+          <mxGeometry height="70" width="160" x="1390" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="PlicEUkZWVsrMzCrubss-55" edge="1" parent="1" source="PlicEUkZWVsrMzCrubss-50" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;curved=0;dashed=1;" target="PlicEUkZWVsrMzCrubss-53">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
