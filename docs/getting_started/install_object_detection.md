@@ -89,7 +89,6 @@ Place the .pt model file in this directory.
 
 Run the following script to build a .engine model file based on the .pt file. This will take a while. Fill in `<name_of_pt_file>` without the file extension. For example, if your model is named `yolo26s.pt`, you should enter `yolo26s`.
 
-For Yolo26
 ```sh
 # Build an engine file
 bash build_engine_file_yolo.sh <yolo_version> <name_of_pt_file>
