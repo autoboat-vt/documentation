@@ -96,6 +96,9 @@ bash build_engine_file_yolo.sh <yolo_version> <name_of_pt_file>
 
 # For example with model file named yolo26s.pt
 bash build_engine_file_yolo.sh 26 yolo26s
+
+# For example with model file named yolo11n.pt
+bash build_engine_file_yolo.sh 11 yolo11n
 ```
 
 You will see a couple warnings similar to shown below. Those are normal.
