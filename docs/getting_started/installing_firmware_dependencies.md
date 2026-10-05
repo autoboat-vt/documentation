@@ -5,21 +5,7 @@ description: Install firmware toolchains and SDKs.
 
 # <p style="text-align: center;"> Installing Firmware Dependencies </p>
 
-To create a layer of protection between Jetson and high voltages, and extend the number of GPIO pins we have access to, we use an RP2040 microcontroller, which communicates via a serial connection. Luckily, we are able to extend our software infrastructure to it through the microros platform. It runs nodes directly on the microcontroller, and then allows them to publish and listen on topics through the USB serial connection. Due to resource-restricted nature of the microcontrollers, the code is written in C and many of the principles when writing nodes for Jetson are inapplicable.
-
-To install microros and all of the other dependencies to start developing firmware on your machine, run the following command. Note that the installation will take approximately 5 GB:
-
-```sh
-cd /home/ws/firmware
-bash firmware_setup.sh
-```
-
-Don't forget to source your ~/.bashrc file:
-
-```sh
-source ~/.bashrc
-```
-
+The devcontainer that is installed by default is only the "base" devcontainer and it does not contain all of the dependencies required to build and develop on the firmware. To do this, we need to switch the version of our devcontainer to the **"development_image_firmware"**. See [documentation on how to change your your dev container variant](../ci_cd_autoboat_os_devcontainer/devcontainer.md#how-to-change-the-devcontainer-variant-you-are-currently-using).
 
 !!!NOTE
 	Notice that you need to establish communication between Pi Pico and WSL by USB to flash it. If you are on Windows, download and install the latest release of USB support software from <a href="https://gitlab.com/alelec/wsl-usb-gui/-/releases/">WSL USB GUI Releases</a>. By default, devices are not automatically shared with WSL, so you will need to manually autoattach. For more information, check out the documentation on connecting to a USB device in WSL.
@@ -72,4 +58,3 @@ If you have done everything correctly, `/pico_publisher` would show up in the li
 ```sh
 ros2 topic echo /pico_publisher
 ```
-
