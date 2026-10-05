@@ -2609,14 +2609,7 @@
 
 
 <h1 id="installing-firmware-dependencies"><p style="text-align: center;"> Installing Firmware Dependencies </p></h1>
-<p>To create a layer of protection between Jetson and high voltages, and extend the number of GPIO pins we have access to, we use an RP2040 microcontroller, which communicates via a serial connection. Luckily, we are able to extend our software infrastructure to it through the microros platform. It runs nodes directly on the microcontroller, and then allows them to publish and listen on topics through the USB serial connection. Due to resource-restricted nature of the microcontrollers, the code is written in C and many of the principles when writing nodes for Jetson are inapplicable.</p>
-<p>To install microros and all of the other dependencies to start developing firmware on your machine, run the following command. Note that the installation will take approximately 5 GB:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/home/ws/firmware
-bash<span class="w"> </span>firmware_setup.sh
-</code></pre></div>
-<p>Don't forget to source your ~/.bashrc file:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/.bashrc
-</code></pre></div>
+<p>The devcontainer that is installed by default is only the "base" devcontainer and it does not contain all of the dependencies required to build and develop on the firmware. To do this, we need to switch the version of our devcontainer to the <strong>"development_image_firmware"</strong>. See <a href="../../ci_cd_autoboat_os_devcontainer/devcontainer/#how-to-change-the-devcontainer-variant-you-are-currently-using">documentation on how to change your your dev container variant</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Notice that you need to establish communication between Pi Pico and WSL by USB to flash it. If you are on Windows, download and install the latest release of USB support software from <a href="https://gitlab.com/alelec/wsl-usb-gui/-/releases/">WSL USB GUI Releases</a>. By default, devices are not automatically shared with WSL, so you will need to manually autoattach. For more information, check out the documentation on connecting to a USB device in WSL.</p>
