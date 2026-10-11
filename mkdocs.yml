@@ -24,11 +24,11 @@ theme:
 plugins:
     - search
 
+
 markdown_extensions:
     - pymdownx.betterem
     - pymdownx.inlinehilite
     - pymdownx.snippets
-    - pymdownx.superfences
     - pymdownx.critic
     - pymdownx.caret
     - pymdownx.keys
@@ -36,7 +36,13 @@ markdown_extensions:
     - pymdownx.tilde
     - admonition
     - pymdownx.arithmatex:
-          generic: true
+        generic: true
+    - pymdownx.superfences:
+        custom_fences:
+            - name: mermaid
+              class: mermaid
+              format: !!python/name:pymdownx.superfences.fence_code_format
+
     # If you want to re-enable highlighting and TOC:
     # - pymdownx.highlight:
     #     anchor_linenums: true
@@ -49,6 +55,7 @@ extra_javascript:
     - javascript/static_title.js
     - javascript/mathjax.js
     - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+    - https://unpkg.com/mermaid@10/dist/mermaid.min.js
 
 extra_css:
     - styles/extra.css
@@ -90,6 +97,7 @@ nav:
                 - Sailboat Autopilot Node: ros2_packages/autopilot_package/sailboat_autopilot.md
                 - Motorboat Autopilot Node: ros2_packages/autopilot_package/motorboat_autopilot.md
                 - Telemetry: ros2_packages/autopilot_package/telemetry.md
+                - PIDn Controller Explanation: ros2_packages/autopilot_package/pidn_controller_derivation_and_explanation.md
 
           - Drivers Package:
                 - GPS Node: ros2_packages/drivers_package/gps.md
