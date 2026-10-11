@@ -2713,7 +2713,7 @@ let <span class="arithmatex">\(u_{d}(t) = k_{d}\frac{de(t)}{dt}\)</span>  </p>
 <p>Alright now that that issue is solved, we can go on and transform this transfer function into the <span class="arithmatex">\(z\)</span>-domain so we can put it into an implementable form. For the integral controller, we used the bilinear transform, but for the derivative controller the industry standard is to use the backwards euler transform (proof by everyone agrees this is the best way to implement this for the derivative controller).</p>
 <p>The backwards euler transform is defined by the following:</p>
 <div class="arithmatex">\[s = \frac{z - 1}{T_{s}z}\]</div>
-<p>where <span class="arithmatex">\(T_s\)</span> is the sampling period.</p>
+<p>where <span class="arithmatex">\(T_s\)</span> is the sampling period (aka how much time passes between each time you run a step of the PIDn controller). For a 10hz controller, <span class="arithmatex">\(T_s\)</span> should be 0.1.</p>
 <div class="arithmatex">\[T_{d\text{ filtered}}(z) = \frac{k_{d}\omega_{c}\left(\frac{z-1}{T_{s}z}\right)}{\left(\frac{z-1}{T_{s}z}\right) + \omega_{c}} = \frac{k_{d}\omega_{c}(z-1)}{T_{s}z\left(\frac{z-1}{T_{s}z} + \omega_{c}\right)} = \frac{k_{d}\omega_{c}(z-1)}{z - 1 + T_{s}z\omega_{c}} = \frac{k_{d}\omega_{c}(z-1)}{(T_{s}\omega_{c} + 1)z - 1}\]</div>
 <div class="arithmatex">\[T_{d\text{ filtered}}(z) = \frac{U_{d\text{ filtered}}(z)}{E(z)} \implies \frac{k_{d}\omega_{c}z - k_{d}\omega_{c}}{(T_{s}\omega_{c} + 1)z - 1} \implies U_{d\text{ filtered}}(z)((T_{s}\omega_{c} + 1)z - 1) = E(z)(k_{d}\omega_{c}z - k_{d}\omega_{c})\]</div>
 <div class="arithmatex">\[(T_{s}\omega_{c} + 1)U_{d\text{ filtered}}(z)z - U_{d\text{ filtered}}(z) = k_{d}\omega_{c}E(z)z - E(z)k_{d}\omega_{c}\]</div>
