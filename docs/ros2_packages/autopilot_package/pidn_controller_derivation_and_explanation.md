@@ -151,7 +151,7 @@ The backwards euler transform is defined by the following:
 
 $$s = \frac{z - 1}{T_{s}z}$$
 
-where $T_s$ is the sampling period.
+where $T_s$ is the sampling period (aka how much time passes between each time you run a step of the PIDn controller). For a 10hz controller, $T_s$ should be 0.1.
 
 $$T_{d\text{ filtered}}(z) = \frac{k_{d}\omega_{c}\left(\frac{z-1}{T_{s}z}\right)}{\left(\frac{z-1}{T_{s}z}\right) + \omega_{c}} = \frac{k_{d}\omega_{c}(z-1)}{T_{s}z\left(\frac{z-1}{T_{s}z} + \omega_{c}\right)} = \frac{k_{d}\omega_{c}(z-1)}{z - 1 + T_{s}z\omega_{c}} = \frac{k_{d}\omega_{c}(z-1)}{(T_{s}\omega_{c} + 1)z - 1}$$
 
