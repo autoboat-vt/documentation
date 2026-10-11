@@ -42,7 +42,7 @@ $u_i(t)$: cannot be implemented easily. Lets derive the discrete time difference
 
 $$u_{i}(t) = k_{i}\int_0^t e(\tau)d\tau$$
 
-taking the laplace transform on both sides removes the nasty continuous time integral. For a function in the laplace domain, there is a simple formula to find the equivalent in the $z$-domain (which can then be immediately transformed into a difference equation we can use in code).
+taking the laplace transform on both sides removes the nasty continuous time integral. For a function in the laplace domain, there is a simple formula to find the equivalent in the $z$-domain, which can then be immediately transformed into a difference equation we can use in code. This ability to transform into the z domain and transform things in the z domain into an implementable form is the main reason that we are doing this laplace transform route.
 
 $$\mathcal{L}\{u_{i}(t)\} = \mathcal{L}\left\{k_{i}\int_0^t e(\tau)d\tau\right\} \implies U_{i}(s) = k_{i}\frac{E(s)}{s} \implies \frac{U_{i}(s)}{E(s)} = T_{i}(s) = \frac{k_{i}}{s}$$
 
