@@ -2699,9 +2699,8 @@ let <span class="arithmatex">\(u_{d}(t) = k_{d}\frac{de(t)}{dt}\)</span>  </p>
 <p>What we want now is some notion of a "smoothing" system so that given a very spiky function with large derivatives, we can lower "spikiness" while still keeping the general shape of the function. Thankfully, many people have worked on this problem and they have found certain systems called "filters" that do this job of smoothing a function.</p>
 <p>This "low pass filter" system has the following transfer function in the laplace domain:</p>
 <div class="arithmatex">\[T_{f}(s) = \frac{1}{\frac{s}{\omega_{c}} + 1}\]</div>
-<p><span class="arithmatex">\(\omega_c\)</span> simply controls how aggressively we want to smooth the error. Below is a plot that shows the affect of various values of <span class="arithmatex">\(\omega_c\)</span> on a raw, noisy heading signal.
-<img alt="" src="image.png" />
-<img alt="low_pass_filter" src="../../../assets/images/low_pass_filter.png" /></p>
+<p><span class="arithmatex">\(\omega_c\)</span> simply controls how aggressively we want to smooth the error. Below is a plot that shows the affect of various values of <span class="arithmatex">\(\omega_c\)</span> on a raw, noisy heading signal.</p>
+<p><img alt="low_pass_filter" src="../../../assets/images/low_pass_filter.png" /></p>
 <p>If we want to filter the error signal before passing it into our derivative controller, the block diagram would therefore look like this:</p>
 <pre class="mermaid"><code>flowchart LR
     E["Error Input&lt;br/&gt;E(s)"] --&gt; Tf["Low-Pass Filter&lt;br/&gt;T_f(s) = 1 / (s/ω_c + 1)"]
