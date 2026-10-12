@@ -54,7 +54,7 @@ The bilinear transform is defined as:
 
 $$s = \frac{2}{T_{s}}\frac{z-1}{z+1}$$
 
-where $T_s$ is the sampling period.
+where $T_s$ is the sampling period (aka how much time passes between each time you run a step of the PIDn controller). For a 10hz controller, $T_s$ should be 0.1.
 
 $$T_{i}(s) = \frac{k_{i}}{s} \implies T_{i}(z) = k_{i}\frac{T_{s}}{2}\frac{z+1}{z-1} = \frac{U_{i}(z)}{E(z)}$$
 
@@ -118,7 +118,7 @@ $$\frac{d}{dt}(\text{current_heading}(t)) = \frac{\text{sample}_2 - \text{sample
 
 At that point, our derivative control output $\frac{de(t)}{dt}$ might also be nearly unbounded!
 
-What we want now is some notion of a "smoothing" function so that given a very spiky function with large derivatives, we can lower "spikiness" while still keeping the general shape of the function. Thankfully, many people have worked on this problem and they have found certain systems called "filters" that do this job of smoothing a function.
+What we want now is some notion of a "smoothing" system so that given a very spiky function with large derivatives, we can lower "spikiness" while still keeping the general shape of the function. Thankfully, many people have worked on this problem and they have found certain systems called "filters" that do this job of smoothing a function.
 
 This "low pass filter" system has the following transfer function in the laplace domain:
 
@@ -151,7 +151,7 @@ The backwards euler transform is defined by the following:
 
 $$s = \frac{z - 1}{T_{s}z}$$
 
-where $T_s$ is the sampling period (aka how much time passes between each time you run a step of the PIDn controller). For a 10hz controller, $T_s$ should be 0.1.
+where $T_s$ is the sampling period.
 
 $$T_{d\text{ filtered}}(z) = \frac{k_{d}\omega_{c}\left(\frac{z-1}{T_{s}z}\right)}{\left(\frac{z-1}{T_{s}z}\right) + \omega_{c}} = \frac{k_{d}\omega_{c}(z-1)}{T_{s}z\left(\frac{z-1}{T_{s}z} + \omega_{c}\right)} = \frac{k_{d}\omega_{c}(z-1)}{z - 1 + T_{s}z\omega_{c}} = \frac{k_{d}\omega_{c}(z-1)}{(T_{s}\omega_{c} + 1)z - 1}$$
 
