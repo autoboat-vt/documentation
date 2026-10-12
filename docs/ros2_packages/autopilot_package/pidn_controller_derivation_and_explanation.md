@@ -125,7 +125,7 @@ This "low pass filter" system has the following transfer function in the laplace
 $$T_{f}(s) = \frac{1}{\frac{s}{\omega_{c}} + 1}$$
 
 $\omega_c$ simply controls how aggressively we want to smooth the error. Below is a plot that shows the affect of various values of $\omega_c$ on a raw, noisy heading signal.
-![](image.png)
+
 ![low_pass_filter](../../assets/images/low_pass_filter.png)
 
 If we want to filter the error signal before passing it into our derivative controller, the block diagram would therefore look like this:
