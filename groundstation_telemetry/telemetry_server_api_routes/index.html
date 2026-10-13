@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/images/logo.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -1004,10 +1004,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#autopilot-routes" class="md-nav__link">
+  <a href="#autopilot-parameters-routes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Autopilot Routes
+        Autopilot Parameters Routes
       
     </span>
   </a>
@@ -1030,6 +1030,17 @@
     <span class="md-ellipsis">
       
         Waypoint Routes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-manager-routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image Manager Routes
       
     </span>
   </a>
@@ -2868,10 +2879,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#autopilot-routes" class="md-nav__link">
+  <a href="#autopilot-parameters-routes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Autopilot Routes
+        Autopilot Parameters Routes
       
     </span>
   </a>
@@ -2894,6 +2905,17 @@
     <span class="md-ellipsis">
       
         Waypoint Routes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-manager-routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Image Manager Routes
       
     </span>
   </a>
@@ -3000,7 +3022,7 @@
   <h1>Telemetry Server</h1>
 
 <h2 id="introduction">Introduction</h2>
-<p>This document provides an overview of the Telemetry Server API routes, detailing the available endpoints, their functionalities, and how they facilitate communication between the telemetry node and the groundstation. The Telemetry Server API is a critical component of the overall architecture, enabling efficient data exchange and management of boat operations. The server lives in its own repository at <a href="https://github.com/autoboat-vt/telemetry_server"><code>autoboat-vt/telemetry_server</code></a>.</p>
+<p>This document provides an overview of the Telemetry Server API routes, detailing the available endpoints, their functionalities, and how they facilitate communication between the telemetry node and the Groundstation. The Telemetry Server API is a critical component of the overall architecture, enabling efficient data exchange and management of boat operations. The server lives in its own repository at <a href="https://github.com/autoboat-vt/telemetry_server"><code>autoboat-vt/telemetry_server</code></a>.</p>
 <p><strong>Diagram showing how each component interacts with each other</strong>
 <img alt="Diagram of Groundstation Telemetry" src="../../assets/images/diagram_of_groundstation_telemetry.png" /></p>
 <h2 id="api-routes-overview">API Routes Overview</h2>
@@ -3041,7 +3063,7 @@ Testing URL: <code>https://test.vt-autoboat-telemetry.uk</code></p>
 </table>
 <p>Multi-arch images (<code>linux/amd64</code> + <code>linux/arm64</code>) are published on every push to <code>main</code> to both GHCR (<code>ghcr.io/autoboat-vt/telemetry_server:latest</code>) and Docker Hub (<code>docker.io/vtautoboat/telemetry_server:latest</code>). See the <a href="https://github.com/autoboat-vt/telemetry_server#readme">telemetry_server README</a> for full deploy instructions. For local development without Docker: <code>pip install -e .</code> then <code>flask run</code> (or <code>gunicorn "autoboat_telemetry_server:create_app()"</code>).</p>
 <h2 id="routes">Routes</h2>
-<h3 id="autopilot-routes">Autopilot Routes</h3>
+<h3 id="autopilot-parameters-routes">Autopilot Parameters Routes</h3>
 <table>
 <thead>
 <tr>
@@ -3204,6 +3226,53 @@ Testing URL: <code>https://test.vt-autoboat-telemetry.uk</code></p>
 <td><code>POST</code></td>
 <td><code>/waypoints/set/&lt;int:instance_id&gt;</code></td>
 <td>Set the waypoints using the request data.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="image-manager-routes">Image Manager Routes</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Endpoint</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><code>/image_manager/test</code></td>
+<td>Test route for image management.</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/image_manager/get/&lt;image_uuid&gt;</code></td>
+<td>Get the raw image bytes for a UUID.</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/image_manager/get_info/&lt;image_uuid&gt;</code></td>
+<td>Get metadata for a UUID (no binary payload).</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><code>/image_manager/get_all</code></td>
+<td>Get metadata for all images (no binary payload).</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><code>/image_manager/upload</code></td>
+<td>Upload an image.</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><code>/image_manager/delete/&lt;image_uuid&gt;</code></td>
+<td>Delete an image by its UUID.</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><code>/image_manager/delete_all</code></td>
+<td>Delete all images.</td>
 </tr>
 </tbody>
 </table>
