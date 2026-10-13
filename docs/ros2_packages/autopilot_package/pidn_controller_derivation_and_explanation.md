@@ -5,16 +5,28 @@ description: Overview, derivation, and explanation of how a PIDn controller work
 
 # <p style="text-align: center;"> PIDn Controller Explanation </p>
 
+
+# Required Background Knowledge
+
+
 In this document, we will go ahead and derive the PIDn controller that we use in the codebase and explain how it works. This document unfortunately will require that you have taken ECE 2714 "Signals and Systems" or an equivalent course. The math is just too involved to explain it all from scratch here unfortunately. If you would like to teach yourself the required information, I would recommend self studying concepts from single input, single output linear systems theory such as signals, systems, laplace transform, z transform, and block diagrams. For those who don't understand what a laplace or z transform are but do know about the fourier transform, in this case you can treat them as exactly the same except wherever you would normally write $j\omega$ or $e^{j\omega}$ you would instead write s and z respectively. This isn't true in general, but is good enough for these derivations.
+
+<br>
+
+
+# Overview
+
+The purpose of a PID controller is to generate some output signal to drive some input to some desired input. This may seem a bit abstract, so lets talk about a specific example: we would like to figure out how to move the boat's rudder (our output or sometimes referred to as the control signal) in order to drive our heading (our input or sometimes referred to as the current_state) to whatever desired heading we would like our boat to be facing for navigation (our desired input or sometimes referred to as the setpoint). Notice that this is a fairly non trivial task. How do we set the rudder angle to turn the boat just enough so the boat doesn't turn too far but just enough that we get to our desired heading and no further? Humans driving the boat with lets say a steering wheel might be able to do this intuitively, but a robot cannot rely on intuition, it must rely on control theory! The purpose of this document therefore is to introduce a general set of controllers (PID controllers) that can drive a large amount of systems from an input to the desired input "optimally" given the user chooses the correct constants. Then we will derive the implementation as a recursive formula (also known as a "discrete time formulation") that can be implemented easily on a computer by transforming these "continuous time" equations describing the PID controller into "discrete time". In order to do this we will first need to make a detour to the laplace domain where this "discretization" becomes a simple substitution of variables.
+
 
 
 # Proportional Integral Derivative Controller Definition
 
-The definition of a proportional, integral, derivative controller is as follows:
+The definition of a proportional, integral, derivative (PID) controller is the set of controllers of the following form:
 
 $$u(t) = k_{p}e(t) + k_{i}\int_0^t e(\tau)d\tau + k_{d}\frac{de(t)}{dt}$$
 
-Where e(t) is the error, generally defined as $e(t) = (setpoint(t) - position(t))$, u(t) is the output of the PID controller, and $k_p$, $k_i$, and $k_d$ are constants that the user sets and just mean how much weight should we give to each term in the controller.
+Where e(t) is the error, generally defined as $e(t) = (setpoint(t) - current_state(t))$, u(t) is the output of the PID controller, and $k_p$, $k_i$, and $k_d$ are constants that the user sets and just mean how much weight should we give to each term in the formula. The constants, $k_p$, $k_i$, and $k_d$ determine the exact controller that you are using in the set of possible PID controllers. In practice, the user finds these constants through basically trial and error. There are some more advanced techniques, but they are not covered here and really should be saved for a real control theory course.
 
 let $u_{p}(t) = k_{p}e(t)$  
 let $u_{i}(t) = k_{i}\int_{0}^{t}e(\tau)d\tau$  
@@ -22,11 +34,11 @@ let $u_{d}(t) = k_{d}\frac{de(t)}{dt}$
 
 then $u(t) = u_{p}(t) + u_{i}(t) + u_{d}(t)$
 
-Now we can derive the implementation of each controller output individually and then add them all up at the end.
+$u_{p}$, $u_{i}$, and $u_{d}$ are known as the proportional, integral, and derivative controllers respectively and a PID controller is simply the sum of these control outputs. We can derive the implementation of each controller individually and then add them all up at the end.
 
 ---
 
-## 1. Proportional Term
+## Proportional Controller
 
 $u_{p}(t) = k_{p}e(t)$ can be implemented exactly the same in discrete time
 
@@ -36,7 +48,7 @@ proportional control output at timestep $k$ = $k_p \cdot \text{error at timestep
 
 ---
 
-## 2. Integral Term
+## Integral Controller
 
 $u_i(t)$: cannot be implemented easily. Lets derive the discrete time difference equation that describes the integral controller output
 
@@ -72,7 +84,7 @@ $$u_{i}[k+1] - u_{i}[k] = \frac{k_{i}T_{s}}{2}(e[k+1] + e[k])$$
 
 $$u_{i}[k+1] = u_{i}[k] + \frac{k_{i}T_{s}}{2}(e[k+1] + e[k])$$
 
-we have now arrived at a difference equation that describes the control output of a discrete time PID controller. Remember, $k_i$ and $T_s$ are just constants the user sets.
+we have now arrived at a difference equation that describes the control output of a discrete time PID controller based solely off of its inputs and previous control outputs. Remember, $k_i$ and $T_s$ are just constants the user sets.
 
 Not all is pleasant in wonderland though! watch what happens when $e[k]=1$ for a long period of time.
 
@@ -90,11 +102,11 @@ now, we may be able to rest assured that this did in fact "integrate" over our e
 
 $$u_{i\text{ clamped}}[k+1] = \text{clamp}\left(u_{i\text{ clamped}}[k] + \frac{k_{i}T_{s}}{2}(e[k+1] + e[k]), -b_{i}, b_{i}\right)$$
 
-Now, our control output is forced to never become unbounded.
+Now, our control output is forced to never become unbounded by definition of the clamping function.
 
 ---
 
-## 3. Derivative Term
+## Derivative Controller
 
 $u_d(t)$: similarly to the integral controller cannot be implemented easily. Lets derive the discrete time difference equation that describes the derivative controller output. I will save much explanation since much of it is identical to the integral controller.
 
@@ -169,7 +181,11 @@ $$(T_{s}\omega_{c} + 1)u_{d\text{ filtered}}[k+1] = u_{d\text{ filtered}}[k] + k
 
 $$u_{d\text{ filtered}}[k+1] = \frac{1}{T_{s}\omega_{c} + 1}\left(u_{d\text{ filtered}}[k] + k_{d}\omega_{c}e[k+1] - k_{d}\omega_{c}e[k]\right)$$
 
-Now that we have all 3 infinity stones, we can finally assemble our PIDn controller's output formula:
+---
+
+## Putting it all together to form the PIDn controller
+
+Now that we have all 3 infinity stones, we can finally assemble our PIDn controller's output formula in a form that we can actually implement in a discrete time system (ie a microcontroller):
 
 $$u[k+1] = u_{p}[k+1] + u_{i}[k+1] + u_{d}[k+1]$$
 
@@ -177,14 +193,14 @@ $$u[k+1] = k_{p}e[k+1] + \text{clamp}\left(u_{i\text{ clamped}}[k] + \frac{k_{i}
 
 ---
 
-## 4. Why is it called PIDn?
+## Why is it called PIDn?
 
 Now you might be asking: Why is it called a PIDn controller? Well that $n$ comes from that term that controls the amount we are smoothing the error signal.
 
 For some reason people will just define $n = \omega_{c}$. Why? I don't know, but thats the standard and I don't feel like arguing with them so in the codebase $n = \omega_{c}$.
 
 
-## 5. Final Block Diagram Implemented on the Boat
+## Final Block Diagram Implemented on the Boat
 
 
 ```mermaid
