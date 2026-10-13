@@ -5,7 +5,7 @@ description: Groundstation overview and usage.
 
 ## Introduction
 
-Note that this document is a work in progress and may not be complete or up-to-date. Please refer to the codebase for the most accurate information.
+**Note that this document is a work in progress and may not be complete or up-to-date. Please refer to the codebase for the most accurate information.**
 
 This document provides an overview of the Ground Station system, detailing its components, functionalities, and how it
 integrates with other systems. The Ground Station is a critical part of the overall architecture, enabling communication
