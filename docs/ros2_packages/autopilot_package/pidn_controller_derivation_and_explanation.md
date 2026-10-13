@@ -26,7 +26,7 @@ The definition of a proportional, integral, derivative (PID) controller is the s
 
 $$u(t) = k_{p}e(t) + k_{i}\int_0^t e(\tau)d\tau + k_{d}\frac{de(t)}{dt}$$
 
-Where e(t) is the error, generally defined as $e(t) = (setpoint(t) - current_state(t))$, u(t) is the output of the PID controller, and $k_p$, $k_i$, and $k_d$ are constants that the user sets and just mean how much weight should we give to each term in the formula. The constants, $k_p$, $k_i$, and $k_d$ determine the exact controller that you are using in the set of possible PID controllers. In practice, the user finds these constants through basically trial and error. There are some more advanced techniques, but they are not covered here and really should be saved for a real control theory course.
+Where e(t) is the error, generally defined as $e(t) = (\text{setpoint}(t) - \text{current_state}(t))$, u(t) is the output of the PID controller, and $k_p$, $k_i$, and $k_d$ are constants that the user sets and just mean how much weight should we give to each term in the formula. The constants, $k_p$, $k_i$, and $k_d$ determine the exact controller that you are using in the set of possible PID controllers. In practice, the user finds these constants through basically trial and error. There are some more advanced techniques, but they are not covered here and really should be saved for a real control theory course.
 
 let $u_{p}(t) = k_{p}e(t)$  
 let $u_{i}(t) = k_{i}\int_{0}^{t}e(\tau)d\tau$  
