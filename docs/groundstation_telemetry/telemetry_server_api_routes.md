@@ -5,7 +5,7 @@ description: Telemetry server API routes.
 
 ## Introduction
 
-This document provides an overview of the Telemetry Server API routes, detailing the available endpoints, their functionalities, and how they facilitate communication between the telemetry node and the groundstation. The Telemetry Server API is a critical component of the overall architecture, enabling efficient data exchange and management of boat operations. The server lives in its own repository at [`autoboat-vt/telemetry_server`](https://github.com/autoboat-vt/telemetry_server).
+This document provides an overview of the Telemetry Server API routes, detailing the available endpoints, their functionalities, and how they facilitate communication between the telemetry node and the Groundstation. The Telemetry Server API is a critical component of the overall architecture, enabling efficient data exchange and management of boat operations. The server lives in its own repository at [`autoboat-vt/telemetry_server`](https://github.com/autoboat-vt/telemetry_server).
 
 **Diagram showing how each component interacts with each other**
 ![Diagram of Groundstation Telemetry](../assets/images/diagram_of_groundstation_telemetry.png)
@@ -25,15 +25,15 @@ The testing instance runs on port `6001` inside the container and the production
 | ---------------- | ---------------------------------------------------------------- |
 | `telemetry-prod` | Gunicorn app on `:8000` (production)                             |
 | `telemetry-test` | Gunicorn app on `:6001` (testing)                                |
-| `cloudflared`    | Outbound tunnel to Cloudflare; routes hostnames to containers   |
+| `cloudflared`    | Outbound tunnel to Cloudflare; routes hostnames to containers    |
 | `cron`           | Calls `/instance_manager/clean_instances` every 5 min            |
-| `tailscale`      | Optional (`--profile tailscale`). SSH access from your tailnet. |
+| `tailscale`      | Optional (`--profile tailscale`). SSH access from your tailnet.  |
 
 Multi-arch images (`linux/amd64` + `linux/arm64`) are published on every push to `main` to both GHCR (`ghcr.io/autoboat-vt/telemetry_server:latest`) and Docker Hub (`docker.io/vtautoboat/telemetry_server:latest`). See the [telemetry_server README](https://github.com/autoboat-vt/telemetry_server#readme) for full deploy instructions. For local development without Docker: `pip install -e .` then `flask run` (or `gunicorn "autoboat_telemetry_server:create_app()"`).
 
 ## Routes
 
-### Autopilot Routes
+### Autopilot Parameters Routes
 
 | Method   | Endpoint                                                                      | Description                                                               |
 | -------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
@@ -73,6 +73,18 @@ Multi-arch images (`linux/amd64` + `linux/arm64`) are published on every push to
 | `GET`  | `/waypoints/get/<int:instance_id>`     | Get the current waypoints for a specific instance.           |
 | `GET`  | `/waypoints/get_new/<int:instance_id>` | Get the latest waypoints if they haven't been retrieved yet. |
 | `POST` | `/waypoints/set/<int:instance_id>`     | Set the waypoints using the request data.                    |
+
+### Image Manager Routes
+
+| Method   | Endpoint                               | Description                                  |
+| -------- | -------------------------------------- | -------------------------------------------- |
+| `GET`    | `/image_manager/test`                  | Test route for image management.             |
+| `GET`    | `/image_manager/get/<image_uuid>`      | Get the raw image bytes for a UUID.          |
+| `GET`    | `/image_manager/get_info/<image_uuid>` | Get metadata for a UUID (no binary payload). |
+| `GET`    | `/image_manager/get_all`               | Get metadata for all images (no binary payload). |
+| `POST`   | `/image_manager/upload`                | Upload an image.                             |
+| `DELETE` | `/image_manager/delete/<image_uuid>`   | Delete an image by its UUID.                 |
+| `DELETE` | `/image_manager/delete_all`            | Delete all images.                           |
 
 ### Instance Manager Routes
 
