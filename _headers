@@ -15,11 +15,23 @@
 # WARNING: Keep the origin list in step with the site. These are the two hosts
 # that serve the website (the www host serves the site directly rather than
 # redirecting to the apex, so it is a genuinely different origin).
+#
+# WARNING: There must be exactly ONE `/*` block. This file originally had two,
+# and Pages applied only the second one -- verified against the deployed site:
+# x-content-type-options came through but Content-Security-Policy did not.
+#
+# NOTE: Losing that header did NOT break the iframe, and this is the subtle part.
+# With no CSP and no X-Frame-Options, framing is ALLOWED by default, so the page
+# kept working. The header is a hardening measure that pins WHO may frame this
+# site; it is not what makes framing work. That asymmetry is why the bug was easy
+# to miss, and why the note below matters more than it looks.
+#
+# Add new headers to this block; do not add another `/*` section.
 
 /*
   Content-Security-Policy: frame-ancestors 'self' https://autoboat.aoe.vt.edu https://www.autoboat.aoe.vt.edu
+  X-Content-Type-Options: nosniff
 
 # The docs are a public resource; nothing here is secret. Long-lived caching is
 # handled by Pages automatically for hashed asset filenames.
-/*
-  X-Content-Type-Options: nosniff
+
