@@ -1,0 +1,25 @@
+# Cloudflare Pages response headers.
+#
+# MkDocs copies this file verbatim from docs/ into the build output, and
+# Cloudflare Pages reads it from the ROOT of the uploaded directory. That is why
+# it lives in docs/ rather than the repo root -- `mkdocs build` only copies
+# docs/ into site/, so a root-level _headers would never reach the deploy.
+#
+# WARNING: Do not add `X-Frame-Options` here. Cloudflare Pages does not set one
+# by default, and the only reason this file exists is to make framing explicit.
+# An X-Frame-Options: SAMEORIGIN (or DENY) would break
+# https://autoboat.aoe.vt.edu/documentation, which renders this site in an
+# iframe from a different origin. If you ever need to lock framing down, edit
+# the frame-ancestors list below instead.
+#
+# WARNING: Keep the origin list in step with the site. These are the two hosts
+# that serve the website (the www host serves the site directly rather than
+# redirecting to the apex, so it is a genuinely different origin).
+
+/*
+  Content-Security-Policy: frame-ancestors 'self' https://autoboat.aoe.vt.edu https://www.autoboat.aoe.vt.edu
+
+# The docs are a public resource; nothing here is secret. Long-lived caching is
+# handled by Pages automatically for hashed asset filenames.
+/*
+  X-Content-Type-Options: nosniff
