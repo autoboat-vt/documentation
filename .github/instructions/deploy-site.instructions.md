@@ -1,62 +1,174 @@
 ---
-description: "Use when deploying the MkDocs site to GitHub Pages, running scripts/release.sh, or troubleshooting a deployment. Covers mkdocs gh-deploy, the release.sh script (full flow and --deploy flag), the strict build check, the deploy confirmation prompt, the gh-pages branch flow, when to rebuild the site/ directory, and how to preview before going live. Also use when asked to publish or ship documentation changes."
-applyTo: "scripts/release.sh"
+description: "Use when deploying the MkDocs site, running scripts/release.sh, or troubleshooting a deployment. Covers the GitHub Action in .github/workflows/deploy-docs.yml (Cloudflare Pages + GitHub Pages from one build), the required CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID secrets, the PAGES_PROJECT name, docs/_headers and the frame-ancestors rule, site_url / SITE_URL, mkdocs gh-deploy, the release.sh script (full flow and --deploy flag), the strict build check, and how to preview before going live. Also use when asked to publish or ship documentation changes."
+applyTo: "scripts/release.sh, .github/workflows/**, docs/_headers"
 ---
 
 # Deploying the documentation site
 
-## Preview before deploying
+## Two hosts, one build
 
-Always preview changes locally before deploying — there is no staging environment. `mkdocs serve` hot-reloads on save:
+The site is published to **two** places from the same `site/` directory:
+
+| Host | URL | Role |
+| --- | --- | --- |
+| Cloudflare Pages | <https://autoboat-docs.pages.dev/> | **Primary.** Canonical host. |
+| GitHub Pages (`gh-pages`) | <https://autoboat-vt.github.io/documentation/> | Mirror, kept for old links. |
+
+<https://autoboat.aoe.vt.edu/documentation/> is a **loader page** that frames the
+Cloudflare copy in an iframe. It is not a deployment of this repo — it lives in
+the *website* repo (`website/public/documentation/index.html`) and ships with
+that site's S4 deploy. See "The VT entry point" below.
+
+## The GitHub Action (normal path)
+
+`.github/workflows/deploy-docs.yml` runs on every push to `main` (and via
+`workflow_dispatch`). It is the **only** deployment mechanism anyone needs:
+
+1. Installs `requirements.txt` on Python 3.12 (pinned, because `.python-version`
+   holds a pyenv env *name*, not a version).
+2. `mkdocs build --strict --clean` — fails on broken links, missing images, or
+   nav errors.
+3. Creates the Cloudflare Pages project if it does not exist, then
+   `wrangler pages deploy site`.
+4. `mkdocs gh-deploy --force` — mirrors the same `site/` to `gh-pages`.
+
+Both hosts are updated in one run, so they cannot drift apart.
+
+### Required secrets
+
+Both are set as **organization** secrets on `autoboat-vt` with `ALL` repository
+visibility, not as repo secrets — so they are available here without being
+duplicated per repo:
+
+| Secret | Where to get it |
+| --- | --- |
+| `CLOUDFLARE_API_TOKEN` | Cloudflare dashboard -> API Tokens -> custom token with **Account : Cloudflare Pages : Edit** |
+| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare dashboard URL, or `npx wrangler whoami` |
+
+WARNING: `gh secret list -R autoboat-vt/documentation` reports **"no secrets
+found"** even though both exist, because it lists repo-level secrets only. Check
+the org instead: `gh secret list --org autoboat-vt`.
+
+WARNING: If the secrets are missing the Cloudflare steps **fail** rather than
+skip. A silent skip would leave the VT entry point framing a stale deployment,
+which looks like the docs are out of date rather than like CI is misconfigured.
+
+NOTE: A local `wrangler login` cannot be used here. That is an OAuth token tied
+to a browser session, and GitHub Actions is unattended, so CI needs an API token
+instead. They are different credentials.
+
+### One-time Cloudflare project setup
+
+The workflow creates the project on first run, so there is nothing to click. The
+project name lives in the workflow's `PAGES_PROJECT` env var (`autoboat-docs`).
+
+WARNING: `website/public/documentation/index.html` hard-codes
+`https://autoboat-docs.pages.dev/` as the iframe `src`. Renaming `PAGES_PROJECT`
+means editing that file in the *website* repo in the same change, or the VT page
+frames a 404. `website/src/test/lib/docsPlaceholder.test.ts` cross-checks the two
+and fails if they disagree.
+
+## The VT entry point
+
+`https://autoboat.aoe.vt.edu/documentation/` needs three things from this repo:
+
+1. **Permission to be framed.** `docs/_headers` sets
+   `Content-Security-Policy: frame-ancestors 'self' https://autoboat.aoe.vt.edu
+   https://www.autoboat.aoe.vt.edu`. Cloudflare Pages reads `_headers` from the
+   **root of the uploaded directory**, which is why the file lives in `docs/` and
+   not the repo root — MkDocs copies `docs/` into `site/`.
+   WARNING: Do **not** add `X-Frame-Options` there. `SAMEORIGIN`/`DENY` would
+   break the whole arrangement, since the embedding page is a different origin.
+2. **A stable canonical.** `mkdocs.yml` sets `site_url` so the framed copy and
+   the `pages.dev` copy agree on one canonical URL.
+3. **Nothing else.** The deep-link stubs are the *website* repo's job — see below.
+
+### Deep links need a stub on the S3 side
+
+A page at `/documentation/getting_started/setting_up_dev_environment/` only works
+because the **website** repo writes a loader stub there. VT S4 is plain Amazon
+S3, which has no directory-index fallback, so a deep path is a 404 unless a real
+`index.html` exists at that key.
+
+**WARNING: Adding a docs page is a two-repo change.** The page will work at
+`https://autoboat-docs.pages.dev/<path>/` immediately, but the equivalent
+`autoboat.aoe.vt.edu/documentation/<path>/` URL will **404** until the website
+repo's path manifest is refreshed:
 
 ```sh
-mkdocs serve
-# → open http://127.0.0.1:8000
+# in the website repo
+bun run sync-docs-paths      # regenerates src/lib/docsPaths.json
 ```
 
-Only deploy once the preview looks good.
+There is no automation for this — the website's CI never checks out this repo, so
+the list is committed rather than derived. If you add or rename a page, update it
+in the same batch of work. (The website's `docsPlaceholder` test will catch the
+drift, but only on a machine that has both repos checked out.)
 
-## How deployment works
+## `site_url` and canonicals
 
-The site is deployed to GitHub Pages via the `gh-pages` branch. The flow is:
+`site_url` in `mkdocs.yml` is `!ENV [SITE_URL, "https://autoboat-docs.pages.dev/"]`.
+The Action sets `SITE_URL` from `PAGES_PROJECT`, so the canonical cannot disagree
+with the hostname actually deployed.
 
-1. `mkdocs gh-deploy` builds the site into `site/`, then pushes the contents of `site/` to the `gh-pages` branch as a new commit.
-2. GitHub Pages serves the `gh-pages` branch at <https://autoboat-vt.github.io/documentation/>.
-3. The deployment is live within a minute or two of the push.
+WARNING: `site_url` used to be `https://autoboat-vt.github.io/` — missing the
+`/documentation/` path the site is served from — so **every page declared a
+canonical URL that 404s**, and the generated sitemap listed those same dead URLs.
+Verified before the fix: `/documentation/getting_started/installing_docker/`
+claimed a canonical of `https://autoboat-vt.github.io/getting_started/installing_docker/`.
+If you change the hostname, change it here and nowhere else.
 
-The `site/` directory in the `main` branch is **generated output** — never edit it directly. It's regenerated from `docs/` on every deploy.
+## Preview before deploying
 
-## The `scripts/release.sh` script
+Always preview changes locally first; there is no staging environment, but
+pushing to `main` deploys automatically. `mkdocs serve` hot-reloads on save:
 
-The release workflow lives in `scripts/release.sh` (run from the repo root). It replaces the old `Makefile` and adds two safety checks the Makefile didn't have: a strict build check and a deploy confirmation prompt.
+```sh
+pip install -r requirements.txt   # one-time
+mkdocs serve                      # → http://127.0.0.1:8000
+```
+
+`mkdocs build --strict` before committing catches exactly what CI will reject.
+
+## The `scripts/release.sh` script (legacy manual path)
+
+Still works, and still deploys **only to GitHub Pages** — it does not touch
+Cloudflare. Prefer pushing to `main` and letting the Action handle both hosts.
 
 ```sh
 ./scripts/release.sh           # full flow: build → commit → push → deploy
 ./scripts/release.sh --deploy  # rebuild + deploy only (skip git on main)
 ```
 
-The script uses `set -euo pipefail`, so any failed step aborts the whole release before the next step runs. It also `cd`s to the repo root itself, so it works regardless of where you invoke it from.
+The script uses `set -euo pipefail`, so any failed step aborts before the next
+runs. It `cd`s to the repo root itself, so it works from anywhere.
 
 ### Full flow (`./scripts/release.sh`)
 
-1. **Strict build** — runs `mkdocs build --strict --clean`. Any broken link, missing image, or nav warning becomes a hard error and the script aborts here.
+1. **Strict build** — `mkdocs build --strict --clean`. Broken link, missing
+   image, or nav warning aborts here.
 2. **Stage** — `git add -A`.
-3. **Commit** — prompts for a commit message in the terminal (required). If nothing is staged, it asks whether to deploy the current state anyway.
-4. **Push** — `git push` to `origin`.
-5. **Confirm** — asks `[y/N]` before `mkdocs gh-deploy`, since there is no staging environment.
-6. **Deploy** — `mkdocs gh-deploy` builds and pushes `site/` to `gh-pages`.
+3. **Commit** — prompts for a message (required). If nothing is staged, asks
+   whether to deploy the current state anyway.
+4. **Push** — `git push` to `origin`. This also triggers the Action, which is the
+   better path — it updates Cloudflare too.
+5. **Confirm** — asks `[y/N]` before `mkdocs gh-deploy`.
+6. **Deploy** — `mkdocs gh-deploy` pushes `site/` to `gh-pages`.
 
 ### Deploy-only (`./scripts/release.sh --deploy`)
 
-Skips the git steps on `main` (commit/push) and goes straight to `mkdocs gh-deploy`. Use this when your changes are already committed and pushed and you just want to rebuild and ship the site. Still runs the strict build check first.
+Skips the git steps on `main` and goes straight to `mkdocs gh-deploy`. Use it when
+the commit is already pushed and only the `gh-pages` branch needs refreshing.
+Still runs the strict build first.
 
 ## When to deploy
 
-- **Deploy** when changes are ready to go live (a new page is finished, a doc update is confirmed accurate, etc.).
+- **Deploy** when changes are ready to go live. On `main`, a push is a deploy.
 - **Don't deploy** for in-progress work — use `mkdocs serve` instead.
-- **Don't deploy** if `mkdocs build --strict` emits warnings (broken links, missing images). The script will refuse to proceed, which is the desired behavior — fix the warnings first.
+- **Don't deploy** if `mkdocs build --strict` emits warnings. Fix them first.
 
 ## Troubleshooting
+
 
 - **Script aborts at the strict build step** — there's a broken link, missing image, or nav entry pointing to a nonexistent file. Fix the issue in `docs/` or `mkdocs.yml` and re-run.
 - **Page returns 404 after deploy** — the page isn't in `mkdocs.yml` `nav:`, or the path in `nav:` doesn't match the file path under `docs/`.

@@ -1,7 +1,13 @@
 # AutoBoat Documentation — Agent Guidelines
 
-This repo is the source for the AutoBoat team's MkDocs Material site, published at
-<https://autoboat-vt.github.io/documentation/>. Every change here eventually becomes a page on that site.
+This repo is the source for the AutoBoat team's MkDocs Material site. It is
+published to two hosts from one build:
+
+- **Cloudflare Pages** (primary): <https://autoboat-docs.pages.dev/>
+- **GitHub Pages** (mirror): <https://autoboat-vt.github.io/documentation/>
+
+It is also framed at <https://autoboat.aoe.vt.edu/documentation/>, a loader page
+in the *website* repo. Every change here eventually becomes a page on those sites.
 
 ## What this repo is
 
@@ -16,15 +22,27 @@ This repo is the source for the AutoBoat team's MkDocs Material site, published 
 ```sh
 pip install -r requirements.txt   # one-time
 mkdocs serve                      # live preview at http://127.0.0.1:8000
-mkdocs build                      # build into site/
-mkdocs gh-deploy                  # build + push site/ to gh-pages branch (deploys to GitHub Pages)
-./scripts/release.sh              # full flow: strict build → commit → push → deploy
-./scripts/release.sh --deploy     # rebuild + deploy only (skip git on main)
+mkdocs build --strict             # build into site/; what CI runs
+
+# Normal deploy: push to main. The GitHub Action does the rest.
+./scripts/release.sh              # legacy manual path (GitHub Pages only)
 ```
 
-Prefer `mkdocs serve` while editing — it hot-reloads. Use `./scripts/release.sh` when changes are ready to go live;
-there is no staging environment. The script runs `mkdocs build --strict` first (so broken links and missing images
-fail the release) and asks for confirmation before `gh-deploy`.
+Prefer `mkdocs serve` while editing — it hot-reloads. **A push to `main` is a
+deploy**: `.github/workflows/deploy-docs.yml` builds strictly and publishes to
+both Cloudflare Pages and GitHub Pages. Run `mkdocs build --strict` locally first
+so CI does not reject a broken link you could have caught.
+
+`./scripts/release.sh` still exists but deploys **only** to GitHub Pages. Prefer
+pushing to `main` and letting the Action update both hosts.
+
+WARNING: **Adding a page is a two-repo change.** The page goes live on
+`pages.dev` as soon as this repo's Action runs, but the equivalent
+`https://autoboat.aoe.vt.edu/documentation/<path>/` URL 404s until the *website*
+repo regenerates its deep-link manifest (`bun run sync-docs-paths`). VT S4 is
+plain S3 with no directory-index fallback, so each path needs a real stub file.
+See `deploy-site.instructions.md`.
+
 
 ## Editing conventions
 
