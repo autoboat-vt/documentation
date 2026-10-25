@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../../assets/images/logo.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -31,10 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -2819,7 +2819,7 @@ gz<span class="w"> </span>sim<span class="w"> </span>motorboat_model.sdf
 <p>To rebuild the plugin, you can simply enter the build folder in <code>/home/ws/build</code> and run <code>make</code>. If you altered the CMakeLists.txt, run <code>cmake ..</code> in the build folder first.</p>
 <p>To create a custom plugin, the documentation can be found here: <a href="https://gazebosim.org/api/sim/8/createsystemplugins.html">Gazebo plugin documentation</a>. Most plugins you will need to make will run at PreUpdate time.</p>
 <p>Let's examine an older version of one of our plugins, RudderDynamics, to get an idea of what is necessary in a plugin:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;../include/RudderDynamics.hh&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">"../include/RudderDynamics.hh"</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span>
 
 <span class="k">namespace</span><span class="w"> </span><span class="nn">rudder_dynamics</span>
@@ -2835,7 +2835,7 @@ gz<span class="w"> </span>sim<span class="w"> </span>motorboat_model.sdf
 <span class="w">  </span><span class="n">clmax_</span><span class="p">(</span><span class="mf">1.5</span><span class="p">),</span>
 <span class="w">  </span><span class="n">cdmax_</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
 <span class="p">{</span>
-<span class="w">  </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="n">rclcpp</span><span class="o">::</span><span class="n">get_logger</span><span class="p">(</span><span class="s">&quot;RudderDynamics&quot;</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;RudderDynamics plugin constructed&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">RCLCPP_INFO</span><span class="p">(</span><span class="n">rclcpp</span><span class="o">::</span><span class="n">get_logger</span><span class="p">(</span><span class="s">"RudderDynamics"</span><span class="p">),</span><span class="w"> </span><span class="s">"RudderDynamics plugin constructed"</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="c1">/////////////////////////////////////////////////</span>
@@ -2870,7 +2870,7 @@ gz<span class="w"> </span>sim<span class="w"> </span>motorboat_model.sdf
 <span class="w">              </span><span class="n">rudder_dynamics</span><span class="o">::</span><span class="n">RudderDynamics</span><span class="o">::</span><span class="n">ISystemConfigure</span><span class="p">,</span>
 <span class="w">              </span><span class="n">rudder_dynamics</span><span class="o">::</span><span class="n">RudderDynamics</span><span class="o">::</span><span class="n">ISystemPreUpdate</span><span class="p">)</span>
 
-<span class="n">GZ_ADD_PLUGIN_ALIAS</span><span class="p">(</span><span class="n">rudder_dynamics</span><span class="o">::</span><span class="n">RudderDynamics</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;rudder_dynamics::RudderDynamics&quot;</span><span class="p">)</span>
+<span class="n">GZ_ADD_PLUGIN_ALIAS</span><span class="p">(</span><span class="n">rudder_dynamics</span><span class="o">::</span><span class="n">RudderDynamics</span><span class="p">,</span><span class="w"> </span><span class="s">"rudder_dynamics::RudderDynamics"</span><span class="p">)</span>
 </code></pre></div>
 <p>The specific methods you put into <code>GZ_ADD_PLUGIN</code> depend on which methods you implemented. The .hh files are mostly self explanatory, if you understand C++, you should be alright with those. As for the CMakeLists.txt and package.xml, you'll need some required packages for gazebo, and the package.xml has to be there to run <code>cmake ..</code>.</p>
 <p>TLDR on how to create a custom plugin:</p>
@@ -2936,10 +2936,10 @@ gz<span class="w"> </span>sim<span class="w"> </span>motorboat_model.sdf
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "content.code.select", "navigation.instant", "navigation.instant.progress", "navigation.instant.preview", "search.suggest", "search.share"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "content.code.select", "navigation.instant", "navigation.instant.progress", "navigation.instant.preview", "search.suggest", "search.share"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../../../assets/javascript/static_title.js"></script>
       
