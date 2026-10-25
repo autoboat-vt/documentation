@@ -72,13 +72,20 @@ and fails if they disagree.
 
 `https://autoboat.aoe.vt.edu/documentation/` needs three things from this repo:
 
-1. **Permission to be framed.** `docs/_headers` sets
+1. **Not forbidding framing.** `docs/_headers` sets
    `Content-Security-Policy: frame-ancestors 'self' https://autoboat.aoe.vt.edu
    https://www.autoboat.aoe.vt.edu`. Cloudflare Pages reads `_headers` from the
    **root of the uploaded directory**, which is why the file lives in `docs/` and
    not the repo root — MkDocs copies `docs/` into `site/`.
+   NOTE: Framing works because nothing forbids it, not because of this header.
+   With no CSP and no `X-Frame-Options`, framing is allowed by default; the
+   header narrows it to the two site origins. So a *missing* header is not what
+   breaks the page — a restrictive one is.
    WARNING: Do **not** add `X-Frame-Options` there. `SAMEORIGIN`/`DENY` would
    break the whole arrangement, since the embedding page is a different origin.
+   WARNING: `_headers` must contain exactly ONE `/*` block. It originally had
+   two, and Pages applied only the second, silently dropping the CSP. Verify with
+   `curl -sSI https://autoboat-docs.pages.dev/ | grep -i content-security`.
 2. **A stable canonical.** `mkdocs.yml` sets `site_url` so the framed copy and
    the `pages.dev` copy agree on one canonical URL.
 3. **Nothing else.** The deep-link stubs are the *website* repo's job — see below.
