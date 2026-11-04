@@ -11,19 +11,23 @@ This is a **reimbursement** based fund that you do not have to apply to or reall
 
 ## Accessing the Funds
 
-You can request funding for a particular item via GobblerConnect by going to the finance page of the GobblerConnect page:
+To access these funds you need to visit the team's gobblerconnect page (make sure you are registered as an admin there). From there you can click on the Payment/ Budget Request button on the right as shown below.
 
-![gobbler_connect_finance_page](../assets/images/gobbler_connect_finance_page.png)
+![uss_funds](../assets/images/uss_funds.png)
 
-![gobbler_connect_finance_page2](../assets/images/gobbler_connect_finance_page2.png)
+Select the correct budget as shown below.
 
-![gobbler_connect_finance_page3](../assets/images/gobbler_connect_finance_page3.png)
+![uss_funds2](../assets/images/uss_funds2.png)
 
-It doesn't show the USS funding here, but whenever the funding opens up in the fall, it will show the normal funding for RSO's (Registered Student Organizations). RSO's are the designation for a particular "type" of student organization and AutoBoat currently is an RSO, although this may change in the near future. The mechanics of RSOs vs USLPs vs the other types of student organizations aren't really important right now. The only important part is knowing that we are an RSO.
+Then from there, there should be another button prompting you to create a budget request and fill out a form.
 
-You can go to the following link if you would like to learn more about accessing USS funds: 
 
-- <https://campuslife.vt.edu/content/campuslife_vt_edu/en/Student_Orgs/orgfunding/_jcr_content/content/download/file.res/Requesting%20Payment%20for%20Approved%20Student%20Organization%20Funding%20Requests.pdf>
+
+If you have any other questions, please consult another officer or read the USS funding manual as found below:
+
+- <https://campuslife.vt.edu/content/campuslife_vt_edu/en/Student_Orgs/orgfunding/_jcr_content/content/vtcontainer_260361155/vtcontainer-content/vtmultitab_396657388/vt-items_0/download_copy_copy/file.res/2025-2026%20USS%20Appropriations%20Policy%20and%20Procedure.pdf>
+
+
 
 
 ## Funding Categories, Maximums, and General Rules
